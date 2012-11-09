@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
 Tested up to: 3.4.2
-Stable tag: trunk
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,11 +83,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
-= 1.0.0 - 2012-10-28 = 
+= 2.0.1 - 2012-11-09 = 
+* Bug fix for hover pause
+= 2.0.0 - 2012-10-28 = 
 * Initial
 
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 2.0.0 =
 * Initial. If you are using Cyclone Slider (version 1) deactivate it first before activating Cyclone Slider 2
