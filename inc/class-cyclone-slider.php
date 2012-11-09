@@ -300,8 +300,8 @@ class Cyclone_Slider {
 		<div class="cycloneslider-field">
 			<label for="cycloneslider_settings_hover_pause"><?php _e('Pause on Hover?', 'cycloneslider'); ?></label>
 			<select id="cycloneslider_settings_hover_pause" name="cycloneslider_settings[hover_pause]">
-				<option <?php echo (1==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
-				<option <?php echo (0==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
+				<option <?php echo ('true'==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="true"><?php _e('Yes', 'cycloneslider'); ?></option>
+				<option <?php echo ('false'==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="false"><?php _e('No', 'cycloneslider'); ?></option>
 			</select>
 			<div class="clear"></div>
 		</div>
@@ -532,7 +532,7 @@ class Cyclone_Slider {
 				$slider_settings['timeout'] = (int) $this->get_comp_slider_setting($admin_settings['timeout'], $shortcode_settings['timeout']);
 				$slider_settings['width'] = (int) $this->get_comp_slider_setting($admin_settings['width'], $shortcode_settings['width']);
 				$slider_settings['height'] = (int) $this->get_comp_slider_setting($admin_settings['height'], $shortcode_settings['height']);
-				$slider_settings['hover_pause'] = (int) $this->get_comp_slider_setting($admin_settings['hover_pause'], $shortcode_settings['hover_pause']);
+				$slider_settings['hover_pause'] = $this->get_comp_slider_setting($admin_settings['hover_pause'], $shortcode_settings['hover_pause']);
 				$slider_settings['show_prev_next'] = (int) $this->get_comp_slider_setting($admin_settings['show_prev_next'], $shortcode_settings['show_prev_next']);
 				$slider_settings['show_nav'] = (int) $this->get_comp_slider_setting($admin_settings['show_nav'], $shortcode_settings['show_nav']);
 				

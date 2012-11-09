@@ -83,11 +83,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
-= 1.0.0 - 2012-10-28 = 
+= 2.0.1 - 2012-11-09 = 
+* Bug fix for hover pause
+= 2.0.0 - 2012-10-28 = 
 * Initial
 
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 2.0.0 =
 * Initial. If you are using Cyclone Slider (version 1) deactivate it first before activating Cyclone Slider 2
