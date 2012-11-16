@@ -12,7 +12,15 @@ Create responsive slideshows with ease. Built for both developers and non-develo
 
 == Description ==
 
-Features: Uses jQuery Cycle 2 with full responsiveness, easy-to-use interface with drag and drop functionality, multiple slideshows, individual slideshow settings, shortcode, and customizable templates.
+= Features: =
+* Uses jQuery Cycle 2 with full responsiveness
+* Easy-to-use interface with drag and drop to rearrange the slide order
+* Unlimited slideshows can be created
+* Each slideshow can have their own unique settings
+* Shortcode for displaying slideshows
+* Customizable templates
+* Ability to import images from NextGEN
+* It's totally FREE!
 
 Cyclone Slider leverages wordpress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. Its simple and flexible.
 
@@ -83,6 +91,10 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.1.0 - 2012-11-16 = 
+* Fix for slideshow not working when NextGEN 1.9.7 is active
+* You can now import images from NextGEN
+
 = 2.0.1 - 2012-11-09 = 
 * Bug fix for hover pause
 = 2.0.0 - 2012-10-28 = 
@@ -90,6 +102,10 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.1.0 - 2012-11-16 = 
+* Fix for slideshow not working when NextGEN 1.9.7 is active
+* You can now import images from NextGEN
 
 = 2.0.0 =
 * Initial. If you are using Cyclone Slider (version 1) deactivate it first before activating Cyclone Slider 2

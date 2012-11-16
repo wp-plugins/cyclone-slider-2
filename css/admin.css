@@ -223,3 +223,15 @@ input[name=cycloneslider_add_slide]{
     border:1px solid yellow;
 }
 
+/*** Nextgen ***/
+#cyclone-nextgen-metabox .inside{
+	padding:0;
+}
+.cycloneslider-field label.inline{
+	display:inline-block;
+	margin:0 0 0 3px;
+}
+#cyclone-nextgen-metabox select{
+	display:inline-block;
+	margin:0 0 0 3px;
+}

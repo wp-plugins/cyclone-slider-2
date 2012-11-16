@@ -1,7 +1,7 @@
 <div class="cycloneslider-box">
 	<div class="cycloneslider-box-title ui-state-default">
 		<span class="cycloneslider-box-title-left">
-			<?php _e('Slide', 'cycloneslider'); ?>
+			<?php echo $box_title; ?>
 		</span>
 		<span class="cycloneslider-box-title-right">
 			<span class="cycloneslider-box-drag" title="<?php _e('Drag', 'cycloneslider'); ?>"><?php _e('Drag', 'cycloneslider'); ?></span>
@@ -14,6 +14,7 @@
 		<div class="cycloneslider-body-left">
 			<img class="cycloneslider-slide-thumb" src="<?php echo esc_url($image_url); ?>" alt="" />
 			<input class="cycloneslider-slide-meta-id" name="cycloneslider_metas[<?php echo $i; ?>][id]" type="hidden" value="<?php echo esc_attr($slider_metas[$i]['id']); ?>" />
+			<input class="cycloneslider-slide-meta-type" name="cycloneslider_metas[<?php echo $i; ?>][type]" type="hidden" value="<?php echo esc_attr($slider_meta['type']); ?>" />
 			<input class="button-secondary cycloneslider-upload-button" type="button" value="<?php _e('Get Image', 'cycloneslider'); ?>" />
 		</div>
 		<div class="cycloneslider-body-right">

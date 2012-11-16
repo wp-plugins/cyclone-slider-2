@@ -14,7 +14,7 @@
 		<?php foreach($slides as $i=>$slide): ?>
 			<div <?php echo ($slider_metas[$i]['fx']!='default') ? 'data-cycle-fx="'.$slider_metas[$i]['fx'].'"' : ''; ?> <?php echo ($slider_metas[$i]['speed']!='') ? 'data-cycle-speed="'.$slider_metas[$i]['speed'].'"' : ''; ?> <?php echo ($slider_metas[$i]['timeout']!='') ? 'data-cycle-timeout="'.$slider_metas[$i]['timeout'].'"' : ''; ?> class="cycloneslider-slide">
 				<?php if ($slider_metas[$i]['link']!='') : ?><a target="<?php echo ('_blank'==$slider_metas[$i]['link_target']) ? '_blank' : '_self'; ?>" href="<?php echo $slider_metas[$i]['link'];?>"><?php endif; ?>
-				<img src="<?php echo cycloneslider_thumb($slider_metas[$i]['id'], $slider_settings['width'], $slider_settings['height']);//$slide; ?>" alt="" />
+				<img src="<?php echo cycloneslider_thumb($slider_metas[$i]['id'], $slider_settings['width'], $slider_settings['height'], false, $slider_metas[$i]); ?>" alt="" />
 				<?php if ($slider_metas[$i]['link']!='') : ?></a><?php endif; ?>
 				<?php if(!empty($slider_metas[$i]['title']) or !empty($slider_metas[$i]['description'])) : ?>
 				<div class="cycloneslider-caption">

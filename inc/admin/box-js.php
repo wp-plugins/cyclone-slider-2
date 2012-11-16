@@ -14,6 +14,7 @@
 		<div class="cycloneslider-body-left">
 			<img class="cycloneslider-slide-thumb" src="" alt="" />
 			<input class="cycloneslider-slide-meta-id" name="cycloneslider_metas[{id}][id]" type="hidden" value="" />
+			<input class="cycloneslider-slide-meta-type" name="cycloneslider_metas[{id}][type]" type="hidden" value="image" />
 			<input class="button-secondary cycloneslider-upload-button" type="button" value="<?php _e('Get Image', 'cycloneslider'); ?>" />
 		</div>
 		<div class="cycloneslider-body-right">

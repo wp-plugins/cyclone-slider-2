@@ -40,7 +40,7 @@ class Cyclone_Slider {
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_admin_scripts' ), 10);
 	
 		// Register frontend styles and scripts
-		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( &$this, 'register_plugin_scripts' ), 100 );
 		
 		
 		// Add admin menus
@@ -76,6 +76,7 @@ class Cyclone_Slider {
 
 		// The magic that shows our css
 		add_action('template_redirect', array( $this, 'cyclone_css_hook'));
+		
 	} // end constructor
 
 	/**
@@ -120,9 +121,6 @@ class Cyclone_Slider {
 		
 		wp_register_script( 'cycle2-tile', $this->plugin_url.'js/jquery.cycle2.tile.min.js', array('cycle2') );
 		wp_enqueue_script( 'cycle2-tile' );
-		
-		wp_register_script( 'display', $this->plugin_url.'js/display.js', array('jquery') );
-		wp_enqueue_script( 'display' );
 		
 	}
 	
@@ -231,10 +229,25 @@ class Cyclone_Slider {
 		<div class="cycloneslider-sortable">
 			<?php
 			if(is_array($slider_metas) and count($slider_metas)>0):
+			$slider_metas = apply_filters('cycloneslider_metas', $slider_metas);
+			$defaults = array(
+				'id' => 0,
+				'link' =>  '',
+				'title' => '',
+				'description' => '',
+				'link_target' => '_self',
+				'fx' => 'default',
+				'speed' => '',
+				'timeout' => '',
+				'type' => 'image'
+			);
 			foreach($slider_metas as $i=>$slider_meta):
+				$slider_meta = wp_parse_args($slider_meta, $defaults);
 				$attachment_id = (int) $slider_meta['id'];
 				$image_url = wp_get_attachment_image_src( $attachment_id, 'medium', true );
 				$image_url = (is_array($image_url)) ? $image_url[0] : '';
+				$image_url = apply_filters('cycloneslider_preview_url', $image_url, $slider_meta);
+				$box_title = apply_filters('cycloneslider_box_title', _('Slide', 'cycloneslider'), $slider_meta);
 				
 				include($this->template_slide_box);
 			endforeach;
@@ -356,23 +369,29 @@ class Cyclone_Slider {
 	
 	function save_post($post_id){
 
-		// verify nonce
-		if (!empty($_POST['cycloneslider_metabox_nonce'])) {
-			if (!wp_verify_nonce($_POST['cycloneslider_metabox_nonce'], basename(__FILE__))) {
+		// Verify nonce
+		$nonce_name = 'cycloneslider_metabox_nonce';
+		if (!empty($_POST[$nonce_name])) {
+			if (!wp_verify_nonce($_POST[$nonce_name], basename(__FILE__))) {
 				return $post_id;
 			}
+		} else {
+			return $post_id; // Make sure we cancel on missing nonce!
 		}
-
+		
 		// check autosave
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 		    return $post_id;
 		}
-
+		
+		do_action('cycloneslider_before_save', $post_id);
+		
 		//slide metas
 		$this->save_metas($post_id);
 		
 		//settings
 		$this->save_settings($post_id);
+		
 		
 		remove_action( 'save_post', array( &$this, 'save_post' ) );
 	}
@@ -385,7 +404,7 @@ class Cyclone_Slider {
 			$slides = array();
 			$i=0;//always start from 0
 			foreach($_POST['cycloneslider_metas'] as $slide){
-				//bord($i.' '.$slide['fx']);
+				
 				$slides[$i]['id'] = (int) $slide['id'];
 				$slides[$i]['link'] = esc_url_raw($slide['link']);
 				$slides[$i]['title'] = sanitize_text_field($slide['title']);
@@ -394,8 +413,12 @@ class Cyclone_Slider {
 				$slides[$i]['fx'] = wp_kses_post($slide['fx']);
 				$slides[$i]['speed'] = sanitize_text_field($slide['speed']);
 				$slides[$i]['timeout'] = sanitize_text_field($slide['timeout']);
+				$slides[$i]['type'] = sanitize_text_field($slide['type']);
 				$i++;
 			}
+			
+			$slides = apply_filters('cycloneslider_slides', $slides); //do filter before saving
+			
 			delete_post_meta($post_id, '_cycloneslider_metas');
 			update_post_meta($post_id, '_cycloneslider_metas', $slides);
 		}
@@ -414,6 +437,8 @@ class Cyclone_Slider {
 			$settings['hover_pause'] = wp_filter_nohtml_kses($_POST['cycloneslider_settings']['hover_pause']);
 			$settings['show_prev_next'] = (int) wp_filter_nohtml_kses($_POST['cycloneslider_settings']['show_prev_next']);
 			$settings['show_nav'] = (int) wp_filter_nohtml_kses($_POST['cycloneslider_settings']['show_nav']);
+			
+			$settings = apply_filters('cycloneslider_settings', $settings); //do filter before saving
 			
 			delete_post_meta($post_id, '_cycloneslider_settings');
 			update_post_meta($post_id, '_cycloneslider_settings', $settings);
@@ -549,28 +574,6 @@ class Cyclone_Slider {
 		return $slider;
 	}
 	
-	// Process the post meta and return the settings
-	function get_slider_admin_settings($meta){
-		if(isset($meta['cycloneslider_settings'][0]) and !empty($meta['cycloneslider_settings'][0])){//from version 1.0.0. set for deletion in future releases
-			return maybe_unserialize($meta['cycloneslider_settings'][0]);
-		}
-		if(isset($meta['_cycloneslider_settings'][0]) and !empty($meta['_cycloneslider_settings'][0])){//we have added prefix _ since 1.0.2
-			return maybe_unserialize($meta['_cycloneslider_settings'][0]);
-		}
-		return false;
-	}
-	
-	// Process the post meta and return the settings
-	function get_slider_metas($meta){
-		if(isset($meta['cycloneslider_metas'][0]) and !empty($meta['cycloneslider_metas'][0])){//from version 1.0.0. set for deletion in future releases
-			return maybe_unserialize($meta['cycloneslider_metas'][0]);
-		}
-		if(isset($meta['_cycloneslider_metas'][0]) and !empty($meta['_cycloneslider_metas'][0])){//we have added prefix _ since 1.0.2
-			return maybe_unserialize($meta['_cycloneslider_metas'][0]);
-		}
-		return false;
-	}
-	
 	// Get slideshow template
 	function get_slider_template($slider_id, $template_name, $slides, $slider_metas, $slider_settings, $slider_count){
 
@@ -592,6 +595,24 @@ class Cyclone_Slider {
 		
 		return sprintf(__('[Template "%s" not found]', 'cycloneslider'), $template_name);
 	}
+	
+	// Process the post meta and return the settings
+	function get_slider_admin_settings($meta){
+		if(isset($meta['_cycloneslider_settings'][0]) and !empty($meta['_cycloneslider_settings'][0])){
+			return maybe_unserialize($meta['_cycloneslider_settings'][0]);
+		}
+		return false;
+	}
+	
+	// Process the post meta and return the settings
+	function get_slider_metas($meta){
+		if(isset($meta['_cycloneslider_metas'][0]) and !empty($meta['_cycloneslider_metas'][0])){
+			return maybe_unserialize($meta['_cycloneslider_metas'][0]);
+		}
+		return false;
+	}
+	
+	
 	
 	function trim_white_spaces($buffer){
 		$search = array(
