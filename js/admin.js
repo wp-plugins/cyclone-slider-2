@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 		});
 		$('.cycloneslider-sortable .cycloneslider-box').each(function(i){
 			$(this).data('cycloneslider_id',i);
-			$(this).find('.cycloneslider-box-title-left').html('Slide '+(i+1));
+			$(this).find('.cycloneslider-box-title-left').append((i+1));
 		});
 		
 		
@@ -126,6 +126,7 @@ jQuery(document).ready(function($){
 			if (current_slide_box) {
 				var slide_thumb = current_slide_box.find('.cycloneslider-slide-thumb');/*** find the thumb ***/
 				var slide_attachment_id = current_slide_box.find('.cycloneslider-slide-meta-id');/*** find the hidden field that will hold the attachment id ***/
+				var slide_type = current_slide_box.find('.cycloneslider-slide-meta-type');/*** find the hidden field that will hold the type ***/
 				
 				var image = false;
 				if(jQuery(html).get(0) != undefined){ /*** Check if its a valid html tag ***/
@@ -140,10 +141,13 @@ jQuery(document).ready(function($){
 				if(image){
 					var url = image.attr('src');
 					var attachment_id = image.attr('data-id');
-					
-					slide_thumb.attr('src', url).show();
-					slide_attachment_id.val(attachment_id);
-					
+					if(url!=undefined && attachment_id != undefined ){
+						slide_thumb.attr('src', url).show();
+						slide_attachment_id.val(attachment_id);
+						slide_type.val('image');
+					} else {
+						alert('Could not insert image. URL or attachment ID missing.');
+					}
 				} else {
 					alert('Could not insert image.');
 				}
