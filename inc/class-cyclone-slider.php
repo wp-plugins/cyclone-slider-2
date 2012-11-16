@@ -247,7 +247,7 @@ class Cyclone_Slider {
 				$image_url = wp_get_attachment_image_src( $attachment_id, 'medium', true );
 				$image_url = (is_array($image_url)) ? $image_url[0] : '';
 				$image_url = apply_filters('cycloneslider_preview_url', $image_url, $slider_meta);
-				$box_title = apply_filters('cycloneslider_box_title', _('Slide', 'cycloneslider'), $slider_meta);
+				$box_title = apply_filters('cycloneslider_box_title', __('Slide', 'cycloneslider'), $slider_meta);
 				
 				include($this->template_slide_box);
 			endforeach;
