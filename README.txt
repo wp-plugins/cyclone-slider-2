@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
 Tested up to: 3.5
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
