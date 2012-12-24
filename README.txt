@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,23 +12,23 @@ Create responsive slideshows with ease. Built for both developers and non-develo
 
 == Description ==
 
+Cyclone Slider 2 follows the keep it simple principle. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. Its simple yet flexible.
+
 = Features: =
 * Uses jQuery Cycle 2 with full responsiveness
-* Easy-to-use interface with drag and drop to rearrange the slide order
-* Unlimited slideshows can be created
-* Each slideshow can have their own unique settings
-* Shortcode for displaying slideshows
-* Customizable templates
-* Ability to import images from NextGEN
+* Very easy to use interface!
+* Customizable tile transition effects
+* Ability to add per-slide transition effects
+* Unlimited slideshows
+* Unique settings for each slideshow
+* Shortcode for displaying slideshows anywhere in your site
+* A simple template system for developers to easily customize the slideshow
+* Ability to import images from NextGEN (NextGEN must be installed and active)
+* Allows title and alt to be specified for each slide images
 * It's totally FREE!
 
-Cyclone Slider leverages wordpress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. Its simple and flexible.
-
-Note: If you are using Cyclone Slider (version 1) deactivate it first before activating Cyclone Slider 2.
-
 = Homepage =
-[Checkout more about Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
-
+Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
 
 == Installation ==
 
@@ -52,13 +52,6 @@ Note: If you are using Cyclone Slider (version 1) deactivate it first before act
 
 
 == Frequently Asked Questions ==
-
-= What's the improvement of Cyclone Slider 2 over Cyclone Slider? =
-1. Uses jQuery Cycle 2 plugin.
-1. All slideshow templates are responsive.
-1. Cleaner and faster user interface.
-1. Per slide settings.
-1. Tile effects.
 
 = Why is my slider not working? =
 Check for javascript errors in your page. This is the most common cause of the slider not running.
@@ -91,6 +84,22 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.2.0 - 2012-12-24 = 
+* Updated cycle 2 to latest version.
+* Updated template selection interface to be more visual. A screenshot of each slideshow template is now shown.
+* Added Tile Count and Tile Position for both slideshow and per-slide settings.
+* Cleanup Quick Edit screen to hide unused user interface.
+* Slide box titles can now be clicked to open and close the slide box.
+* Removed drag icon from slide box title. Slide box can now be dragged by click-holding the slide title area.
+* Updated template API functions.
+* Updated plugin screenshot.
+* Refactored various code parts.
+* Added ability to add script.js in templates
+* Added ability to add screenshot.jpg in templates.
+* Updated templates.
+* Added fix to preserved PNG transparency.
+* Fix save routine to allow saving empty slides and to preserve order of slides after drag and/or deletion of slide.
+
 = 2.1.1 - 2012-11-16 = 
 * Fix for a code typo error
 
@@ -105,6 +114,22 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.0 - 2012-12-24 = 
+* Updated cycle 2 to latest version.
+* Updated template selection interface to be more visual. A screenshot of each slideshow template is now shown.
+* Added Tile Count and Tile Position for both slideshow and per-slide settings.
+* Cleanup Quick Edit screen to hide unused user interface.
+* Slide box titles can now be clicked to open and close the slide box.
+* Removed drag icon from slide box title. Slide box can now be dragged by click-holding the slide title area.
+* Updated template API functions.
+* Updated plugin screenshot.
+* Refactored various code parts.
+* Added ability to add script.js in templates
+* Added ability to add screenshot.jpg in templates.
+* Updated templates.
+* Added fix to preserved PNG transparency.
+* Fix save routine to allow saving empty slides and to preserve order of slides after drag and/or deletion of slide.
 
 = 2.1.1 - 2012-11-16 = 
 * Fix for a code typo error

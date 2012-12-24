@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create responsive slideshows with ease. Built for both developers and non-developers.
-Version: 2.1.1
+Version: 2.2.0
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -52,8 +52,7 @@ endif;
  * @param bool $refresh Recreate thumbnail if it already exists if set to true. Default to false, will not recreate thumbnails if it already exist.
  * @return string The url to the thumbnail. False on failure.
  */
-// 
-function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh = false, $slide_meta = array() ){
+function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh = false, $slide_meta = array(), $option="auto" ){
 	$dir = wp_upload_dir();
 	
 	// Get full path to the slide image
@@ -81,8 +80,76 @@ function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh
 	}
 	
 	$resizeObj = new Image_Resizer($image_path);
-	$resizeObj -> resizeImage($width, $height);
+	$resizeObj -> resizeImage($width, $height, $option);
 	$resizeObj -> saveImage($dirname.'/'.$thumb, 80);
 	
 	return dirname($image_url).'/'.$thumb;
+}
+
+/**
+ * Cycle Settings Printer
+ *
+ * Prints out cycle slideshow settings in templates
+ *
+ *
+ * @param array $slider_settings Slider settings array.
+ * @param string $slider_id HTML ID of slideshow.
+ * @param int $slider_count Current slideshow count.
+ * @return string Data attributes for slideshow.
+ */
+function cycloneslider_settings($slider_settings, $slider_id='', $slider_count=1){
+	$out = ' data-cycle-slides="> div"';
+	$out .= ' data-cycle-auto-height="'.$slider_settings['width'].':'.$slider_settings['height'].'"';
+	$out .= ' data-cycle-fx="'.$slider_settings['fx'].'"';
+	$out .= ' data-cycle-speed="'.$slider_settings['speed'].'"';
+	$out .= ' data-cycle-timeout="'.$slider_settings['timeout'].'"';
+	$out .= ' data-cycle-pause-on-hover="'.$slider_settings['hover_pause'].'"';
+	$out .= ' data-cycle-pager="#cycloneslider-'.$slider_id.' .cycloneslider-pager"';
+	$out .= ' data-cycle-prev="#cycloneslider-'.$slider_id.' .cycloneslider-prev"';
+    $out .= ' data-cycle-next="#cycloneslider-'.$slider_id.' .cycloneslider-next"';
+	$out .= ' data-cycle-tile-count="'.$slider_settings['tile_count'].'"';
+	$out .= ' data-cycle-tile-delay="'.$slider_settings['tile_delay'].'"';
+	$out .= ' data-cycle-tile-vertical="'.$slider_settings['tile_vertical'].'"';
+	$out .= ' data-cycle-log="false"';
+	$out = apply_filters('cycloneslider_cycle_settings', $out);
+	return $out;
+}
+
+/**
+ * Cycle Slide Settings Printer
+ *
+ * Prints out cycle slide settings in templates
+ *
+ *
+ * @param array $slider_meta Slide settings array.
+ * @param array $slider_settings Slider settings array.
+ * @param string $slider_id HTML ID of slideshow.
+ * @param int $slider_count Current slideshow count.
+ * @return string Data attributes for slide.
+ */
+function cycloneslider_slide_settings($slider_meta, $slider_settings=array(), $slider_id='', $slider_count=1){
+	$out = '';
+	if(empty($slider_meta['enable_slide_effects'])){
+		return $out;
+	}
+	if($slider_meta['fx']!='default') {
+		$out .= ' data-cycle-fx="'.$slider_meta['fx'].'"';
+	}
+	if(!empty($slider_meta['speed'])) {
+		$out .= ' data-cycle-speed="'.$slider_meta['speed'].'"';
+	}
+	if(!empty($slider_meta['timeout'])) {
+		$out .= ' data-cycle-timeout="'.$slider_meta['timeout'].'"';
+	}
+	if($slider_meta['fx']=='tileBlind' or $slider_meta['fx']=='tileSlide'){
+		if(!empty($slider_meta['tile_count'])) {
+			$out .= ' data-cycle-tile-count="'.$slider_meta['tile_count'].'"';
+		}
+		if(!empty($slider_meta['tile_delay'])) {
+			$out .= ' data-cycle-tile-delay="'.$slider_meta['tile_delay'].'"';
+		}
+		$out .= ' data-cycle-tile-vertical="'.$slider_meta['tile_vertical'].'"';
+	}
+	$out = apply_filters('cycloneslider_cycle_slide_settings', $out);
+	return $out;
 }
