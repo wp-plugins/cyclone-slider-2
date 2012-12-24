@@ -44,11 +44,7 @@ if(!class_exists('Nextgen_Integration')):
 		function render_nextgen_meta_box($post){
 			global $nggdb;
 			
-			$meta = get_post_custom($post->ID);
-			$slider_settings = $this->get_slider_admin_settings($meta);
-			$slider_settings['nextgen_gallery'] = isset($slider_settings['nextgen_gallery']) ? $slider_settings['nextgen_gallery'] : '';
 			?>
-			
 			<div class="cycloneslider-field last">
 				<label for="cycloneslider_nextgen_gallery"><?php _e('Choose a NextGEN Gallery', 'cycloneslider'); ?></label>
 				<?php
@@ -57,7 +53,7 @@ if(!class_exists('Nextgen_Integration')):
 				<select id="cycloneslider_nextgen_gallery" name="cycloneslider_settings[nextgen_gallery]">
 					<option selected="selected" value="0"></option>
 					<?php foreach($galleries as $gallery): ?>
-					<option <?php echo ($slider_settings['nextgen_gallery']==$gallery->gid) ? 'selected="selected"' : ''; ?> value="<?php echo $gallery->gid; ?>"><?php echo $gallery->title; ?></option>
+					<option value="<?php echo $gallery->gid; ?>"><?php echo $gallery->title; ?></option>
 					<?php endforeach; ?>
 				</select>
 				<input type="submit" name="cycloneslider_settings[nextgen]" value="<?php _e('Import', 'cycloneslider'); ?>" class="button-secondary" />
@@ -169,34 +165,14 @@ if(!class_exists('Nextgen_Integration')):
 				if(!empty($nextgen_gallery) and is_array($nextgen_gallery)){
 					
 					foreach($nextgen_gallery as $image){
-						if($attach_id = $this->copy_image($image->imagePath)){
-							$slides[] = array(
-								'id' => $attach_id,
-								'link' =>  '',
-								'title' => '',
-								'description' => '',
-								'link_target' => '_self',
-								'fx' => 'default',
-								'speed' => '',
-								'timeout' => '',
-								'type' => 'image'
-							);
+						if($attach_id = $this->copy_image($image->imagePath)){ //Copy success!
+							$slides[] = wp_parse_args(array('id' => $attach_id), Cyclone_Slider::get_slide_defaults() ); //Add the slide ID and fill in default values
 						}
 					}
 				}
 			}
 
 			return $slides;
-		}
-		
-		/**
-		* Slides
-		*/
-		function get_slider_admin_settings($meta){
-			if(isset($meta['_cycloneslider_settings'][0]) and !empty($meta['_cycloneslider_settings'][0])){
-				return maybe_unserialize($meta['_cycloneslider_settings'][0]);
-			}
-			return false;
 		}
 		
 	} // end class

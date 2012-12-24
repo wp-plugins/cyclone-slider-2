@@ -1,23 +1,8 @@
 <?php
 if(!class_exists('Image_Resizer')):
 
-	# ========================================================================#
-	#
-	#  Author:    Jarrod Oberto
-	#  Version:	 1.0
-	#  Date:      17-Jan-10
-	#  Purpose:   Resizes and saves image
-	#  Requires : Requires PHP5, GD library.
-	#  Usage Example:
-	#                     include("classes/resize_class.php");
-	#                     $resizeObj = new resize('images/cars/large/input.jpg');
-	#                     $resizeObj -> resizeImage(150, 100, 0);
-	#                     $resizeObj -> saveImage('images/cars/large/output.jpg', 100);
-	#
-	#
-	# ========================================================================#
-
 	Class Image_Resizer {
+		
 		// *** Class variables
 		private $image;
 		private $width;
@@ -33,8 +18,6 @@ if(!class_exists('Image_Resizer')):
 			$this->width  = imagesx($this->image);
 			$this->height = imagesy($this->image);
 		}
-
-		## --------------------------------------------------------
 
 		private function openImage($file)
 		{
@@ -60,8 +43,6 @@ if(!class_exists('Image_Resizer')):
 			return $img;
 		}
 
-		## --------------------------------------------------------
-
 		public function resizeImage($newWidth, $newHeight, $option="auto")
 		{
 			// *** Get optimal width and height - based on $option
@@ -73,6 +54,12 @@ if(!class_exists('Image_Resizer')):
 
 			// *** Resample - create image canvas of x, y size
 			$this->imageResized = imagecreatetruecolor($optimalWidth, $optimalHeight);
+			/*** Preserve PNG transparency start ***/
+			imagealphablending($this->imageResized, false); 
+			imagesavealpha($this->imageResized, true);
+			$transparent = imagecolorallocatealpha($this->imageResized, 255, 255, 255, 127);
+			imagefilledrectangle($this->imageResized, 0, 0, $optimalWidth, $optimalHeight, $transparent);
+			/*** Preserve PNG transparency end ***/
 			imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
 
 
@@ -82,8 +69,6 @@ if(!class_exists('Image_Resizer')):
 			}
 		}
 
-		## --------------------------------------------------------
-		
 		public function getDimensions($newWidth, $newHeight, $option)
 		{
 
@@ -114,8 +99,6 @@ if(!class_exists('Image_Resizer')):
 			}
 			return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 		}
-
-		## --------------------------------------------------------
 
 		private function getSizeByFixedHeight($newHeight)
 		{
@@ -164,8 +147,6 @@ if(!class_exists('Image_Resizer')):
 			return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 		}
 
-		## --------------------------------------------------------
-
 		private function getOptimalCrop($newWidth, $newHeight)
 		{
 
@@ -184,8 +165,6 @@ if(!class_exists('Image_Resizer')):
 			return array('optimalWidth' => $optimalWidth, 'optimalHeight' => $optimalHeight);
 		}
 
-		## --------------------------------------------------------
-
 		private function crop($optimalWidth, $optimalHeight, $newWidth, $newHeight)
 		{
 			// *** Find center - this will be used for the crop
@@ -199,8 +178,6 @@ if(!class_exists('Image_Resizer')):
 			$this->imageResized = imagecreatetruecolor($newWidth , $newHeight);
 			imagecopyresampled($this->imageResized, $crop , 0, 0, $cropStartX, $cropStartY, $newWidth, $newHeight , $newWidth, $newHeight);
 		}
-
-		## --------------------------------------------------------
 
 		public function saveImage($savePath, $imageQuality="100")
 		{

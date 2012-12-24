@@ -11,6 +11,7 @@
 }
 /*** Slides - Title ***/
 .cycloneslider-box-title{
+	cursor:move;
     background-color: #f1f1f1; /* Fallback */
 	background-image: -ms-linear-gradient(top, #f9f9f9, #ececec); /* IE10 */
 	background-image: -moz-linear-gradient(top, #f9f9f9, #ececec); /* Firefox */
@@ -31,8 +32,8 @@
 }
 
 .cycloneslider-box-title .cycloneslider-box-drag,
-.cycloneslider-box-title a.cycloneslider-box-toggle,
-.cycloneslider-box-title a.cycloneslider-box-delete{
+.cycloneslider-box-title .cycloneslider-box-toggle,
+.cycloneslider-box-title .cycloneslider-box-delete{
     margin:0 5px;
     display:block;
     float:left;
@@ -41,23 +42,27 @@
     height:15px;
 }
 .cycloneslider-box-title .cycloneslider-box-drag{
+	display:none;
 	cursor:move;
     color:#285C00;
     background: url(../images/ui-icons.png) no-repeat 0 0;
 }
-.cycloneslider-box-title a.cycloneslider-box-toggle{
+.cycloneslider-box-title .cycloneslider-box-toggle{
+	cursor:pointer;
     color:#21759B;
     background: url(../images/ui-icons.png) no-repeat -15px 0;
 }
-.cycloneslider-box-title a.cycloneslider-box-delete{
+.cycloneslider-box-title .cycloneslider-box-delete{
+	cursor:pointer;
     color:#ff9191;
     background: url(../images/ui-icons.png) no-repeat -30px 0;
 }
-.cycloneslider-box-title a.cycloneslider-box-toggle:hover{
+.cycloneslider-box-title:hover .cycloneslider-box-toggle,
+.cycloneslider-box-title .cycloneslider-box-toggle:hover{
     background-position:-15px -15px;
     color:#fff;
 }
-.cycloneslider-box-title a.cycloneslider-box-delete:hover{
+.cycloneslider-box-title .cycloneslider-box-delete:hover{
     background-color:#ff9191;
     color:#fff;
 }
@@ -83,12 +88,13 @@ input[name=cycloneslider_add_slide]{
 }
 .cycloneslider-body-left{
     float:left;
-    width:35%;
+    width:45%;
+	margin-right:5%;
 }
 .cycloneslider-body-right{
-    float:right;
+    float:left;
     width:50%;
-    margin-right:20px;
+	min-width:400px;
 }
 .cycloneslider-slide-thumb{
     display:block;
@@ -181,11 +187,16 @@ input[name=cycloneslider_add_slide]{
     margin-bottom:10px;
 }
 .cycloneslider-slide-meta-speed,
-.cycloneslider-slide-meta-timeout{
-	width:50%;
+.cycloneslider-slide-meta-timeout,
+.cycloneslider-slide-meta-tile-count,
+.cycloneslider-slide-meta-tile-delay{
+	width:25%;
 }
-
-
+.cycloneslider-meta-field .note.disabled,
+label.disabled,
+input:disabled{
+	color:#999;
+}
 
 
 
@@ -234,4 +245,92 @@ input[name=cycloneslider_add_slide]{
 #cyclone-nextgen-metabox select{
 	display:inline-block;
 	margin:0 0 0 3px;
+}
+
+
+/*** Templates ***/
+.template-choices{
+	margin:0;
+}
+.template-choices li{
+	position:relative;
+	float:left;
+	width:200px;
+	margin-right:10px;
+	margin-bottom:10px;
+	border:3px solid #cfcfcf;
+	-moz-border-radius:3px; /* Firefox */
+	-webkit-border-radius:3px; /* Safari and chrome */
+	-khtml-border-radius:3px; /* Linux browsers */
+	border-radius:3px; /* CSS3 */
+}
+.template-choices li:hover,
+.template-choices li.active{
+	border-color:#21759B;
+	background-color:#21759B;
+	color:#fff;
+}
+.template-choices li label,
+.template-choices li img{
+	display:block;
+}
+.template-choices li img{
+	max-width:100%;
+}
+.template-choices li label{
+	height:125px;
+}
+.template-choices li .title{
+	display:block;
+	padding:3px 10px;
+}
+.template-choices li input{
+	position:absolute;
+	z-index:-1;
+}
+.template-choices li.active .check{
+	display:block;
+}
+.template-choices .check{
+	display:none;
+	position:absolute;
+	width:15px;
+	height:15px;
+	z-index:90;
+	right:0;
+	top:0;
+	border:3px solid #21759B ;
+	background:#21759B url(../images/uploader-icons.png) no-repeat -21px 0;
+	-webkit-border-radius: 0px 0px 0px 5px;
+    border-radius: 0px 0px 0px 5px;
+}
+.template-scroller{
+	overflow:auto;
+	margin-bottom:5px;
+	height:350px;
+}
+
+.cycloneslider-field-tile-properties,
+.cycloneslider-slide-tile-properties{
+	display:none;
+}
+.cycloneslider-spacer-10{
+	height:10px;
+}
+.cycloneslider-spacer-15{
+	height:15px;
+}
+.cycloneslider_metas_enable_slide_effects{
+	float:right;
+}
+
+/*** Hide admin stuff ***/
+.inline-edit-date,
+.inline-edit-group{
+	display:none;
+}
+
+.cycloneslider-get-more{
+	padding-top:5px;
+	float:right;
 }
