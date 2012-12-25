@@ -1,10 +1,10 @@
 === Cyclone Slider 2 ===
 Contributors: kosinix
-Donate link: http://www.codefleet.net/donate
+Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
 Tested up to: 3.5
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,9 @@ Cyclone Slider 2 follows the keep it simple principle. It leverages WordPress' b
 * Shortcode for displaying slideshows anywhere in your site
 * A simple template system for developers to easily customize the slideshow
 * Ability to import images from NextGEN (NextGEN must be installed and active)
+* Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active)
 * Allows title and alt to be specified for each slide images
+* Comes with a widget to display your slideshow easily in widget areas
 * It's totally FREE!
 
 = Homepage =
@@ -81,8 +83,12 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 1. All Slideshow Screen
 2. Slideshow Editing Screen
 3. Slideshow in Action
+4. Slideshow Widget
 
 == Changelog ==
+
+= 2.2.1 - 2012-12-25 = 
+* Added Cyclone Slider 2 widget. 
 
 = 2.2.0 - 2012-12-24 = 
 * Updated cycle 2 to latest version.
@@ -114,6 +120,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.1 - 2012-12-25 = 
+* Added Cyclone Slider 2 widget. 
 
 = 2.2.0 - 2012-12-24 = 
 * Updated cycle 2 to latest version.
