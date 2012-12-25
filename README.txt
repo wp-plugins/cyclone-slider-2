@@ -26,7 +26,7 @@ Cyclone Slider 2 follows the keep it simple principle. It leverages WordPress' b
 * Ability to import images from NextGEN (NextGEN must be installed and active)
 * Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active)
 * Allows title and alt to be specified for each slide images
-* Comes with a widget to display your slideshow easily in widget areas
+* Comes with a widget to display your slideshow easily in widget areas 
 * It's totally FREE!
 
 = Homepage =
