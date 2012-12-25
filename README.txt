@@ -32,6 +32,12 @@ Cyclone Slider 2 follows the keep it simple principle. It leverages WordPress' b
 = Homepage =
 Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
 
+= Customize Templates =
+Documentation on how to [customize templates](http://www.codefleet.net/cyclone-slider-2/#templating)
+
+= Templates =
+Get more [templates](http://www.codefleet.net/cyclone-slider-2/templates/)
+
 == Installation ==
 
 = Install via WordPress Admin =
