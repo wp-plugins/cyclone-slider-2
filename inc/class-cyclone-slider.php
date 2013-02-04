@@ -67,8 +67,9 @@ if(!class_exists('Cyclone_Slider')):
 			// The magic that shows our js
 			add_action('template_redirect', array( $this, 'cyclone_js_hook'));
 			
+			
 		} // end constructor
-	
+		
 		/**
 		 * Registers and enqueues admin-specific JavaScript.
 		 */	

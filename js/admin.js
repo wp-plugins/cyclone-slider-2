@@ -6,6 +6,8 @@ jQuery(document).ready(function($){
 		$('#misc-publishing-actions').hide();
 		$('.inline-edit-date').prev().hide();
 		
+		$('#pts_post_type').html('<option value="cycloneslider">Cycloneslider</option>');
+		
 		/*** Template Chooser ***/
 		$('.template-choices li').click(function(){
 			$('.template-choices li').removeClass('active');
@@ -51,7 +53,7 @@ jQuery(document).ready(function($){
 			handle:'.cycloneslider-box-title',
 			placeholder: "cycloneslider-box-placeholder",
 			forcePlaceholderSize:true,
-			delay:500,
+			delay:100,
 			/*** Update form field indexes when slide order changes ***/
 			update: function(event, ui) {
 				$('.cycloneslider-sortable .cycloneslider-box').each(function(boxIndex, box){ /*** Loop thru each box ***/

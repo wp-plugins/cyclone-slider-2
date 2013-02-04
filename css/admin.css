@@ -305,9 +305,7 @@ input:disabled{
     border-radius: 0px 0px 0px 5px;
 }
 .template-scroller{
-	overflow:auto;
 	margin-bottom:5px;
-	height:350px;
 }
 
 .cycloneslider-field-tile-properties,
