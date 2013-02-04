@@ -3,8 +3,8 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
-Tested up to: 3.5
-Stable tag: 2.2.0
+Tested up to: 3.5.1
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.2.2 - 2013-02-05 = 
+* Updated language files.
+* Bug Fix. Post Type Switcher fix via jquery.
+* UI Enhancement. Removed overflow for templates.
+* Ignore image resize if slideshow dimension is equal to the image dimension.
+* UI Enhancement. Decrease drag delay for slide sortables in editor.
+
 = 2.2.1 - 2012-12-25 = 
 * Added Cyclone Slider 2 widget. 
 
@@ -120,6 +127,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.2 - 2013-02-05 = 
+* Updated language files.
+* Bug Fix. Post Type Switcher fix via jquery.
+* UI Enhancement. Removed overflow for templates.
+* Ignore image resize if slideshow dimension is equal to the image dimension.
+* UI Enhancement. Decrease drag delay for slide sortables in editor.
 
 = 2.2.1 - 2012-12-25 = 
 * Added Cyclone Slider 2 widget. 

@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create responsive slideshows with ease. Built for both developers and non-developers.
-Version: 2.2.1
+Version: 2.2.2
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -36,9 +36,8 @@ if(!defined('CYCLONE_URL')){
 	define('CYCLONE_URL', plugin_dir_url(__FILE__) );
 }
 
-
 if(class_exists('Cyclone_Slider')):
-	new Cyclone_Slider();
+	$cyclone_slider_plugin_instance = new Cyclone_Slider(); //Store the plugin instance to a global object so that other plugins can use remove_action and remove_filter against cyclones class functions if needed.
 endif;
 
 /**
@@ -70,6 +69,13 @@ function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh
 		return false;
 	}
 
+	// If image width and height is the same as slideshow, do not resize
+	$image_dimensions = wp_get_attachment_image_src($original_attachment_id, 'full');
+	if($image_dimensions[1] == $width and $image_dimensions[2] == $height){
+		return $image_url;
+	}
+	
+	// Resize
 	$info = pathinfo($image_path);
 	$dirname = isset($info['dirname']) ? $info['dirname'] : ''; // Path to directory
 	$ext = isset($info['extension']) ? $info['extension'] : ''; // File extension Eg. "jpg"
@@ -82,7 +88,7 @@ function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh
 	
 	$resizeObj = new Image_Resizer($image_path);
 	$resizeObj -> resizeImage($width, $height, $option);
-	$resizeObj -> saveImage($dirname.'/'.$thumb, 80);
+	$resizeObj -> saveImage($dirname.'/'.$thumb, 90);
 	
 	return dirname($image_url).'/'.$thumb;
 }
