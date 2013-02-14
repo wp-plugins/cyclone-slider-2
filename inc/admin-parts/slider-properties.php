@@ -14,13 +14,6 @@
 	<span class="note"><?php _e('The number of tiles to use in the transition.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 	<br />
-	<!--
-	<label for="cycloneslider_settings_tile_delay"><?php _e('Tile Delay:', 'cycloneslider'); ?> </label>
-	<input id="cycloneslider_settings_tile_delay" type="text" name="cycloneslider_settings[tile_delay]" value="<?php echo esc_attr($slider_settings['tile_delay']); ?>" />
-	<span class="note"><?php _e('The number of milliseconds to delay each individual tile transition.', 'cycloneslider'); ?></span>
-	<div class="clear"></div>
-	<br />
-	-->
 	<label for="cycloneslider_settings_tile_vertical"><?php _e('Tile Position:', 'cycloneslider'); ?> </label>
 	<select id="cycloneslider_settings_tile_vertical" name="cycloneslider_settings[tile_vertical]">
 		<option <?php echo ('true'==$slider_settings['tile_vertical']) ? 'selected="selected"' : ''; ?> value="true"><?php _e('Vertical', 'cycloneslider'); ?></option>
@@ -69,11 +62,21 @@
 	</select>
 	<div class="clear"></div>
 </div>
-<div class="cycloneslider-field last">
+<div class="cycloneslider-field">
 	<label for="cycloneslider_settings_show_nav"><?php _e('Show Navigation?', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_show_nav" name="cycloneslider_settings[show_nav]">
 		<option <?php echo (1==$slider_settings['show_nav']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
 		<option <?php echo (0==$slider_settings['show_nav']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
 	</select>
+	<span class="note"><?php _e('The thumbnails or dots depending on template.', 'cycloneslider'); ?></span>
+	<div class="clear"></div>
+</div>
+<div class="cycloneslider-field last">
+	<label for="cycloneslider_settings_randomize"><?php _e('Random Slide Order?', 'cycloneslider'); ?></label>
+	<select id="cycloneslider_settings_randomize" name="cycloneslider_settings[random]">
+		<option <?php echo (0==$slider_settings['random']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
+		<option <?php echo (1==$slider_settings['random']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
+	</select>
+	<span class="note"><?php _e('Randomize order of slides on every page visit.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
