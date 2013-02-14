@@ -87,6 +87,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.2.3 - 2013-02-14 = 
+* Added option for random slide order on every page visit.
+* Refactored some code.
+* Added image count to all slideshow screen.
+
 = 2.2.2 - 2013-02-05 = 
 * Updated language files.
 * Bug Fix. Post Type Switcher fix via jquery.
@@ -127,6 +132,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.3 - 2013-02-14 = 
+* Added option for random slide order on every page visit.
+* Refactored some code.
+* Added image count to all slideshow screen.
 
 = 2.2.2 - 2013-02-05 = 
 * Updated language files.

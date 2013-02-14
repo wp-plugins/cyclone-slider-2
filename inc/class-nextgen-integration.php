@@ -12,7 +12,7 @@ if(!class_exists('Nextgen_Integration')):
 		function __construct() {
 
 			// Add metaboxes
-			add_action( 'add_meta_boxes', array( &$this, 'add_meta_boxes' ), 100 );
+			add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 100 );
 			
 			// Append nextgen slides
 			add_filter('cycloneslider_slides', array($this, 'nextgen_slides'));
@@ -31,7 +31,7 @@ if(!class_exists('Nextgen_Integration')):
 			add_meta_box(
 				'cyclone-nextgen-metabox',
 				__('NextGEN Integration', 'cycloneslider'),
-				array( &$this, 'render_nextgen_meta_box' ),
+				array( $this, 'render_nextgen_meta_box' ),
 				'cycloneslider' ,
 				'normal',
 				'low'

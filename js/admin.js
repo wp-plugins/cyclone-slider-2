@@ -6,6 +6,7 @@ jQuery(document).ready(function($){
 		$('#misc-publishing-actions').hide();
 		$('.inline-edit-date').prev().hide();
 		
+		/*** Post type switcher quick fix ***/
 		$('#pts_post_type').html('<option value="cycloneslider">Cycloneslider</option>');
 		
 		/*** Template Chooser ***/
@@ -96,7 +97,9 @@ jQuery(document).ready(function($){
 			$('.cycloneslider-field-body').each(function(i){
 				$(this).data('cycloneslider_id',i);
 			});
-
+			
+			$(".cycloneslider_metas_enable_slide_effects").trigger('change');
+			
 			e.preventDefault();
 		});
 		
