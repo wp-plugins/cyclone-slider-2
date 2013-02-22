@@ -432,7 +432,7 @@ if(!class_exists('Cyclone_Slider')):
 			$template_folders = self::get_all_templates();
 			$templates_in_used = self::get_templates_in_used();
 			foreach($template_folders as $name=>$folder){
-				if(in_array($name, $templates_in_used)){ //Compile only css of templates that are being used.
+				//if(in_array($name, $templates_in_used)){ //Compile only css of templates that are being used.
 					$style = $folder['path']."{$ds}style.min.css"; //Minified version
 					$style2 = $folder['path']."{$ds}style.css"; //Unminified version, for old templates to work
 					if(file_exists($style)){
@@ -441,7 +441,7 @@ if(!class_exists('Cyclone_Slider')):
 						$content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style2));//apply url and print css
 					}
 					
-				}
+				//}
 			}
 			
 			$save_to = self::path()."css{$ds}templates.css";
@@ -462,7 +462,7 @@ if(!class_exists('Cyclone_Slider')):
 			$template_folders = self::get_all_templates();
 			$templates_in_used = self::get_templates_in_used();
 			foreach($template_folders as $name=>$folder){
-				if(in_array($name, $templates_in_used)){ //Compile only js of templates that are being used.
+				//if(in_array($name, $templates_in_used)){ //Compile only js of templates that are being used.
 					$js = $folder['path']."{$ds}script.min.js"; //Minified version
 					$js2 = $folder['path']."{$ds}script.js"; //Unminified version, for old templates to work
 					if(file_exists($js)){
@@ -470,7 +470,7 @@ if(!class_exists('Cyclone_Slider')):
 					} else if(file_exists($js2)){
 						$content .= file_get_contents($js2)."\r\n";
 					}
-				}
+				//}
 			}
 			
 			$save_to = self::path()."js{$ds}templates.js";
