@@ -87,6 +87,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.2.4 - 2013-02-22 = 
+* Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
+* Minified CSS and JS for templates.
+* Compiles needed CSS and JS only instead of loading all CSS and JS from all templates.
+* Added template column to all slideshow screen.
+* Updated language files
+
 = 2.2.3 - 2013-02-14 = 
 * Added option for random slide order on every page visit.
 * Refactored some code.
@@ -132,6 +139,13 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.4 - 2013-02-22 = 
+* Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
+* Minified CSS and JS for templates.
+* Compiles needed CSS and JS only instead of loading all CSS and JS from all templates.
+* Added template column to all slideshow screen.
+* Updated language files
 
 = 2.2.3 - 2013-02-14 = 
 * Added option for random slide order on every page visit.
