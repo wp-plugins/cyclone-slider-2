@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create responsive slideshows with ease. Built for both developers and non-developers.
-Version: 2.2.3
+Version: 2.2.4
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -24,17 +24,17 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   
 */
-require_once('inc/class-cyclone-slider.php');
-require_once('inc/class-cyclone-slider-widget.php');
-require_once('inc/class-image-resizer.php');
-require_once('inc/class-nextgen-integration.php');
-
 if(!defined('CYCLONE_PATH')){
 	define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
 }
 if(!defined('CYCLONE_URL')){
 	define('CYCLONE_URL', plugin_dir_url(__FILE__) );
 }
+
+require_once(CYCLONE_PATH.'inc/class-cyclone-slider.php');
+require_once(CYCLONE_PATH.'inc/class-cyclone-slider-widget.php');
+require_once(CYCLONE_PATH.'inc/class-image-resizer.php');
+require_once(CYCLONE_PATH.'inc/class-nextgen-integration.php');
 
 if(class_exists('Cyclone_Slider')):
 	$cyclone_slider_plugin_instance = new Cyclone_Slider(); //Store the plugin instance to a global object so that other plugins can use remove_action and remove_filter against cyclones class functions if needed.

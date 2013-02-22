@@ -179,6 +179,9 @@ jQuery(document).ready(function($){
 	})();
 	
 	(function() {
+		if(typeof(tb_show) != "function"){
+			return;
+		}
 		/*** Modify WP media uploader ***/
 		var current_slide_box = false;/*** we use this var to determine if thickbox is being used in cycloneslider. also saves the field to be updated later. ***/
 		$(document).on('click', '.cycloneslider-upload-button', function() {
@@ -226,5 +229,59 @@ jQuery(document).ready(function($){
 				window.original_send_to_editor(html);
 			}
 		};
+	})();
+	
+	(function() {
+		if(typeof(wp.media) != "function"){
+			return;
+		}
+		// Prepare the variable that holds our custom media manager.
+		var cyclone_media_frame;
+		var current_slide_box = false;
+		
+		// Bind to our click event in order to open up the new media experience.
+		$(document.body).on('click', '.cycloneslider-upload-button', function(e){
+			// Prevent the default action from occuring.
+			e.preventDefault();
+			
+			current_slide_box = $(this).parents('.cycloneslider-box');/*** get current box ***/
+			
+			
+			// If the frame already exists, re-open it.
+			if ( cyclone_media_frame ) {
+				cyclone_media_frame.open();
+				return;
+			}
+	
+
+			cyclone_media_frame = wp.media.frames.cyclone_media_frame = wp.media({
+				className: 'media-frame cycloneslider-frame',
+				frame: 'select',
+				multiple: false,
+				title: cycloneslider_admin_vars.title,
+				library: {
+					type: 'image'
+				},
+				button: {
+					text:  cycloneslider_admin_vars.button
+				}
+			});
+	
+			cyclone_media_frame.on('select', function(){
+				// Grab our attachment selection and construct a JSON representation of the model.
+				var media_attachment = cyclone_media_frame.state().get('selection').first().toJSON();
+				
+				var slide_thumb = current_slide_box.find('.cycloneslider-slide-thumb');/*** find the thumb ***/
+				var slide_attachment_id = current_slide_box.find('.cycloneslider-slide-meta-id');/*** find the hidden field that will hold the attachment id ***/
+				var slide_type = current_slide_box.find('.cycloneslider-slide-meta-type');/*** find the hidden field that will hold the type ***/
+				
+				slide_thumb.attr('src', media_attachment.sizes.medium.url).show();
+				slide_attachment_id.val(media_attachment.id);
+				slide_type.val('image');
+			});
+	
+			// Now that everything has been set, let's open up the frame.
+			cyclone_media_frame.open();
+		});
 	})();
 });
