@@ -1,9 +1,9 @@
 jQuery(document).ready(function(){
 	jQuery('.cycloneslider-template-thumbnails').each(function(i,el){
 		
-		var main = jQuery(el);
-		var slideshow = main.children('.cycloneslider-slides');
-		var thumbnails = main.next();
+		var main = jQuery(el),
+			slideshow = main.children('.cycloneslider-slides'),
+			thumbnails = main.next();
 		
 		thumbnails.find('li:first').addClass('current');
 		slideshow.on( 'cycle-before', function( event, optionHash ) {

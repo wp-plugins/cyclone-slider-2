@@ -87,6 +87,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.2.5 - 2013-02-23 = 
+* Bug fix for 2.2.4
+
 = 2.2.4 - 2013-02-22 = 
 * Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
 * Minified CSS and JS for templates.
@@ -139,6 +142,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.2.5 - 2013-02-23 = 
+* Bug fix for 2.2.4
 
 = 2.2.4 - 2013-02-22 = 
 * Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
