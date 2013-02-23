@@ -1,18 +1,1 @@
-jQuery(document).ready(function(){
-	jQuery('.cycloneslider-template-thumbnails').each(function(i,el){
-		
-		var main = jQuery(el);
-		var slideshow = main.children('.cycloneslider-slides');
-		var thumbnails = main.next();
-		
-		thumbnails.find('li:first').addClass('current');
-		slideshow.on( 'cycle-before', function( event, optionHash ) {
-			var i = optionHash.nextSlide;
-			thumbnails.find('li').removeClass('current').eq(i).addClass('current');
-		});
-		thumbnails.on('click', 'li', function(){
-			var i = jQuery(this).index();
-			slideshow.cycle('goto', i);
-		});
-	});
-});
+jQuery(document).ready(function(){jQuery(".cycloneslider-template-thumbnails").each(function(c,d){var a=jQuery(d),b=a.children(".cycloneslider-slides"),e=a.next();e.find("li:first").addClass("current");b.on("cycle-before",function(g,h){var f=h.nextSlide;e.find("li").removeClass("current").eq(f).addClass("current")});e.on("click","li",function(){var f=jQuery(this).index();b.cycle("goto",f)})})});

@@ -9,7 +9,7 @@ if(!class_exists('Cyclone_Slider')):
 		/**
 		 * Initializes the plugin by setting localization, filters, and administration functions.
 		 */
-		function __construct() {
+		public function __construct() {
 			// Set defaults
 			$this->slider_count = 0;
 			$this->effects = self::get_slide_effects();
@@ -129,7 +129,7 @@ if(!class_exists('Cyclone_Slider')):
 		 * Core Functions
 		 *---------------------------------------------*/
 		// Create custom post for slideshows
-		function create_post_types() {
+		public function create_post_types() {
 			register_post_type( 'cycloneslider',
 				array(
 					'labels' => array(
@@ -154,7 +154,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		// Slides metabox init
-		function add_meta_boxes(){
+		public function add_meta_boxes(){
 			add_meta_box(
 				'cyclone-slides-metabox',
 				__('Slides', 'cycloneslider'),
@@ -182,7 +182,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		// Get Image mime type. @param $image - full path to image
-		function get_mime_type( $image ){
+		public function get_mime_type( $image ){
 			if($properties = getimagesize( $image )){
 				return $properties['mime'];
 			}
@@ -190,7 +190,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		// Slides metabox render
-		function render_slides_meta_box($post){
+		public function render_slides_meta_box($post){
 			
 			// Use nonce for verification
 			echo '<input type="hidden" name="cycloneslider_metabox_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
@@ -227,7 +227,7 @@ if(!class_exists('Cyclone_Slider')):
 			<?php
 		}
 		
-		function render_slider_properties_meta_box($post){
+		public function render_slider_properties_meta_box($post){
 			// Use nonce for verification
 			echo '<input type="hidden" name="cycloneslider_metabox_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 			
@@ -242,7 +242,7 @@ if(!class_exists('Cyclone_Slider')):
 			include(self::get_admin_parts_folder() . 'slider-properties.php');
 		}
 		
-		function render_slider_templates_meta_box($post){
+		public function render_slider_templates_meta_box($post){
 			// Use nonce for verification
 			echo '<input type="hidden" name="cycloneslider_metabox_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 	
@@ -290,7 +290,7 @@ if(!class_exists('Cyclone_Slider')):
 			<?php
 		}
 		
-		function save_post($post_id){
+		public function save_post($post_id){
 	
 			// Verify nonce
 			$nonce_name = 'cycloneslider_metabox_nonce';
@@ -323,7 +323,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		//sanitize and save
-		function save_metas($post_id){
+		public function save_metas($post_id){
 			$slides = array();
 			if(isset($_POST['cycloneslider_metas'])){
 				
@@ -361,7 +361,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		//sanitize and save 
-		function save_settings($post_id){
+		public function save_settings($post_id){
 			if(isset($_POST['cycloneslider_settings'])){
 				$_POST['cycloneslider_settings'] = wp_parse_args($_POST['cycloneslider_settings'], self::get_slideshow_defaults());
 				$settings = array();
@@ -387,7 +387,7 @@ if(!class_exists('Cyclone_Slider')):
 		}
 		
 		// Messages
-		function post_updated_messages($messages){
+		public function post_updated_messages($messages){
 			global $post, $post_ID;
 			$messages['cycloneslider'] = array(
 				0  => '',
@@ -401,8 +401,8 @@ if(!class_exists('Cyclone_Slider')):
 				8  => __( 'Slideshow updated.', 'cycloneslider' ),
 				9  => __( 'Slideshow updated.', 'cycloneslider' ),
 				10 => __( 'Slideshow updated.', 'cycloneslider' ),
-				101 => __( 'Templates CSS could not be saved.', 'cycloneslider' ),
-				102 => __( 'Templates JS could not be saved.', 'cycloneslider' )
+				101 => sprintf( __( 'Templates CSS could not be saved. Make sure %stemplates.css is writable.', 'cycloneslider' ), self::path().'css'.DIRECTORY_SEPARATOR),
+				102 => sprintf( __( 'Templates JS could not be saved. Make sure %stemplates.js is writable.', 'cycloneslider' ), self::path().'js'.DIRECTORY_SEPARATOR)
 			);
 			return $messages;
 		}
@@ -412,7 +412,7 @@ if(!class_exists('Cyclone_Slider')):
 		* 
 		* @return array The array of locations containing path and url 
 		*/
-		private function throw_message($location) {
+		public function throw_message($location) {
 			$location = add_query_arg( 'message', $this->message_id, $location );
 			$this->message_id = 0;
 			return $location;
@@ -432,7 +432,7 @@ if(!class_exists('Cyclone_Slider')):
 			$template_folders = self::get_all_templates();
 			$templates_in_used = self::get_templates_in_used();
 			foreach($template_folders as $name=>$folder){
-				if(in_array($name, $templates_in_used)){ //Compile only css of templates that are being used.
+				//if(in_array($name, $templates_in_used)){ //Compile only css of templates that are being used.
 					$style = $folder['path']."{$ds}style.min.css"; //Minified version
 					$style2 = $folder['path']."{$ds}style.css"; //Unminified version, for old templates to work
 					if(file_exists($style)){
@@ -441,7 +441,7 @@ if(!class_exists('Cyclone_Slider')):
 						$content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style2));//apply url and print css
 					}
 					
-				}
+				//}
 			}
 			
 			$save_to = self::path()."css{$ds}templates.css";
@@ -462,7 +462,7 @@ if(!class_exists('Cyclone_Slider')):
 			$template_folders = self::get_all_templates();
 			$templates_in_used = self::get_templates_in_used();
 			foreach($template_folders as $name=>$folder){
-				if(in_array($name, $templates_in_used)){ //Compile only js of templates that are being used.
+				//if(in_array($name, $templates_in_used)){ //Compile only js of templates that are being used.
 					$js = $folder['path']."{$ds}script.min.js"; //Minified version
 					$js2 = $folder['path']."{$ds}script.js"; //Unminified version, for old templates to work
 					if(file_exists($js)){
@@ -470,7 +470,7 @@ if(!class_exists('Cyclone_Slider')):
 					} else if(file_exists($js2)){
 						$content .= file_get_contents($js2)."\r\n";
 					}
-				}
+				//}
 			}
 			
 			$save_to = self::path()."js{$ds}templates.js";
