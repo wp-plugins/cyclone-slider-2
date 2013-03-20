@@ -89,7 +89,7 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
-= 2.5.0 - 2013-03-19 - This is a major release = 
+= 2.5.0 - 2013-03-21 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.
@@ -158,7 +158,7 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Upgrade Notice ==
 
-= 2.5.0 - 2013-03-19 - This is a major release = 
+= 2.5.0 - 2013-03-21 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.
