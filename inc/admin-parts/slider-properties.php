@@ -10,7 +10,7 @@
 </div>
 <div class="cycloneslider-field cycloneslider-field-tile-properties">
 	<label for="cycloneslider_settings_tile_count"><?php _e('Tile Count:', 'cycloneslider'); ?> </label>
-	<input id="cycloneslider_settings_tile_count" type="text" name="cycloneslider_settings[tile_count]" value="<?php echo esc_attr($slider_settings['tile_count']); ?>" />
+	<input id="cycloneslider_settings_tile_count" type="number" name="cycloneslider_settings[tile_count]" value="<?php echo esc_attr($slider_settings['tile_count']); ?>" />
 	<span class="note"><?php _e('The number of tiles to use in the transition.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 	<br />
@@ -24,25 +24,25 @@
 
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_timeout"><?php _e('Next Slide Delay:', 'cycloneslider'); ?> </label>
-	<input id="cycloneslider_settings_timeout" type="text" name="cycloneslider_settings[timeout]" value="<?php echo esc_attr($slider_settings['timeout']); ?>" />
+	<input id="cycloneslider_settings_timeout" type="number" name="cycloneslider_settings[timeout]" value="<?php echo esc_attr($slider_settings['timeout']); ?>" />
 	<span class="note"><?php _e('Milliseconds. 0 to disable auto advance.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_speed"><?php _e('Transition Effects Speed:', 'cycloneslider'); ?></label>
-	<input id="cycloneslider_settings_speed" type="text" name="cycloneslider_settings[speed]" value="<?php echo esc_attr($slider_settings['speed']); ?>" />
+	<input id="cycloneslider_settings_speed" type="number" name="cycloneslider_settings[speed]" value="<?php echo esc_attr($slider_settings['speed']); ?>" />
 	<span class="note"><?php _e('Milliseconds', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_width"><?php _e('Width:', 'cycloneslider'); ?> </label>
-	<input id="cycloneslider_settings_width" type="text" name="cycloneslider_settings[width]" value="<?php echo esc_attr($slider_settings['width']); ?>" />
+	<input id="cycloneslider_settings_width" type="number" name="cycloneslider_settings[width]" value="<?php echo esc_attr($slider_settings['width']); ?>" />
 	<span class="note"><?php _e('pixels.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_height"><?php _e('Height:', 'cycloneslider'); ?> </label>
-	<input id="cycloneslider_settings_height" type="text" name="cycloneslider_settings[height]" value="<?php echo esc_attr($slider_settings['height']); ?>" />
+	<input id="cycloneslider_settings_height" type="number" name="cycloneslider_settings[height]" value="<?php echo esc_attr($slider_settings['height']); ?>" />
 	<span class="note"><?php _e('pixels.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
@@ -71,12 +71,21 @@
 	<span class="note"><?php _e('The thumbnails or dots depending on template.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
-<div class="cycloneslider-field last">
+<div class="cycloneslider-field">
 	<label for="cycloneslider_settings_randomize"><?php _e('Random Slide Order?', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_randomize" name="cycloneslider_settings[random]">
 		<option <?php echo (0==$slider_settings['random']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
 		<option <?php echo (1==$slider_settings['random']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
 	</select>
 	<span class="note"><?php _e('Randomize order of slides on every page visit.', 'cycloneslider'); ?></span>
+	<div class="clear"></div>
+</div>
+<div class="cycloneslider-field last">
+	<label for="cycloneslider_settings_resize"><?php _e('Resize Images?', 'cycloneslider'); ?></label>
+	<select id="cycloneslider_settings_resize" name="cycloneslider_settings[resize]">
+		<option <?php echo (0==$slider_settings['resize']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
+		<option <?php echo (1==$slider_settings['resize']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
+	</select>
+	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>

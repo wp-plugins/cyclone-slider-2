@@ -1,11 +1,232 @@
 .cycloneslider{position:relative}.cycloneslider-slides{position:relative;overflow:hidden}.cycloneslider-slide{position:absolute;left:0;top:0;width:100%;height:100%;z-index:100}.cycloneslider-slide img{border:0;padding:0;margin:0;max-width:100%}.cycloneslider-prev,.cycloneslider-next,.cycloneslider-pager{cursor:pointer}.cycloneslider-slide:first-child{z-index:101}
 /*** Template Black ***/
-.cycloneslider-template-black img{display:block}.cycloneslider-template-black .cycloneslider-prev,.cycloneslider-template-black .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/sprite-arrows.png) no-repeat}.cycloneslider-template-black:hover .cycloneslider-prev,.cycloneslider-template-black:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-black .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-black .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-black .cycloneslider-prev:hover,.cycloneslider-template-black .cycloneslider-next:hover{opacity:1}.cycloneslider-template-black .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-black .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-black .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-black .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/bg-caption.png);color:#fff}.cycloneslider-template-black .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-black .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}
+.cycloneslider-template-black img{display:block}.cycloneslider-template-black .cycloneslider-prev,.cycloneslider-template-black .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/sprite-arrows.png) no-repeat}.cycloneslider-template-black .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-black .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-black .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-black .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-black .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-black .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/black/images/bg-caption.png);color:#fff}.cycloneslider-template-black .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-black .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}.cycloneslider-template-black .cycloneslider-slide iframe,.cycloneslider-template-black .cycloneslider-slide object,.cycloneslider-template-black .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}
 /*** Template Blue ***/
-.cycloneslider-template-blue img{display:block}.cycloneslider-template-blue .cycloneslider-prev,.cycloneslider-template-blue .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/sprite-arrows.png) no-repeat}.cycloneslider-template-blue:hover .cycloneslider-prev,.cycloneslider-template-blue:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-blue .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-blue .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-blue .cycloneslider-prev:hover,.cycloneslider-template-blue .cycloneslider-next:hover{opacity:1}.cycloneslider-template-blue .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-blue .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-blue .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-blue .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/bg-caption.png);color:#fff}.cycloneslider-template-blue .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-blue .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}
+.cycloneslider-template-blue img{display:block}.cycloneslider-template-blue .cycloneslider-prev,.cycloneslider-template-blue .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/sprite-arrows.png) no-repeat}.cycloneslider-template-blue .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-blue .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-blue .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-blue .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-blue .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-blue .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/blue/images/bg-caption.png);color:#fff}.cycloneslider-template-blue .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-blue .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}.cycloneslider-template-blue .cycloneslider-slide iframe,.cycloneslider-template-blue .cycloneslider-slide object,.cycloneslider-template-blue .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}
 /*** Template Default ***/
-.cycloneslider-template-default img{display:block}.cycloneslider-template-default .cycloneslider-prev,.cycloneslider-template-default .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/sprite-arrows.png) no-repeat}.cycloneslider-template-default:hover .cycloneslider-prev,.cycloneslider-template-default:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-default .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-default .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-default .cycloneslider-prev:hover,.cycloneslider-template-default .cycloneslider-next:hover{opacity:1}.cycloneslider-template-default .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-default .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-default .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-default .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/bg-caption.png);color:#fff}.cycloneslider-template-default .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-default .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}
+.cycloneslider-template-default img{display:block}.cycloneslider-template-default .cycloneslider-prev,.cycloneslider-template-default .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/sprite-arrows.png) no-repeat}.cycloneslider-template-default .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-default .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-default .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-default .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:10px;height:10px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-default .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-default .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/default/images/bg-caption.png);color:#fff}.cycloneslider-template-default .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-default .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}.cycloneslider-template-default .cycloneslider-slide iframe,.cycloneslider-template-default .cycloneslider-slide object,.cycloneslider-template-default .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}
 /*** Template Myrtle ***/
-.cycloneslider-template-myrtle{overflow:hidden}.cycloneslider-template-myrtle .cycloneslider-prev,.cycloneslider-template-myrtle .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-19px;z-index:102;text-indent:-99999px;width:45px;height:45px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/sprite-arrows.png) no-repeat}.cycloneslider-template-myrtle:hover .cycloneslider-prev,.cycloneslider-template-myrtle:hover .cycloneslider-next{display:block}.cycloneslider-template-myrtle .cycloneslider-prev{left:10px;background-position:-45px 0}.cycloneslider-template-myrtle .cycloneslider-next{right:10px;background-position:0 0}.cycloneslider-template-myrtle .cycloneslider-prev:hover{background-position:-45px -45px}.cycloneslider-template-myrtle .cycloneslider-next:hover{background-position:0 -45px}.cycloneslider-template-myrtle .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-myrtle .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:12px;height:12px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-myrtle .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-myrtle .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/bg-caption.png) right;color:#fff}.cycloneslider-template-myrtle .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:24px;line-height:1;margin-bottom:0;color:#e62b4e}.cycloneslider-template-myrtle .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px;color:#676761}
+.cycloneslider-template-myrtle{overflow:hidden}.cycloneslider-template-myrtle .cycloneslider-prev,.cycloneslider-template-myrtle .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-19px;z-index:102;text-indent:-99999px;width:45px;height:45px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/sprite-arrows.png) no-repeat}.cycloneslider-template-myrtle:hover .cycloneslider-prev,.cycloneslider-template-myrtle:hover .cycloneslider-next{display:block}.cycloneslider-template-myrtle .cycloneslider-prev{left:10px;background-position:-45px 0}.cycloneslider-template-myrtle .cycloneslider-next{right:10px;background-position:0 0}.cycloneslider-template-myrtle .cycloneslider-prev:hover{background-position:-45px -45px}.cycloneslider-template-myrtle .cycloneslider-next:hover{background-position:0 -45px}.cycloneslider-template-myrtle .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-myrtle .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/sprite-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;width:12px;height:12px;line-height:0;margin-right:6px;text-indent:-99999px}.cycloneslider-template-myrtle .cycloneslider-pager span.cycle-pager-active{background-position:left bottom}.cycloneslider-template-myrtle .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/myrtle/images/bg-caption.png) right;color:#fff}.cycloneslider-template-myrtle .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:24px;line-height:1;margin-bottom:0;color:#e62b4e}.cycloneslider-template-myrtle .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px;color:#676761}.cycloneslider-template-myrtle .cycloneslider-slide iframe,.cycloneslider-template-myrtle .cycloneslider-slide object,.cycloneslider-template-myrtle .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}
 /*** Template Thumbnails ***/
-.cycloneslider-template-thumbnails img{display:block}.cycloneslider-template-thumbnails .cycloneslider-prev,.cycloneslider-template-thumbnails .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/thumbnails/images/sprite-arrows.png) no-repeat}.cycloneslider-template-thumbnails:hover .cycloneslider-prev,.cycloneslider-template-thumbnails:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-thumbnails .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-thumbnails .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-thumbnails .cycloneslider-prev:hover,.cycloneslider-template-thumbnails .cycloneslider-next:hover{opacity:1}.cycloneslider-template-thumbnails .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/thumbnails/images/bg-caption.png);color:#fff}.cycloneslider-template-thumbnails .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-thumbnails .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}.cycloneslider-template-thumbnails.cycloneslider-thumbnails{padding:20px 0;text-align:center}.cycloneslider-template-thumbnails.cycloneslider-thumbnails li{display:inline-block;margin:0 5px;border:5px solid #ccc;cursor:pointer}.cycloneslider-template-thumbnails.cycloneslider-thumbnails li.current{border-color:#333}
+.cycloneslider-template-thumbnails img{display:block}.cycloneslider-template-thumbnails .cycloneslider-prev,.cycloneslider-template-thumbnails .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;width:26px;height:44px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/thumbnails/images/sprite-arrows.png) no-repeat}.cycloneslider-template-thumbnails:hover .cycloneslider-prev,.cycloneslider-template-thumbnails:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-thumbnails .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-thumbnails .cycloneslider-next{right:10px;background-position:-29px 0}.cycloneslider-template-thumbnails .cycloneslider-prev:hover,.cycloneslider-template-thumbnails .cycloneslider-next:hover{opacity:1}.cycloneslider-template-thumbnails .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:url(http://localhost/wp1/wp-content/plugins/cyclone-slider-2/templates/thumbnails/images/bg-caption.png);color:#fff}.cycloneslider-template-thumbnails .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-thumbnails .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}.cycloneslider-template-thumbnails.cycloneslider-thumbnails{padding:20px 0;text-align:center}.cycloneslider-template-thumbnails.cycloneslider-thumbnails li{list-style:none inside;display:inline-block;width:30px;height:30px;margin:0 5px;border:5px solid #ccc;cursor:pointer;vertical-align:top}.cycloneslider-template-thumbnails.cycloneslider-thumbnails li{zoom:1;*display:inline}.cycloneslider-template-thumbnails.cycloneslider-thumbnails li.current{border-color:#333}.cycloneslider-template-thumbnails .cycloneslider-slide iframe,.cycloneslider-template-thumbnails .cycloneslider-slide object,.cycloneslider-template-thumbnails .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}.cycloneslider-template-thumbnails .thumb-custom{background:#ccc;width:30px;height:30px;line-height:30px;font-size:8px;color:#fefefe}.cycloneslider-template-thumbnails img{border-radius:0}
+/*** Template Controls ***/
+.cycloneslider-template-controls{margin-bottom:26px;padding:9px;border:1px solid #ddd;background:#f9f9f9;-webkit-box-shadow:0 0 2px 1px #ddd;box-shadow:0 0 2px 1px #ddd}.cycloneslider-template-controls img{display:block}.cycloneslider-template-controls .cycloneslider-controls{position:absolute;right:10px;bottom:-27px;z-index:102;padding:5px 0;height:16px;border-radius:0 0 5px 5px;background:#4c4c4c;background:-moz-linear-gradient(top,#4c4c4c 0,#595959 12%,#666 25%,#474747 39%,#2c2c2c 50%,#000 51%,#111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#4c4c4c),color-stop(12%,#595959),color-stop(25%,#666),color-stop(39%,#474747),color-stop(50%,#2c2c2c),color-stop(51%,#000),color-stop(60%,#111),color-stop(76%,#2b2b2b),color-stop(91%,#1c1c1c),color-stop(100%,#131313));background:-webkit-linear-gradient(top,#4c4c4c 0,#595959 12%,#666 25%,#474747 39%,#2c2c2c 50%,#000 51%,#111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);background:-o-linear-gradient(top,#4c4c4c 0,#595959 12%,#666 25%,#474747 39%,#2c2c2c 50%,#000 51%,#111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);background:-ms-linear-gradient(top,#4c4c4c 0,#595959 12%,#666 25%,#474747 39%,#2c2c2c 50%,#000 51%,#111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);background:linear-gradient(to bottom,#4c4c4c 0,#595959 12%,#666 25%,#474747 39%,#2c2c2c 50%,#000 51%,#111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c',endColorstr='#131313',GradientType=0)}.cycloneslider-template-controls .cycloneslider-controls-inner{padding:0 20px}.cycloneslider-template-controls .cycloneslider-play-pause{display:block;float:right;margin:0 10px;width:14px;height:16px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/controls/images/sprite-controls.png) no-repeat -118px -3px;text-indent:-99999px;cursor:pointer}.cycloneslider-template-controls .cycloneslider-play-pause:hover{background-position:-118px -25px}.cycloneslider-template-controls .cycloneslider-play-pause.play{background-position:-61px -3px}.cycloneslider-template-controls .cycloneslider-play-pause.play:hover{background-position:-61px -25px}.cycloneslider-template-controls .cycloneslider-prev,.cycloneslider-template-controls .cycloneslider-next{display:block;float:right;width:18px;height:16px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/controls/images/sprite-controls.png) no-repeat;text-indent:-99999px}.cycloneslider-template-controls .cycloneslider-prev{background-position:-2px -3px;margin-left:7px}.cycloneslider-template-controls .cycloneslider-next{background-position:-173px -3px}.cycloneslider-template-controls .cycloneslider-prev:hover{background-position:-2px -25px}.cycloneslider-template-controls .cycloneslider-next:hover{background-position:-173px -25px}.cycloneslider-template-controls .cycloneslider-pager{float:right;height:16px;overflow:hidden}.cycloneslider-template-controls .cycloneslider-pager span{display:block;float:left;margin:0 3px;width:15px;height:16px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/controls/images/sprite-controls.png) no-repeat -235px -3px;text-indent:-99999px;font-size:0;line-height:0;opacity:.3}.cycloneslider-template-controls .cycloneslider-pager span.cycle-pager-active{background-position:-235px -25px;opacity:1}.cycloneslider-template-controls .cycloneslider-caption{position:absolute;bottom:0;left:10%;z-index:99;width:50%;height:40%;color:#fefefe}.cycloneslider-template-controls .cycloneslider-caption-title{display:inline-block;margin-bottom:5px;padding:10px 5px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/controls/images/bg-caption.png);text-transform:uppercase;font-size:20px;line-height:1}.cycloneslider-template-controls .cycloneslider-caption-description{padding:5px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/controls/images/bg-caption.png);font-size:12px;line-height:1.5}.cycloneslider-template-controls .cycloneslider-slide iframe,.cycloneslider-template-controls .cycloneslider-slide object,.cycloneslider-template-controls .cycloneslider-slide embed{position:absolute;top:0;left:0;width:100%!important;height:100%!important}@media(max-width:480px){.cycloneslider-template-controls .cycloneslider-controls{width:100%;right:0}.cycloneslider-template-controls .cycloneslider-next{margin-right:10px}.cycloneslider-template-controls .cycloneslider-caption{left:0;bottom:0;height:auto;width:100%}.cycloneslider-template-controls .cycloneslider-caption-title{display:block;margin-bottom:0}.cycloneslider-template-controls .cycloneslider-pager{max-width:50%;float:left}}
+/*** Template Dos ***/
+.cycloneslider-template-dos {
+    overflow:hidden;
+}
+.cycloneslider-template-dos .cycloneslider-slides{
+    overflow:hidden;
+    background:#000;
+}
+.cycloneslider-template-dos .cycloneslider-slide{
+    text-align:center;
+}
+.cycloneslider-template-dos .cycloneslider-slide img{
+    display:block;
+    margin:0 auto;
+}
+.cycloneslider-template-dos .cycloneslider-prev,
+.cycloneslider-template-dos .cycloneslider-next{
+    display:none;
+    position:absolute;
+    top:50%;
+    margin-top:-15px;
+    z-index:102;
+    width:30px;
+    height:30px;
+    text-indent:-99999px;
+    opacity:0.5;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/sprite-arrows.png) no-repeat;
+}
+.cycloneslider-template-dos:hover .cycloneslider-prev,
+.cycloneslider-template-dos:hover .cycloneslider-next{
+    display:block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.cycloneslider-template-dos .cycloneslider-prev{
+    left:15px;
+    background-position:0 0;
+}
+.cycloneslider-template-dos .cycloneslider-next{
+    right:15px;
+    background-position:-30px 0;
+}
+.cycloneslider-template-dos .cycloneslider-prev:hover{
+    opacity:1;
+}
+.cycloneslider-template-dos .cycloneslider-next:hover{
+    opacity:1;
+}
+.cycloneslider-template-dos .cycloneslider-controls{
+    height:40px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index:900;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/bg-controls.png) repeat-x top;
+    color:#BBBBBB;
+    font-size:11px;
+    font-family:sans-serif;
+}
+.cycloneslider-template-dos .cycloneslider-autoplay{
+    float:left;
+    width:29px;
+    height:40px;
+    cursor:pointer;
+    position:relative;
+    border-right:1px solid #000;
+}
+.cycloneslider-template-dos .cycloneslider-autoplay .cycloneslider-icon{
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-4px;
+    margin-top:-6px;
+    width:8px;
+    height:12px;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/sprite-play-pause.png) no-repeat top center;
+}
+.cycloneslider-template-dos .cycloneslider-autoplay.pause  .cycloneslider-icon{
+    background-position: bottom center;
+}
+.cycloneslider-template-dos .cycloneslider-autoplay:hover{
+    background-color:#333;
+}
+.cycloneslider-template-dos .cycloneslider-thumbs{
+    position:absolute;
+    right:0;
+    top:0;
+    width:29px;
+    height:29px;
+    cursor:pointer;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/dos-btn-thumbs.png) no-repeat 9px 10px;
+}
+.cycloneslider-template-dos .cycloneslider-thumbs:hover{
+    background-color:#333;
+}
+.cycloneslider-template-dos .cycloneslider-sep{
+    float:left;
+    width:2px;
+    height:29px;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/dos-bg-sep.png) repeat-y;
+}
+.cycloneslider-template-dos .cycloneslider-sep-right{
+    float:none;
+    position:absolute;
+    right:29px;
+    top:0;
+}
+.cycloneslider-template-dos .cycloneslider-counter{
+    float:left;
+    height:40px;
+    line-height:40px;
+    padding:0 10px;
+    border-left:1px solid #333;
+    border-right:1px solid #000;
+}
+.cycloneslider-template-dos .cycloneslider-caption-title{
+    float:left;
+    padding:0 10px;
+    height:40px;
+    line-height:40px;
+    font-weight:bold;
+    color:#fff;
+    border-left:1px solid #333;
+}
+.cycloneslider-template-dos .cycloneslider-caption-description{
+    float:left;
+    padding-right:10px;
+    height:40px;
+    line-height:40px;
+    max-width:50%;
+    overflow:hidden;
+    white-space:nowrap;
+    
+}
+.cycloneslider-template-dos .cycloneslider-pager{
+    position:absolute;
+    z-index:99;
+    top:20px;
+    right:20px;
+}
+.cycloneslider-template-dos .cycloneslider-pager a {
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/sprite-slide-nav.png) no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    font-size: 0;
+    height: 8px;
+    line-height: 0;
+    margin-left: 5px;
+    text-indent: -99999px;
+    width: 8px;
+}
+.cycloneslider-template-dos .cycloneslider-pager a.activeSlide {
+    background-position: left bottom;
+}
+.cycloneslider-template-dos .cycloneslider-thumbnails{
+    position:absolute;
+    left:0;
+    bottom:-100px;
+    width:100%;
+    height:84px;
+    background:#222;
+    z-index:105;
+    
+}
+.cycloneslider-template-dos .thumbnails-inner{
+    padding:10px 20px;
+    position:relative;
+}
+.cycloneslider-template-dos .thumbnails-carousel{
+    width:100%;
+}
+.cycloneslider-template-dos .thumbnails-carousel img{
+    float:left;
+    border:2px solid #000;
+    margin:0 3px;
+    cursor:pointer;
+    list-style:none;
+    padding:0;
+}
+.cycloneslider-template-dos .thumbnails-carousel img.current{
+    border-color:#ccc;
+}
+
+.cycloneslider-template-dos .carousel-prev,
+.cycloneslider-template-dos .carousel-next{
+    position:absolute;
+    bottom:0;
+    color:#fff;
+    width:20px;
+    height:100%;
+    cursor:pointer;
+    background: url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/dos/images/dos-sprite-prevnext.png) no-repeat 8px center;
+}
+.cycloneslider-template-dos .carousel-prev{
+    left:0;
+    background-position:8px center;
+}
+.cycloneslider-template-dos .carousel-next{
+    right:0;
+    background-position:-72px center;
+}
+.cycloneslider-template-dos .carousel-prev.disabled,
+.cycloneslider-template-dos .carousel-next.disabled{
+    display:none;
+}
+
+
+/*** Template Galleria ***/
+.cycloneslider-template-galleria{overflow:hidden}.cycloneslider-template-galleria .cycloneslider-slides{overflow:hidden;background:#000}.cycloneslider-template-galleria .cycloneslider-slide{text-align:center}.cycloneslider-template-galleria .cycloneslider-slide img{display:block;margin:0 auto}.cycloneslider-template-galleria .cycloneslider-prev,.cycloneslider-template-galleria .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-18px;z-index:102;width:36px;height:36px;text-indent:-99999px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-sprite-arrows.png) no-repeat}.cycloneslider-template-galleria:hover .cycloneslider-prev,.cycloneslider-template-galleria:hover .cycloneslider-next{display:block}.cycloneslider-template-galleria .cycloneslider-prev{left:10px;background-position:0 0}.cycloneslider-template-galleria .cycloneslider-next{right:10px;background-position:-36px 0}.cycloneslider-template-galleria .cycloneslider-prev:hover{background-position:0 -36px}.cycloneslider-template-galleria .cycloneslider-next:hover{background-position:-36px -36px}.cycloneslider-template-galleria .cycloneslider-controls{height:30px;position:relative;z-index:900;background:#fff url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-bg-bar.png) repeat-x bottom;color:#bbb;font-size:11px;font-family:sans-serif}.cycloneslider-template-galleria .cycloneslider-autoplay{float:left;width:29px;height:29px;cursor:pointer;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-sprite-play-pause.png) no-repeat 12px 10px}.cycloneslider-template-galleria .cycloneslider-autoplay.pause{background-position:11px -90px}.cycloneslider-template-galleria .cycloneslider-autoplay:hover{background-color:#333}.cycloneslider-template-galleria .cycloneslider-thumbs{position:absolute;right:0;top:0;width:29px;height:29px;cursor:pointer;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-btn-thumbs.png) no-repeat 9px 10px}.cycloneslider-template-galleria .cycloneslider-thumbs:hover{background-color:#333}.cycloneslider-template-galleria .cycloneslider-sep{float:left;width:2px;height:29px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-bg-sep.png) repeat-y}.cycloneslider-template-galleria .cycloneslider-sep-right{float:none;position:absolute;right:29px;top:0}.cycloneslider-template-galleria .cycloneslider-counter{float:left;height:29px;line-height:29px;padding:0 10px}.cycloneslider-template-galleria .cycloneslider-caption-title{float:left;padding:0 10px;height:29px;line-height:29px;font-weight:bold;color:#fff}.cycloneslider-template-galleria .cycloneslider-caption-description{float:left;padding-right:10px;height:29px;line-height:29px;max-width:50%;overflow:hidden;white-space:nowrap}.cycloneslider-template-galleria .cycloneslider-pager{position:absolute;z-index:99;top:20px;right:20px}.cycloneslider-template-galleria .cycloneslider-pager a{background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/sprite-slide-nav.png) no-repeat scroll 0 0 transparent;display:block;float:left;font-size:0;height:8px;line-height:0;margin-left:5px;text-indent:-99999px;width:8px}.cycloneslider-template-galleria .cycloneslider-pager a.activeSlide{background-position:left bottom}.cycloneslider-template-galleria .cycloneslider-thumbnails{position:absolute;left:0;bottom:-100px;width:100%;height:84px;background:#222;z-index:105}.cycloneslider-template-galleria .thumbnails-inner{padding:10px 20px;position:relative}.cycloneslider-template-galleria .thumbnails-carousel{width:100%}.cycloneslider-template-galleria .thumbnails-carousel img{float:left;border:2px solid #000;margin:0 3px;cursor:pointer;list-style:none;padding:0}.cycloneslider-template-galleria .thumbnails-carousel img.current{border-color:#ccc}.cycloneslider-template-galleria .carousel-prev,.cycloneslider-template-galleria .carousel-next{position:absolute;bottom:0;color:#fff;width:20px;height:100%;cursor:pointer;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/galleria/images/galleria-sprite-prevnext.png) no-repeat 8px center}.cycloneslider-template-galleria .carousel-prev{left:0;background-position:8px center}.cycloneslider-template-galleria .carousel-next{right:0;background-position:-72px center}.cycloneslider-template-galleria .carousel-prev.disabled,.cycloneslider-template-galleria .carousel-next.disabled{display:none}
+/*** Template Lea ***/
+.cycloneslider-template-lea{margin-bottom:70px;padding:9px;border:1px solid #ddd}.cycloneslider-template-lea .cycloneslider-slide{text-align:center}.cycloneslider-template-lea img{display:block;margin:0 auto}.cycloneslider-template-lea .cycloneslider-prev,.cycloneslider-template-lea .cycloneslider-next{position:absolute;top:50%;z-index:102;display:none;margin-top:-15px;width:30px;height:30px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/lea/images/sprite-arrows.png) no-repeat;text-indent:-99999px;opacity:.5}.cycloneslider-template-lea:hover .cycloneslider-prev,.cycloneslider-template-lea:hover .cycloneslider-next{display:block;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.cycloneslider-template-lea .cycloneslider-prev{left:15px;background-position:0 0}.cycloneslider-template-lea .cycloneslider-next{right:15px;background-position:-30px 0}.cycloneslider-template-lea .cycloneslider-prev:hover{opacity:1}.cycloneslider-template-lea .cycloneslider-next:hover{opacity:1}.cycloneslider-template-lea .cycloneslider-caption{position:absolute;bottom:0;left:55px;z-index:99;width:30%;height:100%;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/lea/images/bg-caption.png);color:#fff}.cycloneslider-template-lea .cycloneslider-caption-title{margin-bottom:0;padding:25px;font-size:20px;line-height:1}.cycloneslider-template-lea .cycloneslider-caption-description{padding:0 25px 25px 25px;font-size:12px;line-height:1.5}.cycloneslider-template-lea .cycloneslider-nav{position:absolute;bottom:-70px;left:0;z-index:105;width:100%;height:70px}.ie7 .cycloneslider-template-lea .cycloneslider-nav{bottom:0}.cycloneslider-template-lea .cycloneslider-nav-inner{overflow:hidden;padding:10px 20px;text-align:center}.cycloneslider-template-lea .cycloneslider-nav-carousel{margin:0 auto;min-height:50px;max-width:420px}.cycloneslider-template-lea .cycloneslider-nav-carousel img{display:block;margin:0 5px;border:5px solid #ccc;cursor:pointer}.cycloneslider-template-lea .cycloneslider-nav-carousel img.current{border-color:#333}.cycloneslider-template-lea .cycloneslider-carousel-prev,.cycloneslider-template-lea .cycloneslider-carousel-next{position:absolute;top:0;width:15px;height:100%;opacity:.5;cursor:pointer;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.cycloneslider-template-lea .cycloneslider-carousel-prev:hover,.cycloneslider-template-lea .cycloneslider-carousel-next:hover{opacity:1}.cycloneslider-template-lea .cycloneslider-carousel-prev .cycloneslider-icon,.cycloneslider-template-lea .cycloneslider-carousel-next .cycloneslider-icon{position:absolute;top:50%;left:3px;margin-top:-8px;width:9px;height:16px;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/lea/images/sprite-arrows-small.png) no-repeat}.cycloneslider-template-lea .cycloneslider-carousel-prev{left:0}.cycloneslider-template-lea .cycloneslider-carousel-prev .cycloneslider-icon{background-position:left top}.cycloneslider-template-lea .cycloneslider-carousel-next{right:0}.cycloneslider-template-lea .cycloneslider-carousel-next .cycloneslider-icon{background-position:right top}.cycloneslider-template-lea .cycloneslider-nav .disabled,.cycloneslider-template-lea .cycloneslider-nav .disabled{display:none}
+/*** Template Text ***/
+.cycloneslider-template-text img{display:block}.cycloneslider-template-text .cycloneslider-prev,.cycloneslider-template-text .cycloneslider-next{display:none;opacity:0;position:absolute;top:50%;margin-top:-22px;z-index:102;background:#000;padding:3px 10px;color:#fff;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.cycloneslider-template-text:hover .cycloneslider-prev,.cycloneslider-template-text:hover .cycloneslider-next{display:block;opacity:.4}.cycloneslider-template-text .cycloneslider-prev{left:0;border-radius:0 5px 5px 0}.cycloneslider-template-text .cycloneslider-next{right:0;border-radius:5px 0 0 5px}.cycloneslider-template-text .cycloneslider-prev:hover,.cycloneslider-template-text .cycloneslider-next:hover{opacity:1}.cycloneslider-template-text .cycloneslider-pager{position:absolute;z-index:200;top:20px;right:20px}.cycloneslider-template-text .cycloneslider-pager span{background:#000;color:#fff;display:block;float:left;margin-right:6px;padding:0 5px;font-size:12px;opacity:.6;border-radius:3px;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.cycloneslider-template-text .cycloneslider-pager span.cycle-pager-active{background:#fff;color:#000}.cycloneslider-template-text .cycloneslider-pager span:hover{opacity:1}.cycloneslider-template-text .cycloneslider-caption{position:absolute;left:0;bottom:0;width:100%;z-index:99;background:#000;color:#fff;opacity:.6}.cycloneslider-template-text .cycloneslider-caption-title{padding:10px 20px 5px 20px;font-size:22px;line-height:1;margin-bottom:0}.cycloneslider-template-text .cycloneslider-caption-description{padding:0 20px 15px 20px;line-height:1.5;font-size:12px}
+/*** Template Uno ***/
+.cycloneslider-template-uno{margin-bottom:30px;padding:9px;border:1px solid #ddd}.cycloneslider-template-uno img{display:block}.cycloneslider-template-uno .cycloneslider-prev,.cycloneslider-template-uno .cycloneslider-next{display:none;position:absolute;top:50%;margin-top:-15px;z-index:102;width:30px;height:30px;text-indent:-99999px;opacity:.5;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/uno/images/sprite-arrows.png) no-repeat}.cycloneslider-template-uno:hover .cycloneslider-prev,.cycloneslider-template-uno:hover .cycloneslider-next{display:block;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-ms-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.cycloneslider-template-uno .cycloneslider-prev{left:15px;background-position:0 0}.cycloneslider-template-uno .cycloneslider-next{right:15px;background-position:-30px 0}.cycloneslider-template-uno .cycloneslider-prev:hover{opacity:1}.cycloneslider-template-uno .cycloneslider-next:hover{opacity:1}.cycloneslider-template-uno .cycloneslider-pager{position:absolute;z-index:200;bottom:-20px;left:50%}.cycloneslider-template-uno .cycloneslider-pager span{background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/uno/images/sprite-nav.png) no-repeat;display:block;font-size:0;width:10px;height:10px;line-height:0;margin:0 6px;text-indent:-99999px;float:left}.cycloneslider-template-uno .cycloneslider-pager span.cycle-pager-active{background-position:0 -14px}.cycloneslider-template-uno .cycloneslider-caption{position:absolute;right:50px;bottom:0;width:25%;height:100%;z-index:99;background:url(http://localhost/wp1/wp-content/themes/twentytwelve/cycloneslider/uno/images/bg-caption.png);color:#fff}.cycloneslider-template-uno .cycloneslider-caption-title{padding:25px;font-size:20px;line-height:1;margin-bottom:0}.cycloneslider-template-uno .cycloneslider-caption-description{padding:0 25px 25px 25px;line-height:1.5;font-size:12px}

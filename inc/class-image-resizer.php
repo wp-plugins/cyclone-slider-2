@@ -1,7 +1,7 @@
 <?php
 if(!class_exists('Image_Resizer')):
 
-	Class Image_Resizer {
+	class Image_Resizer {
 		
 		// *** Class variables
 		private $image;
