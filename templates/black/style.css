@@ -5,7 +5,6 @@
 .cycloneslider-template-black .cycloneslider-prev,
 .cycloneslider-template-black .cycloneslider-next{
     display:none;
-    opacity:0;
     position:absolute;
     top:50%;
     margin-top:-22px;
@@ -15,11 +14,6 @@
     text-indent:-99999px;
     background: url($tpl/images/sprite-arrows.png) no-repeat;
 }
-.cycloneslider-template-black:hover .cycloneslider-prev,
-.cycloneslider-template-black:hover .cycloneslider-next{
-    display:block;
-    opacity:0.4;
-}
 .cycloneslider-template-black .cycloneslider-prev{
     left:10px;
     background-position:0 0;
@@ -27,10 +21,6 @@
 .cycloneslider-template-black .cycloneslider-next{
     right:10px;
     background-position:-29px 0;
-}
-.cycloneslider-template-black .cycloneslider-prev:hover,
-.cycloneslider-template-black .cycloneslider-next:hover{
-    opacity:1;
 }
 .cycloneslider-template-black .cycloneslider-pager{
     position:absolute;
@@ -71,4 +61,13 @@
     padding:0 20px 15px 20px;
     line-height:1.5;
     font-size:12px;
+}
+.cycloneslider-template-black .cycloneslider-slide iframe,
+.cycloneslider-template-black .cycloneslider-slide object,
+.cycloneslider-template-black .cycloneslider-slide embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-19 20:56+0800\n"
-"PO-Revision-Date: 2013-02-19 20:56+0800\n"
+"POT-Creation-Date: 2013-03-21 07:41+0800\n"
+"PO-Revision-Date: 2013-03-21 07:41+0800\n"
 "Last-Translator: \n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "MIME-Version: 1.0\n"
@@ -32,142 +32,143 @@ msgstr ""
 msgid "No slideshows found."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:101
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:103
 msgid "Select an image"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:102
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:104
 msgid "Add to Slide"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:136
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:135
 msgid "Cyclone Slider"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:137
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:136
 msgid "Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:138
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:137
 msgid "Add Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:139
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:138
 msgid "Add New Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:140
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:139
 msgid "Edit Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:141
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:140
 msgid "New Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:142
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:141
 msgid "View Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:143
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:142
 msgid "Search Slideshows"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:144
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:143
 msgid "No slideshows found"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:145
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:144
 msgid "No slideshows found in Trash"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:160
-msgid "Slides"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:168
-msgid "Slideshow Settings"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:176
-msgid "Slideshow Templates"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:217
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:524
-msgid "Slide"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:226
-msgid "Add Slide"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:284
-msgid "Select a template to use."
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:286
-msgid "Get more templates.."
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:394
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:164
 #, php-format
 msgid "Slideshow updated. Shortcode is [cycloneslider id=\"%s\"]"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:395
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:165
 msgid "Custom field updated."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:396
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:166
 msgid "Custom field deleted."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:397
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:398
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:401
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:402
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:403
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:167
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:168
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:171
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:172
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:173
 msgid "Slideshow updated."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:399
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:169
 #, php-format
 msgid "Slideshow published. Shortcode is [cycloneslider id=\"%s\"]"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:400
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:170
 msgid "Slideshow saved."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:404
-msgid "Templates CSS could not be saved."
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:174
+#, php-format
+msgid "Templates CSS could not be saved. Make sure %stemplates.css is writable."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:405
-msgid "Templates JS could not be saved."
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:175
+#, php-format
+msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:494
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:199
+msgid "Slides"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:207
+msgid "Slideshow Settings"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:215
+msgid "Slideshow Templates"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:243
+msgid "Slide"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:252
+msgid "Add Slide"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:504
 msgid "Slideshow Name"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:495
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:505
+msgid "Template"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:506
 msgid "Images"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:496
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:507
 msgid "Slideshow ID"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:497
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:508
 msgid "Shortcode"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:632
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:539
+msgid "Slide *"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:659
 msgid "[Slideshow not found]"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:657
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/class-cyclone-slider.php:684
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr ""
@@ -188,133 +189,173 @@ msgstr ""
 msgid "Select a gallery to import images from. Images will be added as new slides."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:8
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:17
 msgid "Drag"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:9
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:18
 msgid "Toggle"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:10
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:19
 msgid "Delete"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:19
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:26
+msgid "Image"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:27
+msgid "Video"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:28
+msgid "Custom"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:45
 msgid "Get Image"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:22
-msgid "Slide Elements:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:26
-msgid "Slide Link"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:29
-msgid "Link:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:31
-msgid "Open Link in:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:33
-msgid "Same Window"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:34
-msgid "New Tab or Window"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:40
-msgid "Title"
-msgstr ""
-
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:48
-msgid "Description"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:55
-msgid "Image Properties:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:59
-msgid "Alternate Text"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:67
-msgid "Title Text"
-msgstr ""
-
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:75
 msgid "Slide Properties:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:79
-msgid "Slide Effects"
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:50
+msgid "Link"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:84
-msgid "Disable"
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:53
+msgid "Link URL:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:85
-msgid "Enable Slide Effects"
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:57
+msgid "Open Link in:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:59
+msgid "Same Window"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:60
+msgid "New Tab or Window"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:66
+msgid "Title"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:74
+msgid "Description"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:83
+msgid "Image Attributes"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:86
+msgid "Alternate Text:"
 msgstr ""
 
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:90
+msgid "Title Text:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:96
+msgid "Slide Transition Effects"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:100
+msgid "Disable"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:101
+msgid "Enable Slide Effects"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:107
 msgid "Transition Effects:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:99
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:118
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:32
 msgid "Transition Effects Speed:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:101
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:106
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:120
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:127
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:34
 msgid "Milliseconds"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:104
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:125
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:26
 msgid "Next Slide Delay:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:111
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:135
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:12
 msgid "Tile Count:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:113
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:137
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:14
 msgid "The number of tiles to use in the transition."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:116
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:141
 msgid "Tile Delay:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:118
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:143
 msgid "Milliseconds to delay each individual tile transition."
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:121
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:147
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:17
 msgid "Tile Position:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:123
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:149
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:19
 msgid "Vertical"
 msgstr ""
 
-#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:124
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:150
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:20
 msgid "Horizontal"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:170
+msgid "Video URL:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:172
+msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:176
+msgid "Get Video"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:181
+msgid "Embed Code"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:183
+msgid "You can place your embed code directly here. Or you can use the Get Video button to generate the embed code."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:185
+msgid "<strong>Note:</strong> The Slide Properties and Tile effects are not supported for videos."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:187
+msgid "<strong>Note:</strong> Append &wmode=transparent to the embed code src attribute to make HTML elements appear on top of Flash."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/box.php:193
+msgid "Custom HTML"
 msgstr ""
 
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:3
@@ -346,6 +387,7 @@ msgstr ""
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:60
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:68
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:78
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:87
 msgid "Yes"
 msgstr ""
 
@@ -353,6 +395,7 @@ msgstr ""
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:61
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:69
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:77
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:86
 msgid "No"
 msgstr ""
 
@@ -374,5 +417,21 @@ msgstr ""
 
 #: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:80
 msgid "Randomize order of slides on every page visit."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:84
+msgid "Resize Images?"
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/slider-properties.php:89
+msgid "Yes - resize images to slideshow dimension. <br>No - use the original uploaded image."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/template-selection.php:38
+msgid "Select a template to use. Check the template icons to see what slide type it supports."
+msgstr ""
+
+#: D:\webserver\htdocs\wp1\wp-content\plugins\cyclone-slider-2/inc/admin-parts/template-selection.php:40
+msgid "Get more templates.."
 msgstr ""
 

@@ -83,7 +83,7 @@ if(!class_exists('Cyclone_Slider_Widget')):
 	
 	}
 
-	new Cyclone_Slider_Widget();
+	
 	
 	function cycloneslider_widgets(){
 		register_widget('Cyclone_Slider_Widget');

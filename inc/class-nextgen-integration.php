@@ -177,6 +177,6 @@ if(!class_exists('Nextgen_Integration')):
 		
 	} // end class
 	
-	new Nextgen_Integration();
+	$cyclone_slider_nextgen_integration = new Nextgen_Integration();
 	
 endif;

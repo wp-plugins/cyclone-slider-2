@@ -12,21 +12,23 @@ Create responsive slideshows with ease. Built for both developers and non-develo
 
 == Description ==
 
-Cyclone Slider 2 follows the keep it simple principle. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. Its simple yet flexible.
+Cyclone Slider 2 follows the keep it simple mantra. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the slideshow to their needs. Its simple yet flexible.
 
 = Features: =
-* Uses jQuery Cycle 2 with full responsiveness
-* Very easy to use interface!
-* Customizable tile transition effects
-* Ability to add per-slide transition effects
-* Unlimited slideshows
-* Unique settings for each slideshow
-* Shortcode for displaying slideshows anywhere in your site
-* A simple template system for developers to easily customize the slideshow
-* Ability to import images from NextGEN (NextGEN must be installed and active)
-* Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active)
-* Allows title and alt to be specified for each slide images
-* Comes with a widget to display your slideshow easily in widget areas
+* Very easy to use interface! Blends seamlessly with your WordPress workflow.
+* Supports image, video, and custom HTML slides.
+* Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
+* A template system that allows developers to easily customize the slideshows.
+* Customizable tile transition effects.
+* Ability to add per-slide transition effects.
+* Unlimited slideshows.
+* Unique settings for each slideshow.
+* Supports random slide order.
+* Shortcode for displaying slideshows anywhere in your site.
+* Ability to import images from NextGEN (NextGEN must be installed and active).
+* Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active).
+* Allows title and alt to be specified for each slide images.
+* Comes with a widget to display your slideshow easily in widget areas.
 * It's totally FREE!
 
 = Homepage =
@@ -87,6 +89,19 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.5.0 - 2013-03-19 - This is a major release = 
+* More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
+* Added icons to the UI to indicate different slide types.
+* Replaced cookies with localstorage to store UI status.
+* Updated the templates to support the various slide types.
+* Added resize and random options.
+* Bug fix for fatal error when no GD library. Added gd_info check.
+* Bug fix for js error on WP below 3.5 caused by the 3.5 media library object being undefined.
+* Deprecated cycloneslider_thumb use cyclone_slide_image_url instead.
+* Deprecated cycloneslider_settings use cyclone_settings instead.
+* Deprecated cycloneslider_slide_settings use cyclone_slide_settings instead.
+* Various UI fixes and code refactoring.
+
 = 2.2.5 - 2013-02-23 = 
 * Bug fix for 2.2.4
 
@@ -142,6 +157,19 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.5.0 - 2013-03-19 - This is a major release = 
+* More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
+* Added icons to the UI to indicate different slide types.
+* Replaced cookies with localstorage to store UI status.
+* Updated the templates to support the various slide types.
+* Added resize and random options.
+* Bug fix for fatal error when no GD library. Added gd_info check.
+* Bug fix for js error on WP below 3.5 caused by the 3.5 media library object being undefined.
+* Deprecated cycloneslider_thumb use cyclone_slide_image_url instead.
+* Deprecated cycloneslider_settings use cyclone_settings instead.
+* Deprecated cycloneslider_slide_settings use cyclone_slide_settings instead.
+* Various UI fixes and code refactoring.
 
 = 2.2.5 - 2013-02-23 = 
 * Bug fix for 2.2.4
