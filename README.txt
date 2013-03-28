@@ -89,7 +89,15 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
-= 2.5.0 - 2013-03-21 - This is a major release = 
+= 2.5.1 - 2013-03-29 = 
+* Bug fix to allow small images to be inserted.
+* Improved cyclone_settings.
+* Improved slideshow not found message.
+* Updated cycle 2 js files.
+* Added plugin version to fix caching problem on JS and CSS.
+* Added upgrade notice.
+
+= 2.5.0 - 2013-03-19 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.
@@ -152,13 +160,22 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 = 2.0.1 - 2012-11-09 = 
 * Bug fix for hover pause
+
 = 2.0.0 - 2012-10-28 = 
 * Initial
 
 
 == Upgrade Notice ==
 
-= 2.5.0 - 2013-03-21 - This is a major release = 
+= 2.5.1 - 2013-03-29 = 
+* Bug fix to allow small images to be inserted.
+* Improved cyclone_settings.
+* Improved slideshow not found message.
+* Updated cycle 2 js files.
+* Added plugin version to fix caching problem on JS and CSS.
+* Added upgrade notice.
+
+= 2.5.0 - 2013-03-19 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.
