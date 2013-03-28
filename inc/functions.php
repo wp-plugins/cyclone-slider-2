@@ -77,21 +77,23 @@ function cyclone_slide_image_url( $original_attachment_id, $width, $height, $par
  * @param string $slider_id HTML ID of slideshow.
  * @return string Data attributes for cycle2.
  */
-function cyclone_settings($slider_settings, $slider_id=''){
-	$cycle2_settings = array();
-	$cycle2_settings['data-cycle-slides'] = '> div';
-	$cycle2_settings['data-cycle-auto-height'] = $slider_settings['width'].':'.$slider_settings['height'];
-	$cycle2_settings['data-cycle-fx'] = $slider_settings['fx'];
-	$cycle2_settings['data-cycle-speed'] = $slider_settings['speed'];
-	$cycle2_settings['data-cycle-timeout'] = $slider_settings['timeout'];
-	$cycle2_settings['data-cycle-pause-on-hover'] = $slider_settings['hover_pause'];
-	$cycle2_settings['data-cycle-pager'] = '#cycloneslider-'.$slider_id.' .cycloneslider-pager';
-	$cycle2_settings['data-cycle-prev'] = '#cycloneslider-'.$slider_id.' .cycloneslider-prev';
-    $cycle2_settings['data-cycle-next'] = '#cycloneslider-'.$slider_id.' .cycloneslider-next';
-	$cycle2_settings['data-cycle-tile-count'] = $slider_settings['tile_count'];
-	$cycle2_settings['data-cycle-tile-delay'] = $slider_settings['tile_delay'];
-	$cycle2_settings['data-cycle-tile-vertical'] = $slider_settings['tile_vertical'];
-	$cycle2_settings['data-cycle-log'] = 'false';
+function cyclone_settings($slider_settings, $slider_id='', $cycle2_settings=array()){
+	$defaults = array();
+	$defaults['data-cycle-slides'] = '> div';
+	$defaults['data-cycle-auto-height'] = $slider_settings['width'].':'.$slider_settings['height'];
+	$defaults['data-cycle-fx'] = $slider_settings['fx'];
+	$defaults['data-cycle-speed'] = $slider_settings['speed'];
+	$defaults['data-cycle-timeout'] = $slider_settings['timeout'];
+	$defaults['data-cycle-pause-on-hover'] = $slider_settings['hover_pause'];
+	$defaults['data-cycle-pager'] = '#cycloneslider-'.$slider_id.' .cycloneslider-pager';
+	$defaults['data-cycle-prev'] = '#cycloneslider-'.$slider_id.' .cycloneslider-prev';
+    $defaults['data-cycle-next'] = '#cycloneslider-'.$slider_id.' .cycloneslider-next';
+	$defaults['data-cycle-tile-count'] = $slider_settings['tile_count'];
+	$defaults['data-cycle-tile-delay'] = $slider_settings['tile_delay'];
+	$defaults['data-cycle-tile-vertical'] = $slider_settings['tile_vertical'];
+	$defaults['data-cycle-log'] = 'false';
+	$cycle2_settings = wp_parse_args($cycle2_settings, $defaults);
+	
 	$cycle2_settings = apply_filters('cyclone_cycle2_settings_array', $cycle2_settings);
 	
 	$out = '';

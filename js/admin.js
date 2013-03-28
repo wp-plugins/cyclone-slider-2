@@ -417,15 +417,21 @@ jQuery(document).ready(function($){
             });
     
             cyclone_media_frame.on('select', function(){
-                var media_attachment, slide_thumb, slide_attachment_id;
+                var media_attachment, slide_thumb, slide_attachment_id, img_url;
                 
                 // Grab our attachment selection and construct a JSON representation of the model.
                 media_attachment = cyclone_media_frame.state().get('selection').first().toJSON();
                 
                 slide_thumb = current_slide_box.find('.cs-image-thumb');/*** find the thumb ***/
                 slide_attachment_id = current_slide_box.find('.cs-image-id ');/*** find the hidden field that will hold the attachment id ***/
-
-                slide_thumb.html('<img src="'+media_attachment.sizes.medium.url+'" alt="thumb">').show();
+                
+                if(undefined==media_attachment.sizes.medium){ /*** Account for smaller images where medium does not exist ***/
+                    img_url = media_attachment.url;
+                } else {
+                    img_url = media_attachment.sizes.medium.url;
+                }
+                
+                slide_thumb.html('<img src="'+img_url+'" alt="thumb">').show();
                 slide_attachment_id.val(media_attachment.id);
                 
             });

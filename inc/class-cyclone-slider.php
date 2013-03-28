@@ -55,6 +55,13 @@ if(!class_exists('Cyclone_Slider')):
             
             // Add hook for ajax operations if logged in
             add_action( 'wp_ajax_cycloneslider_get_video', array( $this, 'cycloneslider_get_video' ) );
+            
+          
+            $version = get_option('cycloneslider_version');
+            if($version==false or $version!=CYCLONE_VERSION){
+                // Upgrade notice
+                add_action('admin_notices', array( $this, 'upgrade_notice') ); 
+            }
         } // end constructor
         
         
@@ -87,7 +94,7 @@ if(!class_exists('Cyclone_Slider')):
             
             if('cycloneslider' == get_post_type()){ /* Load only scripts here and not on all admin pages */
                 
-                wp_enqueue_style( 'cycloneslider-admin-styles', self::url().'css/admin.css'  );
+                wp_enqueue_style( 'cycloneslider-admin-styles', self::url().'css/admin.css', array(), CYCLONE_VERSION  );
                 
                 //scripts
                 wp_dequeue_script( 'autosave' );//disable autosave
@@ -95,9 +102,9 @@ if(!class_exists('Cyclone_Slider')):
 
                 wp_enqueue_script('jquery-ui-sortable');
                 
-                wp_enqueue_script( 'store', self::url().'js/store-json2.min.js', array('jquery') );
+                wp_enqueue_script( 'store', self::url().'js/store-json2.min.js', array('jquery'), CYCLONE_VERSION );
                 
-                wp_register_script( 'cycloneslider-admin-script', self::url().'js/admin.js', array('jquery')  );
+                wp_register_script( 'cycloneslider-admin-script', self::url().'js/admin.js', array('jquery'), CYCLONE_VERSION  );
                 wp_localize_script( 'cycloneslider-admin-script', 'cycloneslider_admin_vars',
                     array(
                         'title'     => __( 'Select an image', 'cycloneslider' ), // This will be used as the default title
@@ -114,12 +121,12 @@ if(!class_exists('Cyclone_Slider')):
          */
         public function register_plugin_scripts() {
             /*** Styles ***/
-            wp_enqueue_style( 'cyclone-templates-styles', self::url().'css/templates.css' );
+            wp_enqueue_style( 'cyclone-templates-styles', self::url().'css/templates.css', array(), CYCLONE_VERSION );
             
             /*** Scripts ***/
-            wp_enqueue_script( 'cyclone-slider', self::url().'js/cyclone-slider.min.js', array('jquery')  ); //Consolidated cycle2 script and plugins
+            wp_enqueue_script( 'cyclone-slider', self::url().'js/cyclone-slider.min.js', array('jquery'), CYCLONE_VERSION ); //Consolidated cycle2 script and plugins
             
-            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'js/templates.js', array('jquery') );//Contains our combined css from ALL templates
+            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'js/templates.js', array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
 
         }
         
@@ -186,6 +193,18 @@ if(!class_exists('Cyclone_Slider')):
             $location = add_query_arg( 'message', $this->message_id, $location );
             $this->message_id = 0;
             return $location;
+        }
+        
+        /**
+         * Show upgrade notice
+         * 
+         * @return void
+         */
+        public function upgrade_notice() {
+            // Only show to admins and cyclone page
+            if('cycloneslider' == get_post_type() and current_user_can('manage_options') ) {
+               echo '<div id="message" class="error"><p>'.__( 'Please resave any one of your slideshow to update the template CSS and JS files.', 'cycloneslider' ).'</p></div>';
+            }
         }
         
         /**
@@ -323,7 +342,7 @@ if(!class_exists('Cyclone_Slider')):
             $this->compile_css($post_id);
             $this->compile_js($post_id);
             
-            
+            update_option('cycloneslider_version', CYCLONE_VERSION);
         }
         
         /**
@@ -656,7 +675,7 @@ if(!class_exists('Cyclone_Slider')):
                 wp_reset_postdata();
     
             else:
-                $slider = __('[Slideshow not found]', 'cycloneslider');
+                $slider = sprintf(__('[Slideshow "%s" not found]', 'cycloneslider'), $slider_id);
             endif;
             
             return $slider;
