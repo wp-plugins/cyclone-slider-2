@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
 Requires at least: 3.3.2
 Tested up to: 3.5.1
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.5.2 - 2013-04-26 = 
+* Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
+* Move template handling logic to its own class to be used by the template asset loader independently
+* Removed upgrade notice
+
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
 * Improved cyclone_settings.
@@ -97,7 +102,7 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 * Added plugin version to fix caching problem on JS and CSS.
 * Added upgrade notice.
 
-= 2.5.0 - 2013-03-19 - This is a major release = 
+= 2.5.0 - 2013-03-21 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.
@@ -167,6 +172,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Upgrade Notice ==
 
+= 2.5.2 - 2013-04-26 = 
+* Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
+* Move template handling logic to its own class to be used by the template asset loader independently
+* Removed upgrade notice
+
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
 * Improved cyclone_settings.
@@ -175,7 +185,7 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 * Added plugin version to fix caching problem on JS and CSS.
 * Added upgrade notice.
 
-= 2.5.0 - 2013-03-19 - This is a major release = 
+= 2.5.0 - 2013-03-21 - This is a major release = 
 * More slide types to choose from: image, video (youtube and vimeo) and custom HTML.
 * Added icons to the UI to indicate different slide types.
 * Replaced cookies with localstorage to store UI status.

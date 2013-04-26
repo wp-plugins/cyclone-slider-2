@@ -5,6 +5,7 @@ if(!class_exists('Cyclone_Slider')):
         public $effects;
         public $debug;
         private $message_id;
+        public $templates;
         
         /**
          * Initializes the plugin by setting localization, filters, and administration functions.
@@ -58,10 +59,21 @@ if(!class_exists('Cyclone_Slider')):
             
           
             $version = get_option('cycloneslider_version');
-            if($version==false or $version!=CYCLONE_VERSION){
-                // Upgrade notice
-                add_action('admin_notices', array( $this, 'upgrade_notice') ); 
-            }
+            
+            $this->templates = new Cyclone_Templates();
+            $this->templates->add_template_location(
+                array(
+                    'path'=>self::get_templates_folder(), //this resides in the plugin
+                    'url'=>self::url().'templates/'
+                )
+            );
+            $this->templates->add_template_location(
+                array(
+                    'path'=> realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,//this resides in the current theme or child theme
+                    'url'=> get_stylesheet_directory_uri()."/cycloneslider/"
+                )
+            );
+            
         } // end constructor
         
         
@@ -120,13 +132,15 @@ if(!class_exists('Cyclone_Slider')):
          * Registers and enqueues frontend-specific scripts.
          */
         public function register_plugin_scripts() {
+            $theme = wp_get_theme();
+            
             /*** Styles ***/
-            wp_enqueue_style( 'cyclone-templates-styles', self::url().'css/templates.css', array(), CYCLONE_VERSION );
+            wp_enqueue_style( 'cyclone-templates-styles', self::url().'template-assets.php?type=css&theme='.$theme->template, array(), CYCLONE_VERSION );
             
             /*** Scripts ***/
             wp_enqueue_script( 'cyclone-slider', self::url().'js/cyclone-slider.min.js', array('jquery'), CYCLONE_VERSION ); //Consolidated cycle2 script and plugins
             
-            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'js/templates.js', array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
+            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'template-assets.php?type=js&theme='.$theme->template, array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
 
         }
         
@@ -193,18 +207,6 @@ if(!class_exists('Cyclone_Slider')):
             $location = add_query_arg( 'message', $this->message_id, $location );
             $this->message_id = 0;
             return $location;
-        }
-        
-        /**
-         * Show upgrade notice
-         * 
-         * @return void
-         */
-        public function upgrade_notice() {
-            // Only show to admins and cyclone page
-            if('cycloneslider' == get_post_type() and current_user_can('manage_options') ) {
-               echo '<div id="message" class="error"><p>'.__( 'Please resave any one of your slideshow to update the template CSS and JS files.', 'cycloneslider' ).'</p></div>';
-            }
         }
         
         /**
@@ -297,7 +299,7 @@ if(!class_exists('Cyclone_Slider')):
     
             $slider_settings = self::get_slideshow_settings($post->ID);
     
-            $templates = self::get_all_templates();
+            $templates = $this->templates->get_all_templates();
             if($this->debug){
                 self::debug($templates);
             }
@@ -337,10 +339,6 @@ if(!class_exists('Cyclone_Slider')):
             
             // Save slideshow ettings
             $this->save_settings($post_id);
-            
-            // Compile css and js
-            $this->compile_css($post_id);
-            $this->compile_js($post_id);
             
             update_option('cycloneslider_version', CYCLONE_VERSION);
         }
@@ -417,67 +415,6 @@ if(!class_exists('Cyclone_Slider')):
                 
                 delete_post_meta($post_id, '_cycloneslider_settings');
                 update_post_meta($post_id, '_cycloneslider_settings', $settings);
-            }
-        }
-        
-        
-        
-        /**
-        * Pulls style.css from templates and combines it into one
-        */
-        private function compile_css($post_id){
-            $ds = DIRECTORY_SEPARATOR;
-            $content = '';
-            
-            if(file_exists(self::path()."css{$ds}common.min.css")){
-                $content .= file_get_contents(self::path()."css{$ds}common.min.css");
-            }
-            
-            $template_folders = self::get_all_templates();
-            
-            foreach($template_folders as $name=>$folder){
-                $style = $folder['path']."{$ds}style.min.css"; //Minified version
-                $style2 = $folder['path']."{$ds}style.css"; //Unminified version, for old templates to work
-                if(file_exists($style)){
-                    $content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style));//apply url and print css
-                } else if(file_exists($style2)){
-                    $content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style2));//apply url and print css
-                }
-            }
-            
-            $save_to = self::path()."css{$ds}templates.css";
-            
-            if( @file_put_contents($save_to, $content, LOCK_EX) === false){
-                $this->message_id = 101;
-                add_filter('redirect_post_location', array($this, 'throw_message'));
-            }
-        }
-        
-        /**
-        * Pulls script.js from templates and combines it into one
-        */
-        private function compile_js($post_id){
-            $ds = DIRECTORY_SEPARATOR;
-            $content = '';
-            
-            $template_folders = self::get_all_templates();
-            
-            foreach($template_folders as $name=>$folder){
-                
-                $js = $folder['path']."{$ds}script.min.js"; //Minified version
-                $js2 = $folder['path']."{$ds}script.js"; //Unminified version, for old templates to work
-                if(file_exists($js)){
-                    $content .= file_get_contents($js)."\r\n";//Pull contents
-                } else if(file_exists($js2)){
-                    $content .= file_get_contents($js2)."\r\n";
-                }
-                
-            }
-            
-            $save_to = self::path()."js{$ds}templates.js";
-            if( @file_put_contents($save_to, $content, LOCK_EX) === false){
-                $this->message_id = 102;
-                add_filter('redirect_post_location', array($this, 'throw_message'));
             }
         }
         
@@ -778,60 +715,7 @@ if(!class_exists('Cyclone_Slider')):
             
             return $templates_used;
         }
-        
-        /**
-        * Get All Locations
-        *
-        * Get templates folders in plugin and theme folders
-        * 
-        * @return array The array of locations containing path and url 
-        */
-        public static function get_all_locations(){
-            $ds = DIRECTORY_SEPARATOR;
-            $template_locations = array();
-            $template_locations[0] = array(
-                'path'=>self::get_templates_folder(), //this resides in the plugin
-                'url'=>self::url().'templates/'
-            );
-            $template_locations[1] = array(
-                'path'=> realpath(get_stylesheet_directory())."{$ds}cycloneslider{$ds}",//this resides in the current theme or child theme
-                'url'=> get_stylesheet_directory_uri()."/cycloneslider/"
-            );
-            return $template_locations;
-        }
-        
-        /**
-        * Get All Templates
-        *
-        * Get all templates from all locations. Returns array of templates with keys as name containing array of path and url
-        * 
-        * @return array The array of templates containing path and url 
-        */
-        public static function get_all_templates(){
-            $template_locations = self::get_all_locations();
-            $template_folders = array();
-            foreach($template_locations as $location){
-                if($files = @scandir($location['path'])){
-                    $c = 0;
-                    foreach($files as $name){
-                        if($name!='.' and $name!='..' and is_dir($location['path'].$name) and @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'slider.php') ){ // Check if its a directory
-                            $ini_array['slide_type'] = array('image');// Default
-                            if(@file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt')){
-                                $ini_array = parse_ini_file($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt'); //Parse ini to get slide types supported
-                            }
-                            $name = sanitize_title($name);// Change space to dash and all lowercase
-                            $template_folders[$name] = array( // Here we override template of the same names. If there is a template with the same name in plugin and theme directory, the one in theme will take over
-                                'path'=>$location['path'].$name,
-                                'url'=>$location['url'].$name,
-                                'supports' => $ini_array['slide_type']
-                            );
-                        }
-                    }
-                }
-            }
-            return $template_folders;
-        }
-        
+
         /**
         * Gets the slideshow settings. Defaults and filters are applied.
         *
