@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create responsive slideshows with ease. Built for both developers and non-developers.
-Version: 2.5.1
+Version: 2.5.2
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -25,7 +25,7 @@ License:
   
 */
 if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.5.1' );
+    define('CYCLONE_VERSION', '2.5.2' );
 }
 if(!defined('CYCLONE_PATH')){
     define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
@@ -34,6 +34,7 @@ if(!defined('CYCLONE_URL')){
     define('CYCLONE_URL', plugin_dir_url(__FILE__) );
 }
 
+require_once(CYCLONE_PATH.'inc/class-cyclone-templates.php');
 require_once(CYCLONE_PATH.'inc/class-cyclone-slider.php');
 require_once(CYCLONE_PATH.'inc/functions.php');
 require_once(CYCLONE_PATH.'inc/class-cyclone-slider-widget.php');

@@ -89,6 +89,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.5.2 - 2013-04-26 = 
+* Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
+* Move template handling logic to its own class to be used by the template asset loader independently
+* Removed upgrade notice
+
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
 * Improved cyclone_settings.
@@ -166,6 +171,11 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.5.2 - 2013-04-26 = 
+* Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
+* Move template handling logic to its own class to be used by the template asset loader independently
+* Removed upgrade notice
 
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
