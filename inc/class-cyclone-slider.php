@@ -132,15 +132,15 @@ if(!class_exists('Cyclone_Slider')):
          * Registers and enqueues frontend-specific scripts.
          */
         public function register_plugin_scripts() {
-            $theme = wp_get_theme();
+            $theme_folder = basename(get_stylesheet_directory());
             
             /*** Styles ***/
-            wp_enqueue_style( 'cyclone-templates-styles', self::url().'template-assets.php?type=css&theme='.$theme->template, array(), CYCLONE_VERSION );
+            wp_enqueue_style( 'cyclone-templates-styles', self::url().'template-assets.php?type=css&theme='.$theme_folder, array(), CYCLONE_VERSION );
             
             /*** Scripts ***/
             wp_enqueue_script( 'cyclone-slider', self::url().'js/cyclone-slider.min.js', array('jquery'), CYCLONE_VERSION ); //Consolidated cycle2 script and plugins
             
-            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'template-assets.php?type=js&theme='.$theme->template, array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
+            wp_enqueue_script( 'cyclone-templates-scripts', self::url().'template-assets.php?type=js&theme='.$theme_folder, array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
 
         }
         
