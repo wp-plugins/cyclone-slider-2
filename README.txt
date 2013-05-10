@@ -89,6 +89,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.5.3 - 2013-05-10 = 
+* Bug fix for child themes where slider is not working
+
 = 2.5.2 - 2013-04-26 = 
 * Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
 * Move template handling logic to its own class to be used by the template asset loader independently
@@ -171,6 +174,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.5.3 - 2013-05-10 = 
+* Bug fix for child themes where slider is not working
 
 = 2.5.2 - 2013-04-26 = 
 * Added template asset loader to get rid of the compiled css and js that are rewritten on the file system on every save
