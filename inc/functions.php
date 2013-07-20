@@ -116,29 +116,27 @@ function cyclone_settings($slider_settings, $slider_id='', $cycle2_settings=arra
  * @return string Data attributes for slide.
  */
 function cyclone_slide_settings($slider_meta, $slider_settings=array(), $slider_id='', $slider_count=1){
-	$out = '';
-	if(empty($slider_meta['enable_slide_effects'])){
-		return $out;
-	}
-	
 	$cycle2_settings = array();
-	if($slider_meta['fx']!='default') {
-		$cycle2_settings['data-cycle-fx'] = $slider_meta['fx'];
-	}
-	if(!empty($slider_meta['speed'])) {
-		$cycle2_settings['data-cycle-speed'] = $slider_meta['speed'];
-	}
-	if(!empty($slider_meta['timeout'])) {
-		$cycle2_settings['data-cycle-timeout'] = $slider_meta['timeout'];
-	}
-	if($slider_meta['fx']=='tileBlind' or $slider_meta['fx']=='tileSlide'){
-		if(!empty($slider_meta['tile_count'])) {
-			$cycle2_settings['data-cycle-tile-count'] = $slider_meta['tile_count'];
+	if(!empty($slider_meta['enable_slide_effects'])){
+		if($slider_meta['fx']!='default') {
+			$cycle2_settings['data-cycle-fx'] = $slider_meta['fx'];
 		}
-		if(!empty($slider_meta['tile_delay'])) {
-			$cycle2_settings['data-cycle-tile-delay'] = $slider_meta['tile_delay'];
+		if(!empty($slider_meta['speed'])) {
+			$cycle2_settings['data-cycle-speed'] = $slider_meta['speed'];
 		}
-		$cycle2_settings['data-cycle-tile-vertical'] = $slider_meta['tile_vertical'];
+		if(!empty($slider_meta['timeout'])) {
+			$cycle2_settings['data-cycle-timeout'] = $slider_meta['timeout'];
+		}
+		if($slider_meta['fx']=='tileBlind' or $slider_meta['fx']=='tileSlide'){
+			if(!empty($slider_meta['tile_count'])) {
+				$cycle2_settings['data-cycle-tile-count'] = $slider_meta['tile_count'];
+			}
+			if(!empty($slider_meta['tile_delay'])) {
+				$cycle2_settings['data-cycle-tile-delay'] = $slider_meta['tile_delay'];
+			}
+			$cycle2_settings['data-cycle-tile-vertical'] = $slider_meta['tile_vertical'];
+		}
+		
 	}
 	$cycle2_settings = apply_filters('cyclone_cycle2_slide_settings_array', $cycle2_settings, $slider_meta, $slider_settings);
 	

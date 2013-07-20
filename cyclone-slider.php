@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create responsive slideshows with ease. Built for both developers and non-developers.
-Version: 2.5.3
+Version: 2.5.4
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -25,7 +25,7 @@ License:
   
 */
 if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.5.3' );
+    define('CYCLONE_VERSION', '2.5.4' );
 }
 if(!defined('CYCLONE_PATH')){
     define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
@@ -34,15 +34,22 @@ if(!defined('CYCLONE_URL')){
     define('CYCLONE_URL', plugin_dir_url(__FILE__) );
 }
 
-require_once(CYCLONE_PATH.'inc/class-cyclone-templates.php');
-require_once(CYCLONE_PATH.'inc/class-cyclone-slider.php');
+require_once(CYCLONE_PATH.'classes/class-cyclone-slider-data.php');
+require_once(CYCLONE_PATH.'classes/class-cyclone-templates.php');
+require_once(CYCLONE_PATH.'classes/class-cyclone-slider-builder.php');
+require_once(CYCLONE_PATH.'classes/class-cyclone-slider.php');
 require_once(CYCLONE_PATH.'inc/functions.php');
-require_once(CYCLONE_PATH.'inc/class-cyclone-slider-widget.php');
-require_once(CYCLONE_PATH.'inc/class-image-resizer.php');
-require_once(CYCLONE_PATH.'inc/class-nextgen-integration.php');
+require_once(CYCLONE_PATH.'classes/class-cyclone-slider-widget.php');
+require_once(CYCLONE_PATH.'classes/class-image-resizer.php');
+require_once(CYCLONE_PATH.'classes/class-nextgen-integration.php');
 
 $cyclone_slider_saved_done = false; //Global variable to limit save_post execution to only once
 
 if(class_exists('Cyclone_Slider')):
+
+    load_plugin_textdomain( 'cycloneslider', false, 'cyclone-slider-2/lang' );
+    
+    $cyclone_slider_data = new Cyclone_Slider_Data();
+    $cyclone_slider_builder = new Cyclone_Slider_Builder();
     $cyclone_slider_plugin_instance = new Cyclone_Slider(); //Store the plugin instance to a global object so that other plugins can use remove_action and remove_filter against cyclones class functions if needed.
 endif;
