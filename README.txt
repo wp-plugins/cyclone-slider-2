@@ -2,7 +2,7 @@
 Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
-Requires at least: 3.3.2
+Requires at least: 3.5
 Tested up to: 3.5.1
 Stable tag: 2.5.3
 License: GPLv2 or later
@@ -89,6 +89,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 == Changelog ==
 
+= 2.5.4 - 2013-07-20 = 
+* Added Youtube template that pauses the video when slider is transitioning. 
+
 = 2.5.3 - 2013-05-10 = 
 * Bug fix for child themes where slider is not working
 
@@ -174,6 +177,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.5.4 - 2013-07-20 = 
+* Added Youtube template that pauses the video when slider is transitioning. 
 
 = 2.5.3 - 2013-05-10 = 
 * Bug fix for child themes where slider is not working

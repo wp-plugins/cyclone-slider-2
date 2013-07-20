@@ -30,7 +30,7 @@
 		</div>
 		<?php
 		if($this->debug){
-			self::debug($slider_meta);
+			Cyclone_Slider_Data::debug($slider_meta);
 		}
 		?>
 		<div class="clear"></div>

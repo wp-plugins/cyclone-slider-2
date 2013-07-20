@@ -40,7 +40,8 @@ function theme_url($theme){
 function compile_css($templates){
     $ds = DIRECTORY_SEPARATOR;
     $content = '';
-    
+    $minify = isset($_GET['minify']) ? (int) $_GET['minify'] : '1';
+     
     if(file_exists(APP_PATH."css{$ds}common.min.css")){
         $content .= file_get_contents(APP_PATH."css{$ds}common.min.css");
     } else {
@@ -52,7 +53,7 @@ function compile_css($templates){
     foreach($template_folders as $name=>$folder){
         $style = $folder['path']."{$ds}style.min.css"; //Minified version
         $style2 = $folder['path']."{$ds}style.css"; //Unminified version, for old templates to work
-        if(file_exists($style)){
+        if(file_exists($style) and $minify != '0'){
             $content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style));//apply url and print css
         } else if(file_exists($style2)){
             $content .= "\r\n".str_replace('$tpl', $folder['url'], file_get_contents($style2));//apply url and print css
@@ -68,6 +69,7 @@ function compile_css($templates){
 function compile_js($templates){
     $ds = DIRECTORY_SEPARATOR;
     $content = '';
+    $minify = isset($_GET['minify']) ? (int) $_GET['minify'] : '1';
     
     $template_folders = $templates->get_all_templates();
     
@@ -75,7 +77,8 @@ function compile_js($templates){
         
         $js = $folder['path']."{$ds}script.min.js"; //Minified version
         $js2 = $folder['path']."{$ds}script.js"; //Unminified version, for old templates to work
-        if(file_exists($js)){
+        
+        if(file_exists($js) and $minify != '0'){
             $content .= file_get_contents($js)."\r\n";//Pull contents
         } else if(file_exists($js2)){
             $content .= file_get_contents($js2)."\r\n";
@@ -93,7 +96,8 @@ function compile_js($templates){
 $theme = isset($_GET['theme']) ? htmlentities(strip_tags($_GET['theme'])) : 'twentytwelve';
 $type = isset($_GET['type']) ? htmlentities(strip_tags($_GET['type'])) : '';
 
-require_once(APP_PATH.'inc'.DIRECTORY_SEPARATOR.'class-cyclone-templates.php');
+
+require_once(APP_PATH.'classes'.DIRECTORY_SEPARATOR.'class-cyclone-templates.php');
 
 $templates = new Cyclone_Templates();
 $templates->add_template_location(
