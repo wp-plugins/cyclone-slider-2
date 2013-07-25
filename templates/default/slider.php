@@ -1,3 +1,5 @@
+<?php if(!defined('CYCLONE_PATH')) die('Direct access denied.'); ?>
+
 <?php if($slider_count>0) $slider_id = $slider_id.'-'.$slider_count; ?>
 <div class="cycloneslider cycloneslider-template-default" id="cycloneslider-<?php echo $slider_id; ?>" style="max-width:<?php echo $slider_settings['width']; ?>px">
 	<div class="cycloneslider-slides cycle-slideshow" <?php echo cyclone_settings($slider_settings, $slider_id); ?>>

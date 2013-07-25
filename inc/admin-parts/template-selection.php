@@ -36,6 +36,7 @@
 		<div class="clear"></div>
 	</div>
 	<span class="note"><?php _e("Select a template to use. Check the template icons to see what slide type it supports.", 'cycloneslider'); ?></span>
+	<br><span class="note">Note: If you are looking for the Black, Blue or Myrtle, checkout this <a href="http://www.codefleet.net/moving-templates-away/">post</a>.</span>
 	<div class="cycloneslider-get-more">
 		<a target="_blank" class="button-primary" href="http://www.codefleet.net/cyclone-slider-2/templates/"><?php _e("Get more templates..", 'cycloneslider'); ?></a>
 	</div>

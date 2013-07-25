@@ -139,6 +139,29 @@ if(!class_exists('Cyclone_Slider_Data')):
          */
         
         /**
+         * Get a slider
+         *
+         * @param string $name Post slug of the slider custom post.
+         * @return array The array of slider
+         */
+        public static function get_slider_by_name( $name ) {
+            // Get slider by id
+            $args = array(
+                'post_type' => 'cycloneslider',
+                'numberposts' => 1,
+                'name'=> $name
+            );
+
+            $slider_posts = get_posts( $args ); // Use get_posts to avoid filters
+
+            if( !empty($slider_posts) and isset($slider_posts[0]) ){
+                return $slider_posts[0];
+            } else {
+                return false;
+            }
+        }
+        
+        /**
         * Get All Slideshows
         *
         * Get all saves slideshow

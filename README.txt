@@ -1,7 +1,7 @@
 === Cyclone Slider 2 ===
 Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
-Tags: slider, slideshow, jquery, cycle 2, responsive, multilingual support, custom post, cyclone slider
+Tags: slider, slideshow, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.5.1
 Stable tag: 2.5.4
@@ -12,13 +12,13 @@ Create responsive slideshows with ease. Built for both developers and non-develo
 
 == Description ==
 
-Cyclone Slider 2 follows the keep it simple mantra. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the slideshow to their needs. Its simple yet flexible.
+Cyclone Slider 2 is an easy to use slider plugin for WordPress. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the slideshow to their needs. Its simple yet flexible.
 
 = Features: =
 * Very easy to use interface! Blends seamlessly with your WordPress workflow.
 * Supports image, video, and custom HTML slides.
 * Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
-* A template system that allows developers to easily customize the slideshows.
+* A template system that allow developers to easily customize the slideshow appearance and behavior.
 * Customizable tile transition effects.
 * Ability to add per-slide transition effects.
 * Unlimited slideshows.
@@ -33,6 +33,13 @@ Cyclone Slider 2 follows the keep it simple mantra. It leverages WordPress' buil
 
 = Homepage =
 Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
+
+= Credits =
+Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
+Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
+
+= License =
+GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
 
 == Installation ==
 
@@ -66,19 +73,19 @@ Most probably its wordpress adding paragpraphs on line breaks next to the slides
 `remove_filter('the_content', 'wpautop');`
 
 = How to display it in post/page? =
-Use the shortcode `[cycloneslider id ="my-slideshow"]`
+Use the shortcode `[cycloneslider id="my-slideshow"]`. Change my-slideshow to the ID of your slideshow.
 
 = How to display it inside template files (header.php, index.php, page.php, etc.)? =
-Use `<?php echo do_shortcode('[cycloneslider id ="my-slideshow"]'); ?>`
+Use `<?php echo do_shortcode('[cycloneslider id ="my-slideshow"]'); ?>`. Change my-slideshow to the ID of your slideshow.
 
 = What are the shortcode options? =
-`[cycloneslider id ="my-slideshow" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
+`[cycloneslider id="my-slideshow" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
 
 = How can I use templates? =
-`[cycloneslider id ="my-slideshow" template="custom-name"]` 
+`[cycloneslider id="my-slideshow" template="custom-name"]` 
 
 = Where do I add my own templates? =
-Inside your theme create a folder named "cycloneslider". Add your templates inside.
+Inside your current active theme create a folder named "cycloneslider". Add your templates inside.
 
 == Screenshots ==
 
@@ -88,6 +95,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 4. Slideshow Widget
 
 == Changelog ==
+
+= 2.5.5 - 2013-07-25 = 
+* Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
@@ -177,6 +187,9 @@ Inside your theme create a folder named "cycloneslider". Add your templates insi
 
 
 == Upgrade Notice ==
+
+= 2.5.5 - 2013-07-25 = 
+* Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
