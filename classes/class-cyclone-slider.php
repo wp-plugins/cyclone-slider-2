@@ -82,70 +82,54 @@ if(!class_exists('Cyclone_Slider')):
     
             $cycle_options = array();
             $this->slider_count++;//make each call to shortcode unique
-            // Get slideshow by id
-            $args = array(
-                'post_type' => 'cycloneslider',
-                'order'=>'ASC',
-                'posts_per_page' => 1,
-                'name'=> $slider_id
-            );
             
-            $args = apply_filters('cycloneslider_wp_query_args', $args);
-            
-            $my_query = new WP_Query($args);
-            
-            if($my_query->have_posts()):
-                while ( $my_query->have_posts() ) : $my_query->the_post();
-                    
-                    $meta = get_post_custom();
-                    $admin_settings = Cyclone_Slider_Data::get_slideshow_settings(get_the_ID());
-                    $slider_metas = Cyclone_Slider_Data::get_slides(get_the_ID());
-                    
-                    $image_count = 0; // Number of image slides
-                    $video_count = 0; // Number of video slides
-                    $custom_count = 0; // Number of custom slides
-                    foreach($slider_metas as $i=>$slider_meta){
-                        $slider_metas[$i]['title'] = __($slider_meta['title']);
-                        $slider_metas[$i]['description'] = __($slider_meta['description']);
-                        if($slider_metas[$i]['type']=='image'){
-                            $image_count++;
-                        } else if($slider_metas[$i]['type']=='video'){
-                            $video_count++;
-                        } else if($slider_metas[$i]['type']=='custom'){
-                            $custom_count++;
-                        }
-                    }
-                    $slides = $this->get_slides_from_meta($slider_metas);
-                    
-                    $template = $this->get_comp_slider_setting($admin_settings['template'], $shortcode_settings['template']);
-                    $template = esc_attr($template===null ? 'default' : $template);//fallback to default
-                    $slider_settings['fx'] = esc_attr($this->get_comp_slider_setting($admin_settings['fx'], $shortcode_settings['fx']));
-                    $slider_settings['speed'] = (int) $this->get_comp_slider_setting($admin_settings['speed'], $shortcode_settings['speed']);
-                    $slider_settings['timeout'] = (int) $this->get_comp_slider_setting($admin_settings['timeout'], $shortcode_settings['timeout']);
-                    $slider_settings['width'] = (int) $this->get_comp_slider_setting($admin_settings['width'], $shortcode_settings['width']);
-                    $slider_settings['height'] = (int) $this->get_comp_slider_setting($admin_settings['height'], $shortcode_settings['height']);
-                    $slider_settings['hover_pause'] = $this->get_comp_slider_setting($admin_settings['hover_pause'], $shortcode_settings['hover_pause']);
-                    $slider_settings['show_prev_next'] = (int) $this->get_comp_slider_setting($admin_settings['show_prev_next'], $shortcode_settings['show_prev_next']);
-                    $slider_settings['show_nav'] = (int) $this->get_comp_slider_setting($admin_settings['show_nav'], $shortcode_settings['show_nav']);
-                    
-                    $slider_settings['tile_count'] = $this->get_comp_slider_setting($admin_settings['tile_count'], $shortcode_settings['tile_count']);
-                    $slider_settings['tile_delay'] = $this->get_comp_slider_setting($admin_settings['tile_delay'], $shortcode_settings['tile_delay']);
-                    $slider_settings['tile_vertical'] = $this->get_comp_slider_setting($admin_settings['tile_vertical'], $shortcode_settings['tile_vertical']);
-                    
-                    $slider_settings['random'] = $this->get_comp_slider_setting($admin_settings['random'], $shortcode_settings['random']);
-                    $slider_settings['resize'] = $this->get_comp_slider_setting($admin_settings['resize'], $shortcode_settings['resize']);
-                    
-                    $slider_settings['template'] = $template;
-                    
-                    if($slider_settings['random']){
-                        shuffle($slider_metas);
-                    }
-                    
-                    $slider = $this->get_slider_template($slider_id, $template, $slides, $slider_metas, $slider_settings, $this->slider_count, $image_count, $video_count, $custom_count);
-                    
-                endwhile;
+            // Get slider
+            if( $slider = Cyclone_Slider_Data::get_slider_by_name( $slider_id ) ):
+
+                $admin_settings = Cyclone_Slider_Data::get_slideshow_settings( $slider->ID );
+                $slides = $slider_metas = Cyclone_Slider_Data::get_slides( $slider->ID );
                 
-                wp_reset_postdata();
+                $image_count = 0; // Number of image slides
+                $video_count = 0; // Number of video slides
+                $custom_count = 0; // Number of custom slides
+                foreach($slider_metas as $i=>$slider_meta){
+                    $slider_metas[$i]['title'] = __($slider_meta['title']);
+                    $slider_metas[$i]['description'] = __($slider_meta['description']);
+                    if($slider_metas[$i]['type']=='image'){
+                        $image_count++;
+                    } else if($slider_metas[$i]['type']=='video'){
+                        $video_count++;
+                    } else if($slider_metas[$i]['type']=='custom'){
+                        $custom_count++;
+                    }
+                }
+                
+                
+                $template = $this->get_comp_slider_setting($admin_settings['template'], $shortcode_settings['template']);
+                $template = esc_attr($template===null ? 'default' : $template);//fallback to default
+                $slider_settings['fx'] = esc_attr($this->get_comp_slider_setting($admin_settings['fx'], $shortcode_settings['fx']));
+                $slider_settings['speed'] = (int) $this->get_comp_slider_setting($admin_settings['speed'], $shortcode_settings['speed']);
+                $slider_settings['timeout'] = (int) $this->get_comp_slider_setting($admin_settings['timeout'], $shortcode_settings['timeout']);
+                $slider_settings['width'] = (int) $this->get_comp_slider_setting($admin_settings['width'], $shortcode_settings['width']);
+                $slider_settings['height'] = (int) $this->get_comp_slider_setting($admin_settings['height'], $shortcode_settings['height']);
+                $slider_settings['hover_pause'] = $this->get_comp_slider_setting($admin_settings['hover_pause'], $shortcode_settings['hover_pause']);
+                $slider_settings['show_prev_next'] = (int) $this->get_comp_slider_setting($admin_settings['show_prev_next'], $shortcode_settings['show_prev_next']);
+                $slider_settings['show_nav'] = (int) $this->get_comp_slider_setting($admin_settings['show_nav'], $shortcode_settings['show_nav']);
+                
+                $slider_settings['tile_count'] = $this->get_comp_slider_setting($admin_settings['tile_count'], $shortcode_settings['tile_count']);
+                $slider_settings['tile_delay'] = $this->get_comp_slider_setting($admin_settings['tile_delay'], $shortcode_settings['tile_delay']);
+                $slider_settings['tile_vertical'] = $this->get_comp_slider_setting($admin_settings['tile_vertical'], $shortcode_settings['tile_vertical']);
+                
+                $slider_settings['random'] = $this->get_comp_slider_setting($admin_settings['random'], $shortcode_settings['random']);
+                $slider_settings['resize'] = $this->get_comp_slider_setting($admin_settings['resize'], $shortcode_settings['resize']);
+                
+                $slider_settings['template'] = $template;
+                
+                if($slider_settings['random']){
+                    shuffle($slider_metas);
+                }
+                
+                $slider = $this->get_slider_template($slider_id, $template, $slides, $slider_metas, $slider_settings, $this->slider_count, $image_count, $video_count, $custom_count);
     
             else:
                 $slider = sprintf(__('[Slideshow "%s" not found]', 'cycloneslider'), $slider_id);
@@ -156,7 +140,8 @@ if(!class_exists('Cyclone_Slider')):
         
         // Get slideshow template
         public function get_slider_template($slider_id, $template_name, $slides, $slider_metas, $slider_settings, $slider_count, $image_count, $video_count, $custom_count){
-    
+            $slider_html_id = 'cycloneslider-'.$slider_id.'-'.$slider_count; // The unique HTML ID for slider
+            
             $template = get_stylesheet_directory()."/cycloneslider/{$template_name}/slider.php";
             if(@is_file($template)){
                 ob_start();
@@ -176,7 +161,10 @@ if(!class_exists('Cyclone_Slider')):
             return sprintf(__('[Template "%s" not found]', 'cycloneslider'), $template_name);
         }
         
-        public function trim_white_spaces($buffer){
+        public function trim_white_spaces($buffer, $off=false){
+            if($off){
+                return $buffer;
+            }
             $search = array(
                 '/\>[^\S ]+/s', //strip whitespaces after tags, except space
                 '/[^\S ]+\</s', //strip whitespaces before tags, except space
