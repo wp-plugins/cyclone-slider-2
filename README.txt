@@ -98,6 +98,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
+* Used get_posts instead of WP_Query when getting a slideshow to avoid filters that might cause conflict.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
@@ -190,6 +191,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
+* Used get_posts instead of WP_Query when getting a slideshow to avoid filters that might cause conflict.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
