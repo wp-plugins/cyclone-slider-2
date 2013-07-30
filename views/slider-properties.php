@@ -1,8 +1,9 @@
-<?php if(!defined('CYCLONE_PATH')) die('Direct access denied.'); ?>
+<?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
+
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_fx"><?php _e('Transition Effects to Use:', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_fx" name="cycloneslider_settings[fx]">
-	<?php foreach($this->effects as $key=>$fx): ?>
+	<?php foreach($effects as $key=>$fx): ?>
 	<option <?php echo (isset($slider_settings['fx']) && $key==$slider_settings['fx']) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr($key); ?>"><?php echo esc_attr($fx); ?></option>
 	<?php endforeach; ?>
 	</select>
@@ -21,7 +22,6 @@
 	</select>
 	<div class="clear"></div>
 </div>
-
 <div class="cycloneslider-field">
 	<label for="cycloneslider_settings_timeout"><?php _e('Next Slide Delay:', 'cycloneslider'); ?> </label>
 	<input id="cycloneslider_settings_timeout" type="number" name="cycloneslider_settings[timeout]" value="<?php echo esc_attr($slider_settings['timeout']); ?>" />
@@ -89,3 +89,4 @@
 	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
+<?php echo $debug ?>

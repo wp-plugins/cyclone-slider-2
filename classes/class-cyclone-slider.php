@@ -3,7 +3,6 @@ if(!class_exists('Cyclone_Slider')):
 
     class Cyclone_Slider {
         public $slider_count;
-        public $debug;
         private $message_id;
         public $templates;
         
@@ -13,7 +12,6 @@ if(!class_exists('Cyclone_Slider')):
         public function __construct() {
             // Set defaults
             $this->slider_count = 0;
-            $this->debug = false;
             
             // Register frontend styles and scripts
             add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ), 100 );
