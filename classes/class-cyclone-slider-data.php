@@ -6,18 +6,13 @@ if(!class_exists('Cyclone_Slider_Data')):
      */
     class Cyclone_Slider_Data {
         
-        private $nonce_name;
-        private $nonce_action;
+        public static $nonce_name = 'cyclone_slider_builder_nonce';//Must match with the one in class-cyclone-slider-admin.php
+        public static $nonce_action = 'cyclone-slider-save';//Must match with the one in class-cyclone-slider-admin.php
         
         /**
          * Initializes the class
          */
         public function __construct(){
-            
-            // Intialize properties
-            $this->nonce_name = 'cyclone_slider_builder_nonce'; //Must match with the one in class-cyclone-slider-builder.php
-            $this->nonce_action = 'cyclone-slider-save'; //Must match with the one in class-cyclone-slider-builder.php
-            
             // Save slides
             add_action( 'save_post', array( $this, 'save_post' ) );
         }
@@ -34,9 +29,9 @@ if(!class_exists('Cyclone_Slider_Data')):
             }
             
             // Verify nonce
-            $nonce_name = $this->nonce_name;
+            $nonce_name = self::$nonce_name;
             if (!empty($_POST[$nonce_name])) {
-                if (!wp_verify_nonce($_POST[$nonce_name], $this->nonce_action)) {
+                if (!wp_verify_nonce($_POST[$nonce_name], self::$nonce_action)) {
                     return $post_id;
                 }
             } else {
@@ -367,6 +362,11 @@ if(!class_exists('Cyclone_Slider_Data')):
         */
         public static function debug($out){
             echo '<pre>'.print_r($out, true).'</pre>';
+        }
+        
+        // Return it
+        public static function debug_r($out){
+            return '<pre>'.print_r($out, true).'</pre>';
         }
     }
     

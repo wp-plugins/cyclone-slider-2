@@ -1,4 +1,5 @@
-<?php if(!defined('CYCLONE_PATH')) die('Direct access denied.'); ?>
+<?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
+
 <div class="cycloneslider-field last">
 	<div class="template-scroller">
 		<ul class="template-choices">
@@ -11,7 +12,7 @@
 						<?php
 					} else {
 						?>
-						<img src="<?php echo self::url();?>images/screenshot.png" alt="" />
+						<img src="<?php echo CYCLONE_URL;?>images/screenshot.png" alt="" />
 						<?php
 					}
 					?>
@@ -36,9 +37,10 @@
 		<div class="clear"></div>
 	</div>
 	<span class="note"><?php _e("Select a template to use. Check the template icons to see what slide type it supports.", 'cycloneslider'); ?></span>
-	<br><span class="note">Note: If you are looking for the Black, Blue or Myrtle, checkout this <a href="http://www.codefleet.net/moving-templates-away/">post</a>.</span>
+	<br><span class="note"><?php printf( __('Note: If you are looking for the Black, Blue or Myrtle, checkout this <a href="%s">post</a>.', 'cycloneslider') , 'http://www.codefleet.net/moving-templates-away/'); ?></span>
 	<div class="cycloneslider-get-more">
 		<a target="_blank" class="button-primary" href="http://www.codefleet.net/cyclone-slider-2/templates/"><?php _e("Get more templates..", 'cycloneslider'); ?></a>
 	</div>
 	<div class="clear"></div>
 </div>
+<?php echo $debug ?>

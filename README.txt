@@ -3,8 +3,8 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.5.1
-Stable tag: 2.5.4
+Tested up to: 3.5.2
+Stable tag: 2.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 4. Slideshow Widget
 
 == Changelog ==
+
+= 2.5.6 - 2013-07-30 = 
+* Fix broken nextgen importer from last update.
+* Refactor code for better template management in admin.
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
@@ -188,6 +192,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.5.6 - 2013-07-30 = 
+* Fix broken nextgen importer from last update.
+* Refactor code for better template management in admin.
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
