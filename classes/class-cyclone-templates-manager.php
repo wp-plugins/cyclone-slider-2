@@ -1,6 +1,11 @@
 <?php
-if(!class_exists('Cyclone_Templates')):
-    class Cyclone_Templates {
+if(!class_exists('Cyclone_Templates_Manager')):
+    
+    /**
+    * In charge in getting templates from various template locations.
+    */
+    class Cyclone_Templates_Manager {
+        
         public $template_locations;
         
         /**
@@ -10,10 +15,18 @@ if(!class_exists('Cyclone_Templates')):
             $this->template_locations = array();
         }
         
-        public function add_template_location($location){
+        /**
+         * Add a directory to read templates from
+         *
+         * @param string $location - The full path to a directory
+         */
+        public function add_template_location( $location ){
             $this->template_locations[] = $location;
         }
         
+        /**
+         * Get all templates in array format
+         */
         public function get_all_templates(){
             if(is_array($this->template_locations) and !empty($this->template_locations)){
                 $template_folders = array();

@@ -1,4 +1,36 @@
 /*** Template Default ***/
+/*** Common ***/
+.cycloneslider-template-default{
+    position:relative;
+}
+.cycloneslider-template-default .cycloneslider-slides{
+    position:relative;
+    overflow:hidden;
+}
+.cycloneslider-template-default .cycloneslider-slide{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:100;
+}
+.cycloneslider-template-default .cycloneslider-slide img{
+    border:0;
+    padding:0;
+    margin:0;
+    max-width:100%;
+}
+.cycloneslider-template-default .cycloneslider-prev,
+.cycloneslider-template-default .cycloneslider-next,
+.cycloneslider-template-default .cycloneslider-pager{
+    cursor:pointer;
+}
+.cycloneslider-template-default .cycloneslider-slide:first-child{
+    z-index:101;
+}
+
+/*** Custom ***/
 .cycloneslider-template-default img{
     display:block;
 }
@@ -12,7 +44,7 @@
     width:26px;
     height:44px;
     text-indent:-99999px;
-    background: url($tpl/images/sprite-arrows.png) no-repeat;
+    background: url(images/sprite-arrows.png) no-repeat;
 }
 .cycloneslider-template-default .cycloneslider-prev{
     left:10px;
@@ -29,7 +61,7 @@
     right:20px;
 }
 .cycloneslider-template-default .cycloneslider-pager span {
-    background: url($tpl/images/sprite-nav.png) no-repeat scroll 0 0 transparent;
+    background: url(images/sprite-nav.png) no-repeat scroll 0 0 transparent;
     display: block;
     float: left;
     font-size: 0;
@@ -48,7 +80,7 @@
     bottom:0;
     width:100%;
     z-index:99;
-    background: url($tpl/images/bg-caption.png);
+    background: url(images/bg-caption.png);
     color:#fff;
 }
 .cycloneslider-template-default .cycloneslider-caption-title{

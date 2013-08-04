@@ -166,7 +166,7 @@ if(!class_exists('Nextgen_Integration')):
 					
 					foreach($nextgen_gallery as $image){
 						if($attach_id = $this->copy_image($image->imagePath)){ //Copy success!
-							$slides[] = wp_parse_args(array('id' => $attach_id), Cyclone_Slider::get_slide_defaults() ); //Add the slide ID and fill in default values
+							$slides[] = wp_parse_args(array('id' => $attach_id), Cyclone_Slider_Data::get_slide_defaults() ); //Add the slide ID and fill in default values
 						}
 					}
 				}

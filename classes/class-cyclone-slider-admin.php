@@ -1,28 +1,26 @@
 <?php
-if(!class_exists('Cyclone_Slider_Builder')):
-
-    class Cyclone_Slider_Builder {
-        private $nonce_name;
-        private $nonce_action;
+if(!class_exists('Cyclone_Slider_Admin')):
+    
+    /**
+    * Class for displaying cyclone admin screen
+    */
+    class Cyclone_Slider_Admin {
         
+        private $view; // Holds the instance of Cyclone_Slider_View
         public $slider_count;
-        public $effects;
-        public $debug;
         private $message_id;
-        public $templates;
+        public $templates_manager;
         
         /**
          * Initializes the plugin by setting localization, filters, and administration functions.
          */
-        public function __construct() {
-            // Intialize properties
-            $this->nonce_name = 'cyclone_slider_builder_nonce'; //Must match with the one in class-cyclone-slider-builder.php
-            $this->nonce_action = 'cyclone-slider-save'; //Must match with the one in class-cyclone-slider-builder.php
+        public function __construct( $view, $templates_manager ) {
+            
+            $this->view = $view;
+            $this->templates_manager = $templates_manager;
             
             // Set defaults
             $this->slider_count = 0;
-            $this->effects = Cyclone_Slider_Data::get_slide_effects();
-            $this->debug = false;
 
             // Register admin styles and scripts
             add_action( 'admin_enqueue_scripts', array( $this, 'register_wp_media' ), 9);
@@ -33,6 +31,9 @@ if(!class_exists('Cyclone_Slider_Builder')):
             
             // Update the messages for our custom post make it appropriate for slideshow
             add_filter('post_updated_messages', array( $this, 'post_updated_messages' ) );
+            
+            // Remove metaboxes
+            add_action( 'admin_menu', array( $this, 'remove_meta_boxes' ) );
             
             // Add slider metaboxes
             add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
@@ -50,20 +51,23 @@ if(!class_exists('Cyclone_Slider_Builder')):
             // Add hook for admin footer
             add_action('admin_footer', array( $this, 'admin_footer') );
             
+            // Add body css for custom styling when on our page
+            add_filter('admin_body_class', array( $this, 'body_class' ) );
+
+        
             // Add hook for ajax operations if logged in
             add_action( 'wp_ajax_cycloneslider_get_video', array( $this, 'cycloneslider_get_video' ) );
             
           
             $version = get_option('cycloneslider_version');
             
-            $this->templates = new Cyclone_Templates();
-            $this->templates->add_template_location(
+            $this->templates_manager->add_template_location(
                 array(
                     'path'=>Cyclone_Slider_Data::get_templates_folder(), //this resides in the plugin
                     'url'=>CYCLONE_URL.'templates/'
                 )
             );
-            $this->templates->add_template_location(
+            $this->templates_manager->add_template_location(
                 array(
                     'path'=> realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,//this resides in the current theme or child theme
                     'url'=> get_stylesheet_directory_uri()."/cycloneslider/"
@@ -72,6 +76,15 @@ if(!class_exists('Cyclone_Slider_Builder')):
             
         } // end constructor
         
+        /**
+         * Add js and css for WP media manager.
+         */ 
+        function body_class( $classes ) {
+            if('cycloneslider' == get_post_type()){
+                $classes .= 'cycloneslider';
+            }
+            return $classes;
+        }
         
         /**
          * Add js and css for WP media manager.
@@ -162,12 +175,12 @@ if(!class_exists('Cyclone_Slider_Builder')):
             global $post, $post_ID;
             $messages['cycloneslider'] = array(
                 0  => '',
-                1  => sprintf( __( 'Slideshow updated. Shortcode is [cycloneslider id="%s"]', 'cycloneslider' ), $post->post_name),
+                1  => __( 'Slideshow updated.', 'cycloneslider' ),
                 2  => __( 'Custom field updated.', 'cycloneslider' ),
                 3  => __( 'Custom field deleted.', 'cycloneslider' ),
                 4  => __( 'Slideshow updated.', 'cycloneslider' ),
                 5  => __( 'Slideshow updated.', 'cycloneslider' ),
-                6  => sprintf( __( 'Slideshow published. Shortcode is [cycloneslider id="%s"]', 'cycloneslider' ), $post->post_name),
+                6  => __( 'Slideshow published.', 'cycloneslider' ),
                 7  => __( 'Slideshow saved.', 'cycloneslider' ),
                 8  => __( 'Slideshow updated.', 'cycloneslider' ),
                 9  => __( 'Slideshow updated.', 'cycloneslider' ),
@@ -190,11 +203,21 @@ if(!class_exists('Cyclone_Slider_Builder')):
         }
         
         /**
+         * Remove Meta Boxes
+         *
+         * Remove built-in metaboxes from our custom post type
+         */
+        public function remove_meta_boxes(){
+            remove_meta_box('slugdiv', 'cycloneslider', 'normal');
+        }
+        
+        /**
          * Add Meta Boxes
          *
          * Add custom metaboxes to our custom post type
          */
         public function add_meta_boxes(){
+            
             add_meta_box(
                 'cyclone-slides-metabox',
                 __('Slides', 'cycloneslider'),
@@ -202,6 +225,14 @@ if(!class_exists('Cyclone_Slider_Builder')):
                 'cycloneslider' ,
                 'normal',
                 'high'
+            );
+            add_meta_box(
+                'cyclone-slider-codes',
+                __('Get Slider Codes', 'cycloneslider'),
+                array( $this, 'render_slider_codes' ),
+                'cycloneslider' ,
+                'side',
+                'low'
             );
             add_meta_box(
                 'cyclone-slider-properties-metabox',
@@ -219,53 +250,103 @@ if(!class_exists('Cyclone_Slider_Builder')):
                 'normal',
                 'low'
             );
+            add_meta_box(
+                'cyclone-slider-id',
+                __('Slideshow ID', 'cycloneslider'),
+                array( $this, 'render_slider_id' ),
+                'cycloneslider' ,
+                'normal',
+                'low'
+            );
         }
+        
+        
         
         /**
          * Metabox for slides
          */
         public function render_slides_meta_box($post){
             
-            // Use nonce for verification
-            echo '<input type="hidden" name="'.$this->nonce_name.'" value="', wp_create_nonce( $this->nonce_action ), '" />';
+            $slides_html = '';
             
             $slider_settings = Cyclone_Slider_Data::get_slideshow_settings($post->ID);
-            $slider_metas = Cyclone_Slider_Data::get_slides($post->ID);
+            $slides = Cyclone_Slider_Data::get_slides($post->ID);
 
-            ?>
-            <div class="cs-sortables" data-post-id="<?php echo $post->ID; ?>">
-                <?php
-                if(is_array($slider_metas) and count($slider_metas)>0):
+            if(is_array($slides) and count($slides)>0):
                 
-                    foreach($slider_metas as $i=>$slider_meta):
+                $this->view->set_view_file( CYCLONE_PATH . 'views/slide-edit.php' );
+                
+                foreach($slides as $i=>$slide):
+                
+                    $image_url = $this->get_slide_img_thumb($slide['id']);
+                    $image_url = apply_filters('cycloneslider_preview_url', $image_url, $slide);
+                    $box_title = apply_filters('cycloneslider_box_title', __('Slide', 'cycloneslider'), $slide).' '.($i+1);
                     
-                        $image_url = $this->get_slide_img_thumb($slider_meta['id']);
-                        $image_url = apply_filters('cycloneslider_preview_url', $image_url, $slider_meta);
-                        $box_title = apply_filters('cycloneslider_box_title', __('Slide', 'cycloneslider'), $slider_meta).' '.($i+1);
-                        
-                        include(Cyclone_Slider_Data::get_admin_parts_folder().'box.php');
-                    endforeach;
+                    $vars = array();
+                    $vars['i'] = $i;
+                    $vars['slider_settings'] = $slider_settings;
+                    $vars['slide'] = $slide;
+                    $vars['image_url'] = $image_url;
+                    $vars['box_title'] = $box_title;
+                    $vars['debug'] = (CYCLONE_DEBUG) ? Cyclone_Slider_Data::debug_r($slide) : '';
+                    $vars['effects'] = Cyclone_Slider_Data::get_slide_effects();
                     
-                endif;
-                ?>
-            </div><!-- end .cycloneslider-sortable -->
+                    $this->view->set_vars( $vars );
             
-            <input type="button" value="<?php _e('Add Slide', 'cycloneslider'); ?>" class="cs-add-slide button-secondary" />
-            <?php
+                    $slides_html .= $this->view->get_render();
+                    
+                endforeach;
+            endif;
+            
+            $this->view->set_view_file( CYCLONE_PATH . 'views/slides.php' );
+            
+            $vars = array();
+            $vars['slides'] = $slides_html;
+            $vars['post_id'] = $post->ID;
+            $vars['nonce_name'] = Cyclone_Slider_Data::$nonce_name;
+            $vars['nonce'] = wp_create_nonce( Cyclone_Slider_Data::$nonce_action );
+            
+            $this->view->set_vars( $vars );
+            $this->view->render();
+        }
+        
+        /**
+         * Metabox for slider codes
+         */
+        public function render_slider_codes( $post ){
+            
+            $this->view->set_view_file( CYCLONE_PATH . 'views/slider-codes.php' );
+            
+            $vars = array();
+            $vars['post'] = $post;
+            if(empty($post->post_name)){
+                $vars['shortcode'] = '';
+                $vars['template_code'] = '';
+            } else {
+                $vars['shortcode'] = '[cycloneslider id="'.$post->post_name.'"]';
+                $vars['template_code'] = '<?php echo do_shortcode( \'[cycloneslider id="'.$post->post_name.'"]\' ); ?>';
+            }
+            $this->view->set_vars( $vars );
+            $this->view->render();
+
         }
         
         /**
          * Metabox for slide properties
          */
         public function render_slider_properties_meta_box($post){
-
             $slider_settings = Cyclone_Slider_Data::get_slideshow_settings($post->ID);
             
-            if($this->debug){
-                Cyclone_Slider_Data::debug($slider_settings);
-            }
-    
-            include(Cyclone_Slider_Data::get_admin_parts_folder() . 'slider-properties.php');
+            $this->view->set_view_file( CYCLONE_PATH . 'views/slider-properties.php' );
+            
+            $vars = array();
+            $vars['slider_settings'] = $slider_settings;
+            $vars['effects'] = Cyclone_Slider_Data::get_slide_effects();
+            $vars['debug'] = (CYCLONE_DEBUG) ? Cyclone_Slider_Data::debug_r($slider_settings) : '';
+            
+            $this->view->set_vars( $vars );
+            $this->view->render();
+
         }
         
         /**
@@ -274,16 +355,67 @@ if(!class_exists('Cyclone_Slider_Builder')):
         public function render_slider_templates_meta_box($post){
 
             $slider_settings = Cyclone_Slider_Data::get_slideshow_settings($post->ID);
-    
-            $templates = $this->templates->get_all_templates();
-            if($this->debug){
-                Cyclone_Slider_Data::debug($templates);
-            }
-            include(Cyclone_Slider_Data::get_admin_parts_folder() . 'template-selection.php');
+            $templates = $this->templates_manager->get_all_templates();
+            
+            $this->view->set_view_file( CYCLONE_PATH . 'views/template-selection.php' );
+            
+            $vars = array();
+            $vars['slider_settings'] = $slider_settings;
+            $vars['templates'] = $templates;
+            $vars['debug'] = (CYCLONE_DEBUG) ? Cyclone_Slider_Data::debug_r($templates) : '';
+            
+            $this->view->set_vars( $vars );
+            $this->view->render();
         }
         
+        /**
+         * Metabox for slider ID
+         */
+        public function render_slider_id( $post ){
+            
+            $this->view->set_view_file( CYCLONE_PATH . 'views/slider-id.php' );
+            
+            $vars = array();
+            $vars['post_name'] = $post->post_name;
+
+            $this->view->set_vars( $vars );
+            $this->view->render();
+
+        }
         
-        
+        /**
+         * Hook to admin footer
+         */
+        public function admin_footer() {
+            // JS skeleton for adding a slide
+            if(get_post_type()=='cycloneslider'){
+                // Empty Slide
+                $this->view->set_view_file( CYCLONE_PATH . 'views/slide-edit.php' );
+                
+                $vars = array();
+                $vars['box_title'] = __('Slide *', 'cycloneslider');
+                $vars['image_url'] = '';
+                $vars['i'] = '{id}';
+                $vars['slide'] = Cyclone_Slider_Data::get_slide_defaults();
+                foreach($vars['slide'] as $key=>$value){
+                    $vars['slide'][$key] = '';
+                }
+                $vars['slide']['type'] = 'image';
+                $vars['effects'] = Cyclone_Slider_Data::get_slide_effects();
+                $vars['debug'] = (CYCLONE_DEBUG) ? Cyclone_Slider_Data::debug_r($vars['slide']) : '';
+                $this->view->set_vars( $vars );
+                $empty_slide = $this->view->get_render();
+                
+                // Main skeleton container
+                $this->view->set_view_file( CYCLONE_PATH . 'views/slides-skeleton.php' );
+                
+                $vars = array();
+                $vars['empty_slide'] = $empty_slide;
+               
+                $this->view->set_vars( $vars );
+                $this->view->render();
+            }
+        }
        
         
         /**
@@ -327,7 +459,7 @@ if(!class_exists('Cyclone_Slider_Builder')):
             $columns = array();
             $columns['title']= __('Slideshow Name', 'cycloneslider');
             $columns['template']= __('Template', 'cycloneslider');
-            $columns['images']= __('Images', 'cycloneslider');
+            $columns['images']= __('No. of Slides', 'cycloneslider');
             $columns['id']= __('Slideshow ID', 'cycloneslider');
             $columns['shortcode']= __('Shortcode', 'cycloneslider');
             return $columns;
@@ -352,31 +484,7 @@ if(!class_exists('Cyclone_Slider_Builder')):
             }  
         }
         
-        // Hook to admin footer
-        public function admin_footer() {
-            $this->slide_box_for_js();
-        }
         
-        // For js adding of box
-        public function slide_box_for_js(){
-            if(get_post_type()=='cycloneslider'){
-                $box_title = __('Slide *', 'cycloneslider');
-                $image_url = '';
-                $i = '{id}';
-                $slider_meta = Cyclone_Slider_Data::get_slide_defaults();
-                foreach($slider_meta as $key=>$value){
-                    $slider_meta[$key] = '';
-                }
-                $slider_meta['type'] = 'image';
-            ?>
-                <div class="cs-slide-skeleton">
-                    <?php
-                    include(Cyclone_Slider_Data::get_admin_parts_folder().'box.php');
-                    ?>
-                </div><!-- end .cycloneslider-box-template -->
-            <?php
-            }
-        }
         
         // Compare the value from admin and shortcode. If shortcode value is present and not empty, use it, otherwise return admin value
         public function get_comp_slider_setting($admin_val, $shortcode_val){
@@ -399,13 +507,6 @@ if(!class_exists('Cyclone_Slider_Builder')):
             }
             return $slides;
         }
-        
-        
-        
-        
-        
-        
-        
         
         
         /**

@@ -3,8 +3,8 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.5.1
-Stable tag: 2.5.4
+Tested up to: 3.5.2
+Stable tag: 2.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ Cyclone Slider 2 is an easy to use slider plugin for WordPress. It leverages Wor
 * Supports random slide order.
 * Shortcode for displaying slideshows anywhere in your site.
 * Ability to import images from NextGEN (NextGEN must be installed and active).
+* Translation ready.
 * Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active).
 * Allows title and alt to be specified for each slide images.
 * Comes with a widget to display your slideshow easily in widget areas.
@@ -35,8 +36,9 @@ Cyclone Slider 2 is an easy to use slider plugin for WordPress. It leverages Wor
 Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
 
 = Credits =
-Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
-Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
+* Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
+* Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
+* Aubin BERTHE for the French translation.
 
 = License =
 GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
@@ -68,6 +70,8 @@ GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
 Check for javascript errors in your page. This is the most common cause of the slider not running.
 `cycle not a function` error - most probably you have double jquery (jquery.js) included from improperly coded plugins. Remove the duplicate jquery or deactivate the plugin causing the double jquery include.
 
+Also check if you are using cycle1 by viewing your page source. cycle2 wont work if both are present.
+
 = Why is there is an extra slide that I didn't add? = 
 Most probably its wordpress adding paragpraphs on line breaks next to the slides therefore adding a blank `<p>` slide. You can try adding this to functions.php:
 `remove_filter('the_content', 'wpautop');`
@@ -95,6 +99,18 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 4. Slideshow Widget
 
 == Changelog ==
+
+= 2.6.0 - 2013-08-04 = 
+* Warning: Old templates will break in this version! You can either use the new templates or migrate the older templates. [Check this post](http://www.codefleet.net/pre-2-6-0-templates-migration/).
+* Load scripts and styles normally as separate requests for better compatibility with other plugins and server setup. Removed template-assets.php which consolidates assets into a single request.
+* Added cyclone slider settings page.
+* Language files now loaded when using WPML.
+* Added Get Codes metabox to easily grab the slider codes.
+* Added Slideshow ID metabox to easily change the slideshow ID.
+
+= 2.5.6 - 2013-07-30 = 
+* Fix broken nextgen importer from last update.
+* Refactor code for better template management in admin.
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
@@ -188,6 +204,18 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.6.0 - 2013-08-04 = 
+* Warning: Old templates will break in this version! You can either use the new templates or migrate the older templates. [Check this post](http://www.codefleet.net/pre-2-6-0-templates-migration/).
+* Load scripts and styles normally as separate requests for better compatibility with other plugins and server setup. Removed template-assets.php which consolidates assets into a single request.
+* Added cyclone slider settings page.
+* Language files now loaded when using WPML.
+* Added Get Codes metabox to easily grab the slider codes.
+* Added Slideshow ID metabox to easily change the slideshow ID.
+
+= 2.5.6 - 2013-07-30 = 
+* Fix broken nextgen importer from last update.
+* Refactor code for better template management in admin.
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
