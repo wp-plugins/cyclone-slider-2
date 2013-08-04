@@ -1,10 +1,10 @@
 <?php
-if(!class_exists('Cyclone_Slider_View')):
+if(!class_exists('Codefleet_View')):
 	
 	/**
-	* Class for fetching view files via include
+	* Class for conveniently fetching template files and attaching template variables
 	*/
-	class Cyclone_Slider_View {
+	class Codefleet_View {
         
 		protected $view_file;
 		protected $vars = array();

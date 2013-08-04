@@ -247,7 +247,7 @@ if(!class_exists('Cyclone_Slider_Data')):
                 'timeout' => '4000',
                 'speed' => '1000',
                 'width' => '960',
-                'height' => '300',
+                'height' => '600',
                 'hover_pause' => 'true',
                 'show_prev_next' => '1',
                 'show_nav' => '1',

@@ -5,23 +5,40 @@ if(!class_exists('Cyclone_Slider')):
         public $slider_count;
         private $message_id;
         public $templates;
+        private $templates_manager; // Holds template manager object
+        private $cyclone_settings; // Holds cyclone settings array
         
         /**
          * Initializes the plugin by setting localization, filters, and administration functions.
          */
-        public function __construct() {
+        public function __construct( $templates_manager, $cyclone_settings ) {
+            
+             // Inject dependencies
+            $this->templates_manager = $templates_manager;
+            
             // Set defaults
             $this->slider_count = 0;
+            $this->cyclone_settings = $cyclone_settings;
             
             // Register frontend styles and scripts
             add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ), 100 );
             
-            
             // Our shortcode
             add_shortcode('cycloneslider', array( $this, 'cycloneslider_shortcode') );
             
-          
-            
+            // Add directories to get templates
+            $this->templates_manager->add_template_location(
+                array(
+                    'path'=>Cyclone_Slider_Data::get_templates_folder(), //this resides in the plugin
+                    'url'=>CYCLONE_URL.'templates/'
+                )
+            );
+            $this->templates_manager->add_template_location(
+                array(
+                    'path'=> realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,//this resides in the current theme or child theme
+                    'url'=> get_stylesheet_directory_uri()."/cycloneslider/"
+                )
+            );
         } // end constructor
         
         
@@ -31,16 +48,71 @@ if(!class_exists('Cyclone_Slider')):
         public function register_plugin_scripts() {
             $theme_folder = basename(get_stylesheet_directory());
             
+            $in_footer = true;
+            if($this->cyclone_settings['load_scripts_in'] == 'header'){
+                $in_footer = false;
+            }
+            
             /*** Styles ***/
-            wp_enqueue_style( 'cyclone-templates-styles', CYCLONE_URL.'template-assets.php?type=css&theme='.$theme_folder, array(), CYCLONE_VERSION );
-            
-            /*** Scripts ***/
-            wp_enqueue_script( 'cyclone-slider', CYCLONE_URL.'js/cyclone-slider.min.js', array('jquery'), CYCLONE_VERSION ); //Consolidated cycle2 script and plugins
-            
-            wp_enqueue_script( 'cyclone-templates-scripts', CYCLONE_URL.'template-assets.php?type=js&theme='.$theme_folder, array('jquery'), CYCLONE_VERSION );//Contains our combined css from ALL templates
+            $this->enqueue_templates_css(); // Templates styles
 
+            /*** Core Cycle2 Scripts ***/
+            if($this->cyclone_settings['load_cycle2'] == 1){
+                wp_enqueue_script( 'jquery-cycle2', CYCLONE_URL.'js/jquery.cycle2.min.js', array('jquery'), CYCLONE_VERSION, $in_footer );
+            }
+            if($this->cyclone_settings['load_cycle2_carousel'] == 1){
+                wp_enqueue_script( 'jquery-cycle2-carousel', CYCLONE_URL.'js/jquery.cycle2.carousel.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
+            }
+            if($this->cyclone_settings['load_cycle2_tile'] == 1){
+                wp_enqueue_script( 'jquery-cycle2-tile', CYCLONE_URL.'js/jquery.cycle2.tile.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
+            }
+            if($this->cyclone_settings['load_cycle2_video'] == 1){
+                wp_enqueue_script( 'jquery-cycle2-video', CYCLONE_URL.'js/jquery.cycle2.video.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
+            }
+            
+            $this->enqueue_templates_scripts(); // Templates scripts
         }
         
+        /**
+         * Enqueues templates styles.
+         */
+        private function enqueue_templates_css(){
+            $ds = DIRECTORY_SEPARATOR;
+             
+            $template_folders = $this->templates_manager->get_all_templates();
+
+            foreach($template_folders as $name=>$folder){
+                
+                $file = $folder['path']."/style.css"; // Path to file
+                
+                if( file_exists( $file ) ){ // Check existence
+                    wp_enqueue_style( 'cyclone-template-style-'.sanitize_title($name), $folder['url'].'/style.css', array(), CYCLONE_VERSION );
+                }
+            }
+        }
+        
+        /**
+         * Enqueues templates scripts.
+         */
+        private function enqueue_templates_scripts(){
+            $ds = DIRECTORY_SEPARATOR;
+
+            $in_footer = true;
+            if($this->cyclone_settings['load_scripts_in'] == 'header'){
+                $in_footer = false;
+            }
+            
+            $template_folders = $this->templates_manager->get_all_templates();
+
+            foreach($template_folders as $name=>$folder){
+                
+                $file = $folder['path']."/script.js"; // Path to file
+                
+                if( file_exists( $file ) ){ // Check existence
+                    wp_enqueue_script( 'cyclone-template-script-'.sanitize_title($name), $folder['url'].'/script.js', array(), CYCLONE_VERSION, $in_footer );
+                }
+            }
+        }
         
         // Compare the value from admin and shortcode. If shortcode value is present and not empty, use it, otherwise return admin value
         public function get_comp_slider_setting($admin_val, $shortcode_val){
@@ -76,7 +148,7 @@ if(!class_exists('Cyclone_Slider')):
                 ),
                 $shortcode_settings
             );
-            $slider_id = esc_attr($shortcode_settings['id']);// Slideshow slug
+            $slider_id = esc_attr($shortcode_settings['id']);// Slideshow slug passed from shortcode
     
             $cycle_options = array();
             $this->slider_count++;//make each call to shortcode unique
@@ -85,19 +157,19 @@ if(!class_exists('Cyclone_Slider')):
             if( $slider = Cyclone_Slider_Data::get_slider_by_name( $slider_id ) ):
 
                 $admin_settings = Cyclone_Slider_Data::get_slideshow_settings( $slider->ID );
-                $slides = $slider_metas = Cyclone_Slider_Data::get_slides( $slider->ID );
+                $slides = Cyclone_Slider_Data::get_slides( $slider->ID );
                 
                 $image_count = 0; // Number of image slides
                 $video_count = 0; // Number of video slides
                 $custom_count = 0; // Number of custom slides
-                foreach($slider_metas as $i=>$slider_meta){
-                    $slider_metas[$i]['title'] = __($slider_meta['title']);
-                    $slider_metas[$i]['description'] = __($slider_meta['description']);
-                    if($slider_metas[$i]['type']=='image'){
+                foreach($slides as $i=>$slide){
+                    $slides[$i]['title'] = __($slide['title']);
+                    $slides[$i]['description'] = __($slide['description']);
+                    if($slides[$i]['type']=='image'){
                         $image_count++;
-                    } else if($slider_metas[$i]['type']=='video'){
+                    } else if($slides[$i]['type']=='video'){
                         $video_count++;
-                    } else if($slider_metas[$i]['type']=='custom'){
+                    } else if($slides[$i]['type']=='custom'){
                         $custom_count++;
                     }
                 }
@@ -124,10 +196,13 @@ if(!class_exists('Cyclone_Slider')):
                 $slider_settings['template'] = $template;
                 
                 if($slider_settings['random']){
-                    shuffle($slider_metas);
+                    shuffle($slides);
                 }
                 
-                $slider = $this->get_slider_template($slider_id, $template, $slides, $slider_metas, $slider_settings, $this->slider_count, $image_count, $video_count, $custom_count);
+                $slider_metas = $slides; // $slider_metas deprecated since 2.5.5. Future removal
+                
+                $slider_slug = $slider->post_name;
+                $slider = $this->get_slider_template($slider_id, $template, $slides, $slider_metas, $slider_settings, $this->slider_count, $image_count, $video_count, $custom_count, $slider_slug);
     
             else:
                 $slider = sprintf(__('[Slideshow "%s" not found]', 'cycloneslider'), $slider_id);
@@ -137,8 +212,8 @@ if(!class_exists('Cyclone_Slider')):
         }
         
         // Get slideshow template
-        public function get_slider_template($slider_id, $template_name, $slides, $slider_metas, $slider_settings, $slider_count, $image_count, $video_count, $custom_count){
-            $slider_html_id = 'cycloneslider-'.$slider_id.'-'.$slider_count; // The unique HTML ID for slider
+        public function get_slider_template($slider_id, $template_name, $slides, $slider_metas, $slider_settings, $slider_count, $image_count, $video_count, $custom_count, $slider_slug){
+            $slider_html_id = 'cycloneslider-'.$slider_slug.'-'.$slider_count; // The unique HTML ID for slider
             
             $template = get_stylesheet_directory()."/cycloneslider/{$template_name}/slider.php";
             if(@is_file($template)){

@@ -1,24 +1,40 @@
-<?php if(!defined('CYCLONE_PATH')) die('Direct access denied.'); ?>
+<?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
 
-<?php if($slider_count>0) $slider_id = $slider_id.'-'.$slider_count; ?>
-<div class="cycloneslider cycloneslider-template-thumbnails" id="cycloneslider-<?php echo $slider_id; ?>" style="max-width:<?php echo $slider_settings['width']; ?>px">
-	<div class="cycloneslider-slides cycle-slideshow" <?php echo cyclone_settings($slider_settings, $slider_id); ?>>
-		<?php foreach($slider_metas as $i=>$slider_meta): ?>
-			<div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slider_meta, $slider_settings); ?>>
-				<?php if ($slider_meta['type']=='image') : ?>
-					<?php if ($slider_meta['link']!='') : ?><a target="<?php echo ('_blank'==$slider_meta['link_target']) ? '_blank' : '_self'; ?>" href="<?php echo $slider_meta['link'];?>"><?php endif; ?>
-					<img src="<?php echo cyclone_slide_image_url($slider_meta['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slider_meta, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slider_meta['img_alt'];?>" title="<?php echo $slider_meta['img_title'];?>" />
-					<?php if ($slider_meta['link']!='') : ?></a><?php endif; ?>
-					<?php if(!empty($slider_meta['title']) or !empty($slider_meta['description'])) : ?>
+<?php
+// For description of variables go to: http://www.codefleet.net/cyclone-slider-2/#template-variables
+?>
+<div class="cycloneslider cycloneslider-template-thumbnails" id="<?php echo $slider_html_id; ?>" style="max-width:<?php echo $slider_settings['width']; ?>px">
+	<div class="cycloneslider-slides cycle-slideshow" 
+		data-cycle-slides="> div"
+		data-cycle-auto-height="<?php echo $slider_settings['width']; ?>:<?php echo $slider_settings['height']; ?>"
+		data-cycle-fx="<?php echo $slider_settings['fx']; ?>"
+		data-cycle-speed="<?php echo $slider_settings['speed']; ?>"
+		data-cycle-timeout="<?php echo $slider_settings['timeout']; ?>"
+		data-cycle-pause-on-hover="<?php echo $slider_settings['hover_pause']; ?>"
+		data-cycle-pager="#<?php echo $slider_html_id; ?> .cycloneslider-pager"
+		data-cycle-prev="#<?php echo $slider_html_id; ?> .cycloneslider-prev"
+		data-cycle-next="#<?php echo $slider_html_id; ?> .cycloneslider-next"
+		data-cycle-tile-count="<?php echo $slider_settings['tile_count']; ?>"
+		data-cycle-tile-delay="<?php echo $slider_settings['tile_delay']; ?>"
+		data-cycle-tile-vertical="<?php echo $slider_settings['tile_vertical']; ?>"
+		data-cycle-log="false"
+		>
+		<?php foreach($slides as $i=>$slide): ?>
+			<div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+				<?php if ($slide['type']=='image') : ?>
+					<?php if ($slide['link']!='') : ?><a target="<?php echo ('_blank'==$slide['link_target']) ? '_blank' : '_self'; ?>" href="<?php echo $slide['link'];?>"><?php endif; ?>
+					<img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+					<?php if ($slide['link']!='') : ?></a><?php endif; ?>
+					<?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
 					<div class="cycloneslider-caption">
-						<div class="cycloneslider-caption-title"><?php echo $slider_meta['title'];?></div>
-						<div class="cycloneslider-caption-description"><?php echo $slider_meta['description'];?></div>
+						<div class="cycloneslider-caption-title"><?php echo $slide['title'];?></div>
+						<div class="cycloneslider-caption-description"><?php echo $slide['description'];?></div>
 					</div>
 					<?php endif; ?>
-				<?php elseif ($slider_meta['type']=='video') : ?>
-					<?php echo $slider_meta['video']; ?>
-				<?php elseif ($slider_meta['type']=='custom') : ?>
-					<?php echo $slider_meta['custom']; ?>
+				<?php elseif ($slide['type']=='video') : ?>
+					<?php echo $slide['video']; ?>
+				<?php elseif ($slide['type']=='custom') : ?>
+					<?php echo $slide['custom']; ?>
 				<?php endif; ?>
 			</div>
 		<?php endforeach; ?>
@@ -29,18 +45,18 @@
 	<?php endif; ?>
 </div>
 <?php if ($slider_settings['show_nav']) : ?>
-<div id="cycloneslider-thumbnails-<?php echo $slider_id; ?>" class="cycloneslider-template-thumbnails cycloneslider-thumbnails" style="max-width:<?php echo $slider_settings['width']; ?>px">
+<div id="<?php echo $slider_html_id; ?>-pager" class="cycloneslider-template-thumbnails cycloneslider-thumbnails" style="max-width:<?php echo $slider_settings['width']; ?>px">
 	<ul class="clearfix">
-		<?php foreach($slider_metas as $i=>$slider_meta): ?>
+		<?php foreach($slides as $i=>$slide): ?>
 		<li>
-			<?php if ($slider_meta['type']=='video') : ?>
+			<?php if ($slide['type']=='video') : ?>
 			<div class="thumb-video">
-				<img src="<?php echo $slider_meta['video_thumb'];?>" width="30" height="30" alt="">
+				<img src="<?php echo $slide['video_thumb'];?>" width="40" height="40" alt="">
 			</div>
-			<?php elseif($slider_meta['type']=='custom'): ?>
+			<?php elseif($slide['type']=='custom'): ?>
 			<div class="thumb-custom">HTML</div>
 			<?php else: ?>
-			<img src="<?php echo cyclone_slide_image_url($slider_meta['id'], 30, 30, array('current_slide_settings'=>$slider_meta, 'slideshow_settings'=>$slider_settings, 'resize_option'=>'crop') ); ?>" width="30" height="30" alt="<?php echo $slider_meta['img_alt'];?>" title="<?php echo $slider_meta['img_title'];?>" />
+			<img src="<?php echo cyclone_slide_image_url($slide['id'], 40, 40, array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings, 'resize_option'=>'crop') ); ?>" width="40" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
 			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>

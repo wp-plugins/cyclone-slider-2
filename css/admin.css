@@ -1,6 +1,64 @@
 .clear{
 	clear:both;
 }
+
+/*** Add extra space in wp 3.6 ***/
+.cycloneslider.version-3-6 #titlediv{
+	margin-bottom: 20px;
+}
+
+.cycloneslider.admin-color-fresh #screen-options-link-wrap{
+	border: 1px solid #C3100C;
+	background: #f34541; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f34541 0%, #c3100c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f34541), color-stop(100%,#c3100c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f34541 0%,#c3100c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f34541 0%,#c3100c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f34541 0%,#c3100c 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f34541 0%,#c3100c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f34541', endColorstr='#c3100c',GradientType=0 ); /* IE6-9 */
+}
+.cycloneslider.admin-color-classic #screen-options-link-wrap{
+	border: 1px solid #1e698a;
+	background: #2a95c5;
+	background: -moz-linear-gradient(top,  #2a95c5 0%, #21759b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a95c5), color-stop(100%,#21759b));
+	background: -webkit-linear-gradient(top,  #2a95c5 0%,#21759b 100%);
+	background: -o-linear-gradient(top,  #2a95c5 0%,#21759b 100%);
+	background: -ms-linear-gradient(top,  #2a95c5 0%,#21759b 100%);
+	background: linear-gradient(to bottom,  #2a95c5 0%,#21759b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a95c5', endColorstr='#21759b',GradientType=0 );
+}
+body.cycloneslider #screen-options-link-wrap a{
+	color: #fff;
+	font-size: 12px;
+	text-shadow: 1px 1px 1px #555;
+	background: none;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+body.cycloneslider #screen-options-link-wrap a:hover{
+	color: #f7f7f7;
+	text-shadow: 1px 1px 1px #000;
+}
+
+/*** ID Metabox ***/
+#cyclone-slider-id .inside{
+    padding:0;
+}
+#cyclone-slider-id input[type="text"]{
+	display: inline-block;
+	min-width: 30%;
+}
+#cyclone-slider-id .cycloneslider-field{
+	padding: 10px 10px 0 10px;
+}
+
+/*** Codes Metabox ***/
+#cyclone-slider-codes .inside{
+    padding:0;
+}
+
 /*** Slides Metabox ***/
 #cyclone-slides-metabox .inside{
     margin:20px;
