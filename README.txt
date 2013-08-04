@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.5.2
+Tested up to: 3.6
 Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
