@@ -79,7 +79,7 @@ function cyclone_slide_image_url( $original_attachment_id, $width, $height, $par
  */
 function cyclone_settings($slider_settings, $slider_id='', $cycle2_settings=array()){
 	$defaults = array();
-	$defaults['data-cycle-slides'] = '> div';
+	$defaults['data-cycle-slides'] = '&gt; div';
 	$defaults['data-cycle-auto-height'] = $slider_settings['width'].':'.$slider_settings['height'];
 	$defaults['data-cycle-fx'] = $slider_settings['fx'];
 	$defaults['data-cycle-speed'] = $slider_settings['speed'];
