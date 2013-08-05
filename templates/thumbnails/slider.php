@@ -5,7 +5,7 @@
 ?>
 <div class="cycloneslider cycloneslider-template-thumbnails" id="<?php echo $slider_html_id; ?>" style="max-width:<?php echo $slider_settings['width']; ?>px">
 	<div class="cycloneslider-slides cycle-slideshow" 
-		data-cycle-slides="> div"
+		data-cycle-slides="&gt; div"
 		data-cycle-auto-height="<?php echo $slider_settings['width']; ?>:<?php echo $slider_settings['height']; ?>"
 		data-cycle-fx="<?php echo $slider_settings['fx']; ?>"
 		data-cycle-speed="<?php echo $slider_settings['speed']; ?>"
