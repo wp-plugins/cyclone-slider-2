@@ -279,7 +279,7 @@ jQuery(document).ready(function($){
     })();
 
     (function() {
-    
+
         /*** hide wordpress admin stuff ***/
         $('#minor-publishing-actions').hide();
         $('#misc-publishing-actions').hide();
@@ -328,58 +328,7 @@ jQuery(document).ready(function($){
         $(".cycloneslider_metas_enable_slide_effects").trigger('change');
         
     })();
-    
-    (function() {
-        if(typeof(tb_show) != "function"){
-            return;
-        }
-        /*** Modify WP media uploader ***/
-        var current_slide_box = false;/*** we use this var to determine if thickbox is being used in cycloneslider. also saves the field to be updated later. ***/
-        $(document).on('click', '.cs-media-gallery-show', function() {
-            var box = $(this).parents('.cs-slide');/*** get current box ***/
-            
-            current_slide_box = box;
-            tb_show('', 'media-upload.php?referer=cycloneslider&amp;post_id=0&amp;type=image&amp;TB_iframe=true');/*** referer param needed to change button text ***/
-            return false;
-        });
-        
-        window.original_send_to_editor = window.send_to_editor;/*** backup original for other parts of admin that uses thickbox to work ***/
-        window.send_to_editor = function(html) {
-            if (current_slide_box) {
-                var slide_thumb = current_slide_box.find('.cs-image-thumb');/*** find the thumb ***/
-                var slide_attachment_id = current_slide_box.find('.cs-image-id');/*** find the hidden field that will hold the attachment id ***/
-                
-                var image = false;
-                if(jQuery(html).get(0) != undefined){ /*** Check if its a valid html tag ***/
-                    if(jQuery(html).get(0).nodeName.toLowerCase()=='img'){/*** Check if html is an img tag ***/
-                        image = jQuery(html);
-                    } else { /*** If not may be it contains the img tag ***/
-                        if(jQuery(html).find('img').length > 0){
-                            image = jQuery(html).find('img');
-                        }
-                    }
-                }
-                if(image){
-                    var url = image.attr('src');
-                    var attachment_id = image.attr('data-id');
-                    if(url!=undefined && attachment_id != undefined ){
-                        slide_thumb.html('<img src="'+url+'" alt="thumb">').show();
-                        slide_attachment_id.val(attachment_id);
-                    } else {
-                        alert('Could not insert image. URL or attachment ID missing.');
-                    }
-                } else {
-                    alert('Could not insert image.');
-                }
-                
-                tb_remove();
-                current_slide_box = false;
-            } else {
-                window.original_send_to_editor(html);
-            }
-        };
-    })();
-    
+
     (function() {
         if(typeof(wp) == "undefined" || typeof(wp.media) != "function"){
             return;
