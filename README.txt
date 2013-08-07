@@ -1,35 +1,36 @@
 === Cyclone Slider 2 ===
 Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
-Tags: slider, slideshow, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
+Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6
 Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create responsive slideshows with ease. Built for both developers and non-developers.
+Create and manage sliders with ease. Built for both casual users and developers.
 
 == Description ==
 
-Cyclone Slider 2 is an easy to use slider plugin for WordPress. It leverages WordPress' built-in features. It uses custom post for the slideshow, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the slideshow to their needs. Its simple yet flexible.
+Cyclone Slider 2 is an easy-to-use slider plugin for WordPress. It leverages WordPress' built-in features. It uses custom post for the slider, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the look and behavior of the slider. It's a simple and flexible slider plugin.
 
 = Features: =
-* Very easy to use interface! Blends seamlessly with your WordPress workflow.
+* Very easy to use interface! Blends seamlessly with your WordPress workflow. Seriously! [Checkout the screenshots](http://wordpress.org/plugins/cyclone-slider-2/screenshots/).
+* Every project is unique. To address this issue Cyclone Slider 2 has a template system that allow developers to easily customize the slider appearance and behavior.
+* Responsive slider for responsive and fluid websites.
 * Supports image, video, and custom HTML slides.
 * Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
-* A template system that allow developers to easily customize the slideshow appearance and behavior.
 * Customizable tile transition effects.
 * Ability to add per-slide transition effects.
-* Unlimited slideshows.
-* Unique settings for each slideshow.
+* Unlimited sliders.
+* Unique settings for each slider.
 * Supports random slide order.
-* Shortcode for displaying slideshows anywhere in your site.
+* Shortcode for displaying sliders anywhere in your site.
 * Ability to import images from NextGEN (NextGEN must be installed and active).
 * Translation ready.
 * Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active).
 * Allows title and alt to be specified for each slide images.
-* Comes with a widget to display your slideshow easily in widget areas.
+* Comes with a widget to display your slider easily in widget areas.
 * It's totally FREE!
 
 = Homepage =
@@ -39,6 +40,7 @@ Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
 * Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
 * Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
 * Aubin BERTHE for the French translation.
+* maxgx for the Italian translation.
 
 = License =
 GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
@@ -59,9 +61,9 @@ GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
 1. Look for Cyclone Slider 2 and activate it
 
 = Usage =
-1. Start adding slideshows in 'Cyclone Slider' menu in WordPress
-1. You can then use a shortcode to display your slideshow. Example: `[cycloneslider id ="my-slideshow"]`
-1. Function do_shortcode can be used inside template files. Example: `<?php echo do_shortcode('[cycloneslider id ="my-slideshow"]'); ?>`
+1. Start adding sliders in 'Cyclone Slider' menu in WordPress
+1. You can then use a shortcode to display your slider. Example: `[cycloneslider id="my-slider"]`
+1. Function do_shortcode can be used inside template files. Example: `<?php echo do_shortcode('[cycloneslider id="my-slider"]'); ?>`
 
 
 == Frequently Asked Questions ==
@@ -77,16 +79,16 @@ Most probably its wordpress adding paragpraphs on line breaks next to the slides
 `remove_filter('the_content', 'wpautop');`
 
 = How to display it in post/page? =
-Use the shortcode `[cycloneslider id="my-slideshow"]`. Change my-slideshow to the ID of your slideshow.
+Use the shortcode `[cycloneslider id="my-slider"]`. Change my-slider to the ID of your slider.
 
 = How to display it inside template files (header.php, index.php, page.php, etc.)? =
-Use `<?php echo do_shortcode('[cycloneslider id ="my-slideshow"]'); ?>`. Change my-slideshow to the ID of your slideshow.
+Use `<?php echo do_shortcode('[cycloneslider id ="my-slider"]'); ?>`. Change my-slider to the ID of your slider.
 
 = What are the shortcode options? =
-`[cycloneslider id="my-slideshow" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
+`[cycloneslider id="my-slider" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
 
 = How can I use templates? =
-`[cycloneslider id="my-slideshow" template="custom-name"]` 
+`[cycloneslider id="my-slider" template="custom-name"]` 
 
 = Where do I add my own templates? =
 Inside your current active theme create a folder named "cycloneslider". Add your templates inside.
@@ -101,6 +103,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.6.2 - 2013-08-08 = 
+* Reverted red screen options to default color.
+* Fix bug with ugly old media gallery (pre 3.5).
+* Added Italian translation from maxgx.
+* Change greater-than to its character entity for `data-cycle-slides`.
+
 = 2.6.1 - 2013-08-05 = 
 * Fixed issue with Shortcodes Ultimate.
 * Updated screenshots.
@@ -111,7 +119,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Added cyclone slider settings page.
 * Language files now loaded when using WPML.
 * Added Get Codes metabox to easily grab the slider codes.
-* Added Slideshow ID metabox to easily change the slideshow ID.
+* Added Slideshow ID metabox to easily change the slider ID.
 
 = 2.5.6 - 2013-07-30 = 
 * Fix broken nextgen importer from last update.
@@ -119,7 +127,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
-* Used get_posts instead of WP_Query when getting a slideshow to avoid filters that might cause conflict.
+* Used get_posts instead of WP_Query when getting a slider to avoid filters that might cause conflict.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
@@ -135,7 +143,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
 * Improved cyclone_settings.
-* Improved slideshow not found message.
+* Improved slider not found message.
 * Updated cycle 2 js files.
 * Added plugin version to fix caching problem on JS and CSS.
 * Added upgrade notice.
@@ -160,19 +168,19 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
 * Minified CSS and JS for templates.
 * Compiles needed CSS and JS only instead of loading all CSS and JS from all templates.
-* Added template column to all slideshow screen.
+* Added template column to all slider screen.
 * Updated language files
 
 = 2.2.3 - 2013-02-14 = 
 * Added option for random slide order on every page visit.
 * Refactored some code.
-* Added image count to all slideshow screen.
+* Added image count to all slider screen.
 
 = 2.2.2 - 2013-02-05 = 
 * Updated language files.
 * Bug Fix. Post Type Switcher fix via jquery.
 * UI Enhancement. Removed overflow for templates.
-* Ignore image resize if slideshow dimension is equal to the image dimension.
+* Ignore image resize if slider dimension is equal to the image dimension.
 * UI Enhancement. Decrease drag delay for slide sortables in editor.
 
 = 2.2.1 - 2012-12-25 = 
@@ -180,8 +188,8 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.2.0 - 2012-12-24 = 
 * Updated cycle 2 to latest version.
-* Updated template selection interface to be more visual. A screenshot of each slideshow template is now shown.
-* Added Tile Count and Tile Position for both slideshow and per-slide settings.
+* Updated template selection interface to be more visual. A screenshot of each slider template is now shown.
+* Added Tile Count and Tile Position for both slider and per-slide settings.
 * Cleanup Quick Edit screen to hide unused user interface.
 * Slide box titles can now be clicked to open and close the slide box.
 * Removed drag icon from slide box title. Slide box can now be dragged by click-holding the slide title area.
@@ -198,7 +206,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Fix for a code typo error
 
 = 2.1.0 - 2012-11-16 = 
-* Fix for slideshow not working when NextGEN 1.9.7 is active
+* Fix for slider not working when NextGEN 1.9.7 is active
 * You can now import images from NextGEN
 
 = 2.0.1 - 2012-11-09 = 
@@ -210,6 +218,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Upgrade Notice ==
 
+= 2.6.2 - 2013-08-08 = 
+* Reverted red screen options to default color.
+* Fix bug with ugly old media gallery (pre 3.5).
+* Added Italian translation from maxgx.
+* Change greater-than to its character entity for `data-cycle-slides`.
+
 = 2.6.1 - 2013-08-05 = 
 * Fixed issue with Shortcodes Ultimate.
 * Updated screenshots.
@@ -220,7 +234,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Added cyclone slider settings page.
 * Language files now loaded when using WPML.
 * Added Get Codes metabox to easily grab the slider codes.
-* Added Slideshow ID metabox to easily change the slideshow ID.
+* Added Slideshow ID metabox to easily change the slider ID.
 
 = 2.5.6 - 2013-07-30 = 
 * Fix broken nextgen importer from last update.
@@ -228,7 +242,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.5.5 - 2013-07-25 = 
 * Removed templates Black, Blue, and Myrtle from plugin's folder for better performance.
-* Used get_posts instead of WP_Query when getting a slideshow to avoid filters that might cause conflict.
+* Used get_posts instead of WP_Query when getting a slider to avoid filters that might cause conflict.
 
 = 2.5.4 - 2013-07-20 = 
 * Added Youtube template that pauses the video when slider is transitioning. 
@@ -244,7 +258,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 = 2.5.1 - 2013-03-29 = 
 * Bug fix to allow small images to be inserted.
 * Improved cyclone_settings.
-* Improved slideshow not found message.
+* Improved slider not found message.
 * Updated cycle 2 js files.
 * Added plugin version to fix caching problem on JS and CSS.
 * Added upgrade notice.
@@ -269,19 +283,19 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Now compiles the template CSS and JS files instead of using template_redirect hook. This is to fix problems with some users reporting broken css and js.
 * Minified CSS and JS for templates.
 * Compiles needed CSS and JS only instead of loading all CSS and JS from all templates.
-* Added template column to all slideshow screen.
+* Added template column to all slider screen.
 * Updated language files
 
 = 2.2.3 - 2013-02-14 = 
 * Added option for random slide order on every page visit.
 * Refactored some code.
-* Added image count to all slideshow screen.
+* Added image count to all slider screen.
 
 = 2.2.2 - 2013-02-05 = 
 * Updated language files.
 * Bug Fix. Post Type Switcher fix via jquery.
 * UI Enhancement. Removed overflow for templates.
-* Ignore image resize if slideshow dimension is equal to the image dimension.
+* Ignore image resize if slider dimension is equal to the image dimension.
 * UI Enhancement. Decrease drag delay for slide sortables in editor.
 
 = 2.2.1 - 2012-12-25 = 
@@ -289,8 +303,8 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.2.0 - 2012-12-24 = 
 * Updated cycle 2 to latest version.
-* Updated template selection interface to be more visual. A screenshot of each slideshow template is now shown.
-* Added Tile Count and Tile Position for both slideshow and per-slide settings.
+* Updated template selection interface to be more visual. A screenshot of each slider template is now shown.
+* Added Tile Count and Tile Position for both slider and per-slide settings.
 * Cleanup Quick Edit screen to hide unused user interface.
 * Slide box titles can now be clicked to open and close the slide box.
 * Removed drag icon from slide box title. Slide box can now be dragged by click-holding the slide title area.
@@ -307,7 +321,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Fix for a code typo error
 
 = 2.1.0 - 2012-11-16 = 
-* Fix for slideshow not working when NextGEN 1.9.7 is active
+* Fix for slider not working when NextGEN 1.9.7 is active
 * You can now import images from NextGEN
 
 = 2.0.0 =

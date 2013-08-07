@@ -1,0 +1,444 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cyclone Slider\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-06 15:44+0100\n"
+"PO-Revision-Date: 2013-08-06 16:13+0100\n"
+"Last-Translator: \n"
+"Language-Team: Max Guglielmino <info@maxguglielmino.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/class-cyclone-slider-admin.php:112
+msgid "Select an image"
+msgstr "Seleziona una immagine"
+
+#: classes/class-cyclone-slider-admin.php:113
+msgid "Add to Slide"
+msgstr "Aggiungi alla Diapositiva"
+
+#: classes/class-cyclone-slider-admin.php:130
+msgid "Cyclone Slider"
+msgstr "Cyclone Slider"
+
+#: classes/class-cyclone-slider-admin.php:131
+msgid "Slideshow"
+msgstr "Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:132
+msgid "Add Slideshow"
+msgstr "Aggiungi Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:133
+msgid "Add New Slideshow"
+msgstr "Aggiungi Nuovo Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:134
+msgid "Edit Slideshow"
+msgstr "Modifica Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:135
+msgid "New Slideshow"
+msgstr "Nuovo Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:136
+msgid "View Slideshow"
+msgstr "Visualizza Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:137
+msgid "Search Slideshows"
+msgstr "Cerca Proiettori"
+
+#: classes/class-cyclone-slider-admin.php:138
+msgid "No slideshows found"
+msgstr "Nessun proiettore trovato"
+
+#: classes/class-cyclone-slider-admin.php:139
+msgid "No slideshows found in Trash"
+msgstr "Nessun proiettore trovato nel cestino"
+
+#: classes/class-cyclone-slider-admin.php:159
+#, php-format
+msgid "Slideshow updated. Shortcode is [cycloneslider id=\"%s\"]"
+msgstr "Proiettore aggiornato. Lo shortcode è [cycloneslider id=\"%s\"]"
+
+#: classes/class-cyclone-slider-admin.php:160
+msgid "Custom field updated."
+msgstr "Campo personalizzato aggiornato."
+
+#: classes/class-cyclone-slider-admin.php:161
+msgid "Custom field deleted."
+msgstr "Campo personalizzato cancellato."
+
+#: classes/class-cyclone-slider-admin.php:162
+#: classes/class-cyclone-slider-admin.php:163
+#: classes/class-cyclone-slider-admin.php:166
+#: classes/class-cyclone-slider-admin.php:167
+#: classes/class-cyclone-slider-admin.php:168
+msgid "Slideshow updated."
+msgstr "Proiettore aggiornato."
+
+#: classes/class-cyclone-slider-admin.php:164
+#, php-format
+msgid "Slideshow published. Shortcode is [cycloneslider id=\"%s\"]"
+msgstr "Proiettore pubblicato. Lo shortcode è [cycloneslider id=\"%s\"]"
+
+#: classes/class-cyclone-slider-admin.php:165
+msgid "Slideshow saved."
+msgstr "Proiettore salvato."
+
+#: classes/class-cyclone-slider-admin.php:169
+#, php-format
+msgid "Templates CSS could not be saved. Make sure %stemplates.css is writable."
+msgstr "Non è stato possibile salvare il modello CSS. Assicurarsi che %stemplates.css sia scrivibile."
+
+#: classes/class-cyclone-slider-admin.php:170
+#, php-format
+msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
+msgstr "Non è stato possibile salvare il modello JS. Assicurarsi che %stemplates.js sia scrivibile."
+
+#: classes/class-cyclone-slider-admin.php:194
+msgid "Slides"
+msgstr "Diapositive"
+
+#: classes/class-cyclone-slider-admin.php:202
+msgid "Slideshow Settings"
+msgstr "Impostazioni Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:210
+msgid "Slideshow Templates"
+msgstr "Modelli Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:236
+msgid "Slide"
+msgstr "Diapositiva"
+
+#: classes/class-cyclone-slider-admin.php:313
+msgid "Slide *"
+msgstr "Diapositiva *"
+
+#: classes/class-cyclone-slider-admin.php:377
+msgid "Slideshow Name"
+msgstr "Nome Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:378
+msgid "Template"
+msgstr "Modello"
+
+#: classes/class-cyclone-slider-admin.php:379
+msgid "Images"
+msgstr "Immagini"
+
+#: classes/class-cyclone-slider-admin.php:380
+msgid "Slideshow ID"
+msgstr "ID Proiettore"
+
+#: classes/class-cyclone-slider-admin.php:381
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: classes/class-cyclone-slider-widget.php:15
+msgid "Cyclone Slider Widget"
+msgstr "Cyclone Slider Widget"
+
+#: classes/class-cyclone-slider-widget.php:16
+msgid "Widget for displaying slideshows."
+msgstr "Widget per mostrare i Proiettori realizzati con Cyclone Slider."
+
+#: classes/class-cyclone-slider-widget.php:62
+msgid "Select a Slideshow:"
+msgstr "Seleziona un Proiettore:"
+
+#: classes/class-cyclone-slider-widget.php:77
+msgid "No slideshows found."
+msgstr "Nessun proiettore trovato."
+
+#: classes/class-cyclone-slider.php:133
+#, php-format
+msgid "[Slideshow \"%s\" not found]"
+msgstr "[Proiettore \"%s\" non trovato]"
+
+#: classes/class-cyclone-slider.php:159
+#, php-format
+msgid "[Template \"%s\" not found]"
+msgstr "[Modello \"%s\" non trovato]"
+
+#: classes/class-nextgen-integration.php:33
+msgid "NextGEN Integration"
+msgstr "Integrazione NextGEN"
+
+#: classes/class-nextgen-integration.php:49
+msgid "Choose a NextGEN Gallery"
+msgstr "Scegli una Galleria NextGEN"
+
+#: classes/class-nextgen-integration.php:59
+msgid "Import"
+msgstr "Importa"
+
+#: classes/class-nextgen-integration.php:61
+msgid "Select a gallery to import images from. Images will be added as new slides."
+msgstr "Seleziona una galleria da cui importare le immagini. Le immagini verranno aggiunte come nuove diapositive."
+
+#: views/slide-edit.php:18
+msgid "Drag"
+msgstr "Trascina"
+
+#: views/slide-edit.php:19
+msgid "Toggle"
+msgstr "Attiva/Disattiva"
+
+#: views/slide-edit.php:20
+msgid "Delete"
+msgstr "Cancella"
+
+#: views/slide-edit.php:27
+msgid "Image"
+msgstr "Immagine"
+
+#: views/slide-edit.php:28
+msgid "Video"
+msgstr "Video"
+
+#: views/slide-edit.php:29
+msgid "Custom"
+msgstr "Personalizzato"
+
+#: views/slide-edit.php:42
+msgid "Get Image"
+msgstr "Prendi Immagine"
+
+#: views/slide-edit.php:45
+msgid "Slide Properties:"
+msgstr "Proprietà Diapositiva:"
+
+#: views/slide-edit.php:47
+msgid "Link"
+msgstr "Link"
+
+#: views/slide-edit.php:50
+msgid "Link URL:"
+msgstr "URL Link:"
+
+#: views/slide-edit.php:54
+msgid "Open Link in:"
+msgstr "Apri il link:"
+
+#: views/slide-edit.php:56
+msgid "Same Window"
+msgstr "Stessa Finestra"
+
+#: views/slide-edit.php:57
+msgid "New Tab or Window"
+msgstr "Nuova Scheda o Finestra"
+
+#: views/slide-edit.php:63
+msgid "Title"
+msgstr "Titolo"
+
+#: views/slide-edit.php:71
+msgid "Description"
+msgstr "Descrizione"
+
+#: views/slide-edit.php:80
+msgid "Image Attributes"
+msgstr "Attributi Immagine"
+
+#: views/slide-edit.php:83
+msgid "Alternate Text:"
+msgstr "Testo Alternativo:"
+
+#: views/slide-edit.php:87
+msgid "Title Text:"
+msgstr "Testo Titolo:"
+
+#: views/slide-edit.php:93
+msgid "Slide Transition Effects"
+msgstr "Effetti Transizione Diapositiva"
+
+#: views/slide-edit.php:97
+msgid "Disable"
+msgstr "Disabilita"
+
+#: views/slide-edit.php:98
+msgid "Enable Slide Effects"
+msgstr "Abilita Effetti"
+
+#: views/slide-edit.php:104
+msgid "Transition Effects:"
+msgstr "Effetti Transizione:"
+
+#: views/slide-edit.php:115
+#: views/slider-properties.php:32
+msgid "Transition Effects Speed:"
+msgstr "Velocità Effetti Transizione:"
+
+#: views/slide-edit.php:117
+#: views/slide-edit.php:124
+#: views/slider-properties.php:34
+msgid "Milliseconds"
+msgstr "Millisecondi"
+
+#: views/slide-edit.php:122
+#: views/slider-properties.php:26
+msgid "Next Slide Delay:"
+msgstr "Ritardo Diapositiva Successiva:"
+
+#: views/slide-edit.php:132
+#: views/slider-properties.php:13
+msgid "Tile Count:"
+msgstr "Conteggio Riquadri"
+
+#: views/slide-edit.php:134
+#: views/slider-properties.php:15
+msgid "The number of tiles to use in the transition."
+msgstr "Numero di riquadri da usare nella transizione."
+
+#: views/slide-edit.php:138
+msgid "Tile Delay:"
+msgstr "Ritardo Riquadri:"
+
+#: views/slide-edit.php:140
+msgid "Milliseconds to delay each individual tile transition."
+msgstr "I millisecondi per ogni transizione individuale dei riquadri."
+
+#: views/slide-edit.php:144
+#: views/slider-properties.php:18
+msgid "Tile Position:"
+msgstr "Posizione Riquadro:"
+
+#: views/slide-edit.php:146
+#: views/slider-properties.php:20
+msgid "Vertical"
+msgstr "Verticale"
+
+#: views/slide-edit.php:147
+#: views/slider-properties.php:21
+msgid "Horizontal"
+msgstr "Orizzontale"
+
+#: views/slide-edit.php:167
+msgid "Video URL:"
+msgstr "URL Video:"
+
+#: views/slide-edit.php:169
+msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
+msgstr "Copia e incolla un URL di YouTube o Vimeo e clicca il pulsante Prendi Video."
+
+#: views/slide-edit.php:173
+msgid "Get Video"
+msgstr "Prendi Video"
+
+#: views/slide-edit.php:178
+msgid "Embed Code"
+msgstr "Codice Embed"
+
+#: views/slide-edit.php:180
+msgid "You can place your embed code directly here. Or you can use the Get Video button to generate the embed code."
+msgstr "Puoi piazzare il tuo codice embed direttamente qui. Oppure puoi usare il pulsante Prendi Video per generare il codice embed."
+
+#: views/slide-edit.php:182
+msgid "<strong>Note:</strong> The Slide Properties and Tile effects are not supported for videos."
+msgstr "<strong>Nota:</strong> Le Proprietà e gli Effetti delle diapositive non sono supportate per i video."
+
+#: views/slide-edit.php:184
+msgid "<strong>Note:</strong> Append &wmode=transparent to the embed code src attribute to make HTML elements appear on top of Flash."
+msgstr "<strong>Nota:</strong> Aggiungi &wmode=transparent all'attributo src del codice embedper fare apparire gli elementi HTML sopra il formato Flash."
+
+#: views/slide-edit.php:190
+msgid "Custom HTML"
+msgstr "HTML Personalizzato"
+
+#: views/slider-properties.php:4
+msgid "Transition Effects to Use:"
+msgstr "Effetti transizione da usare:"
+
+#: views/slider-properties.php:28
+msgid "Milliseconds. 0 to disable auto advance."
+msgstr "Millisecondi. 0 per disabilitare auto-avanzamento."
+
+#: views/slider-properties.php:38
+msgid "Width:"
+msgstr "Larghezza:"
+
+#: views/slider-properties.php:40
+#: views/slider-properties.php:46
+msgid "pixels."
+msgstr "pixels."
+
+#: views/slider-properties.php:44
+msgid "Height:"
+msgstr "Altezza:"
+
+#: views/slider-properties.php:50
+msgid "Pause on Hover?"
+msgstr "Pausa al passaggio del mouse?"
+
+#: views/slider-properties.php:52
+#: views/slider-properties.php:60
+#: views/slider-properties.php:68
+#: views/slider-properties.php:78
+#: views/slider-properties.php:87
+msgid "Yes"
+msgstr "Si"
+
+#: views/slider-properties.php:53
+#: views/slider-properties.php:61
+#: views/slider-properties.php:69
+#: views/slider-properties.php:77
+#: views/slider-properties.php:86
+msgid "No"
+msgstr "No"
+
+#: views/slider-properties.php:58
+msgid "Show Prev/Next Buttons?"
+msgstr "Mostra Pulsanti Prec./Succ.?"
+
+#: views/slider-properties.php:66
+msgid "Show Navigation?"
+msgstr "Mostra Navigazione?"
+
+#: views/slider-properties.php:71
+msgid "The thumbnails or dots depending on template."
+msgstr "Le miniature o i dischi a seconda del modello usato."
+
+#: views/slider-properties.php:75
+msgid "Random Slide Order?"
+msgstr "Ordina le Diapositive a caso?"
+
+#: views/slider-properties.php:80
+msgid "Randomize order of slides on every page visit."
+msgstr "Ordina a caso le diapositive ad ogni visita della pagina."
+
+#: views/slider-properties.php:84
+msgid "Resize Images?"
+msgstr "Scala Immagini?"
+
+#: views/slider-properties.php:89
+msgid "Yes - resize images to slideshow dimension. <br>No - use the original uploaded image."
+msgstr "Si - scala le immagini alle dimensioni del proiettore. <br>No - usa l'immagine originale caricata"
+
+#: views/slides.php:8
+msgid "Add Slide"
+msgstr "Aggiungi Diapositiva"
+
+#: views/template-selection.php:39
+msgid "Select a template to use. Check the template icons to see what slide type it supports."
+msgstr "Seleziona un modello da usare. Controlla l'icona del modello per vedere quale tipo supporta."
+
+#: views/template-selection.php:40
+#, php-format
+msgid "Note: If you are looking for the Black, Blue or Myrtle, checkout this <a href=\"%s\">post</a>."
+msgstr "Nota: Se cerchi per i modelli Black, Blue o Myrtle, controlla questo <a href=\"%s\">articolo</a>."
+
+#: views/template-selection.php:42
+msgid "Get more templates.."
+msgstr "Ricevi più modelli..."
+

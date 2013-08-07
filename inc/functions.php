@@ -214,7 +214,7 @@ function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh
  * @return string Data attributes for slideshow.
  */
 function cycloneslider_settings($slider_settings, $slider_id='', $slider_count=1){
-	$out = ' data-cycle-slides="> div"';
+	$out = ' data-cycle-slides="&gt; div"';
 	$out .= ' data-cycle-auto-height="'.$slider_settings['width'].':'.$slider_settings['height'].'"';
 	$out .= ' data-cycle-fx="'.$slider_settings['fx'].'"';
 	$out .= ' data-cycle-speed="'.$slider_settings['speed'].'"';
