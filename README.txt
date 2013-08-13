@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,16 +12,16 @@ Create and manage sliders with ease. Built for both casual users and developers.
 
 == Description ==
 
-Cyclone Slider 2 is an easy-to-use slider plugin for WordPress. It leverages WordPress' built-in features. It uses custom post for the slider, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the look and behavior of the slider. It's a simple and flexible slider plugin.
+Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interface. It leverages the built-in features of WordPress. It uses custom post for the slider, custom fields to store settings, and media uploader for the images. It also uses a template system that allows developers to easily customize the look and behavior of the slider. It's a simple and flexible slider plugin.
 
 = Features: =
-* Very easy to use interface! Blends seamlessly with your WordPress workflow. Seriously! [Checkout the screenshots](http://wordpress.org/plugins/cyclone-slider-2/screenshots/).
+* Very easy to use interface! Just drag and drop to re-order your slides.
 * Every project is unique. To address this issue Cyclone Slider 2 has a template system that allow developers to easily customize the slider appearance and behavior.
 * Responsive slider for responsive and fluid websites.
 * Supports image, video, and custom HTML slides.
 * Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
-* Customizable tile transition effects.
 * Ability to add per-slide transition effects.
+* Customizable tile transition effects.
 * Unlimited sliders.
 * Unique settings for each slider.
 * Supports random slide order.
@@ -31,16 +31,23 @@ Cyclone Slider 2 is an easy-to-use slider plugin for WordPress. It leverages Wor
 * Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active).
 * Allows title and alt to be specified for each slide images.
 * Comes with a widget to display your slider easily in widget areas.
+* Ability to fine tune the script settings. You can choose what scripts to load and where to load them.
 * It's totally FREE!
 
-= Homepage =
-Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/)
+= Demos =
+* View some [screenshots](http://wordpress.org/plugins/cyclone-slider-2/screenshots/).
+* Checkout the [Cyclone Slider 2 templates](http://www.codefleet.net/cyclone-slider-2/templates/) for a live demo.
+
+= Useful Links =
+* Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/).
+* Learn how to [create your own template](http://www.codefleet.net/introduction-to-templates/).
 
 = Credits =
 * Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
 * Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
 * Aubin BERTHE for the French translation.
 * maxgx for the Italian translation.
+* [Hassan](http://wordpress.org/support/profile/hassanhamm) for the Arabic translation.
 
 = License =
 GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
@@ -82,7 +89,7 @@ Most probably its wordpress adding paragpraphs on line breaks next to the slides
 Use the shortcode `[cycloneslider id="my-slider"]`. Change my-slider to the ID of your slider.
 
 = How to display it inside template files (header.php, index.php, page.php, etc.)? =
-Use `<?php echo do_shortcode('[cycloneslider id ="my-slider"]'); ?>`. Change my-slider to the ID of your slider.
+As of 2.6.3 - Use `<?php if( function_exists('cyclone_slider') ) cyclone_slider('my-slider'); ?>`. Change "my-slider" to the ID of your slider.
 
 = What are the shortcode options? =
 `[cycloneslider id="my-slider" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
@@ -102,6 +109,14 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.6.3 - 2013-08-13 = 
+* Made non-translatable texts translatable.
+* Added RTL support for the admininistration screen.
+* Change pin icon to media in the admin menu.
+* Added Arabic translation. Special thanks to Hassan for this and the items above.
+* Added function `cyclone_slider` for displaying slider in template files instead of using `do_shortcode`.
+* Added button that links to a tutorial on how to [create your own template](http://www.codefleet.net/introduction-to-templates/).
 
 = 2.6.2 - 2013-08-08 = 
 * Reverted red screen options to default color.
@@ -217,6 +232,14 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.6.3 - 2013-08-13 = 
+* Made non-translatable texts translatable.
+* Added RTL support for the admininistration screen.
+* Change pin icon to media in the admin menu.
+* Added Arabic translation. Special thanks to Hassan for this and the items above.
+* Added function `cyclone_slider` for displaying slider in template files instead of using `do_shortcode`.
+* Added button that links to a tutorial on how to [create your own template](http://www.codefleet.net/introduction-to-templates/).
 
 = 2.6.2 - 2013-08-08 = 
 * Reverted red screen options to default color.

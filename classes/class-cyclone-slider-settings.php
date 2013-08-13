@@ -27,7 +27,7 @@ if(!class_exists('Cyclone_Slider_Settings') and class_exists('Codefleet_Settings
 					?>
 					<table class="form-table">
 						<tr>
-							<th><label for="cs2-settings-load_scripts_in"><?php echo esc_attr( 'Load scripts in:' ); ?></label></th>
+							<th><label for="cs2-settings-load_scripts_in"><?php _e('Load scripts in:', 'cycloneslider'); ?></label></th>
 							<td>
 								<select name="<?php echo esc_attr( $this->option_name."[load_scripts_in]" ); ?>" id="cs2-settings-load_scripts_in">
 									<option value="header" <?php echo ($settings_data['load_scripts_in']=='header') ? 'selected="selected"' : ''; ?>><?php _e('Header', 'cycloneslider'); ?></option>
@@ -61,7 +61,7 @@ if(!class_exists('Cyclone_Slider_Settings') and class_exists('Codefleet_Settings
 							</td>
 						</tr>
 						<tr>
-							<th><label for="cs2-settings-script_priority"><?php echo esc_attr( 'Scripts loading priority:' ); ?></label></th>
+							<th><label for="cs2-settings-script_priority"><?php _e('Scripts loading priority:', 'cycloneslider'); ?></label></th>
 							<td>
 								<input type="number" id="<?php echo esc_attr( 'script_priority' ); ?>" name="<?php echo esc_attr( $this->option_name."[script_priority]" ); ?>" value="<?php echo esc_attr( $this->get_data('script_priority') ); ?>" />
 								<em><?php _e('Make this value bigger to load scripts last.', 'cycloneslider'); ?></em>
@@ -69,8 +69,8 @@ if(!class_exists('Cyclone_Slider_Settings') and class_exists('Codefleet_Settings
 						</tr>
 					</table>
 					<br /><br />
-					<?php submit_button( 'Save Options', 'primary', 'submit', false) ?>
-					<?php submit_button( 'Restore Defaults', 'secondary', 'reset', false) ?>
+					<?php submit_button( __('Save Options', 'cycloneslider'), 'primary', 'submit', false) ?>
+					<?php submit_button( __('Restore Defaults', 'cycloneslider'), 'secondary', 'reset', false) ?>
 				</form>
 				
 			</div><?php
@@ -83,7 +83,7 @@ if(!class_exists('Cyclone_Slider_Settings') and class_exists('Codefleet_Settings
 			$input = wp_parse_args($input, $this->get_settings_data());
 			if( isset($_POST['reset']) ){
 				$input = $this->get_default_settings_data();
-				add_settings_error( $this->menu_slug, 'restore_defaults', __( 'Default options restored.'), 'updated fade' );
+				add_settings_error( $this->menu_slug, 'restore_defaults', __( 'Default options restored.', 'cycloneslider'), 'updated fade' );
 			} else {
 				
 			}

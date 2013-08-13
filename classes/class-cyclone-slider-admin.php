@@ -29,6 +29,9 @@ if(!class_exists('Cyclone_Slider_Admin')):
             // Add admin menus
             add_action( 'init', array( $this, 'create_post_types' ) );
             
+            // Change admin menu icon
+            add_action( 'admin_init', array( $this, 'change_admin_menu_icon' ) );
+            
             // Update the messages for our custom post make it appropriate for slideshow
             add_filter('post_updated_messages', array( $this, 'post_updated_messages' ) );
             
@@ -164,6 +167,21 @@ if(!class_exists('Cyclone_Slider_Admin')):
                     'menu_position' => 100
                 )
             );
+        }
+        
+        /**
+         * Change Icon
+         */
+        public function change_admin_menu_icon() {
+            global $menu;
+            
+            if(!isset($menu) and !is_array($menu)) return false;
+
+            foreach( $menu as $key => $value ) {
+                if( 'edit.php?post_type=cycloneslider' == $value[2] )
+                    $menu[$key][4] = str_replace('menu-icon-post', 'menu-icon-media', $menu[$key][4]);
+                
+            }
         }
         
         /**
@@ -324,7 +342,7 @@ if(!class_exists('Cyclone_Slider_Admin')):
                 $vars['template_code'] = '';
             } else {
                 $vars['shortcode'] = '[cycloneslider id="'.$post->post_name.'"]';
-                $vars['template_code'] = '<?php echo do_shortcode( \'[cycloneslider id="'.$post->post_name.'"]\' ); ?>';
+                $vars['template_code'] = '<?php if( function_exists(\'cyclone_slider\') ) cyclone_slider(\''.$post->post_name.'\'); ?>';
             }
             $this->view->set_vars( $vars );
             $this->view->render();

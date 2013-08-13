@@ -51,6 +51,11 @@
 	padding:6px;
 	border-right:1px solid #D3D3D3;
 }
+.rtl .cs-header .cs-icon{
+	float:right;
+	border-left:1px solid #D3D3D3;
+	border-right:0;
+}
 .cs-icon i{
 	width:14px;
 	height:14px;
@@ -76,9 +81,15 @@ i.icon-font{
     float:left;
 	padding:5px 6px;
 }
+.rtl .cs-title{
+	float:right;
+}
 .cs-controls{
     float:right;
 	padding:5px;
+}
+.rtl .cs-controls{
+	float:left;
 }
 .cs-drag,
 .cs-toggle,
@@ -89,6 +100,11 @@ i.icon-font{
     text-indent:-99999px;
     width:15px;
     height:15px;
+}
+.rtl .cs-drag,
+.rtl .cs-toggle,
+.rtl .cs-delete{
+	float:right;
 }
 .cs-drag{
 	display:none;
@@ -136,10 +152,16 @@ i.icon-font{
 	float:left;
     width:40%;
 }
+.rtl .cs-image-preview{
+	float:right;
+}
 .cs-image-settings{
 	float:left;
     width:50%;
 	padding:15px 2%;
+}
+.rtl .cs-image-settings{
+	float:right;
 }
 .cs-image-thumb img{
     display:block;
@@ -167,11 +189,17 @@ i.icon-font{
 	float:left;
     width:40%;
 }
+.rtl .cs-video-preview{
+	float:right;
+}
 .cs-video-settings{
     float:left;
     width:50%;
 	padding:15px 2%;
 	min-width:300px;
+}
+.rtl .cs-video-settings{
+	float:right;
 }
 .cs-loader{
 	display:inline-block;
@@ -200,6 +228,9 @@ i.icon-font{
 .cycloneslider_metas_enable_slide_effects{
 	float:right;
 	margin-bottom:15px;
+}
+.rtl .cycloneslider_metas_enable_slide_effects{
+	float:left;
 }
 
 /*** Hide other slide types ***/
@@ -359,6 +390,11 @@ input:disabled{
 	-khtml-border-radius:3px; /* Linux browsers */
 	border-radius:3px; /* CSS3 */
 }
+.rtl .template-choices li{
+	float:right;
+	margin-left:10px;
+	margin-right:0;
+}
 .template-choices li:hover,
 .template-choices li.active{
 	border-color:#21759B;
@@ -405,9 +441,16 @@ input:disabled{
 	right:5px;
 	bottom:5px;
 }
+.rtl .template-choices .supported{
+	left:5px;
+	right:auto;
+}
 .template-choices .supported span{
 	float:right;
 	margin:0 3px;
+}
+.rtl .template-choices .supported span{
+	float:left;
 }
 .template-scroller{
 	margin-bottom:5px;
@@ -423,4 +466,7 @@ input:disabled{
 .cycloneslider-get-more{
 	padding-top:5px;
 	float:right;
+}
+.rtl .cycloneslider-get-more{
+	float:left;
 }

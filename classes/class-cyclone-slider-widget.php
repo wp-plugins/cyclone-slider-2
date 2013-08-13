@@ -29,7 +29,7 @@ if(!class_exists('Cyclone_Slider_Widget')):
 			$slideshow = '';
 			if ( !empty($instance['slideshow']) ) {
 				$slideshow = $instance['slideshow'];
-				echo do_shortcode('[cycloneslider id="'.$slideshow.'"]');
+				if( function_exists('cyclone_slider') ) cyclone_slider($slideshow);
 			}
 			echo $after_widget;
 		}
