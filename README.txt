@@ -110,6 +110,9 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.6.4 - 2013-08-14 = 
+* Bug fix for 2.6.3 where settings page stopped working.
+
 = 2.6.3 - 2013-08-13 = 
 * Made non-translatable texts translatable.
 * Added RTL support for the admininistration screen.
@@ -232,6 +235,9 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.6.4 - 2013-08-14 = 
+* Bug fix for 2.6.3 where settings page stopped working.
 
 = 2.6.3 - 2013-08-13 = 
 * Made non-translatable texts translatable.
