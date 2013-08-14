@@ -414,6 +414,7 @@ input:disabled{
 .template-choices li .title{
 	display:block;
 	padding:3px 10px;
+	text-align:left;
 }
 .template-choices li input{
 	position:absolute;
