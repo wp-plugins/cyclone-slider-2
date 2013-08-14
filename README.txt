@@ -44,10 +44,11 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 
 = Credits =
 * Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
-* Special thanks to [Cea Bacolor](http://blog.ceabacolor.com/) for the wonderful photos.
+* Special thanks to Cea Bacolor for the wonderful photos.
 * Aubin BERTHE for the French translation.
 * maxgx for the Italian translation.
 * [Hassan](http://wordpress.org/support/profile/hassanhamm) for the Arabic translation.
+* Javad for the Persian translation.
 
 = License =
 GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
@@ -112,6 +113,8 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.6.4 - 2013-08-14 = 
 * Bug fix for 2.6.3 where settings page stopped working.
+* Minor fix for RTL.
+* Added Persian translation by Javad.
 
 = 2.6.3 - 2013-08-13 = 
 * Made non-translatable texts translatable.
@@ -238,6 +241,8 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 = 2.6.4 - 2013-08-14 = 
 * Bug fix for 2.6.3 where settings page stopped working.
+* Minor fix for RTL.
+* Added Persian translation by Javad.
 
 = 2.6.3 - 2013-08-13 = 
 * Made non-translatable texts translatable.
