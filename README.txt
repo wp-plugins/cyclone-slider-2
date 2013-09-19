@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.6
+Tested up to: 3.6.1
 Stable tag: 2.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,10 +16,10 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 
 = Features: =
 * Very easy to use interface! Just drag and drop to re-order your slides.
-* Every project is unique. To address this issue Cyclone Slider 2 has a template system that allow developers to easily customize the slider appearance and behavior.
 * Responsive slider for responsive and fluid websites.
-* Supports image, video, and custom HTML slides.
+* Supports image, YouTube, Vimeo, and custom HTML slides.
 * Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
+* Every project is unique. To address this issue Cyclone Slider 2 has a template system that allow developers to easily customize the slider appearance and behavior.
 * Ability to add per-slide transition effects.
 * Customizable tile transition effects.
 * Unlimited sliders.
@@ -27,20 +27,16 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 * Supports random slide order.
 * Shortcode for displaying sliders anywhere in your site.
 * Ability to import images from NextGEN (NextGEN must be installed and active).
-* Translation ready.
+* Translation ready and RTL support.
 * Ability to use qTranslate quick tags for slide title and descriptions (qTranslate must be installed and active).
 * Allows title and alt to be specified for each slide images.
 * Comes with a widget to display your slider easily in widget areas.
 * Ability to fine tune the script settings. You can choose what scripts to load and where to load them.
-* It's totally FREE!
+* It's FREE!
 
 = Demos =
 * View some [screenshots](http://wordpress.org/plugins/cyclone-slider-2/screenshots/).
-* Checkout the [Cyclone Slider 2 templates](http://www.codefleet.net/cyclone-slider-2/templates/) for a live demo.
-
-= Useful Links =
-* Learn more about [Cyclone Slider 2](http://www.codefleet.net/cyclone-slider-2/).
-* Learn how to [create your own template](http://www.codefleet.net/introduction-to-templates/).
+* Checkout the [Cyclone Slider 2 homepage](http://www.codefleet.net/cyclone-slider-2/) for a live demo.
 
 = Credits =
 * Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
@@ -70,8 +66,7 @@ GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
 
 = Usage =
 1. Start adding sliders in 'Cyclone Slider' menu in WordPress
-1. You can then use a shortcode to display your slider. Example: `[cycloneslider id="my-slider"]`
-1. Function do_shortcode can be used inside template files. Example: `<?php echo do_shortcode('[cycloneslider id="my-slider"]'); ?>`
+1. The shortcodes and php code are generated automatically by the plugin. Just copy and paste it.
 
 
 == Frequently Asked Questions ==
@@ -85,15 +80,6 @@ Also check if you are using cycle1 by viewing your page source. cycle2 wont work
 = Why is there is an extra slide that I didn't add? = 
 Most probably its wordpress adding paragpraphs on line breaks next to the slides therefore adding a blank `<p>` slide. You can try adding this to functions.php:
 `remove_filter('the_content', 'wpautop');`
-
-= How to display it in post/page? =
-Use the shortcode `[cycloneslider id="my-slider"]`. Change my-slider to the ID of your slider.
-
-= How to display it inside template files (header.php, index.php, page.php, etc.)? =
-As of 2.6.3 - Use `<?php if( function_exists('cyclone_slider') ) cyclone_slider('my-slider'); ?>`. Change "my-slider" to the ID of your slider.
-
-= What are the shortcode options? =
-`[cycloneslider id="my-slider" fx="fade" timeout="5000" speed="1000" width="500" height="300" show_prev_next="true" show_nav="true"]`
 
 = How can I use templates? =
 `[cycloneslider id="my-slider" template="custom-name"]` 
@@ -110,6 +96,19 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.7.0 - 2013-09-19 - This is a major release = 
+* Slider preview!
+* Added YouTube and Vimeo slide types. Deprecated Video slide type.
+* Added Standard template as de-facto template which has support for Image, YouTube, Vimeo, and Custom HTML slide types.
+* Standard template supports RTL and uses pure CSS for buttons.
+* YouTube and Vimeo videos will now pause when changing to a different slide when using the Standard template.
+* Admin UI is now retina and [MP6](http://wordpress.org/plugins/mp6/) ready.
+* Compacted template selection UI. Removed template thumbnail preview as a slider preview is now available in admin.
+* Updated language files.
+* Lots of new slider variables added for use in templates. Will update documentation soon.
+* Removed other shortcode options except id. Example: [cycloneslider id="default"]
+* [Pro version now available with many more features](http://www.codefleet.net/cyclone-slider-pro/).
 
 = 2.6.4 - 2013-08-14 = 
 * Bug fix for 2.6.3 where settings page stopped working.
@@ -237,7 +236,23 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 * Initial
 
 
+
+
+
 == Upgrade Notice ==
+
+= 2.7.0 - 2013-09-19 - This is a major release = 
+* Slider preview!
+* Added YouTube and Vimeo slide types. Deprecated Video slide type.
+* Added Standard template as de-facto template which has support for Image, YouTube, Vimeo, and Custom HTML slide types.
+* Standard template supports RTL and uses pure CSS for buttons.
+* YouTube and Vimeo videos will now pause when changing to a different slide when using the Standard template.
+* Admin UI is now retina and [MP6](http://wordpress.org/plugins/mp6/) ready.
+* Compacted template selection UI. Removed template thumbnail preview as a slider preview is now available in admin.
+* Updated language files.
+* Lots of new slider variables added for use in templates. Will update documentation soon.
+* Removed other shortcode options except id. Example: [cycloneslider id="default"]
+* [Pro version now available with many more features](http://www.codefleet.net/cyclone-slider-pro/).
 
 = 2.6.4 - 2013-08-14 = 
 * Bug fix for 2.6.3 where settings page stopped working.

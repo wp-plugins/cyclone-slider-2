@@ -1,5 +1,6 @@
 .clear{
 	clear:both;
+	display: block;
 }
 
 /*** Add extra space in wp 3.6 ***/
@@ -8,9 +9,6 @@
 }
 
 /*** ID Metabox ***/
-#cyclone-slider-id .inside{
-    padding:0;
-}
 #cyclone-slider-id input[type="text"]{
 	display: inline-block;
 	min-width: 30%;
@@ -57,25 +55,17 @@
 	border-right:0;
 }
 .cs-icon i{
+	font-size: 14px;
 	width:14px;
 	height:14px;
-	display:block;
-	background: url(../images/glyphicons-halflings.png) no-repeat;
+	display:none;
 }
-i.icon-facetime-video{
-	background-position: -432px -48px;
-}
-i.icon-film{
-	background-position: -192px 0;
-}
-i.icon-picture{
-	background-position: -456px -48px;
-}
-i.icon-pencil{
-	background-position:0 -72px;
-}
-i.icon-font{
-	background-position: -144px -48px;
+.cs-slide[data-slide-type="image"] i.icon-picture,
+.cs-slide[data-slide-type="video"] i.icon-film,
+.cs-slide[data-slide-type="custom"] i.icon-code,
+.cs-slide[data-slide-type="youtube"] i.icon-youtube-play,
+.cs-slide[data-slide-type="vimeo"] i.icon-play{
+	display: block;
 }
 .cs-title{
     float:left;
@@ -91,48 +81,29 @@ i.icon-font{
 .rtl .cs-controls{
 	float:left;
 }
-.cs-drag,
-.cs-toggle,
 .cs-delete{
     margin:0 5px;
     display:block;
     float:left;
-    text-indent:-99999px;
-    width:15px;
-    height:15px;
+    width:14px;
+    height:14px;
+	font-size: 14px;
+	text-align: center;
+	cursor:pointer;
 }
-.rtl .cs-drag,
-.rtl .cs-toggle,
 .rtl .cs-delete{
 	float:right;
 }
-.cs-drag{
-	display:none;
-	cursor:move;
-    color:#285C00;
-    background: url(../images/ui-icons.png) no-repeat 0 0;
-}
-.cs-toggle{
-	cursor:pointer;
-    color:#21759B;
-    background: url(../images/ui-icons.png) no-repeat -15px 0;
-}
 .cs-delete{
-	cursor:pointer;
-    color:#ff9191;
-    background: url(../images/ui-icons.png) no-repeat -30px 0;
-}
-.cs-header:hover .cs-toggle{
-    background-position:-15px -15px;
-    color:#fff;
+	font-size: 16px;
+    color: #CC0A0C;
 }
 .cs-slide:hover .cs-header,
 .cs-slide:hover .cs-body{
     border-color:#c0c0c0;
 }
 .cs-header .cs-delete:hover{
-    background-color:#ff9191;
-    color:#fff;
+    color:#ff0000;
 }
 .cs-body{
     background:#F5F5F5;
@@ -192,6 +163,15 @@ i.icon-font{
 .rtl .cs-video-preview{
 	float:right;
 }
+.cs-video-error{
+	background-color: #FFEBE8;
+	border-top: 1px solid #C00;
+	border-bottom: 1px solid #C00;
+}
+.cs-video-error p{
+	padding: 5px 10px;
+	margin: 0;
+}
 .cs-video-settings{
     float:left;
     width:50%;
@@ -217,11 +197,39 @@ i.icon-font{
 }
 
 /*** Custom HTML ***/
-.cs-custom{
+.cs-slide-custom{
     padding:15px 2%;
 }
 .cs-custom-html{
 	min-height:140px;
+}
+
+/*** YouTube Slide ***/
+.cs-slide-youtube {
+	padding: 15px;
+}
+
+/*** YouTube Vimeo ***/
+.cs-slide-vimeo {
+	padding: 15px;
+}
+
+/*** Hide other slide types ***/
+.cs-slide-image,
+.cs-slide-video,
+.cs-slide-custom,
+.cs-slide-youtube,
+.cs-slide-vimeo{
+	display: none;
+}
+
+/*** Show selected slide type ***/
+.cs-slide[data-slide-type="image"] .cs-slide-image,
+.cs-slide[data-slide-type="video"] .cs-slide-video,
+.cs-slide[data-slide-type="custom"] .cs-slide-custom,
+.cs-slide[data-slide-type="youtube"] .cs-slide-youtube,
+.cs-slide[data-slide-type="vimeo"] .cs-slide-vimeo{
+	display: block;
 }
 
 /*** Slide effects toggle ***/
@@ -231,14 +239,6 @@ i.icon-font{
 }
 .rtl .cycloneslider_metas_enable_slide_effects{
 	float:left;
-}
-
-/*** Hide other slide types ***/
-.cs-video, .cs-custom, .cs-image{
-	display:none;
-}
-.cs-image {
-	display:block;
 }
 
 /*** Placeholder ***/
@@ -258,7 +258,8 @@ i.icon-font{
 .expandable-group-title{
     font-weight:bold;
     font-size:12px;
-    margin-bottom:10px;
+    margin-top:0;
+	margin-bottom:10px;
     text-transform:capitalize;
 }
 .expandable-box.last{
@@ -269,7 +270,6 @@ i.icon-font{
     border-right:1px solid #D3D3D3;
     border-top:1px solid #D3D3D3;
     padding:3px 7px;
-    font-weight:bold;
     color:#666666;
     background-color: #f1f1f1;
     cursor:pointer;
@@ -323,9 +323,8 @@ input:disabled{
 	color:#999;
 }
 
-
-
-#cyclone-slider-properties-metabox .inside{
+#cyclone-slider-properties-metabox .inside,
+#cyclone-slider-advanced-settings-metabox .inside{
     padding:0;
 }
 
@@ -375,87 +374,118 @@ input:disabled{
 
 
 /*** Templates ***/
-.template-choices{
-	margin:0;
+#cyclone-slider-templates-metabox .inside{
+	padding: 0;
+	margin: 0;
 }
-.template-choices li{
-	position:relative;
-	float:left;
-	width:200px;
-	margin-right:10px;
-	margin-bottom:10px;
-	border:3px solid #cfcfcf;
-	-moz-border-radius:3px; /* Firefox */
-	-webkit-border-radius:3px; /* Safari and chrome */
-	-khtml-border-radius:3px; /* Linux browsers */
-	border-radius:3px; /* CSS3 */
+.cs-templates{
+	padding: 0;
+	margin: 0;
 }
-.rtl .template-choices li{
+.cs-templates .header > span,
+.cs-templates .body > span{
+	float: left;
+	overflow: hidden;
+}
+.rtl .cs-templates .body > span{
+	float: right;
+}
+.cs-templates span.clear,
+.rtl .cs-templates span.clear{
+	float: none;
+}
+.cs-templates input[type="radio"]{
+	position: absolute;
+	left: 50px;
+	top: 40%;
+	z-index: -1;
+}
+.cs-templates > li{
+	position: relative;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #cfcfcf;
+	margin-bottom: 0;
+}
+.cs-templates .header {
+	background: #ececec;
+	padding: 5px 0;
+}
+.cs-templates .body {
+	padding: 10px 0;
+}
+.cs-templates .body:hover{
+	background: #ececec;
+}
+.cs-templates .body.active{
+	background-color:#ececec;
+	color: #21759B;
+}
+.cs-templates .body .icon-ok{
+	display: none;
+	font-size: 14px;
+}
+.cs-templates .body.active .icon-ok{
+	display: inline-block;
+}
+.cs-templates .template-name{
+	width: 13%;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+#side-sortables .template-name{
+	width: 33%;
+	font-size: 12px;
+}
+.cs-templates .supported-slide-types{
+	width: 14%;
+	margin-right: 1%;
+}
+.cs-templates .supported-slide-types i{
+	font-size: 14px;
+	margin: 0 3px;
+}
+#side-sortables .supported-slide-types{
+	width: 39%;
+	font-size: 12px;
+}
+.cs-templates .template-description{
+	width: 44%;
+	margin-right: 1%;
+}
+.cs-templates .selected{
+	width: 13%;
+	text-align: center;
+}
+.cs-templates .header .selected,
+.cs-templates .body .selected{
+	float: right;
+	margin-left: 1px;
+	margin-right: 1%;
+}
+.rtl .cs-templates .header .selected,
+.rtl .cs-templates .body .selected{
+	float: left;
+}
+#side-sortables .selected{
+	width: 23%;
+}
+.cs-get-more{
+	padding:20px 10px 10px 10px;
 	float:right;
-	margin-left:10px;
-	margin-right:0;
 }
-.template-choices li:hover,
-.template-choices li.active{
-	border-color:#21759B;
-	background-color:#21759B;
-	color:#fff;
-}
-.template-choices li label,
-.template-choices li img{
-	display:block;
-}
-.template-choices li img{
-	max-width:100%;
-}
-.template-choices li label{
-	height:125px;
-}
-.template-choices li .title{
-	display:block;
-	padding:3px 10px;
-	text-align:left;
-}
-.template-choices li input{
-	position:absolute;
-	z-index:-1;
-}
-.template-choices li.active .check{
-	display:block;
-}
-.template-choices .check{
-	display:none;
-	position:absolute;
-	width:15px;
-	height:15px;
-	z-index:90;
-	right:0;
-	top:0;
-	border:3px solid #21759B ;
-	background:#21759B url(../images/uploader-icons.png) no-repeat -21px 0;
-	-webkit-border-radius: 0px 0px 0px 5px;
-    border-radius: 0px 0px 0px 5px;
-}
-.template-choices .supported{
-	position:absolute;
-	z-index:90;
-	right:5px;
-	bottom:5px;
-}
-.rtl .template-choices .supported{
-	left:5px;
-	right:auto;
-}
-.template-choices .supported span{
-	float:right;
-	margin:0 3px;
-}
-.rtl .template-choices .supported span{
+.rtl .cs-get-more{
 	float:left;
 }
-.template-scroller{
-	margin-bottom:5px;
+#side-sortables .cs-get-more{
+	float: none;
+	text-align: center;
 }
+#side-sortables .cs-get-more > * {
+	margin-bottom: 5px;
+}
+
 
 
 /*** Hide admin stuff ***/
@@ -464,10 +494,34 @@ input:disabled{
 	display:none;
 }
 
-.cycloneslider-get-more{
-	padding-top:5px;
-	float:right;
+#cycloneslider_settings_resize_option{
+	display: inline-block;
 }
-.rtl .cycloneslider-get-more{
-	float:left;
+label[for="force_resize"]{
+	display: inline-block;
+	font-weight: normal;
+	margin: 0;
+}
+
+/*** Pro ***/
+.cycloneslider-cover{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #F8F8F8;
+	opacity: 0.8;
+	z-index: 99;
+}
+.cycloneslider-cover p{
+	text-align: center;
+	padding: 80px 0 0 0;
+	font-size: 20px;
+}
+.cycloneslider-cover p a{
+	text-decoration: underline;
+}
+.cs2-disabled{
+	color: #999;
 }

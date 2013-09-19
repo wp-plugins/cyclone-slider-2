@@ -14,6 +14,13 @@ function cyclone_slider( $slider_slug ){
 }
 
 /**
+* Print with a twist
+*/
+function cyclone_slider_debug($out){
+	return '<pre>'.print_r($out, true).'</pre>';
+}
+
+/**
  * Cyclone Slide Image URL
  *
  * Gets the url of the slide image

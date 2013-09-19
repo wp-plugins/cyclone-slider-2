@@ -72,6 +72,15 @@
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
+	<label for="cycloneslider_settings_resize"><?php _e('Resize Images?', 'cycloneslider'); ?></label>
+	<select id="cycloneslider_settings_resize" name="cycloneslider_settings[resize]">
+		<option <?php selected($slider_settings['resize'], 0); ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
+		<option <?php selected($slider_settings['resize'], 1); ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
+	</select>
+	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image.', 'cycloneslider'); ?></span>
+	<div class="clear"></div>
+</div>
+<div class="cycloneslider-field last">
 	<label for="cycloneslider_settings_randomize"><?php _e('Random Slide Order?', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_randomize" name="cycloneslider_settings[random]">
 		<option <?php echo (0==$slider_settings['random']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
@@ -80,13 +89,5 @@
 	<span class="note"><?php _e('Randomize order of slides on every page visit.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
-<div class="cycloneslider-field last">
-	<label for="cycloneslider_settings_resize"><?php _e('Resize Images?', 'cycloneslider'); ?></label>
-	<select id="cycloneslider_settings_resize" name="cycloneslider_settings[resize]">
-		<option <?php echo (0==$slider_settings['resize']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
-		<option <?php echo (1==$slider_settings['resize']) ? 'selected="selected"' : ''; ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
-	</select>
-	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image.', 'cycloneslider'); ?></span>
-	<div class="clear"></div>
-</div>
+
 <?php echo $debug ?>
