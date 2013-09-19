@@ -6,11 +6,15 @@ if(!class_exists('Nextgen_Integration')):
 	*/
 	class Nextgen_Integration {
 		
+		private $cyclone_slider_data; // Holds cyclone slider data object
+		
 		/**
 		* Initialize 
 		*/
-		function __construct() {
-
+		function __construct( $cyclone_slider_data ) {
+			
+			$this->cyclone_slider_data = $cyclone_slider_data;
+			
 			// Add metaboxes
 			add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 100 );
 			
@@ -166,7 +170,7 @@ if(!class_exists('Nextgen_Integration')):
 					
 					foreach($nextgen_gallery as $image){
 						if($attach_id = $this->copy_image($image->imagePath)){ //Copy success!
-							$slides[] = wp_parse_args(array('id' => $attach_id), Cyclone_Slider_Data::get_slide_defaults() ); //Add the slide ID and fill in default values
+							$slides[] = wp_parse_args(array('id' => $attach_id), $this->cyclone_slider_data->get_slide_defaults() ); //Add the slide ID and fill in default values
 						}
 					}
 				}
@@ -176,7 +180,5 @@ if(!class_exists('Nextgen_Integration')):
 		}
 		
 	} // end class
-	
-	$cyclone_slider_nextgen_integration = new Nextgen_Integration();
 	
 endif;

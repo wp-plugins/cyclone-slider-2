@@ -138,7 +138,7 @@ if(!class_exists('Image_Resizer')):
 					$optimalWidth = $this->getSizeByFixedHeight($newHeight);
 					$optimalHeight= $newHeight;
 				} else {
-					// *** Sqaure being resized to a square
+					// *** Square being resized to a square
 					$optimalWidth = $newWidth;
 					$optimalHeight= $newHeight;
 				}

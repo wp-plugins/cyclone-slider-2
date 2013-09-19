@@ -14,5 +14,9 @@ jQuery(document).ready(function(){
 			var i = jQuery(this).index();
 			slideshow.cycle('goto', i);
 		});
+		
+		slideshow.on( 'cycle-before', function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
+			if(optionHash.dynamicHeight == "on") slideshow.animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing);
+        });
 	});
 });

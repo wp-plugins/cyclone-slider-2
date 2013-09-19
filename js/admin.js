@@ -63,6 +63,17 @@ CsUiOpen.prototype.clear = function(){
 
 
 jQuery(document).ready(function($){
+    /*** Export ***/
+    (function() {
+        $('#cs-select-all').click(function(){
+            if( $(this).is(':checked') ) {
+                $('.cs-sliders').prop('checked', true);
+            } else {
+                $('.cs-sliders').prop('checked', false);
+            }
+            
+        });
+    })();
     /*** SLIDE BOXES ***/
     (function() {
         var slideshow_id, cs_ui_open;
@@ -162,27 +173,7 @@ jQuery(document).ready(function($){
             var box, body, image_box, video_box, custom_box, icon;
             
             box = $(this).parents('.cs-slide');
-            body = box.find('.cs-body');
-            image_box = body.find('.cs-image');
-            video_box = body.find('.cs-video');
-            custom_box = body.find('.cs-custom');
-            icon = box.find('.cs-icon i');
-            if($(this).val()=='video'){
-                image_box.hide();
-                video_box.show();
-                custom_box.hide();
-                icon.attr('class', 'icon-film');
-            } else if($(this).val()=='custom'){
-                image_box.hide();
-                video_box.hide();
-                custom_box.show();
-                icon.attr('class', 'icon-font');
-            } else {
-                image_box.show();
-                video_box.hide();
-                custom_box.hide();
-                icon.attr('class', 'icon-picture');
-            }
+            box.attr('data-slide-type', $(this).val());
             
         });
         $('.cs-slide-type-switcher').trigger('change');
@@ -274,8 +265,6 @@ jQuery(document).ready(function($){
                 }
             });
         });
-
-        
     })();
 
     (function() {
@@ -289,9 +278,9 @@ jQuery(document).ready(function($){
         $('#pts_post_type').html('<option value="cycloneslider">Cycloneslider</option>');
         
         /*** Template Chooser ***/
-        $('.template-choices li').click(function(){
-            $('.template-choices li').removeClass('active');
-            $('.template-choices li input').removeAttr('checked');
+        $('.cs-templates li').click(function(){
+            $('.cs-templates li').removeClass('active');
+            $('.cs-templates li input').removeAttr('checked');
             $(this).addClass('active').find('input').attr('checked','checked');
         });
         
