@@ -3,7 +3,11 @@
 <?php
 // For description of variables go to: http://www.codefleet.net/cyclone-slider-2/#template-variables
 ?>
-<div class="cycloneslider cycloneslider-template-standard" id="<?php echo esc_attr( $slider_html_id ); ?>" style="max-width: <?php echo esc_attr( $slider_settings['width'] ); ?>px">
+<div class="cycloneslider cycloneslider-template-standard cycloneslider-width-<?php echo esc_attr( $slider_settings['width_management'] ); ?>"
+    id="<?php echo esc_attr( $slider_html_id ); ?>"
+    <?php echo ( 'responsive' == $slider_settings['width_management'] ) ? 'style="max-width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    <?php echo ( 'fixed' == $slider_settings['width_management'] ) ? 'style="width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    >
     <div class="cycloneslider-slides cycle-slideshow"
         data-cycle-allow-wrap="<?php echo esc_attr( $slider_settings['allow_wrap'] ); ?>"
         data-cycle-dynamic-height="<?php echo esc_attr( $slider_settings['dynamic_height'] ); ?>"
@@ -30,19 +34,22 @@
         <?php foreach($slides as $slide): ?>
             <?php if ( 'image' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <?php if ($slide['link']!='') : ?>
+                    <?php if( 'lightbox' == $slide['link_target'] ): ?>
+                        <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>">
+                    <?php elseif ( '' != $slide['link'] ) : ?>
                         <?php if( '_blank' == $slide['link_target'] ): ?>
-                            <a target="_blank" href="<?php echo $slide['link'];?>">
-                        <?php elseif( 'lightbox' == $slide['link_target'] ): ?>
-                            <a class="magnific-pop" href="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>">
+                            <a class="cycloneslider-caption-more" target="_blank" href="<?php echo $slide['link'];?>">
                         <?php else: ?>
-                            <a href="<?php echo $slide['link'];?>">
+                            <a class="cycloneslider-caption-more" href="<?php echo $slide['link'];?>">
                         <?php endif; ?>
                     <?php endif; ?>
-                        <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
-                    <?php if ( '' != $slide['link'] ) : ?>
+
+                    <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+                    
+                    <?php if( 'lightbox' == $slide['link_target'] or ('' != $slide['link']) ) : ?>
                         </a>
                     <?php endif; ?>
+                    
                     <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
                         <div class="cycloneslider-caption">
                             <div class="cycloneslider-caption-title"><?php echo $slide['title'];?></div>
@@ -73,11 +80,11 @@
     <div class="cycloneslider-pager"></div>
     <?php endif; ?>
     <?php if ($slider_settings['show_prev_next']) : ?>
-    <div class="cycloneslider-prev">
-        <div class="arrow"></div>
-    </div>
-    <div class="cycloneslider-next">
-        <div class="arrow"></div>
-    </div>
+    <a href="#" class="cycloneslider-prev">
+        <span class="arrow"></span>
+    </a>
+    <a href="#" class="cycloneslider-next">
+        <span class="arrow"></span>
+    </a>
     <?php endif; ?>
 </div>

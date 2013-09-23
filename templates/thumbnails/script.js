@@ -1,22 +1,25 @@
-jQuery(document).ready(function(){
-	jQuery('.cycloneslider-template-thumbnails').each(function(i,el){
+(function() {
+	var main = '.cycloneslider-template-thumbnails';
+	
+	jQuery(document).on('cycle-initialized', main+' .cycloneslider-slides', function( event, optionHash ) {
 		
-		var main = jQuery(el),
-			slideshow = main.children('.cycloneslider-slides'),
-			thumbnails = main.next();
+		jQuery(this).parent().next().find('li').eq(optionHash.currSlide).addClass('current'); /* Higlight first thumb */
 		
-		thumbnails.find('li:first').addClass('current');
-		slideshow.on( 'cycle-before', function( event, optionHash ) {
-			var i = optionHash.nextSlide;
-			thumbnails.find('li').removeClass('current').eq(i).addClass('current');
-		});
-		thumbnails.on('click', 'li', function(){
-			var i = jQuery(this).index();
-			slideshow.cycle('goto', i);
-		});
-		
-		slideshow.on( 'cycle-before', function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
-			if(optionHash.dynamicHeight == "on") slideshow.animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing);
-        });
 	});
-});
+	
+	jQuery(document).on('cycle-before', main+' .cycloneslider-slides', function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
+		var i = optionHash.nextSlide;
+		
+		jQuery(this).parent().next().find('li').removeClass('current').eq(i).addClass('current');
+		
+		if(optionHash.dynamicHeight == "on" && ((optionHash.autoHeight+"").indexOf(":") == -1) ) jQuery(this).animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing); /* Autoheight when dynamic height is on and auto height is not ratio (eg. 300:250) */
+		
+	});
+
+	jQuery(document).on('click', '.cycloneslider-thumbnails li', function(){
+		var i = jQuery(this).index();
+		
+		jQuery(this).parents('.cycloneslider-thumbnails').prev().find('.cycloneslider-slides').cycle('goto', i);
+	});
+
+})();

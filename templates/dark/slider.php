@@ -1,9 +1,9 @@
 <?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
 
-<?php
+<?php 
 // For description of variables go to: http://www.codefleet.net/cyclone-slider-2/#template-variables
 ?>
-<div class="cycloneslider cycloneslider-template-default cycloneslider-width-<?php echo esc_attr( $slider_settings['width_management'] ); ?>"
+<div class="cycloneslider cycloneslider-template-dark cycloneslider-width-<?php echo esc_attr( $slider_settings['width_management'] ); ?>"
     id="<?php echo esc_attr( $slider_html_id ); ?>"
     <?php echo ( 'responsive' == $slider_settings['width_management'] ) ? 'style="max-width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
     <?php echo ( 'fixed' == $slider_settings['width_management'] ) ? 'style="width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
@@ -34,38 +34,29 @@
         <?php foreach($slides as $slide): ?>
             <?php if ( 'image' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <?php if ($slide['link']!='') : ?>
-                        <?php if( '_blank' == $slide['link_target'] ): ?>
-                            <a target="_blank" href="<?php echo $slide['link'];?>">
-                        <?php elseif( 'lightbox' == $slide['link_target'] ): ?>
-                            <a class="magnific-pop" href="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>">
-                        <?php else: ?>
-                            <a href="<?php echo $slide['link'];?>">
-                        <?php endif; ?>
-                    <?php endif; ?>
-                        <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
-                    <?php if ( '' != $slide['link'] ) : ?>
-                        </a>
-                    <?php endif; ?>
+                    <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                     <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
                         <div class="cycloneslider-caption">
                             <div class="cycloneslider-caption-title"><?php echo $slide['title'];?></div>
                             <div class="cycloneslider-caption-description"><?php echo $slide['description'];?></div>
+                            <?php if( 'lightbox' == $slide['link_target'] ): ?>
+                                <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
+                            <?php elseif ( '' != $slide['link'] ) : ?>
+                                <?php if( '_blank' == $slide['link_target'] ): ?>
+                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo $slide['link'];?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                <?php else: ?>
+                                    <a class="cycloneslider-caption-more" href="<?php echo $slide['link'];?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
-                </div>
+                
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
-                </div>
+                
             <?php elseif ( 'video' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
-                </div>
+                
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
                     <?php echo $slide['custom']; ?>
@@ -77,7 +68,11 @@
     <div class="cycloneslider-pager"></div>
     <?php endif; ?>
     <?php if ($slider_settings['show_prev_next']) : ?>
-    <div class="cycloneslider-prev"></div>
-    <div class="cycloneslider-next"></div>
+    <a href="#" class="cycloneslider-prev">
+        <span class="arrow"></span>
+    </a>
+    <a href="#" class="cycloneslider-next">
+        <span class="arrow"></span>
+    </a>
     <?php endif; ?>
 </div>

@@ -47,6 +47,20 @@
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
+	<label for="cycloneslider_settings_width_management"><?php _e('Width Management:', 'cycloneslider'); ?></label>
+	<select id="cycloneslider_settings_width_management" name="cycloneslider_settings[width_management]">
+		<option <?php selected($slider_settings['width_management'], 'responsive'); ?> value="responsive"><?php _e('Responsive', 'cycloneslider'); ?></option>
+		<option <?php selected($slider_settings['width_management'], 'full'); ?> value="full"><?php _e('Full', 'cycloneslider'); ?></option>
+		<option <?php selected($slider_settings['width_management'], 'fixed'); ?> value="fixed"><?php _e('Fixed', 'cycloneslider'); ?></option>
+	</select>
+	<span class="note">
+	<?php _e('Responsive - resizes to smaller size but maximum width will be equal to the provided width.', 'cycloneslider'); ?><br />
+	<?php _e('Full - the same as responsive but maximum width will be equal to its container ignoring the provided width.', 'cycloneslider'); ?><br />
+	<?php _e('Fixed - width and height are not resized.', 'cycloneslider'); ?>
+	</span>
+	<div class="clear"></div>
+</div>
+<div class="cycloneslider-field">
 	<label for="cycloneslider_settings_hover_pause"><?php _e('Pause on Hover?', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_hover_pause" name="cycloneslider_settings[hover_pause]">
 		<option <?php echo ('true'==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="true"><?php _e('Yes', 'cycloneslider'); ?></option>

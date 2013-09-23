@@ -178,6 +178,22 @@ jQuery(document).ready(function($){
         });
         $('.cs-slide-type-switcher').trigger('change');
         
+        /*** Enable/Disable Link URL if lightbox is selected ***/
+        $('#cyclone-slides-metabox').on('change', '.cycloneslider_metas_link_target', function(e){
+            var box, link_url;
+            
+            box = $(this).parents('.expandable-box');
+            
+            link_url = box.find('.cycloneslider_metas_link_url');
+            
+            if ($(this).val() == 'lightbox') {
+                link_url.attr('disabled', 'disabled');
+            } else {
+                link_url.removeAttr('disabled');
+            }
+        });
+        $('.cycloneslider_metas_link_target').trigger('change');
+        
     })();
     
     /*** EXPANDABLES ***/

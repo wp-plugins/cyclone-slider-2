@@ -3,7 +3,11 @@
 <?php
 // For description of variables go to: http://www.codefleet.net/cyclone-slider-2/#template-variables
 ?>
-<div class="cycloneslider cycloneslider-template-thumbnails" id="<?php echo $slider_html_id; ?>" style="max-width:<?php echo $slider_settings['width']; ?>px">
+<div class="cycloneslider cycloneslider-template-thumbnails cycloneslider-width-<?php echo esc_attr( $slider_settings['width_management'] ); ?>"
+    id="<?php echo esc_attr( $slider_html_id ); ?>"
+    <?php echo ( 'responsive' == $slider_settings['width_management'] ) ? 'style="max-width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    <?php echo ( 'fixed' == $slider_settings['width_management'] ) ? 'style="width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    >
 	<div class="cycloneslider-slides cycle-slideshow"
 		data-cycle-allow-wrap="<?php echo esc_attr( $slider_settings['allow_wrap'] ); ?>"
         data-cycle-dynamic-height="<?php echo esc_attr( $slider_settings['dynamic_height'] ); ?>"
@@ -58,7 +62,10 @@
 	<?php endif; ?>
 </div>
 <?php if ($slider_settings['show_nav']) : ?>
-<div id="<?php echo $slider_html_id; ?>-pager" class="cycloneslider-template-thumbnails cycloneslider-thumbnails" style="max-width:<?php echo $slider_settings['width']; ?>px">
+<div id="<?php echo $slider_html_id; ?>-pager" class="cycloneslider-template-thumbnails cycloneslider-thumbnails"
+	<?php echo ( 'responsive' == $slider_settings['width_management'] ) ? 'style="max-width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    <?php echo ( 'fixed' == $slider_settings['width_management'] ) ? 'style="width:'.esc_attr( $slider_settings['width'] ).'px"' : ''; ?>
+    >
 	<ul class="clearfix">
 		<?php foreach($slides as $i=>$slide): ?>
 		<?php if ($slide['type']=='video') : ?>

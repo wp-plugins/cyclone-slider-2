@@ -97,6 +97,15 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.7.1 - 2013-08-23 =
+* Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
+* Added [Dark template](http://www.codefleet.net/cyclone-slider-2/demos/dark/) with RTL support.
+* Standard template is now the selected template when creating new sliders.
+* Moved Title and Description to Caption accordion in slide edit screen.
+* Returned other shortcode options removed in 2.7.0. All shortcode options restored except template. Template can only be changed in admin.
+* Fix caption text-align:left for templates standard, default and thumbnails along with RTL support.
+* Updated language files
+
 = 2.7.0 - 2013-09-19 - This is a major release = 
 * Slider preview!
 * Added YouTube and Vimeo slide types. Deprecated Video slide type.
@@ -240,6 +249,15 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.1 - 2013-08-23 =
+* Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
+* Added [Dark template](http://www.codefleet.net/cyclone-slider-2/templates/dark/) with RTL support.
+* Standard template is now the selected template when creating new sliders.
+* Moved Title and Description to Caption accordion in slide edit screen.
+* Returned other shortcode options removed in 2.7.0. All shortcode options restored except template. Template can only be changed in admin.
+* Fix caption text-align:left for templates standard, default and thumbnails along with RTL support.
+* Updated language files
 
 = 2.7.0 - 2013-09-19 - This is a major release = 
 * Slider preview!
