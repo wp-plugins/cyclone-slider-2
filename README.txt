@@ -97,7 +97,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
-= 2.7.1 - 2013-08-23 =
+= 2.7.1 - 2013-09-23 =
 * Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
 * Added [Dark template](http://www.codefleet.net/cyclone-slider-2/templates/dark/) with RTL support.
 * Standard template is now the selected template when creating new sliders.
@@ -250,7 +250,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Upgrade Notice ==
 
-= 2.7.1 - 2013-08-23 =
+= 2.7.1 - 2013-09-23 =
 * Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
 * Added [Dark template](http://www.codefleet.net/cyclone-slider-2/templates/dark/) with RTL support.
 * Standard template is now the selected template when creating new sliders.
