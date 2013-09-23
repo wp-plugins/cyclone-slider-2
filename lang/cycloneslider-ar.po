@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-19 09:37+0800\n"
-"PO-Revision-Date: 2013-09-19 09:43+0800\n"
+"POT-Creation-Date: 2013-09-23 21:08+0800\n"
+"PO-Revision-Date: 2013-09-23 21:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "MIME-Version: 1.0\n"
@@ -206,9 +206,8 @@ msgid "Cycle 2 - Video. Used by YouTube template."
 msgstr "Cycle 2 - Video. يستخدم في قالب يوتيوب."
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:69
-#, fuzzy
 msgid "Magnific Popup - Enable lightbox option."
-msgstr "التيسير - تمكين تخفيف الخيارات."
+msgstr "ماجنيفيك قافزة - خيار العلبة الخفيفة تمكين."
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:69
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:74
@@ -255,12 +254,12 @@ msgstr "اختر عرض شرائح:"
 msgid "No slideshows found."
 msgstr "لم يتم العثور على عروض شرائح."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider.php:55
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider.php:77
 #, php-format
 msgid "[Slideshow \"%s\" not found]"
 msgstr "[عرض الشرائح \"%s\" لم يتم العثور عليه]"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider.php:67
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider.php:89
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr "[القالب \"%s\" لم يتم العثور عليه]"
@@ -277,7 +276,6 @@ msgstr "اختر معرض NextGEN "
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-1.php:7
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-2.php:7
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-1.php:7
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-2.php:7
 msgid "Import"
 msgstr "استيراد"
 
@@ -285,25 +283,32 @@ msgstr "استيراد"
 msgid "Select a gallery to import images from. Images will be added as new slides."
 msgstr "اختر معرضا لاستيراد الصور منه. سيتم إضافة الصور كشرائح جديدة."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:55
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/dark/slider.php:43
+msgid "View Larger Image"
+msgstr "مشاهدتها بشكل اكبر"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/dark/slider.php:46
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/dark/slider.php:48
+msgid "Learn More"
+msgstr "تعرف على المزيد"
+
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:59
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:63
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/standard/slider.php:63
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:67
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/standard/slider.php:70
 msgid "Slide type not supported."
 msgstr "نوع الشريحة غير معتمدة."
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-1.php:6
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-2.php:6
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-1.php:6
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-2.php:6
 msgid "Export"
 msgstr "أصدر"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-1.php:9
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-2.php:9
-#, fuzzy
 msgid "Cyclone Slider Export"
-msgstr "عرض الشرائح"
+msgstr " التصدير Cyclone Slider"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-1.php:18
 msgid "Select sliders:"
@@ -328,8 +333,6 @@ msgstr "ملف التصدير الخاصة بك جاهزة. انقر فوق تح
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-2.php:18
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/export-step-2.php:27
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-2.php:18
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-2.php:26
 msgid "Back"
 msgstr "إلى الوراء"
 
@@ -338,7 +341,6 @@ msgid "Download"
 msgstr "تحميل"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-1.php:9
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/import-step-2.php:9
 msgid "Cyclone Slider Import"
 msgstr "استيراد Cyclone Slider"
 
@@ -367,7 +369,7 @@ msgid "Vimeo"
 msgstr "فيميو"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:28
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:173
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:168
 msgid "Custom HTML"
 msgstr "كود HTML مخصوص"
 
@@ -384,159 +386,159 @@ msgid "Slide Properties:"
 msgstr "خصائص الشريحة:"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:46
+msgid "Caption"
+msgstr "عنوان فرعي"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:49
+msgid "Title:"
+msgstr "العنوان:"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:53
+msgid "Description:"
+msgstr "الوصف:"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:59
 msgid "Link"
 msgstr "رابط"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:49
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:62
 msgid "Link URL:"
 msgstr "عنوان الرابط:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:53
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:66
 msgid "Open Link in:"
 msgstr "قم بفتح الرابط في:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:55
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:68
 msgid "Same Window"
 msgstr "نفس النافذة"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:56
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:69
 msgid "New Tab or Window"
 msgstr "تبويبة أو نافذة جديدة"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:57
-msgid "Lightbox"
-msgstr "العلبة الخفيفة"
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:63
-msgid "Title"
-msgstr "العنوان"
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:71
-msgid "Description"
-msgstr "الوصف"
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:80
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:75
 msgid "Image Attributes"
 msgstr "سمات الصورة"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:83
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:78
 msgid "Alternate Text:"
 msgstr "النص البديل:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:87
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:82
 msgid "Title Text:"
 msgstr "نص العنوان:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:93
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:88
 msgid "Slide Transition Effects"
 msgstr "مؤثرات انتقال الشريحة"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:97
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:92
 msgid "Disable"
 msgstr "تعطيل"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:98
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:93
 msgid "Enable Slide Effects"
 msgstr "تفعيل مؤثرات الشريحة"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:104
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:99
 msgid "Transition Effects:"
 msgstr "مؤثرات الانتقال:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:115
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:110
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:32
 msgid "Transition Effects Speed:"
 msgstr "سرعة مؤثرات الانتقال:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:117
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:124
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:112
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:119
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:34
 msgid "Milliseconds"
 msgstr "ملي ثانية"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:122
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:117
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:26
 msgid "Next Slide Delay:"
 msgstr "تأخير الشريحة التالية:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:132
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:127
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:13
 msgid "Tile Count:"
 msgstr "عدد المربعات:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:134
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:129
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:15
 msgid "The number of tiles to use in the transition."
 msgstr "عدد المربعات المستخدمة في الانتقال."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:138
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:133
 msgid "Tile Delay:"
 msgstr "تأخير المربعات:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:140
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:135
 msgid "Milliseconds to delay each individual tile transition."
 msgstr "عدد الملي ثانية لتأخير كل مربع منفرد في الانتقال."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:144
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:139
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:18
 msgid "Tile Position:"
 msgstr "موضع المربعات:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:146
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:141
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:20
 msgid "Vertical"
 msgstr "عمودي"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:147
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:142
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:21
 msgid "Horizontal"
 msgstr "أفقي"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:159
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:154
 msgid "YouTube URL:"
 msgstr "يوتيوب URL:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:161
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:156
 msgid "Copy and paste a valid YouTube URL here."
 msgstr "نسخ ولصق URL يوتيوب صالحة هنا."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:166
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:161
 msgid "Vimeo URL:"
 msgstr "فيميو URL:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:168
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:163
 msgid "Copy and paste a valid Vimeo URL here."
 msgstr "نسخ ولصق URL فيميو صالحة هنا."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:180
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:175
 msgid "This video slide is problematic. Please consider using YouTube, Vimeo or Custom slide type for videos. This slide will be removed in the future and will be replaced with a better one."
 msgstr "هذه الشريحة الفيديو هو إشكالية. يرجى النظر في استخدام يوتيوب، فيميو أو نوع الشريحة مخصص لأشرطة الفيديو. ستتم إزالة هذه الشريحة في المستقبل، وسيتم استبدالها بأخرى أفضل."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:191
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:186
 msgid "Video URL:"
 msgstr "عنوان رابط الفيديو:"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:193
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:188
 msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
 msgstr "قم بنسخ ولصق عنوان فيديو يوتيوب أو فيميو واضغط زر احصل على فيديو."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:197
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:192
 msgid "Get Video"
 msgstr "احصل على فيديو"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:202
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:197
 msgid "Embed Code"
 msgstr "كود التضمين"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:204
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:199
 msgid "You can place your embed code directly here. Or you can use the Get Video button to generate the embed code."
 msgstr "يمكنك وضع كود التضمين الخاص بك هنا مباشرة. أو يمكنك استخدام زر احصل على فيديو لتوليد كود التضمين.."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:206
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:201
 msgid "<strong>Note:</strong> The Slide Properties and Tile effects are not supported for videos."
 msgstr "<strong>تنبيه:</strong> خصائص الشريحة ومؤثرات المربعات غير مدعومة في الفيديو."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:208
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:203
 msgid "<strong>Note:</strong> Append &wmode=transparent to the embed code src attribute to make HTML elements appear on top of Flash."
 msgstr "<strong>Note:</strong> أضف &wmode=transparent لخاصية src في كود التضمين لجعل عناصر HTML تظهر فوق الفلاش."
 
@@ -546,21 +548,21 @@ msgstr "تسمح التفاف؟"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-advanced-settings.php:6
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-advanced-settings.php:44
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:52
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:60
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:68
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:78
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:87
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:66
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:74
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:82
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:92
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:101
 msgid "Yes"
 msgstr "نعم"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-advanced-settings.php:7
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-advanced-settings.php:45
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:53
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:61
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:69
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:77
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:86
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:67
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:75
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:83
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:91
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:100
 msgid "No"
 msgstr "لا"
 
@@ -682,34 +684,62 @@ msgid "Height:"
 msgstr "ارتفاع:"
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:50
+msgid "Width Management:"
+msgstr "إدارة العرض:"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:52
+msgid "Responsive"
+msgstr "متجاوب"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:53
+msgid "Full"
+msgstr "كامل"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:54
+msgid "Fixed"
+msgstr "ثابت"
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:57
+msgid "Responsive - resizes to smaller size but maximum width will be equal to the provided width."
+msgstr "استجابة - سوف ريسيزيس إلى حجم أصغر ولكن الحد الأقصى العرض مساويا لعرض المقدمة."
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:58
+msgid "Full - the same as responsive but maximum width will be equal to its container ignoring the provided width."
+msgstr "كامل - نفس العرض استجابة ولكن الحد الأقصى سوف يكون مساويا لالحاوية الخاصة به تجاهل عرض المقدم."
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:59
+msgid "Fixed - width and height are not resized."
+msgstr "ثابت - العرض والارتفاع لا يتم تغيير حجمها."
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:64
 msgid "Pause on Hover?"
 msgstr "إيقاف مؤقت عند المرور بالمؤشر؟"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:58
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:72
 msgid "Show Prev/Next Buttons?"
 msgstr "إظهار أزرار السابق/التالي؟"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:66
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:80
 msgid "Show Navigation?"
 msgstr "إظهار التصفح"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:71
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:85
 msgid "The thumbnails or dots depending on template."
 msgstr "الصور الصغيرة أو النقاط اعتمادا على القالب."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:75
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:89
 msgid "Resize Images?"
 msgstr "تغيير حجم الصور؟"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:80
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:94
 msgid "Yes - resize images to slideshow dimension. <br>No - use the original uploaded image."
 msgstr "نعم - قم بتغيير حجم الصور لأبعاد عرض الشرائح. <br>لا - قم باستخدام الصورة الأصلية المرفوعة."
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:84
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:98
 msgid "Random Slide Order?"
 msgstr "ترتيب عشوائي للشرائح"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:89
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-properties.php:103
 msgid "Randomize order of slides on every page visit."
 msgstr "قم بتغيير ترتيب الشرائح في كل زيارة لصفحة."
 
@@ -728,6 +758,9 @@ msgstr "الشرائح المدعومة"
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/template-selection.php:6
 msgid "Selected"
 msgstr "مختار"
+
+#~ msgid "Lightbox"
+#~ msgstr "العلبة الخفيفة"
 
 #~ msgid "Slideshow Settings"
 #~ msgstr "إعدادات عرض الشرائح"

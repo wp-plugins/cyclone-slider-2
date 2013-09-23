@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 2.6.4
+Stable tag: 2.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,15 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.7.1 - 2013-08-23 =
+* Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
+* Added [Dark template](http://www.codefleet.net/cyclone-slider-2/templates/dark/) with RTL support.
+* Standard template is now the selected template when creating new sliders.
+* Moved Title and Description to Caption accordion in slide edit screen.
+* Returned other shortcode options removed in 2.7.0. All shortcode options restored except template. Template can only be changed in admin.
+* Fix caption text-align:left for templates standard, default and thumbnails along with RTL support.
+* Updated language files
 
 = 2.7.0 - 2013-09-19 - This is a major release = 
 * Slider preview!
@@ -240,6 +249,15 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.1 - 2013-08-23 =
+* Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
+* Added [Dark template](http://www.codefleet.net/cyclone-slider-2/templates/dark/) with RTL support.
+* Standard template is now the selected template when creating new sliders.
+* Moved Title and Description to Caption accordion in slide edit screen.
+* Returned other shortcode options removed in 2.7.0. All shortcode options restored except template. Template can only be changed in admin.
+* Fix caption text-align:left for templates standard, default and thumbnails along with RTL support.
+* Updated language files
 
 = 2.7.0 - 2013-09-19 - This is a major release = 
 * Slider preview!

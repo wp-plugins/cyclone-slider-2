@@ -43,7 +43,29 @@ if(!class_exists('Cyclone_Slider')):
          * @return string Slider HTML
          */
         public function cycloneslider_shortcode( $shortcode_settings ) {
-
+            
+            $shortcode_settings = shortcode_atts(
+                array(
+                    'id' => 0,
+                    'easing' => null,
+                    'fx' => null,
+                    'timeout' => null,
+                    'speed' => null,
+                    'width' => null,
+                    'height' => null,
+                    'hover_pause' => null,
+                    'show_prev_next' => null,
+                    'show_nav' => null,
+                    'tile_count' => null,
+                    'tile_delay' => null,
+                    'tile_vertical' => null,
+                    'random' => null,
+                    'resize' => null
+                ),
+                $shortcode_settings,
+                'cycloneslider'
+            );
+            
             $slider_slug = $shortcode_settings['id']; // Slideshow slug passed from shortcode
             
             $slider_count = ++$this->slider_count; // Make each call to shortcode unique
@@ -67,6 +89,47 @@ if(!class_exists('Cyclone_Slider')):
                 return sprintf(__('[Template "%s" not found]', 'cycloneslider'), $template_name);
             }
             
+            // Use shortcode settings if present and override admin settings
+            if( null !== $shortcode_settings['fx'] ){
+                $slider_settings['fx'] = $shortcode_settings['fx'];
+            }
+            if( null !== $shortcode_settings['timeout'] ){
+                $slider_settings['timeout'] = $shortcode_settings['timeout'];
+            }
+            if( null !== $shortcode_settings['speed'] ){
+                $slider_settings['speed'] = $shortcode_settings['speed'];
+            }
+            if( null !== $shortcode_settings['width'] ){
+                $slider_settings['width'] = $shortcode_settings['width'];
+            }
+            if( null !== $shortcode_settings['height'] ){
+                $slider_settings['height'] = $shortcode_settings['height'];
+            }
+            if( null !== $shortcode_settings['hover_pause'] ){
+                $slider_settings['hover_pause'] = $shortcode_settings['hover_pause'];
+            }
+            if( null !== $shortcode_settings['show_prev_next'] ){
+                $slider_settings['show_prev_next'] = $shortcode_settings['show_prev_next'];
+            }
+            if( null !== $shortcode_settings['show_nav'] ){
+                $slider_settings['show_nav'] = $shortcode_settings['show_nav'];
+            }
+            if( null !== $shortcode_settings['tile_count'] ){
+                $slider_settings['tile_count'] = $shortcode_settings['tile_count'];
+            }
+            if( null !== $shortcode_settings['tile_delay'] ){
+                $slider_settings['tile_delay'] = $shortcode_settings['tile_delay'];
+            }
+            if( null !== $shortcode_settings['tile_vertical'] ){
+                $slider_settings['tile_vertical'] = $shortcode_settings['tile_vertical'];
+            }
+            if( null !== $shortcode_settings['random'] ){
+                $slider_settings['random'] = $shortcode_settings['random'];
+            }
+            if( null !== $shortcode_settings['resize'] ){
+                $slider_settings['resize'] = $shortcode_settings['resize'];
+            }
+            
             $image_count = 0; // Number of image slides
             $video_count = 0; // Number of video slides
             $custom_count = 0; // Number of custom slides
@@ -79,7 +142,10 @@ if(!class_exists('Cyclone_Slider')):
                 $slides[$i]['title'] = __($slide['title']);
                 $slides[$i]['description'] = __($slide['description']);
                 if($slides[$i]['type']=='image'){
-
+                    
+                    list($full_image_url, $orig_width, $orig_height) = wp_get_attachment_image_src($slide['id'], 'full');
+                    
+                    $slides[$i]['full_image_url'] = $full_image_url;
                     $slides[$i]['image_url'] = $this->cyclone_slider_data->get_slide_image_url( $slide['id'], $slider_settings );
                     
                     $image_count++;

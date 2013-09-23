@@ -43,39 +43,34 @@
 			<div class="cs-image-settings">
 				<p class="expandable-group-title first"><?php _e('Slide Properties:', 'cycloneslider'); ?></p>
 				<div class="expandable-box">
-					<div class="expandable-header first"><?php _e('Link', 'cycloneslider'); ?></div>
+					<div class="expandable-header"><?php _e('Caption', 'cycloneslider'); ?></div>
 					<div class="expandable-body">
 						<div class="field">
-							<label for=""><?php _e('Link URL:', 'cycloneslider'); ?></label> <br>
-							<input class="widefat" name="cycloneslider_metas[<?php echo $i; ?>][link]" type="text" value="<?php echo esc_url($slide['link']); ?>" />
-						</div>
-						<div class="field last">
-							<label for=""><?php _e('Open Link in:', 'cycloneslider'); ?></label> <br>
-							<select id="" name="cycloneslider_metas[<?php echo $i; ?>][link_target]">
-								<option <?php selected( $slide['link_target'], '_self' ); ?> value="_self"><?php _e('Same Window', 'cycloneslider'); ?></option>
-								<option <?php selected( $slide['link_target'], '_blank' ); ?> value="_blank"><?php _e('New Tab or Window', 'cycloneslider'); ?></option>
-								<option <?php selected( $slide['link_target'], 'lightbox' ); ?> value="lightbox"><?php _e('Lightbox', 'cycloneslider'); ?></option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="expandable-box">
-					<div class="expandable-header"><?php _e('Title', 'cycloneslider'); ?></div>
-					<div class="expandable-body">
-						<div class="field last">
+							<label for=""><?php _e('Title:', 'cycloneslider'); ?></label> <br>
 							<input class="widefat cycloneslider-slide-meta-title" name="cycloneslider_metas[<?php echo $i; ?>][title]" type="text" value="<?php echo esc_attr($slide['title']); ?>" />
 						</div>
-					</div>
-				</div>
-				<div class="expandable-box">
-					<div class="expandable-header"><?php _e('Description', 'cycloneslider'); ?></div>
-					<div class="expandable-body">
 						<div class="field last">
+							<label for=""><?php _e('Description:', 'cycloneslider'); ?></label> <br>
 							<textarea class="widefat cycloneslider-slide-meta-description" name="cycloneslider_metas[<?php echo $i; ?>][description]"><?php echo esc_html($slide['description']); ?></textarea>
 						</div>
 					</div>
 				</div>
-				
+				<div class="expandable-box">
+					<div class="expandable-header"><?php _e('Link', 'cycloneslider'); ?></div>
+					<div class="expandable-body">
+						<div class="field">
+							<label for=""><?php _e('Link URL:', 'cycloneslider'); ?></label> <br>
+							<input class="cycloneslider_metas_link_url widefat" name="cycloneslider_metas[<?php echo $i; ?>][link]" type="text" value="<?php echo esc_url($slide['link']); ?>" />
+						</div>
+						<div class="field last">
+							<label for=""><?php _e('Open Link in:', 'cycloneslider'); ?></label> <br>
+							<select class="cycloneslider_metas_link_target" id="" name="cycloneslider_metas[<?php echo $i; ?>][link_target]">
+								<option <?php selected( $slide['link_target'], '_self' ); ?> value="_self"><?php _e('Same Window', 'cycloneslider'); ?></option>
+								<option <?php selected( $slide['link_target'], '_blank' ); ?> value="_blank"><?php _e('New Tab or Window', 'cycloneslider'); ?></option>
+							</select>
+						</div>
+					</div>
+				</div>
 				<div class="expandable-box">
 					<div class="expandable-header"><?php _e('Image Attributes', 'cycloneslider'); ?></div>
 					<div class="expandable-body">

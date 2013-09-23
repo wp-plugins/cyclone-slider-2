@@ -124,6 +124,7 @@ if(!class_exists('Cyclone_Slider_Data')):
             $settings_to_save['tile_vertical'] = sanitize_text_field( $settings['tile_vertical'] );
             $settings_to_save['random'] = (int) ( $settings['random'] );
             $settings_to_save['resize'] = (int) ( $settings['resize'] );
+            $settings_to_save['width_management'] = sanitize_text_field( $settings['width_management'] );
             
             $settings_to_save = apply_filters('cycloneslider_settings', $settings_to_save, $slider_id); // Apply filters before saving
             
@@ -366,7 +367,7 @@ if(!class_exists('Cyclone_Slider_Data')):
         */
         public function get_slider_defaults(){
             return array(
-                'template' => 'default',
+                'template' => 'standard',
                 'fx' => 'fade',
                 'timeout' => '4000',
                 'speed' => '1000',
@@ -380,6 +381,7 @@ if(!class_exists('Cyclone_Slider_Data')):
                 'tile_vertical' => 'true',
                 'random' => 0,
                 'resize' => 1,
+                'width_management' => 'responsive',
                 'resize_option' => 'auto',
                 'easing' => '',
                 'allow_wrap' => 'true',

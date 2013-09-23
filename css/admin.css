@@ -286,6 +286,9 @@
     -webkit-border-radius: 3px 3px 0px 0px;
     border-radius: 3px 3px 0px 0px;
 }
+.expandable-box input.widefat[type="text"]:disabled{
+	background: #f1f1f1;
+}
 
 
 
@@ -486,7 +489,10 @@ input:disabled{
 	margin-bottom: 5px;
 }
 
-
+/*** Preview ***/
+#cyclone-slider-preview-metabox .inside{
+	overflow: auto;
+}
 
 /*** Hide admin stuff ***/
 .inline-edit-date,
