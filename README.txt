@@ -99,7 +99,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
-= 2.7.3 - 2013-09-28 =
+= 2.7.3 - 2013-09-27 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.
 * Change. Returned slider auto height from sentinel to ratio for wider support and backward compatibility.
 * Change. Updated screenshots for wordpress.org.
@@ -261,7 +261,7 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Upgrade Notice ==
 
-= 2.7.3 - 2013-09-28 =
+= 2.7.3 - 2013-09-27 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.
 * Change. Returned slider auto height from sentinel to ratio for wider support and backward compatibility.
 * Change. Updated screenshots for wordpress.org.
