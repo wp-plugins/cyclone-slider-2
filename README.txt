@@ -72,10 +72,12 @@ GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
 == Frequently Asked Questions ==
 
 = Why is my slider not working? =
-Check for javascript errors in your page. This is the most common cause of the slider not running.
-`cycle not a function` error - most probably you have double jquery (jquery.js) included from improperly coded plugins. Remove the duplicate jquery or deactivate the plugin causing the double jquery include.
+Check for javascript errors in your page. This is the most common cause of the slider not running. See [diagnosing javascript errors](http://codex.wordpress.org/Using_Your_Browser_to_Diagnose_JavaScript_Errors). Fix the javascript errors and the slider will run.
 
-Also check if you are using cycle1 by viewing your page source. cycle2 wont work if both are present.
+Also check if you are using jQuery Cycle 1 script by viewing your page source. jQuery Cycle2 won't work if both are present.
+
+= How do I pause an auto running slider when I play a YouTube or Vimeo video? =
+Sorry but its not currently supported as it requires loading the YouTube API which is an extra overhead. A solution would be to disable auto transition.
 
 = Why is there is an extra slide that I didn't add? = 
 Most probably its wordpress adding paragpraphs on line breaks next to the slides therefore adding a blank `<p>` slide. You can try adding this to functions.php:
@@ -96,6 +98,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.7.2 - 2013-09-27 =
+* New! Added ability in Settings page to enable/disable templates.
+* Change. Move settings page form to its own view file.
 
 = 2.7.1 - 2013-09-23 =
 * Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.
@@ -249,6 +255,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.2 - 2013-09-27 =
+* New! Added ability in Settings page to enable/disable templates.
+* Change. Move settings page form to its own view file.
 
 = 2.7.1 - 2013-09-23 =
 * Added Width Management option. Three options available: Responsive (default), Full width, and Fixed width. Templates that support this feature are Dark, Default, Standard and Thumbnails.

@@ -8,7 +8,7 @@
     </h2>
     <h2><?php _e('Cyclone Slider Export', 'cycloneslider'); ?></h2>
     <div class="intro">
-        <?php echo cyclone_slider_debug( $cycloneslider_export ); ?>
+        <?php if(CYCLONE_DEBUG) echo cyclone_slider_debug( $cycloneslider_export ); ?>
     </div>
     <form method="post" action="<?php echo $form_url; ?>">
         <input type="hidden" name="<?php echo $nonce_name; ?>" value="<?php echo $nonce; ?>" />

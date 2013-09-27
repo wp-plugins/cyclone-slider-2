@@ -6,22 +6,24 @@ if(!class_exists('Cyclone_Slider_Admin')):
     */
     class Cyclone_Slider_Admin {
         
-        private $view; // Holds the instance of Cyclone_Slider_View
+        protected $view; // Holds the instance of Cyclone_Slider_View
         public $slider_count;
-        private $message_id;
-        private $cyclone_slider_scripts; // Holds frontend scripts object
-        private $templates_manager; // Holds template manager object
-        private $cyclone_slider_data; // Holds cyclone slider data object
+        protected $message_id;
+        protected $cyclone_slider_scripts; // Holds frontend scripts object
+        protected $templates_manager; // Holds template manager object
+        protected $cyclone_slider_data; // Holds cyclone slider data object
+        protected $cyclone_settings_data; // Holds cyclone settings array
         
         /**
          * Initializes the plugin by setting localization, filters, and administration functions.
          */
-        public function __construct( $view, $cyclone_slider_scripts, $cyclone_slider_templates_manager, $cyclone_slider_data ) {
+        public function __construct( $view, $cyclone_slider_scripts, $cyclone_slider_templates_manager, $cyclone_slider_data, $cyclone_settings_data ) {
             
             $this->view = $view;
             $this->cyclone_slider_scripts = $cyclone_slider_scripts;
             $this->cyclone_slider_data = $cyclone_slider_data;
             $this->templates_manager = $cyclone_slider_templates_manager;
+            $this->cyclone_settings_data = $cyclone_settings_data;
             
             // Set defaults
             $this->slider_count = 0;
@@ -381,6 +383,7 @@ if(!class_exists('Cyclone_Slider_Admin')):
 
             $slider_settings = $this->cyclone_slider_data->get_slider_settings($post->ID);
             $templates = $this->templates_manager->get_all_templates();
+            $active_templates = $this->templates_manager->get_active_templates( $this->cyclone_settings_data );
             ksort ( $templates ); // Sort assoc array alphabetically
             foreach($templates as $name=>$template){
                 if( $name == $slider_settings['template'] ){
@@ -393,6 +396,9 @@ if(!class_exists('Cyclone_Slider_Admin')):
                     $templates[$name]['screenshot'] = $template['url'].'/screenshot.jpg';
                 } else {
                     $templates[$name]['screenshot'] = CYCLONE_URL.'images/screenshot.png';
+                }
+                if($active_templates[$name]==0){
+                    unset($templates[$name]);
                 }
             }
             

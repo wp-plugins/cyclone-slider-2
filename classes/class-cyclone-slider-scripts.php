@@ -7,16 +7,16 @@ if(!class_exists('Cyclone_Slider_Scripts')):
     class Cyclone_Slider_Scripts {
         
         private $templates_manager; // Holds templates manager object
-        private $cyclone_settings_array; // Holds cyclone settings array
+        private $cyclone_settings_data; // Holds cyclone settings array
         
         /**
          * Initialize
          */
-        public function __construct( $templates_manager, $cyclone_settings_array ) {
+        public function __construct( $templates_manager, $cyclone_settings_data ) {
             
             // Inject dependencies
             $this->templates_manager = $templates_manager;
-            $this->cyclone_settings_array = $cyclone_settings_array;
+            $this->cyclone_settings_data = $cyclone_settings_data;
             
         } // end constructor
         
@@ -80,12 +80,12 @@ if(!class_exists('Cyclone_Slider_Scripts')):
         public function register_frontend_scripts( $hook ) {
  
             $in_footer = true;
-            if($this->cyclone_settings_array['load_scripts_in'] == 'header'){
+            if($this->cyclone_settings_data['load_scripts_in'] == 'header'){
                 $in_footer = false;
             }
             
             /*** Magnific Popup Style ***/
-            if($this->cyclone_settings_array['load_magnific'] == 1){
+            if($this->cyclone_settings_data['load_magnific'] == 1){
                 wp_enqueue_style( 'jquery-magnific-popup', CYCLONE_URL.'libs/magnific-popup/magnific-popup.css', array(), CYCLONE_VERSION );
             }
             
@@ -95,29 +95,29 @@ if(!class_exists('Cyclone_Slider_Scripts')):
             /*****************************/
             
             /*** Easing ***/
-            if($this->cyclone_settings_array['load_cycle2'] == 1){
+            if($this->cyclone_settings_data['load_cycle2'] == 1){
                 wp_enqueue_script( 'jquery-easing', CYCLONE_URL.'libs/jquery.easing.1.3.js', array('jquery'), CYCLONE_VERSION, $in_footer );
             }
             
             /*** Core Cycle2 Scripts ***/
-            if($this->cyclone_settings_array['load_cycle2'] == 1){
+            if($this->cyclone_settings_data['load_cycle2'] == 1){
                 wp_enqueue_script( 'jquery-cycle2', CYCLONE_URL.'libs/cycle2/jquery.cycle2.min.js', array('jquery'), CYCLONE_VERSION, $in_footer );
             }
-            if($this->cyclone_settings_array['load_cycle2_carousel'] == 1){
+            if($this->cyclone_settings_data['load_cycle2_carousel'] == 1){
                 wp_enqueue_script( 'jquery-cycle2-carousel', CYCLONE_URL.'libs/cycle2/jquery.cycle2.carousel.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
             }
-            if($this->cyclone_settings_array['load_cycle2_swipe'] == 1){
+            if($this->cyclone_settings_data['load_cycle2_swipe'] == 1){
                 wp_enqueue_script( 'jquery-cycle2-swipe', CYCLONE_URL.'libs/cycle2/jquery.cycle2.swipe.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
             }
-            if($this->cyclone_settings_array['load_cycle2_tile'] == 1){
+            if($this->cyclone_settings_data['load_cycle2_tile'] == 1){
                 wp_enqueue_script( 'jquery-cycle2-tile', CYCLONE_URL.'libs/cycle2/jquery.cycle2.tile.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
             }
-            if($this->cyclone_settings_array['load_cycle2_video'] == 1){
+            if($this->cyclone_settings_data['load_cycle2_video'] == 1){
                 wp_enqueue_script( 'jquery-cycle2-video', CYCLONE_URL.'libs/cycle2/jquery.cycle2.video.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
             }
             
             /*** Magnific Popup Scripts ***/
-            if($this->cyclone_settings_array['load_magnific'] == 1){
+            if($this->cyclone_settings_data['load_magnific'] == 1){
                 wp_enqueue_script( 'jquery-magnific-popup', CYCLONE_URL.'libs/magnific-popup/jquery.magnific-popup.min.js', array('jquery'), CYCLONE_VERSION, $in_footer );
             }
             
@@ -136,13 +136,16 @@ if(!class_exists('Cyclone_Slider_Scripts')):
             $ds = DIRECTORY_SEPARATOR;
              
             $template_folders = $this->templates_manager->get_all_templates();
-
+            $active_templates = $this->templates_manager->get_active_templates( $this->cyclone_settings_data );
+            
             foreach($template_folders as $name=>$folder){
                 
-                $file = $folder['path']."/style.css"; // Path to file
-                
-                if( file_exists( $file ) ){ // Check existence
-                    wp_enqueue_style( 'cyclone-template-style-'.sanitize_title($name), $folder['url'].'/style.css', array(), CYCLONE_VERSION );
+                if( 1 == $active_templates[$name] ){
+                    $file = $folder['path']."/style.css"; // Path to file
+                    
+                    if( file_exists( $file ) ){ // Check existence
+                        wp_enqueue_style( 'cyclone-template-style-'.sanitize_title($name), $folder['url'].'/style.css', array(), CYCLONE_VERSION );
+                    }
                 }
             }
         }
@@ -154,18 +157,21 @@ if(!class_exists('Cyclone_Slider_Scripts')):
             $ds = DIRECTORY_SEPARATOR;
 
             $in_footer = true;
-            if($this->cyclone_settings_array['load_scripts_in'] == 'header'){
+            if($this->cyclone_settings_data['load_scripts_in'] == 'header'){
                 $in_footer = false;
             }
             
             $template_folders = $this->templates_manager->get_all_templates();
-
+            $active_templates = $this->templates_manager->get_active_templates( $this->cyclone_settings_data );
+            
             foreach($template_folders as $name=>$folder){
                 
-                $file = $folder['path']."/script.js"; // Path to file
-                
-                if( file_exists( $file ) ){ // Check existence
-                    wp_enqueue_script( 'cyclone-template-script-'.sanitize_title($name), $folder['url'].'/script.js', array(), CYCLONE_VERSION, $in_footer );
+                if( 1 == $active_templates[$name] ){
+                    $file = $folder['path']."/script.js"; // Path to file
+                    
+                    if( file_exists( $file ) ){ // Check existence
+                        wp_enqueue_script( 'cyclone-template-script-'.sanitize_title($name), $folder['url'].'/script.js', array(), CYCLONE_VERSION, $in_footer );
+                    }
                 }
             }
         }

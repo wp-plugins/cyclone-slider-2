@@ -55,6 +55,26 @@ if(!class_exists('Cyclone_Templates_Manager')):
         }
         
         /**
+         * Get Active Templates
+         *
+         * Get templates that are enabled in settings page
+         *
+         * @return array Template locations
+         */
+        public function get_active_templates( $settings_data ){
+            
+			$templates = $this->get_all_templates();
+
+			foreach($templates as $name=>$template){
+				
+				if( !isset($settings_data['load_templates'][$name]) ){
+					$settings_data['load_templates'][$name] = 1;
+				}
+			}
+			return $settings_data['load_templates'];
+        }
+        
+        /**
          * Get Template Locations
          *
          * @return array Template locations
