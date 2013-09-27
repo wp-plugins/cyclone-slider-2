@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-pro/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.7.1
+Version: 2.7.2
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -25,7 +25,7 @@ License:
   
 */
 if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.7.1' );
+    define('CYCLONE_VERSION', '2.7.2' );
 }
 if(!defined('CYCLONE_PATH')){
     define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
@@ -79,15 +79,6 @@ $cyclone_slider_exporter = new Cyclone_Slider_Exporter( $cyclone_slider_data );
 
 $cyclone_slider_importer = new Cyclone_Slider_Importer( $cyclone_slider_data );
 
-$cyclone_slider_settings_page = new Cyclone_Slider_Settings_Page();
-$cyclone_slider_settings_page->set_option_group('cyclone_option_group');
-$cyclone_slider_settings_page->set_option_name('cyclone_option_name');
-$cyclone_slider_settings_page->set_parent_slug('edit.php?post_type=cycloneslider');
-$cyclone_slider_settings_page->set_menu_slug('cycloneslider-settings');
-
-$cyclone_slider_youtube = new Cyclone_Slider_Youtube();
-$cyclone_slider_vimeo = new Cyclone_Slider_Vimeo();
-
 $cyclone_slider_templates_manager = new Cyclone_Templates_Manager();
 
 // Add directories to get templates
@@ -97,7 +88,6 @@ $cyclone_slider_templates_manager->add_template_location(
         'url'=>CYCLONE_URL.'templates/'
     )
 );
-
 $cyclone_slider_templates_manager->add_template_location(
     array(
         'path'=> realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the current theme or child theme
@@ -105,9 +95,20 @@ $cyclone_slider_templates_manager->add_template_location(
     )
 );
 
+$cyclone_slider_settings_page = new Cyclone_Slider_Settings_Page( $codefleet_view, $cyclone_slider_templates_manager );
+$cyclone_slider_settings_page->set_option_group('cyclone_option_group');
+$cyclone_slider_settings_page->set_option_name('cyclone_option_name');
+$cyclone_slider_settings_page->set_parent_slug('edit.php?post_type=cycloneslider');
+$cyclone_slider_settings_page->set_menu_slug('cycloneslider-settings');
+
+$cyclone_slider_youtube = new Cyclone_Slider_Youtube();
+$cyclone_slider_vimeo = new Cyclone_Slider_Vimeo();
+
+
+
 $cyclone_slider_scripts = new Cyclone_Slider_Scripts( $cyclone_slider_templates_manager, $cyclone_slider_settings_page->get_settings_data() );
 
-$cyclone_slider_admin = new Cyclone_Slider_Admin( $codefleet_view, $cyclone_slider_scripts, $cyclone_slider_templates_manager, $cyclone_slider_data );
+$cyclone_slider_admin = new Cyclone_Slider_Admin( $codefleet_view, $cyclone_slider_scripts, $cyclone_slider_templates_manager, $cyclone_slider_data, $cyclone_slider_settings_page->get_settings_data() );
 
 $cyclone_slider_plugin_instance = new Cyclone_Slider( $cyclone_slider_scripts, $cyclone_slider_data, $codefleet_view, $cyclone_slider_templates_manager, $cyclone_slider_youtube, $cyclone_slider_vimeo );
 
