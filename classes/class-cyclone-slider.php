@@ -176,13 +176,9 @@ if(!class_exists('Cyclone_Slider')):
            
             // Hardcoded for now
             $slider_settings['hide_non_active'] = "true";
-            $slider_settings['auto_height'] = 0; // Use sentinel mode as it is the most ideal
+            $slider_settings['auto_height'] = "{$slider_settings['width']}:{$slider_settings['height']}"; // Use ratio for backward compat
             if( ($youtube_count+$vimeo_count) > 0 ){ 
-                $slider_settings['auto_height'] = "{$slider_settings['width']}:{$slider_settings['height']}"; // If youtube slide detected, use ratio mode
                 $slider_settings['hide_non_active'] = "false"; // Do not hide non active slides to prevent reloading of videos
-            }
-            if( 'portrait' == $slider_settings['resize_option'] and $slider_settings['resize'] ){ 
-                //$slider_settings['auto_height'] = "{$slider_settings['width']}:{$slider_settings['height']}"; // If youtube slide detected, use ratio mode
             }
             $slider_settings['auto_height_speed'] = 250; // Will be editable in admin in the future
             $slider_settings['auto_height_easing'] = "null"; // Will be editable in admin in the future

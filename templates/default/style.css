@@ -9,6 +9,7 @@
 .cycloneslider-template-default .cycloneslider-slide{
 	text-align: center;
 	width: 100%; /* For slides in scrollHorz to work */
+	height: 100%; /* Backward compat to fix caption issues on tall images */
 	display: none; /* Hide slides to prevent FOUC */
 }
 .cycloneslider-template-default .cycloneslider-slide:first-child, /* Show first slide */
