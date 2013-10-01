@@ -12,6 +12,9 @@
 	width: 100%; /* For slides in scrollHorz to work */
 	display: none; /* Hide slides to prevent FOUC */
 }
+.cycloneslider-template-standard div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
+}
 .cycloneslider-template-standard .cycloneslider-slide:first-child, /* Show first slide */
 .cycloneslider-template-standard .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
 	display: block;
@@ -26,21 +29,20 @@
 .cycloneslider-template-standard.cycloneslider-width-full .cycloneslider-slide img{
 	width:100%;
 }
-.cycloneslider-template-standard .cycloneslider-slide iframe,
+.cycloneslider-template-standard .cycloneslider-slide iframe, /* Make our videos fluid */
 .cycloneslider-template-standard .cycloneslider-slide object,
 .cycloneslider-template-standard .cycloneslider-slide embed {
-    width: 100% !important;
-    height: 100% !important;
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
 }
-
 .cycloneslider-template-standard .cycloneslider-slide-youtube,
 .cycloneslider-template-standard .cycloneslider-slide-vimeo{
-	width: 100%;
-	height: 100%;
 	background: #000;
 }
 .cycloneslider-template-standard .cycloneslider-slide-custom{
-	width: 100%;
 	min-height: 100%;
 	background: #fff;
 }

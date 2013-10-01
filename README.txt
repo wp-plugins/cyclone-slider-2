@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 2.7.3
+Stable tag: 2.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,7 +99,11 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
-= 2.7.3 - 2013-09-27 =
+= 2.7.4 - 2013-10-01 =
+* Fix. Fix dynamic height for templates.
+* Change. Added RTL support and sanitize output in templates.
+
+= 2.7.3 - 2013-09-28 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.
 * Change. Returned slider auto height from sentinel to ratio for wider support and backward compatibility.
 * Change. Updated screenshots for wordpress.org.
@@ -261,7 +265,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Upgrade Notice ==
 
-= 2.7.3 - 2013-09-27 =
+= 2.7.4 - 2013-10-01 =
+* Fix. Fix dynamic height for templates.
+* Fix. Fix video slide made it fluid.
+* Change. Added RTL support and sanitize output in templates.
+
+= 2.7.3 - 2013-09-28 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.
 * Change. Returned slider auto height from sentinel to ratio for wider support and backward compatibility.
 * Change. Updated screenshots for wordpress.org.
