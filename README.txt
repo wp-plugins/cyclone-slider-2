@@ -99,6 +99,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.7.4 - 2013-10-01 =
+* Fix. Fix dynamic height for templates.
+* Change. Added RTL support and sanitize output in templates.
+
 = 2.7.3 - 2013-09-28 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.
 * Change. Returned slider auto height from sentinel to ratio for wider support and backward compatibility.
@@ -260,6 +264,11 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.4 - 2013-10-01 =
+* Fix. Fix dynamic height for templates.
+* Fix. Fix video slide made it fluid.
+* Change. Added RTL support and sanitize output in templates.
 
 = 2.7.3 - 2013-09-28 =
 * Fix. Fix issue on Default template where caption is not visible on images that are taller than the slider.

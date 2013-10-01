@@ -33,14 +33,14 @@
         >
         <?php foreach($slides as $slide): ?>
             <?php if ( 'image' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-image" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
                     <?php if( 'lightbox' == $slide['link_target'] ): ?>
                         <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>">
                     <?php elseif ( '' != $slide['link'] ) : ?>
                         <?php if( '_blank' == $slide['link_target'] ): ?>
-                            <a class="cycloneslider-caption-more" target="_blank" href="<?php echo $slide['link'];?>">
+                            <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>">
                         <?php else: ?>
-                            <a class="cycloneslider-caption-more" href="<?php echo $slide['link'];?>">
+                            <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>">
                         <?php endif; ?>
                     <?php endif; ?>
 
@@ -52,17 +52,17 @@
                     
                     <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
                         <div class="cycloneslider-caption">
-                            <div class="cycloneslider-caption-title"><?php echo $slide['title'];?></div>
-                            <div class="cycloneslider-caption-description"><?php echo $slide['description'];?></div>
+                            <div class="cycloneslider-caption-title"><?php echo wp_kses_post( $slide['title'] );?></div>
+                            <div class="cycloneslider-caption-description"><?php echo wp_kses_post( $slide['description'] );?></div>
                         </div>
                     <?php endif; ?>
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-youtube" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-youtube" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
                     <?php echo $slide['youtube_embed_code']; ?>
                 </div>
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-vimeo" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-vimeo" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
                     <?php echo $slide['vimeo_embed_code']; ?>
                 </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
@@ -71,7 +71,7 @@
                 </div>
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <?php echo $slide['custom']; ?>
+                    <?php echo wp_kses_post( $slide['custom'] ); ?>
                 </div>
             <?php endif; ?>
         <?php endforeach; ?>

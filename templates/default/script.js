@@ -4,7 +4,7 @@
 	jQuery(document).on('cycle-before', slides_selector, function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
 		var slide = jQuery( outgoingSlideEl ); /* Current slide */
 		
-		if(optionHash.dynamicHeight == "on" && ((optionHash.autoHeight+"").indexOf(":") == -1) ) jQuery(this).animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing); /* Autoheight when dynamic height is on and auto height is not ratio (eg. 300:250) */
+		if(optionHash.dynamicHeight == "on" ) jQuery(this).animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing); /* Autoheight when dynamic height is on and auto height is not ratio (eg. 300:250) */
 		
 		if(slide.hasClass('cycloneslider-slide-youtube')) pauseYoutube( slide ); /* Pause youtube video on next */
 		

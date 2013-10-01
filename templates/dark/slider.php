@@ -37,15 +37,15 @@
                     <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                     <?php if(!empty($slide['title']) or !empty($slide['description'])) : ?>
                         <div class="cycloneslider-caption">
-                            <div class="cycloneslider-caption-title"><?php echo $slide['title'];?></div>
-                            <div class="cycloneslider-caption-description"><?php echo $slide['description'];?></div>
+                            <div class="cycloneslider-caption-title"><?php echo wp_kses_post( $slide['title'] );?></div>
+                            <div class="cycloneslider-caption-description"><?php echo wp_kses_post( $slide['description'] );?></div>
                             <?php if( 'lightbox' == $slide['link_target'] ): ?>
                                 <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
                             <?php elseif ( '' != $slide['link'] ) : ?>
                                 <?php if( '_blank' == $slide['link_target'] ): ?>
-                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo $slide['link'];?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
                                 <?php else: ?>
-                                    <a class="cycloneslider-caption-more" href="<?php echo $slide['link'];?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
@@ -59,7 +59,7 @@
                 
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <?php echo $slide['custom']; ?>
+                    <?php echo wp_kses_post( $slide['custom'] ); ?>
                 </div>
             <?php endif; ?>
         <?php endforeach; ?>

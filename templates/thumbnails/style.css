@@ -1,4 +1,4 @@
-/*** Template Default ***/
+/*** Template Thumbnails ***/
 .cycloneslider-template-thumbnails{
 	position:relative;
 }
@@ -10,6 +10,9 @@
 	text-align: center;
 	width: 100%; /* For slides in scrollHorz to work */
 	display: none; /* Hide slides to prevent FOUC */
+}
+.cycloneslider-template-thumbnails div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
 }
 .cycloneslider-template-thumbnails .cycloneslider-slide:first-child, /* Show first slide */
 .cycloneslider-template-thumbnails .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
@@ -25,20 +28,20 @@
 .cycloneslider-template-thumbnails.cycloneslider-width-full .cycloneslider-slide img{
 	width:100%;
 }
-.cycloneslider-template-thumbnails .cycloneslider-slide iframe,
+.cycloneslider-template-thumbnails .cycloneslider-slide iframe, /* Make our videos fluid */
 .cycloneslider-template-thumbnails .cycloneslider-slide object,
 .cycloneslider-template-thumbnails .cycloneslider-slide embed {
-    width: 100% !important;
-    height: 100% !important;
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
 }
 .cycloneslider-template-thumbnails .cycloneslider-slide-youtube,
 .cycloneslider-template-thumbnails .cycloneslider-slide-vimeo{
-	width: 100%;
-	height: 100%;
 	background: #000;
 }
 .cycloneslider-template-thumbnails .cycloneslider-slide-custom{
-	width: 100%;
 	min-height: 100%;
 	background: #fff;
 }
@@ -70,9 +73,19 @@
     left:10px;
     background-position:0 0;
 }
+.rtl .cycloneslider-template-thumbnails .cycloneslider-prev{
+    left:auto;
+	right:10px;
+    background-position:-29px 0;
+}
 .cycloneslider-template-thumbnails .cycloneslider-next{
     right:10px;
     background-position:-29px 0;
+}
+.rtl .cycloneslider-template-thumbnails .cycloneslider-next{
+    right:auto;
+	left:10px;
+    background-position:0 0;
 }
 .cycloneslider-template-thumbnails:hover .cycloneslider-prev,
 .cycloneslider-template-thumbnails:hover .cycloneslider-next{
