@@ -94,11 +94,6 @@ if(!class_exists('Cyclone_Slider_Scripts')):
             
             /*****************************/
             
-            /*** Easing ***/
-            if($this->cyclone_settings_data['load_cycle2'] == 1){
-                wp_enqueue_script( 'jquery-easing', CYCLONE_URL.'libs/jquery.easing.1.3.js', array('jquery'), CYCLONE_VERSION, $in_footer );
-            }
-            
             /*** Core Cycle2 Scripts ***/
             if($this->cyclone_settings_data['load_cycle2'] == 1){
                 wp_enqueue_script( 'jquery-cycle2', CYCLONE_URL.'libs/cycle2/jquery.cycle2.min.js', array('jquery'), CYCLONE_VERSION, $in_footer );
@@ -114,6 +109,11 @@ if(!class_exists('Cyclone_Slider_Scripts')):
             }
             if($this->cyclone_settings_data['load_cycle2_video'] == 1){
                 wp_enqueue_script( 'jquery-cycle2-video', CYCLONE_URL.'libs/cycle2/jquery.cycle2.video.min.js', array('jquery', 'jquery-cycle2'), CYCLONE_VERSION, $in_footer );
+            }
+            
+            /*** Easing Script***/
+            if($this->cyclone_settings_data['load_easing'] == 1){
+                wp_enqueue_script( 'jquery-easing', CYCLONE_URL.'libs/jquery-easing/jquery.easing.1.3.1.min.js', array('jquery'), CYCLONE_VERSION, $in_footer );
             }
             
             /*** Magnific Popup Scripts ***/

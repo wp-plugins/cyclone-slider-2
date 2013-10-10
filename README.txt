@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 2.7.2
+Stable tag: 2.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.7.5 - 2013-10-10 =
+* Fix. Fix critical error with slider not working caused by easing plugin.
+* New. Added ability to add a title to slider widget.
+* Change. Modified easing plugin to v1.3.1.
+* Change. Added minified version of easing plugin.
 
 = 2.7.4 - 2013-10-01 =
 * Fix. Fix dynamic height for templates.
@@ -264,6 +270,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.5 - 2013-10-10 =
+* Fix. Fix critical error with slider not working caused by easing plugin.
+* New. Added ability to add a title to slider widget.
+* Change. Modified easing plugin to v1.3.1.
+* Change. Added minified version of easing plugin.
 
 = 2.7.4 - 2013-10-01 =
 * Fix. Fix dynamic height for templates.
