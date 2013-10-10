@@ -2,21 +2,24 @@
 if(!class_exists('Cyclone_Slider_Widget')):
 
 	/**
-	* Class for widget
+	* Class for Cyclone Slider widget
 	*/
 	class Cyclone_Slider_Widget extends WP_Widget {
 		
 		/**
-		* Register widget with WordPress.
+		* Constructor
 		*/
 		public function __construct() {
 			parent::__construct(
 				'cyclone-slider-widget', // Base ID
 				__( 'Cyclone Slider Widget', 'cycloneslider' ), // Name
-				array( 'description' => __( 'Widget for displaying slideshows.', 'cycloneslider' ), ) // Args
+				array( 'description' => __( 'Widget for displaying sliders.', 'cycloneslider' ), ) // Args
 			);
 		}
 		
+		/**
+		* Widget output
+		*/
 		function widget( $args, $instance ) {
 			extract($args, EXTR_SKIP);
 	
@@ -33,21 +36,37 @@ if(!class_exists('Cyclone_Slider_Widget')):
 			}
 			echo $after_widget;
 		}
-	
+		
+		/**
+		* Widget on save
+		*/
 		function update( $new_instance, $old_instance ) {
 			$instance = $old_instance;
-	
+			
+			$instance['title'] = strip_tags($new_instance['title']);
 			$instance['slideshow'] = strip_tags($new_instance['slideshow']);
 			
 			return $instance;
 	
 		}
-	
+		
+		/**
+		* Admin form
+		*/
 		function form( $instance ) {
-			$instance = wp_parse_args( (array) $instance, array( 'slideshow' => '' ) );
+			$defaults = array(
+				'title' => '',
+				'slideshow'=>''
+			);
+			$instance = wp_parse_args( (array) $instance, $defaults );
+			
 			$slideshow = $instance['slideshow'];
 	
 	?>
+			<p>
+				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'cycloneslider'); ?></label>
+				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php esc_attr_e($instance['title']); ?>" />
+			</p>
 			<p>
 			<?php
 			$my_query = new WP_Query(
@@ -59,7 +78,7 @@ if(!class_exists('Cyclone_Slider_Widget')):
 			);
 			if($my_query->have_posts()):
 			?>
-				<label for="<?php echo $this->get_field_id('slideshow'); ?>"><?php _e('Select a Slideshow:', 'cycloneslider'); ?></label>
+				<label for="<?php echo $this->get_field_id('slideshow'); ?>"><?php _e('Select a Slider:', 'cycloneslider'); ?></label>
 				<select class="widefat" id="<?php echo $this->get_field_id('slideshow'); ?>" name="<?php echo $this->get_field_name('slideshow'); ?>">
 					<option value=""></option>
 					<?php
@@ -74,7 +93,7 @@ if(!class_exists('Cyclone_Slider_Widget')):
 					?>
 				</select>
 			<?php else: ?>
-				<?php _e('No slideshows found.', 'cycloneslider'); ?>
+				<?php _e('No sliders found.', 'cycloneslider'); ?>
 			<?php endif; ?>
 			</p>
 	<?php
@@ -84,7 +103,9 @@ if(!class_exists('Cyclone_Slider_Widget')):
 	}
 
 	
-	
+	/**
+	* Register it
+	*/
 	function cycloneslider_widgets(){
 		register_widget('Cyclone_Slider_Widget');
 	}

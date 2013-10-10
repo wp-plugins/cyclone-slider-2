@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-23 21:08+0800\n"
-"PO-Revision-Date: 2013-09-23 21:08+0800\n"
+"POT-Creation-Date: 2013-10-10 15:44+0800\n"
+"PO-Revision-Date: 2013-10-10 15:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,139 +16,139 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: D:\\webserver\\htdocs\\wp_dev\\cyclone-slider-2\\wp-content\\plugins\\cyclone-slider-2\n"
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/cyclone-slider.php:122
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/cyclone-slider.php:121
 msgid "Cyclone Slider Settings"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/cyclone-slider.php:123
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/cyclone-slider.php:122
 msgid "Settings"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:94
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:96
 msgid "Cyclone Slider"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:95
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:97
 msgid "Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:96
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:98
 msgid "Add Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:97
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:99
 msgid "Add New Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:98
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:100
 msgid "Edit Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:99
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:101
 msgid "New Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:100
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:102
 msgid "View Slideshow"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:101
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:103
 msgid "Search Slideshows"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:102
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:104
 msgid "No slideshows found"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:103
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:105
 msgid "No slideshows found in Trash"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:139
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:142
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:143
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:146
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:147
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:141
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:144
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:145
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:148
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:149
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:150
 msgid "Slideshow updated."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:140
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:142
 msgid "Custom field updated."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:141
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:143
 msgid "Custom field deleted."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:144
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:146
 msgid "Slideshow published."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:145
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:147
 msgid "Slideshow saved."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:149
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:151
 #, php-format
 msgid "Templates CSS could not be saved. Make sure %stemplates.css is writable."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:150
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:152
 #, php-format
 msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:184
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:186
 msgid "Slides"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:193
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:195
 msgid "Slider Preview"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:202
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:204
 msgid "Get Slider Codes"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:211
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:213
 msgid "Basic Settings"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:220
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:222
 msgid "Advanced Settings"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:229
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:231
 msgid "Templates"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:238
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:502
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:240
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:508
 msgid "Slideshow ID"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:266
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:268
 msgid "Slide"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:435
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:441
 msgid "Slide *"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:499
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:505
 msgid "Slideshow Name"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:500
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:506
 msgid "Template"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:501
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:507
 msgid "No. of Slides"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:503
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-admin.php:509
 msgid "Shortcode"
 msgstr ""
 
@@ -164,76 +164,7 @@ msgstr ""
 msgid "Error. Make sure its a valid YouTube URL."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:17
-msgid "Play with these settings if Cyclone Slider 2 is not working or if you want to optimize it."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:30
-msgid "Load scripts in:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:33
-msgid "Header"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:34
-msgid "Footer"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:39
-msgid "Load these scripts:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:44
-msgid "Cycle 2. This is the core script needed by the plugin."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:49
-msgid "Cycle 2 - Carousel. Used by these templates: Galleria, Lea, Dos."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:54
-msgid "Cycle 2 - Swipe. For touch swipe events."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:59
-msgid "Cycle 2 - Tile. Used for tile transition effects."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:64
-msgid "Cycle 2 - Video. Used by YouTube template."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:69
-msgid "Magnific Popup - Enable lightbox option."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:69
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:74
-msgid "Available in pro version."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:74
-msgid "Easing - Enable easing options."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:79
-msgid "Scripts loading priority:"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:82
-msgid "Make this value bigger to load scripts last."
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:87
-msgid "Save Options"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:88
-msgid "Restore Defaults"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:105
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-settings-page.php:62
 msgid "Default options restored."
 msgstr ""
 
@@ -242,15 +173,19 @@ msgid "Cyclone Slider Widget"
 msgstr ""
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:16
-msgid "Widget for displaying slideshows."
+msgid "Widget for displaying sliders."
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:62
-msgid "Select a Slideshow:"
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:67
+msgid "Title:"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:77
-msgid "No slideshows found."
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:81
+msgid "Select a Slider:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider-widget.php:96
+msgid "No sliders found."
 msgstr ""
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/classes/class-cyclone-slider.php:77
@@ -291,10 +226,13 @@ msgstr ""
 msgid "Learn More"
 msgstr ""
 
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:59
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:63
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:67
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:62
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:66
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/default/slider.php:70
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/standard/slider.php:70
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/thumbnails/slider.php:62
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/thumbnails/slider.php:66
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/templates/thumbnails/slider.php:70
 msgid "Slide type not supported."
 msgstr ""
 
@@ -351,6 +289,80 @@ msgstr ""
 msgid "Import operation success!"
 msgstr ""
 
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:7
+msgid "Play with these settings if Cyclone Slider 2 is not working or if you want to optimize it."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:17
+msgid "Load scripts in:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:20
+msgid "Header"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:21
+msgid "Footer"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:26
+msgid "Load these scripts:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:31
+msgid "Cycle 2. This is the core script needed by the plugin."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:36
+msgid "Cycle 2 - Carousel. Used by these templates: Galleria, Lea, Dos."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:41
+msgid "Cycle 2 - Swipe. For touch swipe events."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:46
+msgid "Cycle 2 - Tile. Used for tile transition effects."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:51
+msgid "Cycle 2 - Video. Used by YouTube template."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:56
+msgid "Magnific Popup - Enable lightbox option."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:56
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:61
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slider-advanced-settings.php:2
+msgid "Available in pro version."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:61
+msgid "Easing - Enable easing options."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:66
+msgid "Scripts loading priority:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:69
+msgid "Make this value bigger to load scripts last."
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:73
+msgid "Load these templates:"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:86
+msgid "Save Options"
+msgstr ""
+
+#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/settings-page.php:87
+msgid "Restore Defaults"
+msgstr ""
+
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:16
 msgid "Delete"
 msgstr ""
@@ -386,10 +398,6 @@ msgstr ""
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:46
 msgid "Caption"
-msgstr ""
-
-#: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:49
-msgid "Title:"
 msgstr ""
 
 #: D:\webserver\htdocs\wp_dev\cyclone-slider-2\wp-content\plugins\cyclone-slider-2/views/slide-edit.php:53

@@ -99,6 +99,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.7.5 - 2013-10-10 =
+* Fix. Fix critical error with slider not working caused by easing plugin.
+* New. Added ability to add a title to slider widget.
+* Change. Modified easing plugin to v1.3.1.
+* Change. Added minified version of easing plugin.
+
 = 2.7.4 - 2013-10-01 =
 * Fix. Fix dynamic height for templates.
 * Change. Added RTL support and sanitize output in templates.
@@ -264,6 +270,12 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.5 - 2013-10-10 =
+* Fix. Fix critical error with slider not working caused by easing plugin.
+* New. Added ability to add a title to slider widget.
+* Change. Modified easing plugin to v1.3.1.
+* Change. Added minified version of easing plugin.
 
 = 2.7.4 - 2013-10-01 =
 * Fix. Fix dynamic height for templates.
