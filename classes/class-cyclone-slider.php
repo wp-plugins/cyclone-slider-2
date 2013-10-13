@@ -158,11 +158,16 @@ if(!class_exists('Cyclone_Slider')):
                     $youtube_id = $this->cyclone_slider_youtube->get_youtube_id($slides[$i]['youtube_url']);
                     
                     $slides[$i]['youtube_embed_code'] = '<iframe width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="//www.youtube.com/embed/'.$youtube_id.'?wmode=transparent" frameborder="0" allowfullscreen></iframe>';
+                    $slides[$i]['youtube_id'] = $youtube_id;
+                    $slides[$i]['thumbnail_small'] = $this->cyclone_slider_youtube->get_youtube_thumb($youtube_id);
+                    
                 } else if($slides[$i]['type']=='vimeo'){
                     $vimeo_count++;
                     $vimeo_id = $this->cyclone_slider_vimeo->get_vimeo_id($slides[$i]['vimeo_url']);
                     
                     $slides[$i]['vimeo_embed_code'] = '<iframe width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="http://player.vimeo.com/video/'.$vimeo_id.'?api=1&wmode=transparent" frameborder="0"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+                    $slides[$i]['vimeo_id'] = $vimeo_id;
+                    $slides[$i]['thumbnail_small'] = $this->cyclone_slider_vimeo->get_vimeo_thumb($vimeo_id);
                 }
             }
             

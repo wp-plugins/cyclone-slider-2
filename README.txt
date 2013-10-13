@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 2.7.4
+Stable tag: 2.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.7.6 - 2013-10-13 =
+* New. Added support for YouTube and Vimeo slide types in thumbnails template.
+* New. Added ability to fetch thumbnails of videos from youtube.com and vimeo.com. The thumbnails template will use this to display the thumbnails in its pager.
 
 = 2.7.5 - 2013-10-10 =
 * Fix. Fix critical error with slider not working caused by easing plugin.
@@ -270,6 +274,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.6 - 2013-10-13 =
+* New. Added support for YouTube and Vimeo slide types in thumbnails template.
+* New. Added ability to fetch thumbnails of videos from youtube.com and vimeo.com. The thumbnails template will use this to display the thumbnails in its pager.
 
 = 2.7.5 - 2013-10-10 =
 * Fix. Fix critical error with slider not working caused by easing plugin.

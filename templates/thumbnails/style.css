@@ -140,7 +140,7 @@
 .cycloneslider-template-thumbnails.cycloneslider-thumbnails li{
     list-style:none inside;
     display:inline-block;
-    width:40px;
+    min-width:40px;
     height:40px;
     margin:5px;
 	padding: 0;
@@ -148,6 +148,7 @@
     cursor:pointer;
     vertical-align:top;
 	box-sizing: content-box;
+	overflow: hidden;
 }
 .ie7 .cycloneslider-template-thumbnails.cycloneslider-thumbnails li{
 	zoom: 1;/* IE 7 inline-block */
@@ -157,10 +158,10 @@
     border-color:#333;
 }
 .cycloneslider-template-thumbnails.cycloneslider-thumbnails .thumb-custom{
-    background:#ccc;
+    background:#fefefe;
     height:100%;
-    font-size:8px;
-    color:#fefefe;
+    font-size:9px;
+    color:#BBBBBB;
 }
 .cycloneslider-template-thumbnails.cycloneslider-thumbnails img{
     border-radius:0;

@@ -26,6 +26,22 @@ if(!class_exists('Cyclone_Slider_Vimeo')):
             }
             return false;
         }
+        
+        /**
+         * Get vimeo video thumbnail image
+         *
+         * @param int Vimeo ID.
+         * @param string Size can be: thumbnail_small, thumbnail_medium, thumbnail_large.
+         *
+         * @return string URL of thumbnail image.
+         */
+        public function get_vimeo_thumb($video_id, $size = 'small'){
+            $vimeo = unserialize( file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php') );
+            if( isset($vimeo[0]['thumbnail_'.$size]) ){
+                return $vimeo[0]['thumbnail_'.$size];
+            }
+            return '';
+        }
     } // end class
     
 endif;

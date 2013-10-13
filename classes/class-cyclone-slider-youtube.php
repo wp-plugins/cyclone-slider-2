@@ -74,6 +74,24 @@ if(!class_exists('Cyclone_Slider_Youtube')):
             
             return false;
         }
+        
+        
+        /**
+         * Get youtube video thumbnail image
+         *
+         * @param int string $video_id YouTube ID
+         * @param string $size Can be: small, medium, large
+         *
+         * @return string URL of thumbnail image.
+         */
+        public function get_youtube_thumb( $video_id, $size = 'small' ){
+            if( 'large' == $size ){
+                return 'http://img.youtube.com/vi/'.$video_id.'/hqdefault.jpg';
+            } else if( 'medium' == $size ){
+                return 'http://img.youtube.com/vi/'.$video_id.'/mqdefault.jpg';
+            }
+            return 'http://img.youtube.com/vi/'.$video_id.'/default.jpg';
+        }
     } // end class
     
 endif;
