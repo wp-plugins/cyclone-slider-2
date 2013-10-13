@@ -58,12 +58,12 @@
                     <?php endif; ?>
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                <div class="cycloneslider-slide cycloneslider-slide-youtube" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
+                    <?php echo $slide['youtube_embed_code']; ?>
                 </div>
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                <div class="cycloneslider-slide cycloneslider-slide-vimeo" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
+                    <?php echo $slide['vimeo_embed_code']; ?>
                 </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
@@ -88,21 +88,27 @@
     >
 	<ul class="clearfix">
 		<?php foreach($slides as $i=>$slide): ?>
-		<?php if ($slide['type']=='video') : ?>
-			<li>
-				<div class="thumb-video">
-					<img src="<?php echo esc_url( $slide['video_thumb'] ); ?>" width="40" height="40" alt="">
-				</div>
-			</li>
-		<?php elseif($slide['type']=='custom'): ?>
-			<li>
-				<div class="thumb-custom">HTML</div>
-			</li>
-		<?php elseif($slide['type']=='image'): ?>
-			<li>
-				<img src="<?php echo cyclone_slide_image_url($slide['id'], 40, 40, array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings, 'resize_option'=>'crop') ); ?>" width="40" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
-			</li>
-		<?php endif; ?>
+			<?php if ( 'image' == $slide['type'] ) : ?>
+                <li>
+					<img src="<?php echo cyclone_slide_image_url($slide['id'], 40, 40, array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings, 'resize_option'=>'crop') ); ?>" width="40" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+				</li>
+            <?php elseif ( 'youtube' == $slide['type'] ) : ?>
+                <li>
+					<img src="<?php echo $slide['thumbnail_small']; ?>" width="auto" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+				</li>
+            <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
+                <li>
+					<img src="<?php echo $slide['thumbnail_small']; ?>" width="auto" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+				</li>
+            <?php elseif ( 'video' == $slide['type'] ) : ?>
+                <li>
+					<div class="thumb-custom">Video</div>
+				</li>
+            <?php elseif ( 'custom' == $slide['type'] ) : ?>
+                <li>
+					<div class="thumb-custom">HTML</div>
+				</li>
+            <?php endif; ?>
 		<?php endforeach; ?>
 	</ul>
 </div>

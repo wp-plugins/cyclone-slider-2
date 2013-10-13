@@ -99,6 +99,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
+= 2.7.6 - 2013-10-13 =
+* New. Added support for YouTube and Vimeo slide types in thumbnails template.
+* New. Added ability to fetch thumbnails of videos from youtube.com and vimeo.com. The thumbnails template will use this to display the thumbnails in its pager.
+
 = 2.7.5 - 2013-10-10 =
 * Fix. Fix critical error with slider not working caused by easing plugin.
 * New. Added ability to add a title to slider widget.
@@ -270,6 +274,10 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.7.6 - 2013-10-13 =
+* New. Added support for YouTube and Vimeo slide types in thumbnails template.
+* New. Added ability to fetch thumbnails of videos from youtube.com and vimeo.com. The thumbnails template will use this to display the thumbnails in its pager.
 
 = 2.7.5 - 2013-10-10 =
 * Fix. Fix critical error with slider not working caused by easing plugin.
