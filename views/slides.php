@@ -6,3 +6,4 @@
 </div><!-- end .cycloneslider-sortable -->
 
 <input type="button" value="<?php _e('Add Slide', 'cycloneslider'); ?>" class="cs-add-slide button-secondary" />
+<input type="button" value="<?php _e('Add Images as Slides', 'cycloneslider'); ?>" class="cs-multiple-slides button-secondary" />
