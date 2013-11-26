@@ -11,6 +11,7 @@
 	text-align: center;
 	width: 100%; /* For slides in scrollHorz to work */
 	display: none; /* Hide slides to prevent FOUC */
+	background: #fff; /* Add background to prevent slides from peeking behind the current slide when fx=scrollHorz and hideNonActive=false */
 }
 .cycloneslider-template-standard div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
 	height: 100%; /* To prevent cutting off captions when dynamic height is off */
@@ -44,7 +45,6 @@
 }
 .cycloneslider-template-standard .cycloneslider-slide-custom{
 	min-height: 100%;
-	background: #fff;
 }
 
 /*** Prev/Next ***/

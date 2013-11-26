@@ -50,7 +50,9 @@ if(!class_exists('Cyclone_Slider_Scripts')):
                 wp_localize_script( 'cycloneslider-admin-script', 'cycloneslider_admin_vars',
                     array(
                         'title'     => __( 'Select an image', 'cycloneslider' ), // This will be used as the default title
-                        'button'    => __( 'Add to Slide', 'cycloneslider' ),            // This will be used as the default button text
+                        'title2'     => __( 'Select Images - Use Ctrl + Click or Shift + Click', 'cycloneslider' ),
+                        'button'    => __( 'Add to Slide', 'cycloneslider' ), // This will be used as the default button text
+                        'button2'    => __( 'Add Images as Slides', 'cycloneslider' ),
                         'youtube_url_error'    => __( 'Error. Make sure its a valid YouTube URL.', 'cycloneslider' ) 
                     )
                 );
