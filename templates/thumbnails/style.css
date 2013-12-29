@@ -1,6 +1,7 @@
 /*** Template Thumbnails ***/
 .cycloneslider-template-thumbnails{
 	position:relative;
+	
 }
 .cycloneslider-template-thumbnails .cycloneslider-slides{
 	position:relative;
@@ -9,7 +10,11 @@
 .cycloneslider-template-thumbnails .cycloneslider-slide{
 	text-align: center;
 	width: 100%; /* For slides in scrollHorz to work */
-	display: none; /* Hide slides to prevent FOUC */
+	display: none; /* Hide slides to prevent FOUC when JS hasn't kicked in yet */
+	background: #fff; /* Add background to prevent slides from peeking behind the current slide when fx=scrollHorz and hideNonActive=false */
+}
+.cycloneslider-template-thumbnails .cycle-slide{
+	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
 }
 .cycloneslider-template-thumbnails div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
 	height: 100%; /* To prevent cutting off captions when dynamic height is off */
@@ -43,7 +48,9 @@
 }
 .cycloneslider-template-thumbnails .cycloneslider-slide-custom{
 	min-height: 100%;
-	background: #fff;
+}
+.cycloneslider-template-thumbnails div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
 }
 
 /*** Prev/Next ***/
@@ -165,4 +172,7 @@
 }
 .cycloneslider-template-thumbnails.cycloneslider-thumbnails img{
     border-radius:0;
+}
+.ie8 .cycloneslider-template-thumbnails.cycloneslider-thumbnails img{
+	width: 40px;
 }

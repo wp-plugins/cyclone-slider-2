@@ -400,6 +400,22 @@ if(!class_exists('Cyclone_Slider_Admin')):
                 if($active_templates[$name]==0){
                     unset($templates[$name]);
                 }
+                $templates[$name]['warning'] = '';
+            
+                if( $template['location_name'] == 'core' ){
+                    $templates[$name]['location_name'] = __('Core', 'cycloneslider');
+                    $templates[$name]['location_details'] = sprintf( __("Located inside the Cyclone Slider's templates directory:<br> <strong>%s</strong>", 'cycloneslider' ), $template['path']);
+                }
+                if( $template['location_name'] == 'active-theme' ){
+                    $templates[$name]['location_name'] = 'Active Theme';
+                    $templates[$name]['location_details'] = sprintf( __("Located inside your currently active theme:<br> <strong>%s</strong>", 'cycloneslider' ), $template['path']);
+                    $templates[$name]['warning'] = sprintf( __('Your template is in danger of being overwritten when you upgrade your theme. Please move it inside %s.', 'cycloneslider' ), 'wp-content/cycloneslider' );
+                }
+                if( $template['location_name'] == 'wp-content' ){
+                    $templates[$name]['location_name'] = 'WP Content';
+                    $templates[$name]['location_details'] = sprintf( __("Located inside wp-content directory:<br> <strong>%s</strong>", 'cycloneslider'), $template['path'] );
+                }
+                //echo sha1_file($template['path'].DIRECTORY_SEPARATOR.'slider.php'); break;
             }
             
             $this->view->set_view_file( CYCLONE_PATH . 'views/template-selection.php' );

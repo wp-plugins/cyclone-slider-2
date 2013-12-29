@@ -21,11 +21,27 @@ jQuery(document).ready(function($){
     
     slides_selector += ',.cycloneslider-template-galleria .cycloneslider-slides';
     slides_selector += ',.cycloneslider-template-text .cycloneslider-slides';
+    slides_selector += ',.cycloneslider-template-dos .cycloneslider-slides';
     
     jQuery(document).on('cycle-before', slides_selector, function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
-        var slide = jQuery( outgoingSlideEl ); /* Current slide */
+        var slide = jQuery( outgoingSlideEl ), /* Current slide */
+            curHeight = 0,
+            nextHeight = 0;
         
-        if( "on" == optionHash.dynamicHeight ) jQuery(this).animate({height:jQuery(incomingSlideEl).outerHeight()}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing); /* Autoheight when dynamic height is on and auto height is not ratio (eg. 300:250) */
+        /* Autoheight when dynamic height is on */
+        /* Using getBoundingClientRect() instead of jQuery's outerHeight() for more accurate reading (floating point values) */
+        if( "on" == optionHash.dynamicHeight ) {
+            curHeight = jQuery(outgoingSlideEl)[0].getBoundingClientRect().height;
+            if ( undefined == curHeight || 0 == curHeight ) { /* IE8 returns undefined so we use outerHeight as fallback. Also works for older templates! */
+                curHeight = jQuery(outgoingSlideEl).outerHeight();
+            }
+            
+            nextHeight = jQuery(incomingSlideEl)[0].getBoundingClientRect().height;
+            if ( undefined == nextHeight || 0 == nextHeight ) { /* IE8 returns undefined so we use outerHeight as fallback. Also works for older templates! */
+                nextHeight = jQuery(incomingSlideEl).outerHeight();
+            }
+            if ( nextHeight != curHeight ) jQuery(this).animate({height:nextHeight}, optionHash.autoHeightSpeed, optionHash.autoHeightEasing);
+        }
         
         if(slide.hasClass('cycloneslider-slide-youtube')) pauseYoutube( slide ); /* Pause youtube video on next */
         

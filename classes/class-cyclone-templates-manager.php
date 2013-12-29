@@ -39,11 +39,13 @@ if(!class_exists('Cyclone_Templates_Manager')):
                                 if(@file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt')){
                                     $ini_array = parse_ini_file($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt'); //Parse ini to get slide types supported
                                 }
+								
                                 $name = sanitize_title($name);// Change space to dash and all lowercase
                                 $template_folders[$name] = array( // Here we override template of the same names. If there is a template with the same name in plugin and theme directory, the one in theme will take over
                                     'path'=>$location['path'].$name,
                                     'url'=>$location['url'].$name,
-                                    'supports' => $ini_array['slide_type']
+                                    'supports' => $ini_array['slide_type'],
+									'location_name' => $location['location_name']
                                 );
                             }
                         }

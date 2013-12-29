@@ -60,7 +60,8 @@ if(!class_exists('Cyclone_Slider')):
                     'tile_delay' => null,
                     'tile_vertical' => null,
                     'random' => null,
-                    'resize' => null
+                    'resize' => null,
+                    'width_management' => null
                 ),
                 $shortcode_settings,
                 'cycloneslider'
@@ -131,6 +132,9 @@ if(!class_exists('Cyclone_Slider')):
             if( null !== $shortcode_settings['resize'] ){
                 $slider_settings['resize'] = $shortcode_settings['resize'];
             }
+            if( null !== $shortcode_settings['width_management'] ){
+                $slider_settings['width_management'] = $shortcode_settings['width_management'];
+            }
             
             $image_count = 0; // Number of image slides
             $video_count = 0; // Number of video slides
@@ -184,9 +188,10 @@ if(!class_exists('Cyclone_Slider')):
             // Hardcoded for now
             $slider_settings['hide_non_active'] = "true";
             $slider_settings['auto_height'] = "{$slider_settings['width']}:{$slider_settings['height']}"; // Use ratio for backward compat
-            if( ($youtube_count+$vimeo_count) > 0 ){ 
-                $slider_settings['hide_non_active'] = "false"; // Do not hide non active slides to prevent reloading of videos
+            if( 'on' == $slider_settings['dynamic_height'] ) {
+                $slider_settings['auto_height'] = 0; // Disable autoheight when dynamic height is on. To prevent slider returning to wrong (ratio height) height when browser is resized.
             }
+            $slider_settings['hide_non_active'] = "false"; // Do not hide non active slides to prevent reloading of videos and for getBoundingClientRect() to not return 0.
             $slider_settings['auto_height_speed'] = 250; // Will be editable in admin in the future
             $slider_settings['auto_height_easing'] = "null"; // Will be editable in admin in the future
             
