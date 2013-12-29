@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-pro/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.7.7
+Version: 2.8.0
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -25,7 +25,7 @@ License:
   
 */
 if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.7.7' );
+    define('CYCLONE_VERSION', '2.8.0' );
 }
 if(!defined('CYCLONE_PATH')){
     define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
@@ -84,16 +84,30 @@ $cyclone_slider_templates_manager = new Cyclone_Templates_Manager();
 // Add directories to get templates
 $cyclone_slider_templates_manager->add_template_location(
     array(
-        'path'=>CYCLONE_PATH.'templates/', // This resides in the plugin
-        'url'=>CYCLONE_URL.'templates/'
+        'path' => CYCLONE_PATH.'templates'.DIRECTORY_SEPARATOR, // This resides in the plugin
+        'url' => CYCLONE_URL.'templates/',
+        'location_name' => 'core'
     )
 );
 $cyclone_slider_templates_manager->add_template_location(
     array(
-        'path'=> realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the current theme or child theme
-        'url'=> get_stylesheet_directory_uri()."/cycloneslider/"
+        'path' => realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the current theme or child theme
+        'url' => get_stylesheet_directory_uri()."/cycloneslider/",
+        'location_name' => 'active-theme'
     )
 );
+
+$cyclone_upload_dir = wp_upload_dir();
+$cyclone_template_folder = realpath( dirname( $cyclone_upload_dir['basedir'] ) );
+
+$cyclone_slider_templates_manager->add_template_location(
+    array(
+        'path' => $cyclone_template_folder.DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the wp-content folder to prevent deleting when upgrading themes
+        'url' => content_url()."/cycloneslider/",
+        'location_name' => 'wp-content'
+    )
+);
+
 
 $cyclone_slider_settings_page = new Cyclone_Slider_Settings_Page( $codefleet_view, $cyclone_slider_templates_manager );
 $cyclone_slider_settings_page->set_option_group('cyclone_option_group');

@@ -10,8 +10,14 @@
 .cycloneslider-template-dark .cycloneslider-slide{
 	text-align: center;
 	width: 100%; /* For slides in scrollHorz to work */
-	display: none; /* Hide slides to prevent FOUC */
-	background: #fff;
+	display: none; /* Hide slides to prevent FOUC when JS hasn't kicked in yet */
+	background: #fff; /* Add background to prevent slides from peeking behind the current slide when fx=scrollHorz and hideNonActive=false */
+}
+.cycloneslider-template-dark .cycle-slide{
+	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
+}
+.cycloneslider-template-dark div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
+	height: 100%; /* To prevent cutting off captions when dynamic height is off */
 }
 .cycloneslider-template-dark .cycloneslider-slide:first-child, /* Show first slide */
 .cycloneslider-template-dark .cycle-sentinel + .cycloneslider-slide{ /* Select next slide when using sentinel slide */
@@ -27,23 +33,24 @@
 .cycloneslider-template-dark.cycloneslider-width-full .cycloneslider-slide img{
 	width:100%;
 }
-.cycloneslider-template-dark .cycloneslider-slide iframe,
+.cycloneslider-template-dark .cycloneslider-slide iframe, /* Make our videos fluid */
 .cycloneslider-template-dark .cycloneslider-slide object,
 .cycloneslider-template-dark .cycloneslider-slide embed {
-    width: 100% !important;
-    height: 100% !important;
+	position: absolute;
+	left: 0;
+	top: 0;
+    width: 100% !important; /* Override width attrib */
+    height: 100% !important; /* Override height attrib */
 }
-
 .cycloneslider-template-dark .cycloneslider-slide-youtube,
 .cycloneslider-template-dark .cycloneslider-slide-vimeo{
-	width: 100%;
-	height: 100%;
 	background: #000;
 }
 .cycloneslider-template-dark .cycloneslider-slide-custom{
-	width: 100%;
 	min-height: 100%;
-	background: #fff;
+}
+.cycloneslider-template-dark div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
 }
 
 /*** Prev/Next ***/

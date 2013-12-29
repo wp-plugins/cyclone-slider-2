@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.7.1
+Tested up to: 3.8
 Stable tag: 2.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -99,7 +99,19 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Changelog ==
 
-= 2.7.6 - 2013-11-26 =
+= 2.8.0 - 2013-12-29 - This is a major release =
+* New. Added support for YouTube, Vimeo and Custom slide types in Text template.
+* New. Added support for YouTube and Vimeo slide types in Dark template.
+* New. Added "Location" column in template selection panel.
+* New. Added warning when a template is located in the currently active theme directory. It warns the user of potential deletion of the template when a theme is updated.
+* New. Added template directory in wp-content/cycloneslider/. This is now the recommended directory to store custom or modified templates to survive update nukes.
+* New. Added width_management to shortcode attributes.
+* Change. hide_non_active is now always set to false for getBoundingClientRect to not return zero.
+* Fix. Minor change for directory separator on active theme location.
+* Fix. Fixed inacurate next slide height reading by using getBoundingClientRect() instead of outerHeight().
+* Fix. Added check to fix PHP warning when Vimeo URL is blank.
+
+= 2.7.7 - 2013-11-26 =
 * New. Added ability to select multiple images to add as slides
 * Change. Refactor code for template javascripts. Moved similar code into client.js
 
@@ -279,7 +291,19 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 == Upgrade Notice ==
 
-= 2.7.6 - 2013-11-26 =
+= 2.8.0 - 2013-12-29 - This is a major release =
+* New. Added support for YouTube, Vimeo and Custom slide types in Text template.
+* New. Added support for YouTube and Vimeo slide types in Dark template.
+* New. Added "Location" column in template selection panel.
+* New. Added warning when a template is located in the currently active theme directory. It warns the user of potential deletion of the template when a theme is updated.
+* New. Added template directory in wp-content/cycloneslider/. This is now the recommended directory to store custom or modified templates to survive update nukes.
+* New. Added width_management to shortcode attributes.
+* Change. hide_non_active is now always set to false for getBoundingClientRect to not return zero.
+* Fix. Minor change for directory separator on active theme location.
+* Fix. Fixed inacurate next slide height reading by using getBoundingClientRect() instead of outerHeight().
+* Fix. Added check to fix PHP warning when Vimeo URL is blank.
+
+= 2.7.7 - 2013-11-26 =
 * New. Added ability to select multiple images to add as slides
 * Change. Refactor code for template javascripts. Moved similar code into client.js
 

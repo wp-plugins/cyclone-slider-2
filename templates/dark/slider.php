@@ -52,11 +52,17 @@
                     <?php endif; ?>
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
-                
+                <div class="cycloneslider-slide cycloneslider-slide-youtube" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
+                    <?php echo $slide['youtube_embed_code']; ?>
+                </div>
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
-                
+                <div class="cycloneslider-slide cycloneslider-slide-vimeo" <?php echo cyclone_slide_settings($slide, $slider_settings); ?> style="padding-bottom:<?php echo $slider_settings['height']/$slider_settings['width']*100;?>%">
+                    <?php echo $slide['vimeo_embed_code']; ?>
+                </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
-                
+                <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                </div>
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
                     <?php echo wp_kses_post( $slide['custom'] ); ?>

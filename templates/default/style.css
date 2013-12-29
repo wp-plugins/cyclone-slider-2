@@ -46,6 +46,9 @@
 	min-height: 100%;
 	background: #fff;
 }
+.cycloneslider-template-default div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom{
+	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
 
 /*** Prev/Next ***/
 .cycloneslider-template-default .cycloneslider-prev,

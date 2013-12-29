@@ -94,7 +94,7 @@ if(!class_exists('Codefleet_Plugin_Updater')):
 			if(!empty($this->plugins)){
 				
 				foreach($this->plugins as $plugin_slug=>$plugin){
-					if ($plugin_slug === $arg->slug) {
+					if ( isset($arg->slug) and $plugin_slug === $arg->slug) {
 						
 						// Get the remote version
 						$remote_info = $this->get_remote_plugin_info($plugin->remote_url, $plugin_slug);

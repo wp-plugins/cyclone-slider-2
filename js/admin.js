@@ -320,11 +320,52 @@ jQuery(document).ready(function($){
         $('#pts_post_type').html('<option value="cycloneslider">Cycloneslider</option>');
         
         /*** Template Chooser ***/
-        $('.cs-templates li').click(function(){
+        $('#cyclone-slider-templates-metabox').on('click', '.cs-templates li', function(e){
             $('.cs-templates li').removeClass('active');
             $('.cs-templates li input').removeAttr('checked');
             $(this).addClass('active').find('input').attr('checked','checked');
         });
+        $('#cyclone-slider-templates-metabox').on('click', '.body .cs-location a', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var trigger = $(this),
+                content = '',
+                boxy = $('#cs-boxy'),
+                width = 0,
+                height = 0,
+                x = 0,
+                y = 0;
+            
+            boxy.html( trigger.data('content') );
+            boxy.stop().show();
+            
+            /* Do calcs after element is shown to prevent zero values for hidden element */
+            width = boxy.outerWidth(),
+            height = boxy.outerHeight(),
+            x = trigger.offset().left,
+            y = trigger.offset().top,
+                
+            y = y - height;
+            if ( $('body').hasClass('admin-bar') ) {
+                y -= 32;
+            }
+            
+            boxy.css({
+                'left': x+'px',
+                'top': y+'px'
+            });
+        });
+        $(document).on('click', '#cs-boxy', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        })
+        $(document).on('click', 'body', function(e){
+            $('#cs-boxy').fadeOut();
+        })
+        $(window).resize(function(e){
+            $('#cs-boxy').hide();
+        })
         
         /*** show/Hide Tile Properties for slideshow ***/
         $('#cyclone-slider-properties-metabox').on('change', '#cycloneslider_settings_fx', function(){
