@@ -44,6 +44,111 @@
 	background-image: -webkit-linear-gradient(top, #f9f9f9, #ececec); /* new Webkit */
 	background-image: linear-gradient(top, #f9f9f9, #ececec); /* proposed W3C Markup */
 }
+.admin-color-light .cs-header {
+	background-color: #F9F9F9;
+	background-image: none;
+}
+
+/* Admin - Blue */
+.admin-color-blue .cs-title,
+.admin-color-blue .cs-header .cs-icon,
+.admin-color-blue .cs-templates, 
+.admin-color-blue .cs-templates .body.active,
+.admin-color-blue .cs-templates a,
+.admin-color-blue.cycloneslider h2,
+.admin-color-blue.cycloneslider h3,
+.admin-color-blue.cycloneslider .meta-box-sortables,
+.admin-color-blue .expandable-header,
+.admin-color-blue .cs-slide .note,
+.admin-color-blue .cycloneslider-field .note {
+	color: #0C4D63;
+}
+
+/* Admin - Ocean */
+.admin-color-ocean .cs-title,
+.admin-color-ocean .cs-header .cs-icon,
+.admin-color-ocean .cs-templates, 
+.admin-color-ocean .cs-templates .body.active,
+.admin-color-ocean .cs-templates a,
+.admin-color-ocean.cycloneslider h2,
+.admin-color-ocean.cycloneslider h3,
+.admin-color-ocean.cycloneslider .meta-box-sortables,
+.admin-color-ocean .expandable-header,
+.admin-color-ocean .cs-slide .note,
+.admin-color-ocean .cycloneslider-field .note {
+	color: #516166;
+}
+
+/* Admin - Coffee */
+.admin-color-coffee .cs-title,
+.admin-color-coffee .cs-header .cs-icon,
+.admin-color-coffee .cs-templates,
+.admin-color-coffee .cs-templates a,
+.admin-color-coffee.cycloneslider h2,
+.admin-color-coffee.cycloneslider h3,
+.admin-color-coffee.cycloneslider .meta-box-sortables,
+.admin-color-coffee .expandable-header,
+.admin-color-coffee .cs-slide .note,
+.admin-color-coffee .cycloneslider-field .note {
+	color: #59524C;
+}
+.admin-color-coffee .cs-templates .body.active,
+.admin-color-coffee .cs-templates .body.active a{
+	color: #46403C;
+}
+.admin-color-coffee .cs-header,
+.admin-color-coffee .cs-body,
+.admin-color-coffee .cs-header .cs-icon,
+.admin-color-coffee .cs-slide-type-bar {
+	border-color: #D8CCC2;
+}
+.admin-color-coffee .cs-slide:hover .cs-header,
+.admin-color-coffee .cs-slide:hover .cs-body{
+    border-color: #CABCB1;
+}
+
+/* Admin - Ectoplasm */
+.admin-color-ectoplasm .cs-title,
+.admin-color-ectoplasm .cs-header .cs-icon,
+.admin-color-ectoplasm .cs-templates, 
+.admin-color-ectoplasm .cs-templates a,
+.admin-color-ectoplasm.cycloneslider h2,
+.admin-color-ectoplasm.cycloneslider h3,
+.admin-color-ectoplasm.cycloneslider .meta-box-sortables,
+.admin-color-ectoplasm .expandable-header,
+.admin-color-ectoplasm .cs-slide .note,
+.admin-color-ectoplasm .cycloneslider-field .note {
+	color: #413256;
+}
+.admin-color-ectoplasm .cs-templates .body.active{
+	color: #523F6D;
+}
+.admin-color-ectoplasm .cs-header,
+.admin-color-ectoplasm .cs-body,
+.admin-color-ectoplasm .cs-header .cs-icon,
+.admin-color-ectoplasm .cs-slide-type-bar {
+	border-color: #D8CAEC;
+}
+.admin-color-ectoplasm .cs-slide:hover .cs-header,
+.admin-color-ectoplasm .cs-slide:hover .cs-body{
+    border-color: #BEB1CF;
+}
+
+/* Admin - Sunrise */
+.admin-color-sunrise .cs-title,
+.admin-color-sunrise .cs-header .cs-icon,
+.admin-color-sunrise .cs-templates, 
+.admin-color-sunrise .cs-templates .body.active,
+.admin-color-sunrise .cs-templates a,
+.admin-color-sunrise.cycloneslider h2,
+.admin-color-sunrise.cycloneslider h3,
+.admin-color-sunrise.cycloneslider .meta-box-sortables,
+.admin-color-sunrise .expandable-header,
+.admin-color-sunrise .cs-slide .note,
+.admin-color-sunrise .cycloneslider-field .note {
+	color: #8B3B38;
+}
+
 .cs-header .cs-icon{
 	float:left;
 	padding:6px;
@@ -70,6 +175,9 @@
 .cs-title{
     float:left;
 	padding:5px 6px;
+	max-width: 60%;
+	white-space: nowrap;
+	overflow: hidden;
 }
 .rtl .cs-title{
 	float:right;
@@ -313,6 +421,12 @@
 	max-width:40%;
 }
 
+.field-normal {
+	padding-top:10px;
+}
+.field-normal label{
+	font-weight: normal;
+}
 
 .cycloneslider-slide-meta-speed,
 .cycloneslider-slide-meta-timeout,

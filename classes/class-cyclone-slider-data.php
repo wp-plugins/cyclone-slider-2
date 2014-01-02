@@ -179,6 +179,7 @@ if(!class_exists('Cyclone_Slider_Data')):
                     $slides_to_save[$i]['custom'] = $slide['custom'];
                     
                     $slides_to_save[$i]['youtube_url'] = $slide['youtube_url'];
+                    $slides_to_save[$i]['youtube_related'] = $slide['youtube_related'];
                     
                     $slides_to_save[$i]['vimeo_url'] = $slide['vimeo_url'];
                 
@@ -421,6 +422,7 @@ if(!class_exists('Cyclone_Slider_Data')):
                 'custom' => '',
                 
                 'youtube_url' => '',
+                'youtube_related' => 'false',
                 
                 'vimeo_url' => ''
             );

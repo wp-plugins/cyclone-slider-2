@@ -163,7 +163,12 @@ if(!class_exists('Cyclone_Slider')):
                     $youtube_count++;
                     $youtube_id = $this->cyclone_slider_youtube->get_youtube_id($slides[$i]['youtube_url']);
                     
-                    $slides[$i]['youtube_embed_code'] = '<iframe id="'.$slider_html_id.'-iframe-'.$i.'" width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="//www.youtube.com/embed/'.$youtube_id.'?wmode=transparent" frameborder="0" allowfullscreen></iframe>';
+                    $youtube_related = '';
+                    if( 'true' == $slides[$i]['youtube_related'] ) {
+                        $youtube_related = '&rel=0';
+                    }
+                    
+                    $slides[$i]['youtube_embed_code'] = '<iframe id="'.$slider_html_id.'-iframe-'.$i.'" width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="//www.youtube.com/embed/'.$youtube_id.'?wmode=transparent'.$youtube_related.'" frameborder="0" allowfullscreen></iframe>';
                     $slides[$i]['youtube_id'] = $youtube_id;
                     $slides[$i]['thumbnail_small'] = $this->cyclone_slider_youtube->get_youtube_thumb($youtube_id);
                     
@@ -191,7 +196,9 @@ if(!class_exists('Cyclone_Slider')):
             if( 'on' == $slider_settings['dynamic_height'] ) {
                 $slider_settings['auto_height'] = 0; // Disable autoheight when dynamic height is on. To prevent slider returning to wrong (ratio height) height when browser is resized.
             }
-            $slider_settings['hide_non_active'] = "false"; // Do not hide non active slides to prevent reloading of videos and for getBoundingClientRect() to not return 0.
+            if( ($youtube_count+$vimeo_count) > 0 or  'on' == $slider_settings['dynamic_height'] ){ 
+                $slider_settings['hide_non_active'] = "false"; // Do not hide non active slides to prevent reloading of videos and for getBoundingClientRect() to not return 0.
+            }
             $slider_settings['auto_height_speed'] = 250; // Will be editable in admin in the future
             $slider_settings['auto_height_easing'] = "null"; // Will be editable in admin in the future
             

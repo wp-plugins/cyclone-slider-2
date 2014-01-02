@@ -265,7 +265,11 @@ if(!class_exists('Cyclone_Slider_Admin')):
                 
                     $image_url = $this->get_slide_img_thumb($slide['id']);
                     $image_url = apply_filters('cycloneslider_preview_url', $image_url, $slide);
-                    $box_title = apply_filters('cycloneslider_box_title', __('Slide', 'cycloneslider'), $slide).' '.($i+1);
+                    $box_title = __('Slide', 'cycloneslider').' '.($i+1);
+                    if( '' != trim($slide['title']) and 'image' == $slide['type'] ){
+                        $box_title = $box_title. ' - '.$slide['title'];
+                    }
+                    $box_title = apply_filters('cycloneslider_box_title', $box_title);
                     
                     $vars = array();
                     $vars['i'] = $i;
@@ -397,9 +401,7 @@ if(!class_exists('Cyclone_Slider_Admin')):
                 } else {
                     $templates[$name]['screenshot'] = CYCLONE_URL.'images/screenshot.png';
                 }
-                if($active_templates[$name]==0){
-                    unset($templates[$name]);
-                }
+                
                 $templates[$name]['warning'] = '';
             
                 if( $template['location_name'] == 'core' ){
@@ -415,7 +417,11 @@ if(!class_exists('Cyclone_Slider_Admin')):
                     $templates[$name]['location_name'] = 'WP Content';
                     $templates[$name]['location_details'] = sprintf( __("Located inside wp-content directory:<br> <strong>%s</strong>", 'cycloneslider'), $template['path'] );
                 }
-                //echo sha1_file($template['path'].DIRECTORY_SEPARATOR.'slider.php'); break;
+                
+                // Remove inactive templates
+                if($active_templates[$name]==0){
+                    unset($templates[$name]);
+                }
             }
             
             $this->view->set_view_file( CYCLONE_PATH . 'views/template-selection.php' );

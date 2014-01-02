@@ -37,9 +37,12 @@ if(!class_exists('Cyclone_Slider_Vimeo')):
          */
         public function get_vimeo_thumb($video_id, $size = 'small'){
             if(!empty($video_id)){
-                $vimeo = unserialize( file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php') );
-                if( isset($vimeo[0]['thumbnail_'.$size]) ){
-                    return $vimeo[0]['thumbnail_'.$size];
+                $data = @file_get_contents('http://vimeo.com/api/v2/video/'.$video_id.'.php');
+                if( $data ) {
+                    $vimeo = unserialize( $data );
+                    if( isset($vimeo[0]['thumbnail_'.$size]) ){
+                        return $vimeo[0]['thumbnail_'.$size];
+                    }
                 }
             }
             return '';

@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 2.7.7
+Stable tag: 2.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,16 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.8.1 - 2014-01-02 =
+* New. Added ability to disable related videos in YouTube slide.
+* New. Slide title now appends the slide caption of there is one.
+* New. MP6 color schemes. Added subtle cosmetic changes to UI depending on what admin color scheme was selected.
+* Change. Made hide_non_active false only if using dynamic height and YouTube/Vimeo slides. For backwards compatibility with older templates.
+* Change. Removed old problematic video slide.
+* Fix. Fixed Vimeo error when URL fails to load.
+* Fix. Fix for very long slide titles.
+* Fix. Bug fix for PHP warning in template selection when template is unchecked in settings page.
 
 = 2.8.0 - 2013-12-29 - This is a major release =
 * New. Added support for YouTube, Vimeo and Custom slide types in Text template.
@@ -290,6 +300,16 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.8.1 - 2014-01-02 =
+* New. Added ability to disable related videos in YouTube slide.
+* New. Slide title now appends the slide caption of there is one.
+* New. MP6 color schemes. Added subtle cosmetic changes to UI depending on what admin color scheme was selected.
+* Change. Made hide_non_active false only if using dynamic height and YouTube/Vimeo slides. For backwards compatibility with older templates.
+* Change. Removed old problematic video slide.
+* Fix. Fixed Vimeo error when URL fails to load.
+* Fix. Fix for very long slide titles.
+* Fix. Bug fix for PHP warning in template selection when template is unchecked in settings page.
 
 = 2.8.0 - 2013-12-29 - This is a major release =
 * New. Added support for YouTube, Vimeo and Custom slide types in Text template.
