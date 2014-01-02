@@ -98,6 +98,18 @@ jQuery(document).ready(function($){
                             $(field).attr('name',name);
                         }
                     });
+                    $(box).find('.cs-changeling-id').each(function(i, field){ /*** Loop thru relevant fields ***/
+                        var name = $(field).attr('id');
+                        if(name){
+                            name = name.replace(/[0-9]+/, boxIndex); /*** Replace all ad_asdasd-x ***/
+                            $(field).attr('id',name);
+                        }
+                        var name = $(field).attr('for');
+                        if(name){
+                            name = name.replace(/[0-9]+/, boxIndex); /*** Replace all ad_asdasd-x ***/
+                            $(field).attr('for',name);
+                        }
+                    });
                 });
             }
         });

@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Cyclone Slider 2
-Plugin URI: http://www.codefleet.net/cyclone-slider-pro/
+Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.8.0
+Version: 2.8.1
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -25,7 +25,7 @@ License:
   
 */
 if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.8.0' );
+    define('CYCLONE_VERSION', '2.8.1' );
 }
 if(!defined('CYCLONE_PATH')){
     define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
