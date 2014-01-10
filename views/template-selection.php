@@ -24,6 +24,9 @@
 			<?php if(in_array('custom', $template['supports'])): ?>
 			<i title="Custom HTML" class="icon-code"></i>
 			<?php endif; ?>
+			<?php if(in_array('testimonial', $template['supports'])): ?>
+			<i title="Testimonial" class="icon-quote-left"></i>
+			<?php endif; ?>
 		</span>
 		<span class="cs-location">
 			<a href="#" data-content="<?php echo wp_kses_post($template['location_details']); ?>"><?php echo $template['location_name']; ?></a>

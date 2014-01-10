@@ -2,6 +2,7 @@
 .cycloneslider-template-standard{
 	position:relative;
     margin-bottom: 30px;
+	outline: none;
 }
 .cycloneslider-template-standard .cycloneslider-slides{
 	position:relative;
@@ -15,6 +16,9 @@
 }
 .cycloneslider-template-standard .cycle-slide{
 	display: block; /* Show slide so that getBoundingClientRect().height will not return 0. Class .cycle-slide is added when cycle has initialized. */
+}
+.cycloneslider-template-standard div[data-cycle-hide-non-active="false"] .cycloneslider-slide{
+	opacity: 0; /* Avoid youtube and vimeo or other slides from peeking behind the current slide whe in transit */
 }
 .cycloneslider-template-standard div[data-cycle-dynamic-height="off"] .cycloneslider-slide-image{
 	height: 100%; /* To prevent cutting off captions when dynamic height is off */
@@ -46,11 +50,32 @@
 .cycloneslider-template-standard .cycloneslider-slide-vimeo{
 	background: #000;
 }
-.cycloneslider-template-standard .cycloneslider-slide-custom{
+.cycloneslider-template-standard .cycloneslider-slide-custom,
+.cycloneslider-template-standard .cycloneslider-slide-testimonial{
 	min-height: 100%;
 }
-.cycloneslider-template-standard div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom{
+.cycloneslider-template-standard div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom,
+.cycloneslider-template-standard div[data-cycle-dynamic-height="on"] .cycle-sentinel + .cycloneslider-slide-testimonial{
 	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
+.cycloneslider-template-standard .cycloneslider-slide-testimonial{
+	font-style: italic;
+}
+.cycloneslider-template-standard .cycloneslider-slide-testimonial blockquote{
+	margin-bottom: 0;
+}
+.cycloneslider-template-standard .cycloneslider-slide-testimonial p{
+	margin: 0;
+}
+.cycloneslider-template-standard .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: right;
+	font-style: normal;
+}
+.rtl .cycloneslider-template-standard .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: left;
+}
+.cycloneslider-template-standard .cycloneslider-slide-testimonial .cycloneslider-testimonial-author a{
+	text-decoration: none;
 }
 
 /*** Prev/Next ***/

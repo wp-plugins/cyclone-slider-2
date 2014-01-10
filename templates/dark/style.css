@@ -2,6 +2,7 @@
 .cycloneslider-template-dark{
 	position:relative;
     margin-bottom: 30px;
+	outline: none;
 }
 .cycloneslider-template-dark .cycloneslider-slides{
 	position:relative;
@@ -46,11 +47,32 @@
 .cycloneslider-template-dark .cycloneslider-slide-vimeo{
 	background: #000;
 }
-.cycloneslider-template-dark .cycloneslider-slide-custom{
+.cycloneslider-template-dark .cycloneslider-slide-custom,
+.cycloneslider-template-dark .cycloneslider-slide-testimonial{
 	min-height: 100%;
 }
-.cycloneslider-template-dark div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom{
+.cycloneslider-template-dark div[data-cycle-dynamic-height="on"] .cycloneslider-slide-custom,
+.cycloneslider-template-dark div[data-cycle-dynamic-height="on"] .cycle-sentinel + .cycloneslider-slide-testimonial{
 	min-height: 100px; /* Disable 100% min height when dynamic height is on. To fix issue with scrollHorz */
+}
+.cycloneslider-template-dark .cycloneslider-slide-testimonial{
+	font-style: italic;
+}
+.cycloneslider-template-dark .cycloneslider-slide-testimonial blockquote{
+	margin-bottom: 0;
+}
+.cycloneslider-template-dark .cycloneslider-slide-testimonial p{
+	margin: 0;
+}
+.cycloneslider-template-dark .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: right;
+	font-style: normal;
+}
+.rtl .cycloneslider-template-dark .cycloneslider-slide-testimonial .cycloneslider-testimonial-author{
+	text-align: left;
+}
+.cycloneslider-template-dark .cycloneslider-slide-testimonial .cycloneslider-testimonial-author a{
+	text-decoration: none;
 }
 
 /*** Prev/Next ***/
