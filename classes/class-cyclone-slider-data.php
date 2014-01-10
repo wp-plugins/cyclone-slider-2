@@ -178,10 +178,15 @@ if(!class_exists('Cyclone_Slider_Data')):
                     
                     $slides_to_save[$i]['custom'] = $slide['custom'];
                     
-                    $slides_to_save[$i]['youtube_url'] = $slide['youtube_url'];
-                    $slides_to_save[$i]['youtube_related'] = $slide['youtube_related'];
+                    $slides_to_save[$i]['youtube_url'] = esc_url_raw($slide['youtube_url']);
+                    $slides_to_save[$i]['youtube_related'] = sanitize_text_field($slide['youtube_related']);
                     
-                    $slides_to_save[$i]['vimeo_url'] = $slide['vimeo_url'];
+                    $slides_to_save[$i]['vimeo_url'] = esc_url_raw($slide['vimeo_url']);
+                    
+                    $slides_to_save[$i]['testimonial'] = wp_kses_post($slide['testimonial']);
+                    $slides_to_save[$i]['testimonial_author'] = sanitize_text_field($slide['testimonial_author']);
+                    $slides_to_save[$i]['testimonial_link'] = esc_url_raw($slide['testimonial_link']);
+                    $slides_to_save[$i]['testimonial_link_target'] = sanitize_text_field($slide['testimonial_link_target']);
                 
                     $i++;
                 }
@@ -424,7 +429,12 @@ if(!class_exists('Cyclone_Slider_Data')):
                 'youtube_url' => '',
                 'youtube_related' => 'false',
                 
-                'vimeo_url' => ''
+                'vimeo_url' => '',
+                
+                'testimonial' => '',
+                'testimonial_author' => '',
+                'testimonial_link' => '',
+                'testimonial_link_target' => '_self'
             );
         }
         

@@ -1,0 +1,884 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cyclone Slider\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-10 20:47+0800\n"
+"PO-Revision-Date: 2014-01-10 20:47+0800\n"
+"Last-Translator: Gabriel Gil <info@gabrielgil.es>\n"
+"Language-Team: kosinix <kosinix@codefleet.net>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.6.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../cyclone-slider.php:135
+msgid "Cyclone Slider Settings"
+msgstr "Ajustes de Cyclone Slider"
+
+#: ../cyclone-slider.php:136
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../classes/class-cyclone-slider-admin.php:96
+msgid "Cyclone Slider"
+msgstr "Cyclone Slider"
+
+#: ../classes/class-cyclone-slider-admin.php:97
+msgid "Slideshow"
+msgstr "Slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:98
+msgid "Add Slideshow"
+msgstr "Añadir slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:99
+msgid "Add New Slideshow"
+msgstr "Añadir nuevo slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:100
+msgid "Edit Slideshow"
+msgstr "Editar slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:101
+msgid "New Slideshow"
+msgstr "Nuevo slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:102
+msgid "View Slideshow"
+msgstr "Ver slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:103
+msgid "Search Slideshows"
+msgstr "Buscar slideshows"
+
+#: ../classes/class-cyclone-slider-admin.php:104
+msgid "No slideshows found"
+msgstr "No se han encontrado slideshows"
+
+#: ../classes/class-cyclone-slider-admin.php:105
+msgid "No slideshows found in Trash"
+msgstr "No hay slideshows en la papelera"
+
+#: ../classes/class-cyclone-slider-admin.php:141
+#: ../classes/class-cyclone-slider-admin.php:144
+#: ../classes/class-cyclone-slider-admin.php:145
+#: ../classes/class-cyclone-slider-admin.php:148
+#: ../classes/class-cyclone-slider-admin.php:149
+#: ../classes/class-cyclone-slider-admin.php:150
+msgid "Slideshow updated."
+msgstr "Slideshow actualizado."
+
+#: ../classes/class-cyclone-slider-admin.php:142
+msgid "Custom field updated."
+msgstr "Campos personalizados actualizados"
+
+#: ../classes/class-cyclone-slider-admin.php:143
+msgid "Custom field deleted."
+msgstr "Campo personalizado eliminado."
+
+#: ../classes/class-cyclone-slider-admin.php:146
+msgid "Slideshow published."
+msgstr "Slideshow publicado."
+
+#: ../classes/class-cyclone-slider-admin.php:147
+msgid "Slideshow saved."
+msgstr "Slideshow guardado."
+
+#: ../classes/class-cyclone-slider-admin.php:151
+#, fuzzy, php-format
+msgid ""
+"Templates CSS could not be saved. Make sure %stemplates.css is writable."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../classes/class-cyclone-slider-admin.php:152
+#, fuzzy, php-format
+msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../classes/class-cyclone-slider-admin.php:186
+msgid "Slides"
+msgstr "Slides"
+
+#: ../classes/class-cyclone-slider-admin.php:195
+msgid "Slider Preview"
+msgstr "Vista previa"
+
+#: ../classes/class-cyclone-slider-admin.php:204
+msgid "Get Slider Codes"
+msgstr "Ver el código del slider"
+
+#: ../classes/class-cyclone-slider-admin.php:213
+msgid "Basic Settings"
+msgstr "Ajustes básicos"
+
+#: ../classes/class-cyclone-slider-admin.php:222
+msgid "Advanced Settings"
+msgstr "Ajustes avanzados"
+
+#: ../classes/class-cyclone-slider-admin.php:231
+msgid "Templates"
+msgstr "Plantillas"
+
+#: ../classes/class-cyclone-slider-admin.php:240
+#: ../classes/class-cyclone-slider-admin.php:530
+msgid "Slideshow ID"
+msgstr "ID del slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:268
+msgid "Slide"
+msgstr "Slide"
+
+#: ../classes/class-cyclone-slider-admin.php:408
+msgid "Core"
+msgstr "Núcleo"
+
+#: ../classes/class-cyclone-slider-admin.php:409
+#, fuzzy, php-format
+msgid ""
+"Located inside the Cyclone Slider's templates directory:<br> <strong>%s</"
+"strong>"
+msgstr "Cyclone Slider"
+
+#: ../classes/class-cyclone-slider-admin.php:413
+#, php-format
+msgid "Located inside your currently active theme:<br> <strong>%s</strong>"
+msgstr "Localizado dentro de tu tema actual:<br> <strong>%s</strong>"
+
+#: ../classes/class-cyclone-slider-admin.php:414
+#, fuzzy, php-format
+msgid ""
+"Your template is in danger of being overwritten when you upgrade your theme. "
+"Please move it inside %s."
+msgstr "Plantilla"
+
+#: ../classes/class-cyclone-slider-admin.php:418
+#, php-format
+msgid "Located inside wp-content directory:<br> <strong>%s</strong>"
+msgstr "Localizado dentro de la carpeta wp-content:<br> <strong>%s</strong>"
+
+#: ../classes/class-cyclone-slider-admin.php:463
+msgid "Slide *"
+msgstr "Slide *"
+
+#: ../classes/class-cyclone-slider-admin.php:527
+msgid "Slideshow Name"
+msgstr "Nombre del slideshow"
+
+#: ../classes/class-cyclone-slider-admin.php:528
+msgid "Template"
+msgstr "Plantilla"
+
+#: ../classes/class-cyclone-slider-admin.php:529
+msgid "No. of Slides"
+msgstr "Num. de slides"
+
+#: ../classes/class-cyclone-slider-admin.php:531
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: ../classes/class-cyclone-slider-scripts.php:52
+msgid "Select an image"
+msgstr "Seleciona una imagen"
+
+#: ../classes/class-cyclone-slider-scripts.php:53
+#, fuzzy
+msgid "Select Images - Use Ctrl + Click or Shift + Click"
+msgstr "Seleciona una imagen"
+
+#: ../classes/class-cyclone-slider-scripts.php:54
+msgid "Add to Slide"
+msgstr "Añadir al slide"
+
+#: ../classes/class-cyclone-slider-scripts.php:55 ../views/slides.php:9
+#, fuzzy
+msgid "Add Images as Slides"
+msgstr "Slides"
+
+#: ../classes/class-cyclone-slider-scripts.php:56
+msgid "Error. Make sure its a valid YouTube URL."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../classes/class-cyclone-slider-settings-page.php:62
+#: ../classes/codefleet/class-codefleet-settings-page.php:114
+msgid "Default options restored."
+msgstr "Ajustes por defecto restaurados."
+
+#: ../classes/class-cyclone-slider-widget.php:15
+#, fuzzy
+msgid "Cyclone Slider Widget"
+msgstr "Cyclone Slider"
+
+#: ../classes/class-cyclone-slider-widget.php:16
+msgid "Widget for displaying sliders."
+msgstr "Widget para mostrar sliders."
+
+#: ../classes/class-cyclone-slider-widget.php:67 ../views/slide-edit.php:49
+msgid "Title:"
+msgstr "Título:"
+
+#: ../classes/class-cyclone-slider-widget.php:81
+#, fuzzy
+msgid "Select a Slider:"
+msgstr "Seleciona una imagen"
+
+#: ../classes/class-cyclone-slider-widget.php:96
+#, fuzzy
+msgid "No sliders found."
+msgstr "No se han encontrado slideshows"
+
+#: ../classes/class-cyclone-slider.php:80
+#, fuzzy, php-format
+msgid "[Slideshow \"%s\" not found]"
+msgstr "No se han encontrado slideshows"
+
+#: ../classes/class-cyclone-slider.php:92
+#, fuzzy, php-format
+msgid "[Template \"%s\" not found]"
+msgstr "Plantilla"
+
+#: ../classes/class-nextgen-integration.php:37
+msgid "NextGEN Integration"
+msgstr "Integración con NextGEN"
+
+#: ../classes/class-nextgen-integration.php:53
+msgid "Choose a NextGEN Gallery"
+msgstr "Escoge una galería NextGEN"
+
+#: ../classes/class-nextgen-integration.php:63 ../views/export-step-1.php:7
+#: ../views/export-step-2.php:7 ../views/import-step-1.php:7
+#: ../views/import-step-2.php:7
+msgid "Import"
+msgstr "Importar"
+
+#: ../classes/class-nextgen-integration.php:65
+#, fuzzy
+msgid ""
+"Select a gallery to import images from. Images will be added as new slides."
+msgstr "Importar"
+
+#: ../templates/dark/slider.php:43
+#, fuzzy
+msgid "View Larger Image"
+msgstr "Ver slideshow"
+
+#: ../templates/dark/slider.php:46 ../templates/dark/slider.php:48
+msgid "Learn More"
+msgstr "Saber más"
+
+#: ../templates/dark/slider.php:64 ../templates/default/slider.php:62
+#: ../templates/default/slider.php:66 ../templates/default/slider.php:70
+#: ../templates/standard/slider.php:70 ../templates/thumbnails/slider.php:70
+#, fuzzy
+msgid "Slide type not supported."
+msgstr "Slide"
+
+#: ../views/export-step-1.php:6 ../views/export-step-2.php:6
+#: ../views/import-step-1.php:6 ../views/import-step-2.php:6
+msgid "Export"
+msgstr "Exportar"
+
+#: ../views/export-step-1.php:9 ../views/export-step-2.php:9
+#, fuzzy
+msgid "Cyclone Slider Export"
+msgstr "Cyclone Slider"
+
+#: ../views/export-step-1.php:18
+#, fuzzy
+msgid "Select sliders:"
+msgstr "Seleciona una imagen"
+
+#: ../views/export-step-1.php:24
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+#: ../views/export-step-1.php:37
+#, fuzzy
+msgid "No slider to export."
+msgstr "Exportar"
+
+#: ../views/export-step-1.php:40 ../views/import-step-1.php:25
+msgid "Next"
+msgstr "Siguiente"
+
+#: ../views/export-step-2.php:16
+#, fuzzy
+msgid "Your export file is ready. Click Download."
+msgstr "Exportar"
+
+#: ../views/export-step-2.php:18 ../views/export-step-2.php:27
+#: ../views/import-step-2.php:18 ../views/import-step-2.php:26
+msgid "Back"
+msgstr "Volver"
+
+#: ../views/export-step-2.php:19
+msgid "Download"
+msgstr "Descargar"
+
+#: ../views/import-step-1.php:9 ../views/import-step-2.php:9
+#, fuzzy
+msgid "Cyclone Slider Import"
+msgstr "Cyclone Slider"
+
+#: ../views/import-step-1.php:18
+#, fuzzy
+msgid "Import Zip File:"
+msgstr "Importar"
+
+#: ../views/import-step-2.php:16
+#, fuzzy
+msgid "Import operation success!"
+msgstr "Importar"
+
+#: ../views/settings-page.php:7
+#, fuzzy
+msgid ""
+"Play with these settings if Cyclone Slider 2 is not working or if you want "
+"to optimize it."
+msgstr "Ajustes de Cyclone Slider"
+
+#: ../views/settings-page.php:17
+msgid "Load scripts in:"
+msgstr "Cargar scripts en:"
+
+#: ../views/settings-page.php:20
+msgid "Header"
+msgstr "Cabezero"
+
+#: ../views/settings-page.php:21
+msgid "Footer"
+msgstr "Pie de página"
+
+#: ../views/settings-page.php:26
+msgid "Load these scripts:"
+msgstr "Cargar estos scripts"
+
+#: ../views/settings-page.php:31
+msgid "Cycle 2. This is the core script needed by the plugin."
+msgstr "Cycle 2. Este es el script necesario por el plugin."
+
+#: ../views/settings-page.php:36
+#, fuzzy
+msgid "Cycle 2 - Carousel. Used by these templates: Galleria, Lea, Dos."
+msgstr "Plantillas"
+
+#: ../views/settings-page.php:41
+msgid "Cycle 2 - Swipe. For touch swipe events."
+msgstr "Cycle 2. Swipe. Para eventos táctiles."
+
+#: ../views/settings-page.php:46
+msgid "Cycle 2 - Tile. Used for tile transition effects."
+msgstr "Cycle 2. Tile. Usado para los efectos de las transiciones."
+
+#: ../views/settings-page.php:51
+#, fuzzy
+msgid "Cycle 2 - Video. Used by YouTube template."
+msgstr "Plantilla"
+
+#: ../views/settings-page.php:56
+msgid "Magnific Popup - Enable lightbox option."
+msgstr "Magnific Popup. Activa la opción lightbox."
+
+#: ../views/settings-page.php:56 ../views/settings-page.php:61
+#: ../views/slider-advanced-settings.php:2
+msgid "Available in pro version."
+msgstr "Disponible en la versión pro."
+
+#: ../views/settings-page.php:61
+msgid "Easing - Enable easing options."
+msgstr "Easing. Activa las opciones de fundido."
+
+#: ../views/settings-page.php:66
+msgid "Scripts loading priority:"
+msgstr "Prioridad de carga de scripts:"
+
+#: ../views/settings-page.php:69
+#, fuzzy
+msgid "Make this value bigger to load scripts last."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/settings-page.php:73
+#, fuzzy
+msgid "Load these templates:"
+msgstr "Plantillas"
+
+#: ../views/settings-page.php:86
+msgid "Save Options"
+msgstr "Guardar opciones"
+
+#: ../views/settings-page.php:87
+msgid "Restore Defaults"
+msgstr "Restaurar por defecto"
+
+#: ../views/slide-edit.php:17
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ../views/slide-edit.php:26
+#, fuzzy
+msgid "Image"
+msgstr "Seleciona una imagen"
+
+#: ../views/slide-edit.php:27
+#, fuzzy
+msgid "YouTube"
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:28
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: ../views/slide-edit.php:29 ../views/slide-edit.php:173
+#, fuzzy
+msgid "Custom HTML"
+msgstr "Campos personalizados actualizados"
+
+#: ../views/slide-edit.php:30
+msgid "Testimonial"
+msgstr ""
+
+#: ../views/slide-edit.php:42
+#, fuzzy
+msgid "Get Image"
+msgstr "Seleciona una imagen"
+
+#: ../views/slide-edit.php:46
+msgid "Caption"
+msgstr "Titulo"
+
+#: ../views/slide-edit.php:53
+msgid "Description:"
+msgstr "Decripción:"
+
+#: ../views/slide-edit.php:59 ../views/slide-edit.php:196
+msgid "Link"
+msgstr "Enlace"
+
+#: ../views/slide-edit.php:62 ../views/slide-edit.php:199
+#, fuzzy
+msgid "Link URL:"
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:66 ../views/slide-edit.php:203
+msgid "Open Link in:"
+msgstr "Abrir enlace en:"
+
+#: ../views/slide-edit.php:68 ../views/slide-edit.php:205
+msgid "Same Window"
+msgstr "Misma ventana"
+
+#: ../views/slide-edit.php:69 ../views/slide-edit.php:206
+#, fuzzy
+msgid "New Tab or Window"
+msgstr "Nuevo slideshow"
+
+#: ../views/slide-edit.php:75
+#, fuzzy
+msgid "Image Attributes"
+msgstr "Seleciona una imagen"
+
+#: ../views/slide-edit.php:78
+msgid "Alternate Text:"
+msgstr "Texto alternativo:"
+
+#: ../views/slide-edit.php:82
+#, fuzzy
+msgid "Title Text:"
+msgstr "Título:"
+
+#: ../views/slide-edit.php:88
+#, fuzzy
+msgid "Slide Transition Effects"
+msgstr "Slide"
+
+#: ../views/slide-edit.php:92
+msgid "Disable"
+msgstr "Desactivar"
+
+#: ../views/slide-edit.php:93
+#, fuzzy
+msgid "Enable Slide Effects"
+msgstr "Slide"
+
+#: ../views/slide-edit.php:99
+msgid "Transition Effects:"
+msgstr "Efectos de transición:"
+
+#: ../views/slide-edit.php:110 ../views/slider-properties.php:32
+msgid "Transition Effects Speed:"
+msgstr "Velocidad del efecto de transición:"
+
+#: ../views/slide-edit.php:112 ../views/slide-edit.php:119
+#: ../views/slider-properties.php:34
+msgid "Milliseconds"
+msgstr "Milisegundos"
+
+#: ../views/slide-edit.php:117 ../views/slider-properties.php:26
+#, fuzzy
+msgid "Next Slide Delay:"
+msgstr "Siguiente"
+
+#: ../views/slide-edit.php:127 ../views/slider-properties.php:13
+msgid "Tile Count:"
+msgstr "Número de tejas:"
+
+#: ../views/slide-edit.php:129 ../views/slider-properties.php:15
+msgid "The number of tiles to use in the transition."
+msgstr "Número de tejas de esta transición."
+
+#: ../views/slide-edit.php:133
+msgid "Tile Delay:"
+msgstr "Retraso:"
+
+#: ../views/slide-edit.php:135
+msgid "Milliseconds to delay each individual tile transition."
+msgstr "Milisegundos para retrasar cada transición individual."
+
+#: ../views/slide-edit.php:139 ../views/slider-properties.php:18
+msgid "Tile Position:"
+msgstr "Posición de la teja:"
+
+#: ../views/slide-edit.php:141 ../views/slider-properties.php:20
+msgid "Vertical"
+msgstr "Vertical"
+
+#: ../views/slide-edit.php:142 ../views/slider-properties.php:21
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: ../views/slide-edit.php:154
+#, fuzzy
+msgid "YouTube URL:"
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:156
+#, fuzzy
+msgid "Copy and paste a valid YouTube URL here."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:161
+msgid "Do not show suggested videos when the video finishes."
+msgstr ""
+
+#: ../views/slide-edit.php:166
+#, fuzzy
+msgid "Vimeo URL:"
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:168
+#, fuzzy
+msgid "Copy and paste a valid Vimeo URL here."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slide-edit.php:181
+msgid "Quote"
+msgstr ""
+
+#: ../views/slide-edit.php:187
+msgid "Author"
+msgstr ""
+
+#: ../views/slide-edit.php:190
+#, fuzzy
+msgid "Name:"
+msgstr "Nombre del slideshow"
+
+#: ../views/slider-advanced-settings.php:4
+msgid "Allow Wrap?"
+msgstr "Permitir envolver?"
+
+#: ../views/slider-advanced-settings.php:6
+#: ../views/slider-advanced-settings.php:44 ../views/slider-properties.php:66
+#: ../views/slider-properties.php:74 ../views/slider-properties.php:82
+#: ../views/slider-properties.php:92 ../views/slider-properties.php:101
+msgid "Yes"
+msgstr "Si"
+
+#: ../views/slider-advanced-settings.php:7
+#: ../views/slider-advanced-settings.php:45 ../views/slider-properties.php:67
+#: ../views/slider-properties.php:75 ../views/slider-properties.php:83
+#: ../views/slider-properties.php:91 ../views/slider-properties.php:100
+msgid "No"
+msgstr "No"
+
+#: ../views/slider-advanced-settings.php:10
+#, fuzzy
+msgid ""
+"Determines if slider wraps to beginning slide if it reaches the end slide."
+msgstr "Slide"
+
+#: ../views/slider-advanced-settings.php:15
+msgid "Dynamic Height:"
+msgstr "Alto dinámico"
+
+#: ../views/slider-advanced-settings.php:17
+msgid "Off"
+msgstr "Apagado"
+
+#: ../views/slider-advanced-settings.php:18
+msgid "On"
+msgstr "Encendido"
+
+#: ../views/slider-advanced-settings.php:21
+#, fuzzy
+msgid "Adjust slider height depending on current slide."
+msgstr "Slide"
+
+#: ../views/slider-advanced-settings.php:26
+msgid "Delay:"
+msgstr "Retardo:"
+
+#: ../views/slider-advanced-settings.php:28
+#, fuzzy
+msgid ""
+"Milliseconds to add or substract from the time before the first transition "
+"occurs."
+msgstr "Añadir slideshow"
+
+#: ../views/slider-advanced-settings.php:32
+msgid "Easing:"
+msgstr "Easing:"
+
+#: ../views/slider-advanced-settings.php:38
+msgid "Easing for transition animations."
+msgstr "Easing para la animación de las transiciones."
+
+#: ../views/slider-advanced-settings.php:42
+msgid "Swipe:"
+msgstr "Swipe:"
+
+#: ../views/slider-advanced-settings.php:48
+msgid "Enable swipe gesture support for touch devices."
+msgstr "Permitir deslizar el dedo en dispositivos táctiles."
+
+#: ../views/slider-advanced-settings.php:53
+msgid "Resize Options:"
+msgstr "Opciones de redimensión:"
+
+#: ../views/slider-advanced-settings.php:61
+msgid "Force Resize"
+msgstr "Forzar redimensión"
+
+#: ../views/slider-advanced-settings.php:63
+#, fuzzy
+msgid "Auto - Cyclone Slider decides the resize option."
+msgstr "Cyclone Slider"
+
+#: ../views/slider-advanced-settings.php:64
+msgid "Crop - Resize and remove excess parts."
+msgstr "Recortar. Redimensionar y eliminar los excesos."
+
+#: ../views/slider-advanced-settings.php:65
+msgid "Exact - Resize to exact dimensions."
+msgstr "Exacto. Redimensionar al tamaño exacto."
+
+#: ../views/slider-advanced-settings.php:66
+msgid "Landscape - Resize to exact width."
+msgstr "Panorámico. Redimensionar al ancho exacto."
+
+#: ../views/slider-advanced-settings.php:67
+msgid "Portrait - Resize to exact height."
+msgstr "Retrato. Redimensionar al alto exacto."
+
+#: ../views/slider-codes.php:4
+#, fuzzy
+msgid "Your Shortcode:"
+msgstr "Shortcode"
+
+#: ../views/slider-codes.php:6
+#, fuzzy
+msgid ""
+"Copy and paste this shortcode into your Post, Page or Custom Post editor."
+msgstr "Shortcode"
+
+#: ../views/slider-codes.php:10
+msgid "Your PHP Code:"
+msgstr "Tu código PHP:"
+
+#: ../views/slider-codes.php:12
+#, fuzzy
+msgid ""
+"Copy and paste this code when you need to display the slider in template "
+"files (header.php, front-page.php, etc.)."
+msgstr "Plantilla"
+
+#: ../views/slider-id.php:5
+#, fuzzy
+msgid "Change the Slideshow ID here."
+msgstr "ID del slideshow"
+
+#: ../views/slider-preview.php:9
+#, fuzzy
+msgid "Your preview will appear here."
+msgstr "Vista previa"
+
+#: ../views/slider-properties.php:4
+msgid "Transition Effects to Use:"
+msgstr "Efecto de la transición:"
+
+#: ../views/slider-properties.php:28
+msgid "Milliseconds. 0 to disable auto advance."
+msgstr "Milisegundos. 0 para desactivar el avance automático."
+
+#: ../views/slider-properties.php:38
+msgid "Width:"
+msgstr "Ancho:"
+
+#: ../views/slider-properties.php:40 ../views/slider-properties.php:46
+msgid "pixels."
+msgstr "píxeles."
+
+#: ../views/slider-properties.php:44
+msgid "Height:"
+msgstr "Alto:"
+
+#: ../views/slider-properties.php:50
+msgid "Width Management:"
+msgstr "Gestión del ancho:"
+
+#: ../views/slider-properties.php:52
+msgid "Responsive"
+msgstr "Adaptable"
+
+#: ../views/slider-properties.php:53
+msgid "Full"
+msgstr "Completo"
+
+#: ../views/slider-properties.php:54
+msgid "Fixed"
+msgstr "Fijo"
+
+#: ../views/slider-properties.php:57
+msgid ""
+"Responsive - resizes to smaller size but maximum width will be equal to the "
+"provided width."
+msgstr ""
+"Adaptable. Redimensiona al tamaño más pequeño pero el ancho máximo será "
+"igual que el indicado."
+
+#: ../views/slider-properties.php:58
+#, fuzzy
+msgid ""
+"Full - the same as responsive but maximum width will be equal to its "
+"container ignoring the provided width."
+msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#: ../views/slider-properties.php:59
+msgid "Fixed - width and height are not resized."
+msgstr "Fijo. Ancho y alto no serán modificados."
+
+#: ../views/slider-properties.php:64
+msgid "Pause on Hover?"
+msgstr "Parar con el ratón encima?"
+
+#: ../views/slider-properties.php:72
+#, fuzzy
+msgid "Show Prev/Next Buttons?"
+msgstr "Siguiente"
+
+#: ../views/slider-properties.php:80
+msgid "Show Navigation?"
+msgstr "Mostrar navegación?"
+
+#: ../views/slider-properties.php:85
+#, fuzzy
+msgid "The thumbnails or dots depending on template."
+msgstr "Plantilla"
+
+#: ../views/slider-properties.php:89
+msgid "Resize Images?"
+msgstr "Redimensionar imagenes?"
+
+#: ../views/slider-properties.php:94
+#, fuzzy
+msgid ""
+"Yes - resize images to slideshow dimension. <br>No - use the original "
+"uploaded image."
+msgstr "Seleciona una imagen"
+
+#: ../views/slider-properties.php:98
+#, fuzzy
+msgid "Random Slide Order?"
+msgstr "Slide"
+
+#: ../views/slider-properties.php:103
+#, fuzzy
+msgid "Randomize order of slides on every page visit."
+msgstr "Slides"
+
+#: ../views/slides.php:8
+#, fuzzy
+msgid "Add Slide"
+msgstr "Añadir al slide"
+
+#: ../views/template-selection.php:4
+#, fuzzy
+msgid "Name"
+msgstr "Nombre del slideshow"
+
+#: ../views/template-selection.php:5
+#, fuzzy
+msgid "Supported Slides"
+msgstr "Slides"
+
+#: ../views/template-selection.php:6
+msgid "Location"
+msgstr "Localización"
+
+#: ../views/template-selection.php:7
+msgid "Selected"
+msgstr "Seleccionado"
+
+#, fuzzy
+#~ msgid "Video (Old Version)"
+#~ msgstr "Disponible en la versión pro."
+
+#, fuzzy
+#~ msgid "Slide Properties:"
+#~ msgstr "Slide"
+
+#, fuzzy
+#~ msgid ""
+#~ "This video slide is problematic. Please consider using YouTube, Vimeo or "
+#~ "Custom slide type for videos. This slide will be removed in the future "
+#~ "and will be replaced with a better one."
+#~ msgstr "Slide"
+
+#, fuzzy
+#~ msgid "Video URL:"
+#~ msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#, fuzzy
+#~ msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
+#~ msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
+
+#, fuzzy
+#~ msgid "Get Video"
+#~ msgstr "Ver el código del slider"
+
+#~ msgid "Embed Code"
+#~ msgstr "Código para incrustar"
+
+#, fuzzy
+#~ msgid ""
+#~ "You can place your embed code directly here. Or you can use the Get Video "
+#~ "button to generate the embed code."
+#~ msgstr "Ver el código del slider"
+
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Note:</strong> The Slide Properties and Tile effects are not "
+#~ "supported for videos."
+#~ msgstr "Slide"
+
+#, fuzzy
+#~ msgid ""
+#~ "<strong>Note:</strong> Append &wmode=transparent to the embed code src "
+#~ "attribute to make HTML elements appear on top of Flash."
+#~ msgstr "Error. Asegúrate de que es una dirección de YouTube válida."

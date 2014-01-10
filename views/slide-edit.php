@@ -8,6 +8,7 @@
 			<i class="icon-play"></i>
 			<i class="icon-code"></i>
 			<i class="icon-film"></i>
+			<i class="icon-quote-left"></i>
 		</span>
 		<span class="cs-title">
 			<?php echo $box_title; ?>
@@ -26,6 +27,7 @@
 				<option value="youtube" <?php selected($slide['type'], 'youtube'); ?>><?php _e('YouTube', 'cycloneslider'); ?></option>
 				<option value="vimeo" <?php selected($slide['type'], 'vimeo'); ?>><?php _e('Vimeo', 'cycloneslider'); ?></option>
 				<option value="custom" <?php selected($slide['type'], 'custom'); ?>><?php _e('Custom HTML', 'cycloneslider'); ?></option>
+				<option value="testimonial" <?php selected($slide['type'], 'testimonial'); ?>><?php _e('Testimonial', 'cycloneslider'); ?></option>
 			</select>	
 		</div>
 		<div class="clear"></div>
@@ -40,9 +42,8 @@
 				<input class="button-secondary cs-media-gallery-show" type="button" value="<?php _e('Get Image', 'cycloneslider'); ?>" />
 			</div>
 			<div class="cs-image-settings">
-				<p class="expandable-group-title first"><?php _e('Slide Properties:', 'cycloneslider'); ?></p>
 				<div class="expandable-box">
-					<div class="expandable-header"><?php _e('Caption', 'cycloneslider'); ?></div>
+					<div class="expandable-header first"><?php _e('Caption', 'cycloneslider'); ?></div>
 					<div class="expandable-body">
 						<div class="field">
 							<label for=""><?php _e('Title:', 'cycloneslider'); ?></label> <br>
@@ -173,6 +174,43 @@
 				<textarea class="widefat cs-custom-html" name="cycloneslider_metas[<?php echo $i; ?>][custom]"><?php echo esc_textarea($slide['custom']); ?></textarea>
 			</div>
 		</div><!-- // end .cs-slide-custom -->
+		
+		<div class="cs-slide-testimonial">
+			<div class="cs-testimonial-quote">
+				<div class="field last">
+					<label for=""><?php _e('Quote', 'cycloneslider'); ?></label>
+					<textarea class="widefat cs-testimonial" name="cycloneslider_metas[<?php echo $i; ?>][testimonial]"><?php echo esc_textarea($slide['testimonial']); ?></textarea>
+				</div>
+			</div><!-- // end .cs-testimonial-quote -->
+			<div class="cs-quote-properties">
+				<div class="expandable-box">
+					<div class="expandable-header first"><?php _e('Author', 'cycloneslider'); ?></div>
+					<div class="expandable-body">
+						<div class="field last">
+							<label for=""><?php _e('Name:', 'cycloneslider'); ?></label> <br>
+							<input class="widefat" name="cycloneslider_metas[<?php echo $i; ?>][testimonial_author]" type="text" value="<?php echo esc_attr($slide['testimonial_author']); ?>" />
+						</div>
+					</div>
+				</div>
+				<div class="expandable-box last">
+					<div class="expandable-header"><?php _e('Link', 'cycloneslider'); ?></div>
+					<div class="expandable-body">
+						<div class="field">
+							<label for=""><?php _e('Link URL:', 'cycloneslider'); ?></label> <br>
+							<input class="widefat" name="cycloneslider_metas[<?php echo $i; ?>][testimonial_link]" type="text" value="<?php echo esc_url($slide['testimonial_link']); ?>" />
+						</div>
+						<div class="field last">
+							<label for=""><?php _e('Open Link in:', 'cycloneslider'); ?></label> <br>
+							<select class="" id="" name="cycloneslider_metas[<?php echo $i; ?>][testimonial_link_target]">
+								<option <?php selected( $slide['testimonial_link_target'], '_self' ); ?> value="_self"><?php _e('Same Window', 'cycloneslider'); ?></option>
+								<option <?php selected( $slide['testimonial_link_target'], '_blank' ); ?> value="_blank"><?php _e('New Tab or Window', 'cycloneslider'); ?></option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div><!-- // end .cs-slide-testimonial -->
 		<div class="clear"></div>
 		<?php echo $debug ?>
 	</div>

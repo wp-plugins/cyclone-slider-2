@@ -169,12 +169,13 @@
 .cs-slide[data-slide-type="video"] i.icon-film,
 .cs-slide[data-slide-type="custom"] i.icon-code,
 .cs-slide[data-slide-type="youtube"] i.icon-youtube-play,
-.cs-slide[data-slide-type="vimeo"] i.icon-play{
+.cs-slide[data-slide-type="vimeo"] i.icon-play,
+.cs-slide[data-slide-type="testimonial"] i.icon-quote-left{
 	display: block;
 }
 .cs-title{
     float:left;
-	padding:5px 6px;
+	padding:4px 6px;
 	max-width: 60%;
 	white-space: nowrap;
 	overflow: hidden;
@@ -184,7 +185,7 @@
 }
 .cs-controls{
     float:right;
-	padding:5px;
+	padding:3px;
 }
 .rtl .cs-controls{
 	float:left;
@@ -322,12 +323,28 @@
 	padding: 15px;
 }
 
+/*** Testimonial ***/
+.cs-slide-testimonial{
+    
+}
+.cs-testimonial-quote{
+	float:left;
+    padding:15px 2%;
+    width:40%;
+}
+.cs-quote-properties {
+	float: left;
+	width: 50%;
+	padding: 15px 2%;
+}
+
 /*** Hide other slide types ***/
 .cs-slide-image,
 .cs-slide-video,
 .cs-slide-custom,
 .cs-slide-youtube,
-.cs-slide-vimeo{
+.cs-slide-vimeo,
+.cs-slide-testimonial{
 	display: none;
 }
 
@@ -336,7 +353,8 @@
 .cs-slide[data-slide-type="video"] .cs-slide-video,
 .cs-slide[data-slide-type="custom"] .cs-slide-custom,
 .cs-slide[data-slide-type="youtube"] .cs-slide-youtube,
-.cs-slide[data-slide-type="vimeo"] .cs-slide-vimeo{
+.cs-slide[data-slide-type="vimeo"] .cs-slide-vimeo,
+.cs-slide[data-slide-type="testimonial"] .cs-slide-testimonial{
 	display: block;
 }
 
@@ -363,13 +381,6 @@
 }
 
 /*** Expandables ***/
-.expandable-group-title{
-    font-weight:bold;
-    font-size:12px;
-    margin-top:0;
-	margin-bottom:10px;
-    text-transform:capitalize;
-}
 .expandable-box.last{
     border-bottom:1px solid #D3D3D3;
 }
@@ -556,7 +567,7 @@ input:disabled{
 	font-size: 12px;
 }
 .cs-templates .supported-slide-types{
-	width: 14%;
+	width: 15%;
 	margin-right: 1%;
 }
 .cs-templates .supported-slide-types i{
@@ -642,6 +653,19 @@ label[for="force_resize"]{
 	display: inline-block;
 	font-weight: normal;
 	margin: 0;
+}
+
+/*** Responsive ***/
+@media (max-width: 800px) {
+	.cs-templates .template-name {
+		width: 20%;
+	}
+	.cs-templates .supported-slide-types {
+		width: 35%;
+	}
+	.cs-templates .cs-location {
+		width: 15%;
+	}
 }
 
 /*** Pro ***/

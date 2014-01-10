@@ -47,12 +47,14 @@ jQuery(document).ready(function($){
         
         if(slide.hasClass('cycloneslider-slide-vimeo')) pauseVimeo( slide ); /* Pause vimeo video on next */
     });
-    
+
     jQuery(document).on('cycle-initialized cycle-after', slides_selector, function( event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag ) {
         var index = (event.type == 'cycle-initialized') ? optionHash.currSlide : optionHash.nextSlide;
         var slide = jQuery( optionHash.slides[ index ] ); /* Current slide */
-
-        if( false == optionHash.hideNonActive ) slide.css('zIndex', parseInt(slide.css('zIndex'))+20); /* Fix for zindex issue on slider with youtube/vimeo slide */
+        
+        /* Make sure current slide has the highest z-index.
+        Fix for issue when previous slides appear on top of the current slide due to cycle's weird z-index assigments */
+        if( false == optionHash.hideNonActive ) slide.css('zIndex', parseInt(slide.css('zIndex'))+20);
     });
     
     function pauseYoutube( slide ){

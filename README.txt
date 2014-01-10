@@ -17,7 +17,7 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 = Features: =
 * Very easy to use interface! Just drag and drop to re-order your slides.
 * Responsive slider for responsive and fluid websites.
-* Supports image, YouTube, Vimeo, and custom HTML slides.
+* Supports image, YouTube, Vimeo, custom HTML, and testimonial slides.
 * Powered by [Cycle 2](http://jquery.malsup.com/cycle2/), the most flexible jQuery slideshow plugin.
 * Every project is unique. To address this issue Cyclone Slider 2 has a template system that allow developers to easily customize the slider appearance and behavior.
 * Ability to add per-slide transition effects.
@@ -41,10 +41,17 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 = Credits =
 * Cyclone Slider 2 was based on [Cycle 2](http://jquery.malsup.com/cycle2/) by [Mike Alsup](http://jquery.malsup.com/).
 * Special thanks to Cea Bacolor for the wonderful photos.
+
+
+= Translations = 
 * Aubin BERTHE for the French translation.
 * maxgx for the Italian translation.
 * [Hassan](http://wordpress.org/support/profile/hassanhamm) for the Arabic translation.
 * Javad for the Persian translation.
+* [Borisa Djuraskovic](http://www.webhostinghub.com/) for the Serbo-Croatian translation.
+* [Gabriel Gil](http://gabrielgil.es/) for the Spanish translation.
+
+Do you want to translate Cyclone Slider into your language? Go to the project page at [transifex](https://www.transifex.com/projects/p/cyclone-slider-2/), create a free account, and join.
 
 = License =
 GPLv2 or later - http://www.gnu.org/licenses/gpl-2.0.html
@@ -83,11 +90,8 @@ Sorry but its not currently supported as it requires loading the YouTube API whi
 Most probably its wordpress adding paragpraphs on line breaks next to the slides therefore adding a blank `<p>` slide. You can try adding this to functions.php:
 `remove_filter('the_content', 'wpautop');`
 
-= How can I use templates? =
-`[cycloneslider id="my-slider" template="custom-name"]` 
-
 = Where do I add my own templates? =
-Inside your current active theme create a folder named "cycloneslider". Add your templates inside.
+Inside `wp-content` create a folder named "cycloneslider". Add your templates inside.
 
 == Screenshots ==
 
@@ -98,6 +102,14 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.8.2 - 2014-01-10 =
+* New. Added testimonial slide type. Now you can create testimonial sliders.
+* New. Added support for testimonial slides in Dark and Standard templates.
+* New. Added Spanish translation by Gabriel Gil.
+* New. Added Serbo-Croation translation by Borisa Djuraskovic.
+* Change. Added a few responsive tweaks in admin.css for the template selection area.
+* Change. Removed unused codes. 
 
 = 2.8.1 - 2014-01-02 =
 * New. Added ability to disable related videos in YouTube slide.
@@ -300,6 +312,14 @@ Inside your current active theme create a folder named "cycloneslider". Add your
 
 
 == Upgrade Notice ==
+
+= 2.8.2 - 2014-01-10 =
+* New. Added testimonial slide type. Now you can create testimonial sliders.
+* New. Added support for testimonial slides in Dark and Standard templates.
+* New. Added Spanish translation by Gabriel Gil.
+* New. Added Serbo-Croation translation by Borisa Djuraskovic.
+* Change. Added a few responsive tweaks in admin.css for the template selection area.
+* Change. Removed unused codes. 
 
 = 2.8.1 - 2014-01-02 =
 * New. Added ability to disable related videos in YouTube slide.
