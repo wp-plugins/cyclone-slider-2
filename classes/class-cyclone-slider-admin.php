@@ -118,14 +118,22 @@ if(!class_exists('Cyclone_Slider_Admin')):
          * Change Icon
          */
         public function change_admin_menu_icon() {
-            global $menu;
             
-            if(!isset($menu) and !is_array($menu)) return false;
+            global $menu, $wp_version;
 
+            if(!isset($menu) and !is_array($menu)) {
+                return false; // Abort
+            }
+    
             foreach( $menu as $key => $value ) {
-                if( 'edit.php?post_type=cycloneslider' == $value[2] )
-                    $menu[$key][4] = str_replace('menu-icon-post', 'menu-icon-media', $menu[$key][4]);
-                
+                if( 'edit.php?post_type=cycloneslider' == $value[2] ) {
+                    if ( version_compare( $wp_version, '3.9', '<' ) ) { // WP 3.8 and below
+                        $menu[$key][4] = str_replace('menu-icon-post', 'menu-icon-media', $menu[$key][4]);
+                    } else { // WP 3.9+
+                        $menu[$key][6] = 'dashicons-format-gallery';
+                    }
+    
+                }
             }
         }
         
