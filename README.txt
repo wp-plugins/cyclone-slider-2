@@ -3,8 +3,8 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 2.8.2
+Tested up to: 3.9.2
+Stable tag: 2.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,10 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.8.3 - 2014-08-20 =
+* Fix. Admin menu icon for WP 3.9+.
+* Fix. Language files load path.
 
 = 2.8.2 - 2014-01-10 =
 * New. Added testimonial slide type. Now you can create testimonial sliders.
@@ -312,6 +316,10 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.8.3 - 2014-08-20 =
+* Fix. Admin menu icon for WP 3.9+.
+* Fix. Language files load path.
 
 = 2.8.2 - 2014-01-10 =
 * New. Added testimonial slide type. Now you can create testimonial sliders.
