@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 3.9.2
+Tested up to: 4.0
 Stable tag: 2.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,7 +49,7 @@ Cyclone Slider 2 is an easy-to-use slider plugin with an intuitive user interfac
 * [Hassan](http://wordpress.org/support/profile/hassanhamm) for the Arabic translation.
 * Javad for the Persian translation.
 * [Borisa Djuraskovic](http://www.webhostinghub.com/) for the Serbo-Croatian translation.
-* [Gabriel Gil](http://gabrielgil.es/) for the Spanish translation.
+* [Gabriel Gil](http://gabrielgil.es/) and [Digital03](http://digital03.net/) for the Spanish translation.
 
 Do you want to translate Cyclone Slider into your language? Go to the project page at [transifex](https://www.transifex.com/projects/p/cyclone-slider-2/), create a free account, and join.
 
@@ -102,6 +102,10 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.8.4 - 2014-09-04 =
+* Updated spanish language files
+* Added compatibility with WP 4.0
 
 = 2.8.3 - 2014-08-20 =
 * Fix. Admin menu icon for WP 3.9+.
@@ -316,6 +320,10 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.8.4 - 2014-09-04 =
+* Updated spanish language files
+* Added compatibility with WP 4.0
 
 = 2.8.3 - 2014-08-20 =
 * Fix. Admin menu icon for WP 3.9+.
