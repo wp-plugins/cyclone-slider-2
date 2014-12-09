@@ -690,3 +690,9 @@ label[for="force_resize"]{
 .cs2-disabled{
 	color: #999;
 }
+
+/* Override Admin CSS to prevent covering the lightbox prev button during preview */
+.sticky-menu #adminmenuwrap {
+	z-index: 999;
+}
+
