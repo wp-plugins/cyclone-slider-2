@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.8.4
+Version: 2.9.0
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -24,116 +24,71 @@ License:
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   
 */
-if(!defined('CYCLONE_VERSION')){
-    define('CYCLONE_VERSION', '2.8.4' );
+
+function cslider_autoloader($classname) {
+    if(false !== strpos($classname, 'CycloneSlider')){
+        $plugin_dir = realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR;
+        $classname = str_replace('_', DIRECTORY_SEPARATOR, $classname);
+        $file = $plugin_dir .'src'.DIRECTORY_SEPARATOR. $classname . '.php';
+        require_once $file;
+    }
 }
-if(!defined('CYCLONE_PATH')){
-    define('CYCLONE_PATH', realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR );
-}
-if(!defined('CYCLONE_URL')){
-    define('CYCLONE_URL', plugin_dir_url(__FILE__) );
-}
-if(!defined('CYCLONE_DEBUG')){
-    define('CYCLONE_DEBUG', false );
-}
+spl_autoload_register('cslider_autoloader');
 
-// Include common classes
-require_once(CYCLONE_PATH.'classes/codefleet/class-codefleet-view.php');
-require_once(CYCLONE_PATH.'classes/codefleet/class-codefleet-admin-page.php');
-require_once(CYCLONE_PATH.'classes/codefleet/class-codefleet-admin-sub-page.php');
-require_once(CYCLONE_PATH.'classes/codefleet/class-codefleet-settings-page.php');
-require_once(CYCLONE_PATH.'classes/codefleet/class-codefleet-settings-sub-page.php');
+$cyclone_slider_plugin_instance = null;
 
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-exporter.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-importer.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-settings-page.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-export-page.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-import-page.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-data.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-youtube.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-vimeo.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-admin.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-widget.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-scripts.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-templates-manager.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-image-editor.php');
-require_once(CYCLONE_PATH.'classes/class-cyclone-slider-image-resizer.php');
-require_once(CYCLONE_PATH.'classes/class-image-resizer.php');
-require_once(CYCLONE_PATH.'classes/class-nextgen-integration.php');
-require_once(CYCLONE_PATH.'inc/functions.php');
-
-$cyclone_slider_saved_done = false; //Global variable to limit save_post execution to only once
-
-// Store the plugin instance to a global object so that other plugins can use remove_action and remove_filter
-// Inject dependencies here
-$codefleet_view = new Codefleet_View();
-
-$cyclone_slider_image_resizer = new Cyclone_Slider_Image_Resizer();
-
-$cyclone_slider_data = new Cyclone_Slider_Data( $cyclone_slider_image_resizer );
-
-$cyclone_slider_nextgen_integration = new Nextgen_Integration( $cyclone_slider_data );
-
-$cyclone_slider_exporter = new Cyclone_Slider_Exporter( $cyclone_slider_data );
-
-$cyclone_slider_importer = new Cyclone_Slider_Importer( $cyclone_slider_data );
-
-$cyclone_slider_templates_manager = new Cyclone_Templates_Manager();
-
-// Add directories to get templates
-$cyclone_slider_templates_manager->add_template_location(
-    array(
-        'path' => CYCLONE_PATH.'templates'.DIRECTORY_SEPARATOR, // This resides in the plugin
-        'url' => CYCLONE_URL.'templates/',
-        'location_name' => 'core'
-    )
-);
-$cyclone_slider_templates_manager->add_template_location(
-    array(
-        'path' => realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the current theme or child theme
-        'url' => get_stylesheet_directory_uri()."/cycloneslider/",
-        'location_name' => 'active-theme'
-    )
-);
-
-$cyclone_upload_dir = wp_upload_dir();
-$cyclone_template_folder = realpath( dirname( $cyclone_upload_dir['basedir'] ) );
-
-$cyclone_slider_templates_manager->add_template_location(
-    array(
-        'path' => $cyclone_template_folder.DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR,// This resides in the wp-content folder to prevent deleting when upgrading themes
-        'url' => content_url()."/cycloneslider/",
-        'location_name' => 'wp-content'
-    )
-);
-
-
-$cyclone_slider_settings_page = new Cyclone_Slider_Settings_Page( $codefleet_view, $cyclone_slider_templates_manager );
-$cyclone_slider_settings_page->set_option_group('cyclone_option_group');
-$cyclone_slider_settings_page->set_option_name('cyclone_option_name');
-$cyclone_slider_settings_page->set_parent_slug('edit.php?post_type=cycloneslider');
-$cyclone_slider_settings_page->set_menu_slug('cycloneslider-settings');
-
-$cyclone_slider_youtube = new Cyclone_Slider_Youtube();
-$cyclone_slider_vimeo = new Cyclone_Slider_Vimeo();
-
-$cyclone_slider_scripts = new Cyclone_Slider_Scripts( $cyclone_slider_templates_manager, $cyclone_slider_settings_page->get_settings_data() );
-
-$cyclone_slider_admin = new Cyclone_Slider_Admin( $codefleet_view, $cyclone_slider_scripts, $cyclone_slider_templates_manager, $cyclone_slider_data, $cyclone_slider_settings_page->get_settings_data() );
-
-$cyclone_slider_plugin_instance = new Cyclone_Slider( $cyclone_slider_scripts, $cyclone_slider_data, $codefleet_view, $cyclone_slider_templates_manager, $cyclone_slider_youtube, $cyclone_slider_vimeo );
-
-// Load domain in this hook to work with WPML
-add_action('plugins_loaded', 'cycloneslider_plugin_init');
-function cycloneslider_plugin_init() {
-    global $cyclone_slider_settings_page;
+// Hook the plugin
+add_action('plugins_loaded', 'cslider_init', 10);
+function cslider_init() {
+    global $cyclone_slider_plugin_instance;
     
-    load_plugin_textdomain( 'cycloneslider', false, basename(CYCLONE_PATH).'/lang' );
+    $plugin = new CycloneSlider_Main();
     
-    // These strings should be here for translation to work
-    $cyclone_slider_settings_page->set_page_title( __('Cyclone Slider Settings', 'cycloneslider') );
-    $cyclone_slider_settings_page->set_menu_title( __('Settings', 'cycloneslider') );
-    $cyclone_slider_settings_page->show();
+    $plugin['path'] = realpath(plugin_dir_path(__FILE__)) . DIRECTORY_SEPARATOR;
+    $plugin['url'] = plugin_dir_url(__FILE__);
     
+    $plugin['debug'] = false;
+    $plugin['version'] = '2.9.0';
+	$plugin['textdomain'] = 'cycloneslider';
+    $plugin['slug'] = 'cyclone-slider-2/cyclone-slider.php'; 
+    $plugin['nonce_name'] = 'cyclone_slider_builder_nonce';
+    $plugin['nonce_action'] = 'cyclone-slider-save';
+    
+    require_once($plugin['path'].'src/functions.php');
+    
+    $plugin['view'] = new CycloneSlider_View();
+    
+    $plugin['image_resizer'] = new CycloneSlider_ImageResizer();
+    
+    $plugin['data'] = new CycloneSlider_Data();
+
+    $plugin['nextgen_integration'] = new CycloneSlider_NextgenIntegration();
+    
+    $plugin['templates_manager'] = new CycloneSlider_TemplatesManager();
+    
+    $plugin['settings_page'] = new CycloneSlider_SettingsPage();
+    $plugin['settings_page.page_title'] =  __('Cyclone Slider Settings', $plugin['textdomain']);
+    $plugin['settings_page.menu_title'] =  __('Settings', $plugin['textdomain']);
+    $plugin['settings_page.option_group'] = 'cyclone_option_group';
+    $plugin['settings_page.option_name'] = 'cyclone_option_name';
+    $plugin['settings_page.parent_slug'] = 'edit.php?post_type=cycloneslider';
+    $plugin['settings_page.menu_slug'] = 'cycloneslider-settings';
+    
+    
+    $plugin['youtube'] = new CycloneSlider_Youtube();
+    
+    $plugin['vimeo'] = new CycloneSlider_Vimeo();
+    
+    $plugin['asset_loader'] = new CycloneSlider_AssetLoader();
+    
+    $plugin['admin'] = new CycloneSlider_Admin();
+    
+    $plugin['frontend'] = new CycloneSlider_Frontend();
+    
+    
+    
+    $plugin->run();
+    
+    $cyclone_slider_plugin_instance = $plugin;
 }
+

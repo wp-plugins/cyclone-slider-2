@@ -103,6 +103,9 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 == Changelog ==
 
+= 2.9.0 - 2014-12-09 =
+* Change. Major code refactoring for future features to be easily added
+
 = 2.8.4 - 2014-09-04 =
 * Updated spanish language files
 * Added compatibility with WP 4.0
@@ -320,6 +323,9 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.0 - 2014-12-09 =
+* Change. Major code refactoring for future features to be easily added
 
 = 2.8.4 - 2014-09-04 =
 * Updated spanish language files

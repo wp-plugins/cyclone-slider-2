@@ -9,7 +9,7 @@
 function cyclone_slider( $slider_slug ){
 	global $cyclone_slider_plugin_instance;
 	if(isset($cyclone_slider_plugin_instance)){
-		echo $cyclone_slider_plugin_instance->cycloneslider_shortcode( array('id'=>$slider_slug) );
+		echo $cyclone_slider_plugin_instance['frontend']->cycloneslider_shortcode( array('id'=>$slider_slug) );
 	}
 }
 
