@@ -103,6 +103,9 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 == Changelog ==
 
+= 2.9.1 - 2014-12-10 =
+* Fix. Restored missing widget code.
+
 = 2.9.0 - 2014-12-09 =
 * Change. Major code refactoring for future features to be easily added
 
@@ -323,6 +326,9 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.1 - 2014-12-10 =
+* Fix. Restored missing widget code.
 
 = 2.9.0 - 2014-12-09 =
 * Change. Major code refactoring for future features to be easily added
