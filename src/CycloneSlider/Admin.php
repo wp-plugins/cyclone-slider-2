@@ -251,8 +251,6 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
 
         if(is_array($slides) and count($slides)>0):
             
-            $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slide-edit.php' );
-            
             foreach($slides as $i=>$slide):
             
                 $image_url = $this->get_slide_img_thumb($slide['id']);
@@ -272,14 +270,10 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
                 $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($slide) : '';
                 $vars['effects'] = $this->plugin['data']->get_slide_effects();
                 
-                $this->plugin['view']->set_vars( $vars );
-        
-                $slides_html .= $this->plugin['view']->get_render();
+                $slides_html .= $this->plugin['view']->get_render('slide-edit.php', $vars);
                 
             endforeach;
         endif;
-        
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slides.php' );
         
         $vars = array();
         $vars['slides'] = $slides_html;
@@ -287,16 +281,13 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
         $vars['nonce_name'] = $this->plugin['nonce_name'];
         $vars['nonce'] = wp_create_nonce( $this->plugin['nonce_action'] );
         
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        $this->plugin['view']->render('slides.php', $vars);
     }
     
     /**
      * Metabox for slider codes
      */
     public function render_slider_codes( $post ){
-        
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slider-codes.php' );
         
         $vars = array();
         $vars['post'] = $post;
@@ -307,8 +298,8 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
             $vars['shortcode'] = '[cycloneslider id="'.$post->post_name.'"]';
             $vars['template_code'] = '<?php if( function_exists(\'cyclone_slider\') ) cyclone_slider(\''.$post->post_name.'\'); ?>';
         }
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        
+        $this->plugin['view']->render('slider-codes.php', $vars);
 
     }
     
@@ -318,15 +309,12 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
     public function render_slider_properties_meta_box( $post ){
         $slider_settings = $this->plugin['data']->get_slider_settings( $post->ID );
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slider-properties.php' );
-        
         $vars = array();
         $vars['slider_settings'] = $slider_settings;
         $vars['effects'] = $this->plugin['data']->get_slide_effects();
         $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($slider_settings) : '';
         
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        $this->plugin['view']->render('slider-properties.php', $vars);
 
     }
     
@@ -336,17 +324,13 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
     public function render_slider_advanced_settings_meta_box( $post ){
         $slider_settings = $this->plugin['data']->get_slider_settings( $post->ID );
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slider-advanced-settings.php' );
-        
         $vars = array();
         $vars['slider_settings'] = $slider_settings;
         $vars['easing_options'] = $this->plugin['data']->get_jquery_easing_options();
         $vars['resize_options'] = $this->plugin['data']->get_resize_options();
-        
         $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($slider_settings) : '';
         
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        $this->plugin['view']->render( 'slider-advanced-settings.php', $vars );
 
     }
     
@@ -355,8 +339,6 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
      * Metabox for preview
      */
     public function render_slider_preview_meta_box($post){
-        
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slider-preview.php' );
         
         $vars = array();
         $vars['post'] = $post;
@@ -367,9 +349,8 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
             $vars['shortcode'] = '[cycloneslider id="'.$post->post_name.'"]';
             $vars['template_code'] = '<?php if( function_exists(\'cyclone_slider\') ) cyclone_slider(\''.$post->post_name.'\'); ?>';
         }
-        $this->plugin['view']->set_vars( $vars );
         
-        $this->plugin['view']->render();
+        $this->plugin['view']->render('slider-preview.php', $vars);
     }
     
     /**
@@ -398,7 +379,7 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
         
             if( $template['location_name'] == 'core' ){
                 $templates[$name]['location_name'] = __('Core', $this->plugin['textdomain']);
-                $templates[$name]['location_details'] = sprintf( __("Located inside the Cyclone Slider's templates directory:<br> <strong>%s</strong>", $this->plugin['textdomain'] ), $template['path']);
+                $templates[$name]['location_details'] = sprintf( __("Located inside the plugin directory:<br> <strong>%s</strong>", $this->plugin['textdomain'] ), $template['path']);
             }
             if( $template['location_name'] == 'active-theme' ){
                 $templates[$name]['location_name'] = 'Active Theme';
@@ -416,15 +397,12 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
             }
         }
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/template-selection.php' );
-        
         $vars = array();
         $vars['slider_settings'] = $slider_settings;
         $vars['templates'] = $templates;
         $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($templates) : '';
         
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        $this->plugin['view']->render('template-selection.php', $vars);
     }
     
     /**
@@ -432,13 +410,10 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
      */
     public function render_slider_id( $post ){
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slider-id.php' );
-        
         $vars = array();
         $vars['post_name'] = $post->post_name;
-
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        
+        $this->plugin['view']->render('slider-id.php', $vars);
 
     }
     
@@ -449,8 +424,6 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
         // JS skeleton for adding a slide
         if(get_post_type()=='cycloneslider'){
             // Empty Slide
-            $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slide-edit.php' );
-            
             $vars = array();
             $vars['box_title'] = __('Slide *', $this->plugin['textdomain']);
             $vars['image_url'] = '';
@@ -462,17 +435,14 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
             $vars['slide']['type'] = 'image';
             $vars['effects'] = $this->plugin['data']->get_slide_effects();
             $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($vars['slide']) : '';
-            $this->plugin['view']->set_vars( $vars );
-            $empty_slide = $this->plugin['view']->get_render();
+            
+            $empty_slide = $this->plugin['view']->get_render('slide-edit.php', $vars);
             
             // Main skeleton container
-            $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/slides-skeleton.php' );
-            
             $vars = array();
             $vars['empty_slide'] = $empty_slide;
-           
-            $this->plugin['view']->set_vars( $vars );
-            $this->plugin['view']->render();
+            
+            $this->plugin['view']->render('slides-skeleton.php', $vars);
         }
     }
    

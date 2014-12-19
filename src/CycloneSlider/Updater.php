@@ -147,14 +147,12 @@ class CycloneSlider_Updater extends CycloneSlider_Base {
     public function get_latest_plugin_info( $info_url ) {
         
         $raw_response = wp_remote_get( $info_url );
-        //echo cyclone_slider_debug( $raw_response );
-        //var_dump( $raw_response );
+        
         if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
             return false;
         
         $response = json_decode( wp_remote_retrieve_body( $raw_response ) );
         
-        //echo cyclone_slider_debug( $response );
         if(!isset($response->data)){
             return false;
         }

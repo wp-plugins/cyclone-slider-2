@@ -81,9 +81,6 @@ function cyclone_slide_image_url( $original_attachment_id, $width, $height, $par
 		return dirname($image_url).'/'.$thumb; //We used dirname() since we need the URL format not the path
 	}
 	
-	$resizeObj = new Image_Resizer($image_path);
-	$resizeObj -> resizeImage($width, $height, $params['resize_option']);
-	$resizeObj -> saveImage($dirname.'/'.$thumb, $params['resize_quality']);
 	
 	return dirname($image_url).'/'.$thumb;
 }
@@ -138,9 +135,8 @@ function cyclone_settings($slider_settings, $slider_id='', $cycle2_settings=arra
 function cyclone_slide_settings($slider_meta, $slider_settings=array(), $slider_id='', $slider_count=1){
 	$cycle2_settings = array();
 	if(!empty($slider_meta['enable_slide_effects'])){
-		if($slider_meta['fx']!='default') {
-			$cycle2_settings['data-cycle-fx'] = $slider_meta['fx'];
-		}
+		$cycle2_settings['data-cycle-fx'] = $slider_meta['fx'];
+		
 		if(!empty($slider_meta['speed'])) {
 			$cycle2_settings['data-cycle-speed'] = $slider_meta['speed'];
 		}

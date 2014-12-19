@@ -2,115 +2,113 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider 2 v2.8.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-29 18:36+0800\n"
-"PO-Revision-Date: 2014-08-29 17:45+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-12-19 17:58+0800\n"
+"PO-Revision-Date: 2014-12-19 17:58+0800\n"
+"Last-Translator: Nico Amarilla <kosinix@codefleet.net>\n"
 "Language-Team: Digital03 <info@digital03.net>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.8\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
 
 # @ cycloneslider
-#: ../cyclone-slider.php:135
+#: ../cyclone-slider.php:91
 msgid "Cyclone Slider Settings"
 msgstr "Ajustes de Cyclone Slider"
 
 # @ cycloneslider
-#: ../cyclone-slider.php:136
+#: ../cyclone-slider.php:92
 msgid "Settings"
 msgstr "Ajustes"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:96
+#: ../src/CycloneSlider/Admin.php:80
 msgid "Cyclone Slider"
 msgstr "Cyclone Slider"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:97
+#: ../src/CycloneSlider/Admin.php:81
 msgid "Slideshow"
 msgstr "Slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:98
+#: ../src/CycloneSlider/Admin.php:82
 msgid "Add Slideshow"
 msgstr "Añadir slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:99
+#: ../src/CycloneSlider/Admin.php:83
 msgid "Add New Slideshow"
 msgstr "Añadir nuevo slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:100
+#: ../src/CycloneSlider/Admin.php:84
 msgid "Edit Slideshow"
 msgstr "Editar slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:101
+#: ../src/CycloneSlider/Admin.php:85
 msgid "New Slideshow"
 msgstr "Nuevo slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:102
+#: ../src/CycloneSlider/Admin.php:86
 msgid "View Slideshow"
 msgstr "Ver slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:103
+#: ../src/CycloneSlider/Admin.php:87
 msgid "Search Slideshows"
 msgstr "Buscar slideshows"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:104
+#: ../src/CycloneSlider/Admin.php:88
 msgid "No slideshows found"
 msgstr "No se han encontrado slideshows"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:105
+#: ../src/CycloneSlider/Admin.php:89
 msgid "No slideshows found in Trash"
 msgstr "No hay slideshows en la papelera"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:141
-#: ../classes/class-cyclone-slider-admin.php:144
-#: ../classes/class-cyclone-slider-admin.php:145
-#: ../classes/class-cyclone-slider-admin.php:148
-#: ../classes/class-cyclone-slider-admin.php:149
-#: ../classes/class-cyclone-slider-admin.php:150
+#: ../src/CycloneSlider/Admin.php:133 ../src/CycloneSlider/Admin.php:136
+#: ../src/CycloneSlider/Admin.php:137 ../src/CycloneSlider/Admin.php:140
+#: ../src/CycloneSlider/Admin.php:141 ../src/CycloneSlider/Admin.php:142
 msgid "Slideshow updated."
 msgstr "Slideshow actualizado."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:142
+#: ../src/CycloneSlider/Admin.php:134
 msgid "Custom field updated."
 msgstr "Campos personalizados actualizados"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:143
+#: ../src/CycloneSlider/Admin.php:135
 msgid "Custom field deleted."
 msgstr "Campo personalizado eliminado."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:146
+#: ../src/CycloneSlider/Admin.php:138
 msgid "Slideshow published."
 msgstr "Slideshow publicado."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:147
+#: ../src/CycloneSlider/Admin.php:139
 msgid "Slideshow saved."
 msgstr "Slideshow guardado."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:151
+#: ../src/CycloneSlider/Admin.php:143
 #, php-format
 msgid ""
 "Templates CSS could not be saved. Make sure %stemplates.css is writable."
@@ -119,7 +117,7 @@ msgstr ""
 "tiene permiso de escritura."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:152
+#: ../src/CycloneSlider/Admin.php:144
 #, php-format
 msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
 msgstr ""
@@ -127,69 +125,64 @@ msgstr ""
 "tiene permisos de escritura."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:186
+#: ../src/CycloneSlider/Admin.php:178
 msgid "Slides"
 msgstr "Diapositivas"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:195
+#: ../src/CycloneSlider/Admin.php:187
 msgid "Slider Preview"
 msgstr "Vista previa"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:204
+#: ../src/CycloneSlider/Admin.php:196
 msgid "Get Slider Codes"
 msgstr "Ver el código del slider"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:213
+#: ../src/CycloneSlider/Admin.php:205
 msgid "Basic Settings"
 msgstr "Ajustes básicos"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:222
+#: ../src/CycloneSlider/Admin.php:214
 msgid "Advanced Settings"
 msgstr "Ajustes avanzados"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:231
+#: ../src/CycloneSlider/Admin.php:223
 msgid "Templates"
 msgstr "Plantillas"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:240
-#: ../classes/class-cyclone-slider-admin.php:524
+#: ../src/CycloneSlider/Admin.php:232 ../src/CycloneSlider/Admin.php:492
 msgid "Slideshow ID"
 msgstr "ID del slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:268
+#: ../src/CycloneSlider/Admin.php:258
 msgid "Slide"
 msgstr "Diapositiva"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:406
+#: ../src/CycloneSlider/Admin.php:381
 msgid "Core"
 msgstr "Núcleo"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:407
-#, php-format
-msgid ""
-"Located inside the Cyclone Slider's templates directory:<br> <strong>%s</"
-"strong>"
-msgstr ""
-"Localizado dentro del directorio de plantillas de Cyclone Slider:<br> "
-"<strong>%s</strong>"
+#: ../src/CycloneSlider/Admin.php:382
+#, fuzzy, php-format
+msgid "Located inside the plugin directory:<br> <strong>%s</strong>"
+msgstr "Localizado dentro de la carpeta wp-content:<br> <strong>%s</strong>"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:411
+#: ../src/CycloneSlider/Admin.php:386
 #, php-format
 msgid "Located inside your currently active theme:<br> <strong>%s</strong>"
 msgstr "Localizado dentro de tu tema actual:<br> <strong>%s</strong>"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:412
+#: ../src/CycloneSlider/Admin.php:387
 #, php-format
 msgid ""
 "Your template is in danger of being overwritten when you upgrade your theme. "
@@ -199,129 +192,126 @@ msgstr ""
 "Por favor, muevela dentro de %s."
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:416
+#: ../src/CycloneSlider/Admin.php:391
 #, php-format
 msgid "Located inside wp-content directory:<br> <strong>%s</strong>"
 msgstr "Localizado dentro de la carpeta wp-content:<br> <strong>%s</strong>"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:457
+#: ../src/CycloneSlider/Admin.php:428
 msgid "Slide *"
 msgstr "Diapositiva *"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:521
+#: ../src/CycloneSlider/Admin.php:489
 msgid "Slideshow Name"
 msgstr "Nombre del slideshow"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:522
+#: ../src/CycloneSlider/Admin.php:490
 msgid "Template"
 msgstr "Plantilla"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:523
+#: ../src/CycloneSlider/Admin.php:491
 msgid "No. of Slides"
 msgstr "No. de diapositivas"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-admin.php:525
+#: ../src/CycloneSlider/Admin.php:493
 msgid "Shortcode"
 msgstr "Shortcode"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-scripts.php:52
+#: ../src/CycloneSlider/AssetLoader.php:53
 msgid "Select an image"
 msgstr "Seleciona una imagen"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-scripts.php:53
+#: ../src/CycloneSlider/AssetLoader.php:54
 msgid "Select Images - Use Ctrl + Click or Shift + Click"
 msgstr "Selecionar varias imágenes - Usar Ctrl + Click o Shift + Click"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-scripts.php:54
+#: ../src/CycloneSlider/AssetLoader.php:55
 msgid "Add to Slide"
 msgstr "Añadir a la diapositiva"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-scripts.php:55 ../views/slides.php:9
+#: ../src/CycloneSlider/AssetLoader.php:56 ../views/slides.php:9
 msgid "Add Images as Slides"
 msgstr "Añadir imágenes como diapositivas"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider-scripts.php:56
+#: ../src/CycloneSlider/AssetLoader.php:57
 msgid "Error. Make sure its a valid YouTube URL."
 msgstr "Error. Asegúrate de que es una dirección de YouTube válida."
 
 # @ cycloneslider
-# @ default
-#: ../classes/class-cyclone-slider-settings-page.php:62
-#: ../classes/codefleet/class-codefleet-settings-page.php:114
-msgid "Default options restored."
-msgstr "Ajustes por defecto restaurados."
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider-widget.php:15
-msgid "Cyclone Slider Widget"
-msgstr "Cyclone Slider Widget"
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider-widget.php:16
-msgid "Widget for displaying sliders."
-msgstr "Widget para mostrar diapositivas."
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider-widget.php:67 ../views/slide-edit.php:49
-msgid "Title:"
-msgstr "Título:"
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider-widget.php:81
-msgid "Select a Slider:"
-msgstr "Selectionar un Slider"
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider-widget.php:96
-msgid "No sliders found."
-msgstr "No se han encontrado Sliders."
-
-# @ cycloneslider
-#: ../classes/class-cyclone-slider.php:80
+#: ../src/CycloneSlider/Frontend.php:59
 #, php-format
 msgid "[Slideshow \"%s\" not found]"
 msgstr "[Slideshow \"%s\" no encontrado]"
 
 # @ cycloneslider
-#: ../classes/class-cyclone-slider.php:92
+#: ../src/CycloneSlider/Frontend.php:74
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr "[Plantilla \"%s\" no encontrada]"
 
 # @ cycloneslider
-#: ../classes/class-nextgen-integration.php:37
+#: ../src/CycloneSlider/NextgenIntegration.php:34
 msgid "NextGEN Integration"
 msgstr "Integración con NextGEN"
 
 # @ cycloneslider
-#: ../classes/class-nextgen-integration.php:53
+#: ../src/CycloneSlider/NextgenIntegration.php:50
 msgid "Choose a NextGEN Gallery"
 msgstr "Escoge una galería NextGEN"
 
 # @ cycloneslider
-#: ../classes/class-nextgen-integration.php:63 ../views/export-step-1.php:7
-#: ../views/export-step-2.php:7 ../views/import-step-1.php:7
-#: ../views/import-step-2.php:7
+#: ../src/CycloneSlider/NextgenIntegration.php:60
 msgid "Import"
 msgstr "Importar"
 
 # @ cycloneslider
-#: ../classes/class-nextgen-integration.php:65
+#: ../src/CycloneSlider/NextgenIntegration.php:62
 msgid ""
 "Select a gallery to import images from. Images will be added as new slides."
 msgstr ""
 "Selecciona una galería para importar las imágenes. Las imagenes serán "
 "añadidas como nuevas diapositivas."
+
+# @ cycloneslider
+# @ default
+#: ../src/CycloneSlider/SettingsPage.php:74
+msgid "Default options restored."
+msgstr "Ajustes por defecto restaurados."
+
+# @ cycloneslider
+#: ../src/CycloneSlider/WidgetSlider.php:13
+msgid "Cyclone Slider Widget"
+msgstr "Cyclone Slider Widget"
+
+# @ cycloneslider
+#: ../src/CycloneSlider/WidgetSlider.php:14
+msgid "Widget for displaying sliders."
+msgstr "Widget para mostrar diapositivas."
+
+# @ cycloneslider
+#: ../src/CycloneSlider/WidgetSlider.php:65 ../views/slide-edit.php:49
+msgid "Title:"
+msgstr "Título:"
+
+# @ cycloneslider
+#: ../src/CycloneSlider/WidgetSlider.php:79
+msgid "Select a Slider:"
+msgstr "Selectionar un Slider"
+
+# @ cycloneslider
+#: ../src/CycloneSlider/WidgetSlider.php:94
+msgid "No sliders found."
+msgstr "No se han encontrado Sliders."
 
 # @ cycloneslider
 #: ../templates/dark/slider.php:43
@@ -341,72 +331,11 @@ msgid "Slide type not supported."
 msgstr "Tipo de diapositiva no soportado."
 
 # @ cycloneslider
-#: ../views/export-step-1.php:6 ../views/export-step-2.php:6
-#: ../views/import-step-1.php:6 ../views/import-step-2.php:6
-msgid "Export"
-msgstr "Exportar"
-
-# @ cycloneslider
-#: ../views/export-step-1.php:9 ../views/export-step-2.php:9
-msgid "Cyclone Slider Export"
-msgstr "Exportar Cyclone Slider"
-
-# @ cycloneslider
-#: ../views/export-step-1.php:18
-msgid "Select sliders:"
-msgstr "Seleccionar sliders:"
-
-# @ cycloneslider
-#: ../views/export-step-1.php:24
-msgid "Select All"
-msgstr "Seleccionar todo"
-
-# @ cycloneslider
-#: ../views/export-step-1.php:37
-msgid "No slider to export."
-msgstr "No hay sliders para exportar."
-
-# @ cycloneslider
-#: ../views/export-step-1.php:40 ../views/import-step-1.php:25
-msgid "Next"
-msgstr "Siguiente"
-
-# @ cycloneslider
-#: ../views/export-step-2.php:16
-msgid "Your export file is ready. Click Download."
-msgstr "El archivo de exportación ha sido realizado. Pulsa para descargar."
-
-# @ cycloneslider
-#: ../views/export-step-2.php:18 ../views/export-step-2.php:27
-#: ../views/import-step-2.php:18 ../views/import-step-2.php:26
-msgid "Back"
-msgstr "Volver"
-
-# @ cycloneslider
-#: ../views/export-step-2.php:19
-msgid "Download"
-msgstr "Descargar"
-
-# @ cycloneslider
-#: ../views/import-step-1.php:9 ../views/import-step-2.php:9
-msgid "Cyclone Slider Import"
-msgstr "Importar Cyclone Slider"
-
-# @ cycloneslider
-#: ../views/import-step-1.php:18
-msgid "Import Zip File:"
-msgstr "Importar archivo Zip:"
-
-# @ cycloneslider
-#: ../views/import-step-2.php:16
-msgid "Import operation success!"
-msgstr "La importación se ha realizado correctamente!"
-
-# @ cycloneslider
 #: ../views/settings-page.php:7
+#, fuzzy
 msgid ""
-"Play with these settings if Cyclone Slider 2 is not working or if you want "
-"to optimize it."
+"Play with these settings if Cyclone Slider is not working or if you want to "
+"optimize it."
 msgstr ""
 "Cambia estas opciones si Cyclone Slider 2 no funciona bien o si quieres "
 "optimizarlo."
@@ -498,43 +427,39 @@ msgid "Restore Defaults"
 msgstr "Restaurar por defecto"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:16
+#: ../views/slide-edit.php:17
 msgid "Delete"
 msgstr "Eliminar"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:25
+#: ../views/slide-edit.php:26
 msgid "Image"
 msgstr "Imagen"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:26
+#: ../views/slide-edit.php:27
 msgid "YouTube"
 msgstr "YouTube. "
 
 # @ cycloneslider
-#: ../views/slide-edit.php:27
+#: ../views/slide-edit.php:28
 msgid "Vimeo"
 msgstr "Vimeo"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:28 ../views/slide-edit.php:168
+#: ../views/slide-edit.php:29 ../views/slide-edit.php:173
 msgid "Custom HTML"
 msgstr "HTML personalizado"
 
-#: ../views/slide-edit.php:29
-msgid "Video (Old Version)"
-msgstr "Video (Versión antigua)"
+# @ cycloneslider
+#: ../views/slide-edit.php:30
+msgid "Testimonial"
+msgstr "Recomendación"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:41
+#: ../views/slide-edit.php:42
 msgid "Get Image"
 msgstr "Elegir imagen"
-
-# @ cycloneslider
-#: ../views/slide-edit.php:44
-msgid "Slide Properties:"
-msgstr "Propiedades de la plantilla"
 
 # @ cycloneslider
 #: ../views/slide-edit.php:46
@@ -547,27 +472,27 @@ msgid "Description:"
 msgstr "Decripción:"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:59
+#: ../views/slide-edit.php:59 ../views/slide-edit.php:196
 msgid "Link"
 msgstr "Enlace"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:62
+#: ../views/slide-edit.php:62 ../views/slide-edit.php:199
 msgid "Link URL:"
 msgstr "URL del enlace"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:66
+#: ../views/slide-edit.php:66 ../views/slide-edit.php:203
 msgid "Open Link in:"
 msgstr "Abrir enlace en:"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:68
+#: ../views/slide-edit.php:68 ../views/slide-edit.php:205
 msgid "Same Window"
 msgstr "Misma ventana"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:69
+#: ../views/slide-edit.php:69 ../views/slide-edit.php:206
 msgid "New Tab or Window"
 msgstr "Abrir enlace en una nueva ventana/pestaña"
 
@@ -669,67 +594,35 @@ msgstr "Copia y pega un enlace válido de Youtube aquí."
 
 # @ cycloneslider
 #: ../views/slide-edit.php:161
+msgid "Do not show suggested videos when the video finishes."
+msgstr ""
+"No sugerir otros videos relacionados cuando el vídeo seleccionado termine."
+
+# @ cycloneslider
+#: ../views/slide-edit.php:166
 msgid "Vimeo URL:"
 msgstr "URL Vimeo:"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:163
+#: ../views/slide-edit.php:168
 msgid "Copy and paste a valid Vimeo URL here."
 msgstr "Copia y pega un enlace válido a Vimeo aquí."
 
-#: ../views/slide-edit.php:175
-msgid ""
-"This video slide is problematic. Please consider using YouTube, Vimeo or "
-"Custom slide type for videos. This slide will be removed in the future and "
-"will be replaced with a better one."
-msgstr ""
-"Estea diapositva de video es problemática. Por favor, considera usar "
-"YouTube, Vimeo o una diapositiva personalizada para vídeos. Esta diapositiva "
-"será borrada en el futuro y reemplazada por una mejor."
+# @ cycloneslider
+#: ../views/slide-edit.php:181
+msgid "Quote"
+msgstr "Cita"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:186
-msgid "Video URL:"
-msgstr "URL Vídeo"
+#: ../views/slide-edit.php:187
+msgid "Author"
+msgstr "Autor"
 
 # @ cycloneslider
-#: ../views/slide-edit.php:188
-msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
-msgstr ""
-"Copia y pega un enlace válido a Youtube o Vimeo y pulsa el botón Añadir video"
-
-# @ cycloneslider
-#: ../views/slide-edit.php:192
-msgid "Get Video"
-msgstr "Añadir Vídeo"
-
-#: ../views/slide-edit.php:197
-msgid "Embed Code"
-msgstr "Código de incrustación"
-
-#: ../views/slide-edit.php:199
-msgid ""
-"You can place your embed code directly here. Or you can use the Get Video "
-"button to generate the embed code."
-msgstr ""
-"Puedes colocar tu código de incrustación directamente aquí. O puedes usar el "
-"botón Poner video para generar el código de incrustación."
-
-#: ../views/slide-edit.php:201
-msgid ""
-"<strong>Note:</strong> The Slide Properties and Tile effects are not "
-"supported for videos."
-msgstr ""
-"<strong>Nota:</strong> Las propiedades del slide y los efectos de capa no "
-"están soportados para vídeos."
-
-#: ../views/slide-edit.php:203
-msgid ""
-"<strong>Note:</strong> Append &wmode=transparent to the embed code src "
-"attribute to make HTML elements appear on top of Flash."
-msgstr ""
-"<strong>Nota:</strong>Añade &wmode=transparent  al código fuente para hacer "
-"los elementos HTML aparecer encima del Flash."
+#: ../views/slide-edit.php:190
+#, fuzzy
+msgid "Name:"
+msgstr "Nombre:"
 
 # @ cycloneslider
 #: ../views/slider-advanced-settings.php:4
@@ -1023,33 +916,3 @@ msgstr "Localización"
 #: ../views/template-selection.php:7
 msgid "Selected"
 msgstr "Seleccionado"
-
-# @ cycloneslider
-#~ msgid "Testimonial"
-#~ msgstr "Recomendación"
-
-# @ cycloneslider
-#~ msgid "Do not show suggested videos when the video finishes."
-#~ msgstr ""
-#~ "No sugerir otros videos relacionados cuando el vídeo seleccionado termine."
-
-# @ cycloneslider
-#~ msgid "Quote"
-#~ msgstr "Cita"
-
-# @ cycloneslider
-#~ msgid "Author"
-#~ msgstr "Autor"
-
-# @ cycloneslider
-#, fuzzy
-#~ msgid "Name:"
-#~ msgstr "Nombre:"
-
-# @ default
-#~ msgid "title"
-#~ msgstr "título"
-
-# @ default
-#~ msgid "description"
-#~ msgstr "descripción"

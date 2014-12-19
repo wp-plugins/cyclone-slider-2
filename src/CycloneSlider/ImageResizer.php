@@ -2,7 +2,7 @@
 /**
 * Class for copying WP images for import/export purposes and resizing slide images
 */
-class CycloneSlider_ImageResizer {
+class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 	
 	/**
 	 * Resize Images
@@ -41,16 +41,13 @@ class CycloneSlider_ImageResizer {
 				$image_file_dest = "{$dirname}/{$thumb_name}";
 				
 				if( ! is_file( $image_file_dest ) ) { // Destination file does not exist
-					//echo "fresh {$image_file_dest} <br>";
 					$this->resize( $image_file, $image_file_dest, $width, $height, $slider_settings );
 					
 				} else if( is_file( $image_file_dest ) and $slider_settings['force_resize'] ) { // Exist but force resize so we resave it
-					//echo "REfreshed {$image_file_dest} <br>";
 					$this->resize( $image_file, $image_file_dest, $width, $height, $slider_settings );
 					
 				}
 			}
-			//exit;
 		}
 	}
 	
@@ -66,7 +63,7 @@ class CycloneSlider_ImageResizer {
 	 */
 	private function resize($image_file, $image_file_dest, $width, $height, $slider_settings){
 		// Create
-		$image = new CycloneSlider_ImageEditor( $image_file );
+		$image = new $this->plugin['image_editor']( $image_file );
 		
 		// Load
 		if( $image->load() ){

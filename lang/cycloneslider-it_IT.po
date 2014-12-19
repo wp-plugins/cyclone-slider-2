@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-29 18:58+0800\n"
-"PO-Revision-Date: 2013-12-29 18:58+0800\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-12-19 17:59+0800\n"
+"PO-Revision-Date: 2014-12-19 17:59+0800\n"
+"Last-Translator: Nico Amarilla <kosinix@codefleet.net>\n"
 "Language-Team: Max Guglielmino <info@maxguglielmino.com>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
@@ -14,87 +14,84 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../cyclone-slider.php:135
+#: ../cyclone-slider.php:91
 #, fuzzy
 msgid "Cyclone Slider Settings"
 msgstr "Cyclone Slider Widget"
 
-#: ../cyclone-slider.php:136
+#: ../cyclone-slider.php:92
 #, fuzzy
 msgid "Settings"
 msgstr "Impostazioni Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:96
+#: ../src/CycloneSlider/Admin.php:80
 msgid "Cyclone Slider"
 msgstr "Cyclone Slider"
 
-#: ../classes/class-cyclone-slider-admin.php:97
+#: ../src/CycloneSlider/Admin.php:81
 msgid "Slideshow"
 msgstr "Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:98
+#: ../src/CycloneSlider/Admin.php:82
 msgid "Add Slideshow"
 msgstr "Aggiungi Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:99
+#: ../src/CycloneSlider/Admin.php:83
 msgid "Add New Slideshow"
 msgstr "Aggiungi Nuovo Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:100
+#: ../src/CycloneSlider/Admin.php:84
 msgid "Edit Slideshow"
 msgstr "Modifica Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:101
+#: ../src/CycloneSlider/Admin.php:85
 msgid "New Slideshow"
 msgstr "Nuovo Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:102
+#: ../src/CycloneSlider/Admin.php:86
 msgid "View Slideshow"
 msgstr "Visualizza Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:103
+#: ../src/CycloneSlider/Admin.php:87
 msgid "Search Slideshows"
 msgstr "Cerca Proiettori"
 
-#: ../classes/class-cyclone-slider-admin.php:104
+#: ../src/CycloneSlider/Admin.php:88
 msgid "No slideshows found"
 msgstr "Nessun proiettore trovato"
 
-#: ../classes/class-cyclone-slider-admin.php:105
+#: ../src/CycloneSlider/Admin.php:89
 msgid "No slideshows found in Trash"
 msgstr "Nessun proiettore trovato nel cestino"
 
-#: ../classes/class-cyclone-slider-admin.php:141
-#: ../classes/class-cyclone-slider-admin.php:144
-#: ../classes/class-cyclone-slider-admin.php:145
-#: ../classes/class-cyclone-slider-admin.php:148
-#: ../classes/class-cyclone-slider-admin.php:149
-#: ../classes/class-cyclone-slider-admin.php:150
+#: ../src/CycloneSlider/Admin.php:133 ../src/CycloneSlider/Admin.php:136
+#: ../src/CycloneSlider/Admin.php:137 ../src/CycloneSlider/Admin.php:140
+#: ../src/CycloneSlider/Admin.php:141 ../src/CycloneSlider/Admin.php:142
 msgid "Slideshow updated."
 msgstr "Proiettore aggiornato."
 
-#: ../classes/class-cyclone-slider-admin.php:142
+#: ../src/CycloneSlider/Admin.php:134
 msgid "Custom field updated."
 msgstr "Campo personalizzato aggiornato."
 
-#: ../classes/class-cyclone-slider-admin.php:143
+#: ../src/CycloneSlider/Admin.php:135
 msgid "Custom field deleted."
 msgstr "Campo personalizzato cancellato."
 
-#: ../classes/class-cyclone-slider-admin.php:146
+#: ../src/CycloneSlider/Admin.php:138
 #, fuzzy
 msgid "Slideshow published."
 msgstr "Proiettore salvato."
 
-#: ../classes/class-cyclone-slider-admin.php:147
+#: ../src/CycloneSlider/Admin.php:139
 msgid "Slideshow saved."
 msgstr "Proiettore salvato."
 
-#: ../classes/class-cyclone-slider-admin.php:151
+#: ../src/CycloneSlider/Admin.php:143
 #, php-format
 msgid ""
 "Templates CSS could not be saved. Make sure %stemplates.css is writable."
@@ -102,180 +99,174 @@ msgstr ""
 "Non è stato possibile salvare il modello CSS. Assicurarsi che %stemplates."
 "css sia scrivibile."
 
-#: ../classes/class-cyclone-slider-admin.php:152
+#: ../src/CycloneSlider/Admin.php:144
 #, php-format
 msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
 msgstr ""
 "Non è stato possibile salvare il modello JS. Assicurarsi che %stemplates.js "
 "sia scrivibile."
 
-#: ../classes/class-cyclone-slider-admin.php:186
+#: ../src/CycloneSlider/Admin.php:178
 msgid "Slides"
 msgstr "Diapositive"
 
-#: ../classes/class-cyclone-slider-admin.php:195
+#: ../src/CycloneSlider/Admin.php:187
 #, fuzzy
 msgid "Slider Preview"
 msgstr "Proprietà Diapositiva:"
 
-#: ../classes/class-cyclone-slider-admin.php:204
+#: ../src/CycloneSlider/Admin.php:196
 #, fuzzy
 msgid "Get Slider Codes"
 msgstr "Prendi Video"
 
-#: ../classes/class-cyclone-slider-admin.php:213
+#: ../src/CycloneSlider/Admin.php:205
 #, fuzzy
 msgid "Basic Settings"
 msgstr "Impostazioni Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:222
+#: ../src/CycloneSlider/Admin.php:214
 #, fuzzy
 msgid "Advanced Settings"
 msgstr "Impostazioni Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:231
+#: ../src/CycloneSlider/Admin.php:223
 #, fuzzy
 msgid "Templates"
 msgstr "Modello"
 
-#: ../classes/class-cyclone-slider-admin.php:240
-#: ../classes/class-cyclone-slider-admin.php:524
+#: ../src/CycloneSlider/Admin.php:232 ../src/CycloneSlider/Admin.php:492
 msgid "Slideshow ID"
 msgstr "ID Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:268
+#: ../src/CycloneSlider/Admin.php:258
 msgid "Slide"
 msgstr "Diapositiva"
 
-#: ../classes/class-cyclone-slider-admin.php:406
+#: ../src/CycloneSlider/Admin.php:381
 msgid "Core"
 msgstr ""
 
-#: ../classes/class-cyclone-slider-admin.php:407
+#: ../src/CycloneSlider/Admin.php:382
 #, php-format
-msgid ""
-"Located inside the Cyclone Slider's templates directory:<br> <strong>%s</"
-"strong>"
+msgid "Located inside the plugin directory:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../classes/class-cyclone-slider-admin.php:411
+#: ../src/CycloneSlider/Admin.php:386
 #, php-format
 msgid "Located inside your currently active theme:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../classes/class-cyclone-slider-admin.php:412
+#: ../src/CycloneSlider/Admin.php:387
 #, php-format
 msgid ""
 "Your template is in danger of being overwritten when you upgrade your theme. "
 "Please move it inside %s."
 msgstr ""
 
-#: ../classes/class-cyclone-slider-admin.php:416
+#: ../src/CycloneSlider/Admin.php:391
 #, php-format
 msgid "Located inside wp-content directory:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../classes/class-cyclone-slider-admin.php:457
+#: ../src/CycloneSlider/Admin.php:428
 msgid "Slide *"
 msgstr "Diapositiva *"
 
-#: ../classes/class-cyclone-slider-admin.php:521
+#: ../src/CycloneSlider/Admin.php:489
 msgid "Slideshow Name"
 msgstr "Nome Proiettore"
 
-#: ../classes/class-cyclone-slider-admin.php:522
+#: ../src/CycloneSlider/Admin.php:490
 msgid "Template"
 msgstr "Modello"
 
-#: ../classes/class-cyclone-slider-admin.php:523
+#: ../src/CycloneSlider/Admin.php:491
 #, fuzzy
 msgid "No. of Slides"
 msgstr "Aggiungi alla Diapositiva"
 
-#: ../classes/class-cyclone-slider-admin.php:525
+#: ../src/CycloneSlider/Admin.php:493
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: ../classes/class-cyclone-slider-scripts.php:52
+#: ../src/CycloneSlider/AssetLoader.php:53
 msgid "Select an image"
 msgstr "Seleziona una immagine"
 
-#: ../classes/class-cyclone-slider-scripts.php:53
+#: ../src/CycloneSlider/AssetLoader.php:54
 msgid "Select Images - Use Ctrl + Click or Shift + Click"
 msgstr ""
 
-#: ../classes/class-cyclone-slider-scripts.php:54
+#: ../src/CycloneSlider/AssetLoader.php:55
 msgid "Add to Slide"
 msgstr "Aggiungi alla Diapositiva"
 
-#: ../classes/class-cyclone-slider-scripts.php:55 ../views/slides.php:9
+#: ../src/CycloneSlider/AssetLoader.php:56 ../views/slides.php:9
 #, fuzzy
 msgid "Add Images as Slides"
 msgstr "Aggiungi Nuovo Proiettore"
 
-#: ../classes/class-cyclone-slider-scripts.php:56
+#: ../src/CycloneSlider/AssetLoader.php:57
 msgid "Error. Make sure its a valid YouTube URL."
 msgstr ""
 
-#: ../classes/class-cyclone-slider-settings-page.php:62
-#: ../classes/codefleet/class-codefleet-settings-page.php:114
-msgid "Default options restored."
-msgstr ""
-
-#: ../classes/class-cyclone-slider-widget.php:15
-msgid "Cyclone Slider Widget"
-msgstr "Cyclone Slider Widget"
-
-#: ../classes/class-cyclone-slider-widget.php:16
-#, fuzzy
-msgid "Widget for displaying sliders."
-msgstr "Widget per mostrare i Proiettori realizzati con Cyclone Slider."
-
-#: ../classes/class-cyclone-slider-widget.php:67 ../views/slide-edit.php:49
-#, fuzzy
-msgid "Title:"
-msgstr "Titolo"
-
-#: ../classes/class-cyclone-slider-widget.php:81
-#, fuzzy
-msgid "Select a Slider:"
-msgstr "Seleziona un Proiettore:"
-
-#: ../classes/class-cyclone-slider-widget.php:96
-#, fuzzy
-msgid "No sliders found."
-msgstr "Nessun proiettore trovato."
-
-#: ../classes/class-cyclone-slider.php:80
+#: ../src/CycloneSlider/Frontend.php:59
 #, php-format
 msgid "[Slideshow \"%s\" not found]"
 msgstr "[Proiettore \"%s\" non trovato]"
 
-#: ../classes/class-cyclone-slider.php:92
+#: ../src/CycloneSlider/Frontend.php:74
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr "[Modello \"%s\" non trovato]"
 
-#: ../classes/class-nextgen-integration.php:37
+#: ../src/CycloneSlider/NextgenIntegration.php:34
 msgid "NextGEN Integration"
 msgstr "Integrazione NextGEN"
 
-#: ../classes/class-nextgen-integration.php:53
+#: ../src/CycloneSlider/NextgenIntegration.php:50
 msgid "Choose a NextGEN Gallery"
 msgstr "Scegli una Galleria NextGEN"
 
-#: ../classes/class-nextgen-integration.php:63 ../views/export-step-1.php:7
-#: ../views/export-step-2.php:7 ../views/import-step-1.php:7
-#: ../views/import-step-2.php:7
+#: ../src/CycloneSlider/NextgenIntegration.php:60
 msgid "Import"
 msgstr "Importa"
 
-#: ../classes/class-nextgen-integration.php:65
+#: ../src/CycloneSlider/NextgenIntegration.php:62
 msgid ""
 "Select a gallery to import images from. Images will be added as new slides."
 msgstr ""
 "Seleziona una galleria da cui importare le immagini. Le immagini verranno "
 "aggiunte come nuove diapositive."
+
+#: ../src/CycloneSlider/SettingsPage.php:74
+msgid "Default options restored."
+msgstr ""
+
+#: ../src/CycloneSlider/WidgetSlider.php:13
+msgid "Cyclone Slider Widget"
+msgstr "Cyclone Slider Widget"
+
+#: ../src/CycloneSlider/WidgetSlider.php:14
+#, fuzzy
+msgid "Widget for displaying sliders."
+msgstr "Widget per mostrare i Proiettori realizzati con Cyclone Slider."
+
+#: ../src/CycloneSlider/WidgetSlider.php:65 ../views/slide-edit.php:49
+#, fuzzy
+msgid "Title:"
+msgstr "Titolo"
+
+#: ../src/CycloneSlider/WidgetSlider.php:79
+#, fuzzy
+msgid "Select a Slider:"
+msgstr "Seleziona un Proiettore:"
+
+#: ../src/CycloneSlider/WidgetSlider.php:94
+#, fuzzy
+msgid "No sliders found."
+msgstr "Nessun proiettore trovato."
 
 #: ../templates/dark/slider.php:43
 msgid "View Larger Image"
@@ -292,65 +283,10 @@ msgstr ""
 msgid "Slide type not supported."
 msgstr "Proiettore aggiornato."
 
-#: ../views/export-step-1.php:6 ../views/export-step-2.php:6
-#: ../views/import-step-1.php:6 ../views/import-step-2.php:6
-#, fuzzy
-msgid "Export"
-msgstr "Importa"
-
-#: ../views/export-step-1.php:9 ../views/export-step-2.php:9
-#, fuzzy
-msgid "Cyclone Slider Export"
-msgstr "Cyclone Slider"
-
-#: ../views/export-step-1.php:18
-#, fuzzy
-msgid "Select sliders:"
-msgstr "Seleziona un Proiettore:"
-
-#: ../views/export-step-1.php:24
-msgid "Select All"
-msgstr ""
-
-#: ../views/export-step-1.php:37
-#, fuzzy
-msgid "No slider to export."
-msgstr "Nessun proiettore trovato."
-
-#: ../views/export-step-1.php:40 ../views/import-step-1.php:25
-msgid "Next"
-msgstr ""
-
-#: ../views/export-step-2.php:16
-msgid "Your export file is ready. Click Download."
-msgstr ""
-
-#: ../views/export-step-2.php:18 ../views/export-step-2.php:27
-#: ../views/import-step-2.php:18 ../views/import-step-2.php:26
-msgid "Back"
-msgstr ""
-
-#: ../views/export-step-2.php:19
-msgid "Download"
-msgstr ""
-
-#: ../views/import-step-1.php:9 ../views/import-step-2.php:9
-#, fuzzy
-msgid "Cyclone Slider Import"
-msgstr "Cyclone Slider"
-
-#: ../views/import-step-1.php:18
-msgid "Import Zip File:"
-msgstr ""
-
-#: ../views/import-step-2.php:16
-msgid "Import operation success!"
-msgstr ""
-
 #: ../views/settings-page.php:7
 msgid ""
-"Play with these settings if Cyclone Slider 2 is not working or if you want "
-"to optimize it."
+"Play with these settings if Cyclone Slider is not working or if you want to "
+"optimize it."
 msgstr ""
 
 #: ../views/settings-page.php:17
@@ -423,38 +359,34 @@ msgstr ""
 msgid "Restore Defaults"
 msgstr ""
 
-#: ../views/slide-edit.php:16
+#: ../views/slide-edit.php:17
 msgid "Delete"
 msgstr "Cancella"
 
-#: ../views/slide-edit.php:25
+#: ../views/slide-edit.php:26
 msgid "Image"
 msgstr "Immagine"
 
-#: ../views/slide-edit.php:26
+#: ../views/slide-edit.php:27
 msgid "YouTube"
 msgstr ""
 
-#: ../views/slide-edit.php:27
+#: ../views/slide-edit.php:28
 #, fuzzy
 msgid "Vimeo"
 msgstr "Video"
 
-#: ../views/slide-edit.php:28 ../views/slide-edit.php:168
+#: ../views/slide-edit.php:29 ../views/slide-edit.php:173
 msgid "Custom HTML"
 msgstr "HTML Personalizzato"
 
-#: ../views/slide-edit.php:29
-msgid "Video (Old Version)"
+#: ../views/slide-edit.php:30
+msgid "Testimonial"
 msgstr ""
 
-#: ../views/slide-edit.php:41
+#: ../views/slide-edit.php:42
 msgid "Get Image"
 msgstr "Prendi Immagine"
-
-#: ../views/slide-edit.php:44
-msgid "Slide Properties:"
-msgstr "Proprietà Diapositiva:"
 
 #: ../views/slide-edit.php:46
 msgid "Caption"
@@ -465,23 +397,23 @@ msgstr ""
 msgid "Description:"
 msgstr "Descrizione"
 
-#: ../views/slide-edit.php:59
+#: ../views/slide-edit.php:59 ../views/slide-edit.php:196
 msgid "Link"
 msgstr "Link"
 
-#: ../views/slide-edit.php:62
+#: ../views/slide-edit.php:62 ../views/slide-edit.php:199
 msgid "Link URL:"
 msgstr "URL Link:"
 
-#: ../views/slide-edit.php:66
+#: ../views/slide-edit.php:66 ../views/slide-edit.php:203
 msgid "Open Link in:"
 msgstr "Apri il link:"
 
-#: ../views/slide-edit.php:68
+#: ../views/slide-edit.php:68 ../views/slide-edit.php:205
 msgid "Same Window"
 msgstr "Stessa Finestra"
 
-#: ../views/slide-edit.php:69
+#: ../views/slide-edit.php:69 ../views/slide-edit.php:206
 msgid "New Tab or Window"
 msgstr "Nuova Scheda o Finestra"
 
@@ -563,63 +495,31 @@ msgid "Copy and paste a valid YouTube URL here."
 msgstr ""
 
 #: ../views/slide-edit.php:161
+msgid "Do not show suggested videos when the video finishes."
+msgstr ""
+
+#: ../views/slide-edit.php:166
 #, fuzzy
 msgid "Vimeo URL:"
 msgstr "URL Video:"
 
-#: ../views/slide-edit.php:163
+#: ../views/slide-edit.php:168
 #, fuzzy
 msgid "Copy and paste a valid Vimeo URL here."
 msgstr ""
 "Copia e incolla un URL di YouTube o Vimeo e clicca il pulsante Prendi Video."
 
-#: ../views/slide-edit.php:175
-msgid ""
-"This video slide is problematic. Please consider using YouTube, Vimeo or "
-"Custom slide type for videos. This slide will be removed in the future and "
-"will be replaced with a better one."
+#: ../views/slide-edit.php:181
+msgid "Quote"
 msgstr ""
 
-#: ../views/slide-edit.php:186
-msgid "Video URL:"
-msgstr "URL Video:"
-
-#: ../views/slide-edit.php:188
-msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
+#: ../views/slide-edit.php:187
+msgid "Author"
 msgstr ""
-"Copia e incolla un URL di YouTube o Vimeo e clicca il pulsante Prendi Video."
 
-#: ../views/slide-edit.php:192
-msgid "Get Video"
-msgstr "Prendi Video"
-
-#: ../views/slide-edit.php:197
-msgid "Embed Code"
-msgstr "Codice Embed"
-
-#: ../views/slide-edit.php:199
-msgid ""
-"You can place your embed code directly here. Or you can use the Get Video "
-"button to generate the embed code."
+#: ../views/slide-edit.php:190
+msgid "Name:"
 msgstr ""
-"Puoi piazzare il tuo codice embed direttamente qui. Oppure puoi usare il "
-"pulsante Prendi Video per generare il codice embed."
-
-#: ../views/slide-edit.php:201
-msgid ""
-"<strong>Note:</strong> The Slide Properties and Tile effects are not "
-"supported for videos."
-msgstr ""
-"<strong>Nota:</strong> Le Proprietà e gli Effetti delle diapositive non sono "
-"supportate per i video."
-
-#: ../views/slide-edit.php:203
-msgid ""
-"<strong>Note:</strong> Append &wmode=transparent to the embed code src "
-"attribute to make HTML elements appear on top of Flash."
-msgstr ""
-"<strong>Nota:</strong> Aggiungi &wmode=transparent all'attributo src del "
-"codice embedper fare apparire gli elementi HTML sopra il formato Flash."
 
 #: ../views/slider-advanced-settings.php:4
 msgid "Allow Wrap?"
@@ -853,6 +753,64 @@ msgstr ""
 #, fuzzy
 msgid "Selected"
 msgstr "Cancella"
+
+#, fuzzy
+#~ msgid "Export"
+#~ msgstr "Importa"
+
+#, fuzzy
+#~ msgid "Cyclone Slider Export"
+#~ msgstr "Cyclone Slider"
+
+#, fuzzy
+#~ msgid "Select sliders:"
+#~ msgstr "Seleziona un Proiettore:"
+
+#, fuzzy
+#~ msgid "No slider to export."
+#~ msgstr "Nessun proiettore trovato."
+
+#, fuzzy
+#~ msgid "Cyclone Slider Import"
+#~ msgstr "Cyclone Slider"
+
+#~ msgid "Slide Properties:"
+#~ msgstr "Proprietà Diapositiva:"
+
+#~ msgid "Video URL:"
+#~ msgstr "URL Video:"
+
+#~ msgid "Copy and paste a Youtube or Vimeo URL and hit the Get Video button."
+#~ msgstr ""
+#~ "Copia e incolla un URL di YouTube o Vimeo e clicca il pulsante Prendi "
+#~ "Video."
+
+#~ msgid "Get Video"
+#~ msgstr "Prendi Video"
+
+#~ msgid "Embed Code"
+#~ msgstr "Codice Embed"
+
+#~ msgid ""
+#~ "You can place your embed code directly here. Or you can use the Get Video "
+#~ "button to generate the embed code."
+#~ msgstr ""
+#~ "Puoi piazzare il tuo codice embed direttamente qui. Oppure puoi usare il "
+#~ "pulsante Prendi Video per generare il codice embed."
+
+#~ msgid ""
+#~ "<strong>Note:</strong> The Slide Properties and Tile effects are not "
+#~ "supported for videos."
+#~ msgstr ""
+#~ "<strong>Nota:</strong> Le Proprietà e gli Effetti delle diapositive non "
+#~ "sono supportate per i video."
+
+#~ msgid ""
+#~ "<strong>Note:</strong> Append &wmode=transparent to the embed code src "
+#~ "attribute to make HTML elements appear on top of Flash."
+#~ msgstr ""
+#~ "<strong>Nota:</strong> Aggiungi &wmode=transparent all'attributo src del "
+#~ "codice embedper fare apparire gli elementi HTML sopra il formato Flash."
 
 #~ msgid "Slideshow updated. Shortcode is [cycloneslider id=\"%s\"]"
 #~ msgstr "Proiettore aggiornato. Lo shortcode è [cycloneslider id=\"%s\"]"

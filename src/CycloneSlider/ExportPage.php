@@ -74,7 +74,6 @@ class CycloneSlider_ExportPage {
         );
         $cycloneslider_export = wp_parse_args($cycloneslider_export, $defaults);
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/export-step-1.php' );
         $vars = array();
         $vars['sliders'] = $this->plugin['data']->get_sliders();
         $vars['nonce_name'] = $this->plugin['nonce_name'];
@@ -83,8 +82,8 @@ class CycloneSlider_ExportPage {
         $vars['form_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-export' );
         $vars['export_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-export' );
         $vars['import_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-import' );
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        
+        $this->plugin['view']->render( 'export-step-1.php', $vars );
 
     }
     
@@ -101,7 +100,6 @@ class CycloneSlider_ExportPage {
         
         $this->plugin['exporter']->export( $zip_file, $cycloneslider_export['sliders'] );
         
-        $this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/export-step-2.php' );
         $vars = array();
         $vars['nonce_name'] = $this->plugin['nonce_name'];
         $vars['nonce'] = wp_create_nonce( $this->plugin['nonce_action'] );
@@ -110,7 +108,7 @@ class CycloneSlider_ExportPage {
         $vars['import_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-import' );
         $vars['zip_url'] = $uploads['baseurl'].'/cyclone-slider.zip';
         $vars['log_results'] = $this->plugin['exporter']->get_results();
-        $this->plugin['view']->set_vars( $vars );
-        $this->plugin['view']->render();
+        
+        $this->plugin['view']->render( 'export-step-2.php', $vars );
     }
 } // end class

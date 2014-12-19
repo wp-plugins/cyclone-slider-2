@@ -30,30 +30,24 @@ class CycloneSlider_SettingsPage extends CycloneSlider_Base {
 	* Render settings page. This function should echo the HTML form of the settings page.
 	*/
 	public function render_settings_page($post){
-		$this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/settings-page.php' );
+		
 		
 		$settings_data = $this->get_settings_data();
 		$templates = $this->plugin['templates_manager']->get_all_templates();
 
 		$settings_data['load_templates'] = $this->plugin['templates_manager']->get_active_templates( $settings_data );// Filter load templates
 
-		
 		$vars = array();
 		$vars['page_title'] = $this->plugin['settings_page.page_title'];
-		$vars['screen_icon'] = get_screen_icon('options-general'); ;
-		
-		
+		$vars['screen_icon'] = $this->get_screen_icon('options-general'); ;
+		$vars['textdomain'] = $this->plugin['textdomain'];
 		$vars['settings_fields'] = $this->settings_fields( $this->plugin['settings_page.option_group'] );
 		$vars['option_name'] = $this->plugin['settings_page.option_name'];
-		
-		
 		$vars['templates'] = $templates;
 		$vars['settings_data'] = $settings_data;
-		
 		$vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug( $vars['settings_data'] ) : '';
 		
-		$this->plugin['view']->set_vars( $vars );
-		$this->plugin['view']->render();
+		$this->plugin['view']->render( 'settings-page.php', $vars);
 	}
 	
 	/**
@@ -139,76 +133,13 @@ class CycloneSlider_SettingsPage extends CycloneSlider_Base {
 		return false;
 	}
 	
-	
-	
-	/**
-	* SETTER FUNCTIONS
-	*/
-	public function set_option_group( $value ){
-		$this->option_group = $value;
-	}
-	
-	public function set_option_name( $value ){
-		$this->option_name = $value;
-	}
-	
-	public function set_page_title( $value ){
-		$this->page_title = $value;
-	}
-	
-	public function set_menu_title( $value ){
-		$this->menu_title = $value;
-	}
-	
-	public function set_capability( $value ){
-		$this->capability = $value;
-	}
-	
-	public function set_menu_slug( $value ){
-		$this->menu_slug = $value;
-	}
-	
-	public function set_icon_url( $value ){
-		$this->icon_url = $value;
-	}
-	
-	public function set_position( $value ){
-		$this->position = $value;
-	}
-
-	/**
-	* GETTER FUNCTIONS
-	*/
-	public function get_option_group(){
-		return $this->option_group;
-	}
-	
-	public function get_option_name(){
-		return $this->option_name;
-	}
-	
-	public function get_page_title(){
-		return $this->page_title;
-	}
-	
-	public function get_menu_title(){
-		return $this->menu_title;
-	}
-	
-	public function get_capability(){
-		return $this->capability;
-	}
-	
-	public function get_menu_slug(){
-		return $this->menu_slug;
-	}
-	
-	public function get_icon_url(){
-		return $this->icon_url;
-	}
-	
-	public function get_position(){
-		return $this->position;
+	protected function get_screen_icon( $icon ){
+		global $wp_version;
+		
+		if ( version_compare( $wp_version, '3.7', '<=' ) ) { // WP 3.7 and below
+			return get_screen_icon( $icon );
+		}
+		return ''; // Screen icons are no longer used as of WordPress 3.8
 	}
 	
 } // end class
