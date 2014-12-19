@@ -21,7 +21,7 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
      * @return string Slider HTML
      */
     public function cycloneslider_shortcode( $shortcode_settings ) {
-        
+        // Apply defaults
         $shortcode_settings = shortcode_atts(
             array(
                 'id' => 0,
@@ -52,91 +52,29 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         );
         
         $slider_slug = $shortcode_settings['id']; // Slideshow slug passed from shortcode
-        
-        $slider_count = ++$this->slider_count; // Make each call to shortcode unique
-        
-        $slider_html_id = 'cycloneslider-'.$slider_slug.'-'.$slider_count; // UID
-        
         $slider = $this->plugin['data']->get_slider_by_slug( $slider_slug ); // Get slider by slug
         
         // Abort if slider not found!
         if( $slider === false ){
             return sprintf(__('[Slideshow "%s" not found]', 'cycloneslider'), $slider_slug); 
         }
+        $slider_count = ++$this->slider_count; // Make each call to shortcode unique
+        $slider_html_id = 'cycloneslider-'.$slider_slug.'-'.$slider_count; // UID
+        
         
         // Assign important variables
-        $slider_settings = $slider['slider_settings']; // Assign slider settings
+        $admin_settings = $slider['slider_settings']; // Assign slider settings
         $slides = $slider['slides']; // Assign slides
         
-        $template_name = $slider_settings['template'];
-        $view_file = $this->get_view_file( $template_name );
+        $template_name = $admin_settings['template'];
+        $view_file = $this->plugin['data']->get_view_file( $template_name );
         
-        // Abort if template not found!
-        if( $view_file === false ){
+        
+        if( $view_file === false ){ // Abort if template not found!
             return sprintf(__('[Template "%s" not found]', 'cycloneslider'), $template_name);
         }
         
-        // Use shortcode settings if present and override admin settings
-        if( null !== $shortcode_settings['fx'] ){
-            $slider_settings['fx'] = $shortcode_settings['fx'];
-        }
-        if( null !== $shortcode_settings['timeout'] ){
-            $slider_settings['timeout'] = $shortcode_settings['timeout'];
-        }
-        if( null !== $shortcode_settings['speed'] ){
-            $slider_settings['speed'] = $shortcode_settings['speed'];
-        }
-        if( null !== $shortcode_settings['width'] ){
-            $slider_settings['width'] = $shortcode_settings['width'];
-        }
-        if( null !== $shortcode_settings['height'] ){
-            $slider_settings['height'] = $shortcode_settings['height'];
-        }
-        if( null !== $shortcode_settings['hover_pause'] ){
-            $slider_settings['hover_pause'] = $shortcode_settings['hover_pause'];
-        }
-        if( null !== $shortcode_settings['show_prev_next'] ){
-            $slider_settings['show_prev_next'] = $shortcode_settings['show_prev_next'];
-        }
-        if( null !== $shortcode_settings['show_nav'] ){
-            $slider_settings['show_nav'] = $shortcode_settings['show_nav'];
-        }
-        if( null !== $shortcode_settings['tile_count'] ){
-            $slider_settings['tile_count'] = $shortcode_settings['tile_count'];
-        }
-        if( null !== $shortcode_settings['tile_delay'] ){
-            $slider_settings['tile_delay'] = $shortcode_settings['tile_delay'];
-        }
-        if( null !== $shortcode_settings['tile_vertical'] ){
-            $slider_settings['tile_vertical'] = $shortcode_settings['tile_vertical'];
-        }
-        if( null !== $shortcode_settings['random'] ){
-            $slider_settings['random'] = $shortcode_settings['random'];
-        }
-        if( null !== $shortcode_settings['resize'] ){
-            $slider_settings['resize'] = $shortcode_settings['resize'];
-        }
-        if( null !== $shortcode_settings['resize_option'] ){
-            $slider_settings['resize_option'] = $shortcode_settings['resize_option'];
-        }
-        if( null !== $shortcode_settings['easing'] ){
-            $slider_settings['easing'] = $shortcode_settings['easing'];
-        }
-        if( null !== $shortcode_settings['allow_wrap'] ){
-            $slider_settings['allow_wrap'] = $shortcode_settings['allow_wrap'];
-        }
-        if( null !== $shortcode_settings['dynamic_height'] ){
-            $slider_settings['dynamic_height'] = $shortcode_settings['dynamic_height'];
-        }
-        if( null !== $shortcode_settings['delay'] ){
-            $slider_settings['delay'] = $shortcode_settings['delay'];
-        }
-        if( null !== $shortcode_settings['swipe'] ){
-            $slider_settings['swipe'] = $shortcode_settings['swipe'];
-        }
-        if( null !== $shortcode_settings['width_management'] ){
-            $slider_settings['width_management'] = $shortcode_settings['width_management'];
-        }
+        $slider_settings = $this->plugin['data']->combine_slider_settings( $admin_settings, $shortcode_settings );
         
         $image_count = 0; // Number of image slides
         $video_count = 0; // Number of video slides
@@ -147,8 +85,10 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         // Do some last minute logic
         // Translations and counters
         foreach($slides as $i=>$slide){
-            $slides[$i]['title'] = __($slide['title']);
-            $slides[$i]['description'] = __($slide['description']);
+            $slides[$i]['title'] = __($slide['title']); // Needed by some translation plugins to work
+            $slides[$i]['description'] = __($slide['description']); // Needed by some translation plugins to work
+            $slides[$i]['slide_data_attributes'] = $this->plugin['data']->slide_data_attributes( $slide, $slider_settings );
+            
             if($slides[$i]['type']=='image'){
                 
                 list($full_image_url, $orig_width, $orig_height) = wp_get_attachment_image_src($slide['id'], 'full');
@@ -189,9 +129,6 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
             shuffle($slides);
         }
         
-        // Assign view file
-        $this->plugin['view']->set_view_file( $view_file );
-       
         // Hardcoded for now
         $slider_settings['hide_non_active'] = "true";
         $slider_settings['auto_height'] = "{$slider_settings['width']}:{$slider_settings['height']}"; // Use ratio for backward compat
@@ -217,56 +154,20 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         $vars['slider_metas'] = $slides; // (Deprecated since 2.5.5, use $slides instead) An array containing slides properties.
         $vars['slider_settings'] = $slider_settings;
         
-        $this->plugin['view']->set_vars( $vars );
-        $slider_html = $this->plugin['view']->get_render();
+        
+        $current_view_folder = $this->plugin['view']->get_view_folder(); // Back it up
+        
+        $this->plugin['view']->set_view_folder( dirname( $view_file ) ); // Set to template folder
+        $slider_html = $this->plugin['view']->get_render( basename($view_file), $vars );
+        
+        $this->plugin['view']->set_view_folder( $current_view_folder ); // Restore
         
         // Remove whitespace to prevent WP from adding rogue paragraphs
-        $slider_html = $this->trim_white_spaces( $slider_html );
+        $slider_html = $this->plugin['data']->trim_white_spaces( $slider_html );
         
         // Return HTML
         return $slider_html;
     }
     
-    /**
-     * Trim White Spaces
-     *
-     */
-    public function trim_white_spaces($buffer, $off=false){
-        if($off){
-            return $buffer;
-        }
-        $search = array(
-            '/\>[^\S ]+/s', //strip whitespaces after tags, except space
-            '/[^\S ]+\</s', //strip whitespaces before tags, except space
-            '/(\s)+/s'  // shorten multiple whitespace sequences
-        );
-        $replace = array(
-            '>',
-            '<',
-            '\\1'
-        );
-        return preg_replace($search, $replace, $buffer);
-    }
     
-    /**
-     * Get View File
-     *
-     * Get slider view file from theme or plugin location
-     *
-     * @param string $template_name Name of slider template
-     * @return string|false Slider view filepath or false
-     */
-    public function get_view_file( $template_name ){
-        
-        $template_locations = $this->plugin['templates_manager']->get_template_locations();
-        $template_locations = array_reverse($template_locations); // Last added template locations are checked first
-        foreach($template_locations as $template_location){
-            $view_file = $template_location['path']."{$template_name}/slider.php";
-            if(@is_file($view_file)){
-                return $view_file;
-            }
-        }
-
-        return false;
-    }
 } // end class

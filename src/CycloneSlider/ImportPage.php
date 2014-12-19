@@ -69,15 +69,15 @@ class CycloneSlider_ImportPage {
 	}
 	
 	public function step_1(){
-		$this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/import-step-1.php' );
+		
 		$vars = array();
 		$vars['nonce_name'] = $this->plugin['nonce_name'];
 		$vars['nonce'] = wp_create_nonce( $this->plugin['nonce_action'] );
 		$vars['form_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-import' );
 		$vars['export_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-export' );
 		$vars['import_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-import' );
-		$this->plugin['view']->set_vars( $vars );
-		$this->plugin['view']->render();
+		
+		$this->plugin['view']->render('import-step-1.php', $vars);
 
 	}
 	public function step_2(){
@@ -89,13 +89,12 @@ class CycloneSlider_ImportPage {
 		$log_results = wp_parse_args($log_results, $defaults);
 		delete_option('cycloneslider_import');
 		
-		$this->plugin['view']->set_view_file( $this->plugin['path'] . 'views/import-step-2.php' );
 		$vars = array();
 		$vars['log_results'] = $log_results;
 		$vars['export_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-export' );
 		$vars['import_page_url'] = get_admin_url( get_current_blog_id(), 'edit.php?post_type=cycloneslider&page=cycloneslider-import' );
-		$this->plugin['view']->set_vars( $vars );
-		$this->plugin['view']->render();
+		
+		$this->plugin['view']->render('import-step-2.php', $vars);
 
 	}
 

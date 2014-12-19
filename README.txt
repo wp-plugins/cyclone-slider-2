@@ -3,8 +3,8 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 4.0.1
-Stable tag: 2.9.0
+Tested up to: 4.1
+Stable tag: 2.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,17 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.9.3 - 2014-12-19 =
+* Fix. Templates config now use json instead of ini format. Solves the problem with hosting that has parse_ini_file disabled for security reasons.
+* Change. Code cleanup. Removed commented and unused codes.
+* Change. Improved view class. Change codes related to view rendering.
+* Change. Moved template location declaration to main plugin file.
+* Change. Moved global function responsibility in templates to Data class.
+* Change. Use DI container for image editor class
+* Change. Change autoloader and hook names.
+* Change. Updated language files.
+* Change. Updated screen icon code.
 
 = 2.9.1 - 2014-12-10 =
 * Fix. Restored missing widget code.
@@ -326,6 +337,17 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.3 - 2014-12-19 =
+* Fix. Templates config now use json instead of ini format. Solves the problem with hosting that has parse_ini_file disabled for security reasons.
+* Change. Code cleanup. Removed commented and unused codes.
+* Change. Improved view class. Change codes related to view rendering.
+* Change. Moved template location declaration to main plugin file.
+* Change. Moved global function responsibility in templates to Data class.
+* Change. Use DI container for image editor class
+* Change. Change autoloader and hook names.
+* Change. Updated language files.
+* Change. Updated screen icon code.
 
 = 2.9.1 - 2014-12-10 =
 * Fix. Restored missing widget code.

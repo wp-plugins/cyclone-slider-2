@@ -33,7 +33,7 @@
         >
         <?php foreach($slides as $slide): ?>
             <?php if ( 'image' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-image" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-image" <?php echo $slide['slide_data_attributes']; ?>>
                     <?php if( 'lightbox' == $slide['link_target'] ): ?>
                         <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>">
                     <?php elseif ( '' != $slide['link'] ) : ?>
@@ -44,7 +44,7 @@
                         <?php endif; ?>
                     <?php endif; ?>
 
-                    <img src="<?php echo cyclone_slide_image_url($slide['id'], $slider_settings['width'], $slider_settings['height'], array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings) ); ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+                    <img src="<?php echo $slide['image_url']; ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                     
                     <?php if( 'lightbox' == $slide['link_target'] or ('' != $slide['link']) ) : ?>
                         </a>
@@ -58,19 +58,19 @@
                     <?php endif; ?>
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
                     <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
                 </div>
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
                     <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
                 </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide" <?php echo $slide['slide_data_attributes']; ?>>
                     <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
                 </div>
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
-                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo cyclone_slide_settings($slide, $slider_settings); ?>>
+                <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
                     <?php echo wp_kses_post( $slide['custom'] ); ?>
                 </div>
             <?php endif; ?>

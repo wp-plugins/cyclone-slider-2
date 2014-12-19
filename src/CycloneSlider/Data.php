@@ -45,16 +45,21 @@ class CycloneSlider_Data {
         }
         
         // Resize images if needed
-        if($_POST['cycloneslider_settings']['resize'] == 1){
-            $this->plugin['image_resizer']->resize_images( $_POST['cycloneslider_settings'], $_POST['cycloneslider_metas'] );
-
+        if(isset($_POST['cycloneslider_settings']) and isset($_POST['cycloneslider_metas'])){
+            if($_POST['cycloneslider_settings']['resize'] == 1){
+                $this->plugin['image_resizer']->resize_images( $_POST['cycloneslider_settings'], $_POST['cycloneslider_metas'] );
+            }
         }
         
         // Save slides
-        $this->add_slider_slides( $post_id, $_POST['cycloneslider_metas'] );
+        if( isset($_POST['cycloneslider_metas']) ){
+            $this->add_slider_slides( $post_id, $_POST['cycloneslider_metas'] );
+        }
         
         // Save slider settings
-        $this->add_slider_settings( $post_id, $_POST['cycloneslider_settings']);
+        if( isset($_POST['cycloneslider_settings']) ){
+            $this->add_slider_settings( $post_id, $_POST['cycloneslider_settings']);
+        }
         
         // Marked as done
         $cyclone_slider_saved_done = true;
@@ -366,7 +371,162 @@ class CycloneSlider_Data {
         
         return $thumb_url; 
     }
+    
+    /**
+     * Get View File
+     *
+     * Get slider view file from theme or plugin or wp-content location
+     *
+     * @param string $template_name Name of slider template
+     * @return string|false Slider view filepath or false
+     */
+    public function get_view_file( $template_name ){
+        
+        $template_locations = $this->plugin['templates_manager']->get_template_locations();
+        $template_locations = array_reverse($template_locations); // Last added template locations are checked first
+        foreach($template_locations as $template_location){
+            $view_file = $template_location['path']."{$template_name}/slider.php";
+            if(@is_file($view_file)){
+                return $view_file;
+            }
+        }
 
+        return false;
+    }
+    
+    /**
+    * Cyclone Slide Settings
+    *
+    * Prints out cycle2 per slide settings as data attributes
+    *
+    *
+    * @param array $slider_meta Slide settings array.
+    * @param array $slider_settings Slider settings array.
+    * @param string $slider_id HTML ID of slideshow.
+    * @param int $slider_count Current slideshow count.
+    * @return string Data attributes for slide.
+    */
+    public function slide_data_attributes($slider_meta, $slider_settings=array()){
+        $cycle2_settings = array();
+        if(!empty($slider_meta['enable_slide_effects'])){
+            $cycle2_settings['data-cycle-fx'] = $slider_meta['fx'];
+            
+            if(!empty($slider_meta['speed'])) {
+                $cycle2_settings['data-cycle-speed'] = $slider_meta['speed'];
+            }
+            if(!empty($slider_meta['timeout'])) {
+                $cycle2_settings['data-cycle-timeout'] = $slider_meta['timeout'];
+            }
+            if($slider_meta['fx']=='tileBlind' or $slider_meta['fx']=='tileSlide'){
+                if(!empty($slider_meta['tile_count'])) {
+                    $cycle2_settings['data-cycle-tile-count'] = $slider_meta['tile_count'];
+                }
+                if(!empty($slider_meta['tile_delay'])) {
+                    $cycle2_settings['data-cycle-tile-delay'] = $slider_meta['tile_delay'];
+                }
+                $cycle2_settings['data-cycle-tile-vertical'] = $slider_meta['tile_vertical'];
+            }
+            
+        }
+        $cycle2_settings = apply_filters('cyclone_cycle2_slide_settings_array', $cycle2_settings, $slider_meta, $slider_settings);
+        
+        $out = '';
+        foreach($cycle2_settings as $data_attr=>$value){ //Array to html string
+            $out .= ' '.$data_attr.'="'.esc_attr($value).'" ';
+        }
+        return $out;
+    }
+
+    /**
+     * Trim White Spaces
+     *
+     */
+    public function trim_white_spaces($buffer, $off=false){
+        if($off){
+            return $buffer;
+        }
+        $search = array(
+            '/\>[^\S ]+/s', //strip whitespaces after tags, except space
+            '/[^\S ]+\</s', //strip whitespaces before tags, except space
+            '/(\s)+/s'  // shorten multiple whitespace sequences
+        );
+        $replace = array(
+            '>',
+            '<',
+            '\\1'
+        );
+        return preg_replace($search, $replace, $buffer);
+    }
+    
+    
+    /*
+     * Combine admin and shortcode settings
+     */
+    public function combine_slider_settings($admin_settings, $shortcode_settings ){
+        // Use shortcode settings if present and override admin settings
+        if( null !== $shortcode_settings['fx'] ){
+            $admin_settings['fx'] = $shortcode_settings['fx'];
+        }
+        if( null !== $shortcode_settings['timeout'] ){
+            $admin_settings['timeout'] = $shortcode_settings['timeout'];
+        }
+        if( null !== $shortcode_settings['speed'] ){
+            $admin_settings['speed'] = $shortcode_settings['speed'];
+        }
+        if( null !== $shortcode_settings['width'] ){
+            $admin_settings['width'] = $shortcode_settings['width'];
+        }
+        if( null !== $shortcode_settings['height'] ){
+            $admin_settings['height'] = $shortcode_settings['height'];
+        }
+        if( null !== $shortcode_settings['hover_pause'] ){
+            $admin_settings['hover_pause'] = $shortcode_settings['hover_pause'];
+        }
+        if( null !== $shortcode_settings['show_prev_next'] ){
+            $admin_settings['show_prev_next'] = $shortcode_settings['show_prev_next'];
+        }
+        if( null !== $shortcode_settings['show_nav'] ){
+            $admin_settings['show_nav'] = $shortcode_settings['show_nav'];
+        }
+        if( null !== $shortcode_settings['tile_count'] ){
+            $admin_settings['tile_count'] = $shortcode_settings['tile_count'];
+        }
+        if( null !== $shortcode_settings['tile_delay'] ){
+            $admin_settings['tile_delay'] = $shortcode_settings['tile_delay'];
+        }
+        if( null !== $shortcode_settings['tile_vertical'] ){
+            $admin_settings['tile_vertical'] = $shortcode_settings['tile_vertical'];
+        }
+        if( null !== $shortcode_settings['random'] ){
+            $admin_settings['random'] = $shortcode_settings['random'];
+        }
+        if( null !== $shortcode_settings['resize'] ){
+            $admin_settings['resize'] = $shortcode_settings['resize'];
+        }
+        if( null !== $shortcode_settings['resize_option'] ){
+            $admin_settings['resize_option'] = $shortcode_settings['resize_option'];
+        }
+        if( null !== $shortcode_settings['easing'] ){
+            $admin_settings['easing'] = $shortcode_settings['easing'];
+        }
+        if( null !== $shortcode_settings['allow_wrap'] ){
+            $admin_settings['allow_wrap'] = $shortcode_settings['allow_wrap'];
+        }
+        if( null !== $shortcode_settings['dynamic_height'] ){
+            $admin_settings['dynamic_height'] = $shortcode_settings['dynamic_height'];
+        }
+        if( null !== $shortcode_settings['delay'] ){
+            $admin_settings['delay'] = $shortcode_settings['delay'];
+        }
+        if( null !== $shortcode_settings['swipe'] ){
+            $admin_settings['swipe'] = $shortcode_settings['swipe'];
+        }
+        if( null !== $shortcode_settings['width_management'] ){
+            $admin_settings['width_management'] = $shortcode_settings['width_management'];
+        }
+        return $admin_settings;
+    }
+    
     /**
     * Gets the slider default settings. 
     *
