@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.9.1
+Stable tag: 2.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,12 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.9.4 - 2015-01-02 =
+* Fix. Improved safety checks for POST data when saving sliders.
+* Fix. Deleting a single slide now works. This was a regression bug due to previous POST data safety check code.
+* Fix. Safety check for array keys when displaying a slider.
+* Fix. Restored $cyclone_slider_saved_done global variable.
 
 = 2.9.3 - 2014-12-19 =
 * Fix. Templates config now use json instead of ini format. Solves the problem with hosting that has parse_ini_file disabled for security reasons.
@@ -337,6 +343,12 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.4 - 2015-01-02 =
+* Fix. Improved safety checks for POST data when saving sliders.
+* Fix. Deleting a single slide now works. This was a regression bug due to previous POST data safety check code.
+* Fix. Safety check for array keys when displaying a slider.
+* Fix. Restored $cyclone_slider_saved_done global variable.
 
 = 2.9.3 - 2014-12-19 =
 * Fix. Templates config now use json instead of ini format. Solves the problem with hosting that has parse_ini_file disabled for security reasons.

@@ -58,13 +58,14 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         if( $slider === false ){
             return sprintf(__('[Slideshow "%s" not found]', 'cycloneslider'), $slider_slug); 
         }
+        
         $slider_count = ++$this->slider_count; // Make each call to shortcode unique
         $slider_html_id = 'cycloneslider-'.$slider_slug.'-'.$slider_count; // UID
         
         
         // Assign important variables
-        $admin_settings = $slider['slider_settings']; // Assign slider settings
-        $slides = $slider['slides']; // Assign slides
+        $admin_settings = isset($slider['slider_settings']) ? $slider['slider_settings'] : array(); // Assign slider settings
+        $slides = isset($slider['slides']) ? $slider['slides'] : array(); // Assign slides
         
         $template_name = $admin_settings['template'];
         $view_file = $this->plugin['data']->get_view_file( $template_name );
