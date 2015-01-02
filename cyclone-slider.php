@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.9.3
+Version: 2.9.4
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -36,6 +36,7 @@ function cycloneslider_autoloader($classname) {
 spl_autoload_register('cycloneslider_autoloader');
 
 $cyclone_slider_plugin_instance = null;
+$cyclone_slider_saved_done = false;
 
 // Hook the plugin
 add_action('plugins_loaded', 'cycloneslider_init');
@@ -48,7 +49,7 @@ function cycloneslider_init() {
     $plugin['url'] = plugin_dir_url(__FILE__);
     
     $plugin['debug'] = false;
-    $plugin['version'] = '2.9.3';
+    $plugin['version'] = '2.9.4';
 	$plugin['textdomain'] = 'cycloneslider';
     $plugin['slug'] = 'cyclone-slider-2/cyclone-slider.php'; 
     $plugin['nonce_name'] = 'cyclone_slider_builder_nonce';
@@ -111,4 +112,3 @@ function cycloneslider_init() {
     
     $cyclone_slider_plugin_instance = $plugin;
 }
-

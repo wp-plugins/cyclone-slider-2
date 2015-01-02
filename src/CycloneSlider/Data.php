@@ -52,14 +52,12 @@ class CycloneSlider_Data {
         }
         
         // Save slides
-        if( isset($_POST['cycloneslider_metas']) ){
-            $this->add_slider_slides( $post_id, $_POST['cycloneslider_metas'] );
-        }
+        $slides = isset($_POST['cycloneslider_metas']) ? $_POST['cycloneslider_metas'] : array();
+        $this->add_slider_slides( $post_id, $slides );
         
         // Save slider settings
-        if( isset($_POST['cycloneslider_settings']) ){
-            $this->add_slider_settings( $post_id, $_POST['cycloneslider_settings']);
-        }
+        $slider_settings = isset($_POST['cycloneslider_settings']) ? $_POST['cycloneslider_settings'] : array();
+        $this->add_slider_settings( $post_id, $_POST['cycloneslider_settings']);
         
         // Marked as done
         $cyclone_slider_saved_done = true;
@@ -71,7 +69,7 @@ class CycloneSlider_Data {
     public function add_slider( $post_title, $slider_settings, $slides ){
         global $cyclone_slider_saved_done;
         
-        $cyclone_slider_saved_done= true; // Prevent double whammy!
+        $cyclone_slider_saved_done = true; // Prevent double whammy!
 
         $post_data = array(
             'post_type' => 'cycloneslider',
@@ -305,13 +303,14 @@ class CycloneSlider_Data {
         $slider_posts = get_posts( $args ); // Use get_posts to avoid filters
 
         $sliders = array(); // Store it here
-        if( !empty($slider_posts) and is_array($slider_posts) ){
-            foreach($slider_posts as $index=>$slider_post){
-                $sliders[$index] = (array) $slider_post;
-                $sliders[$index]['slider_settings'] = $this->get_slider_settings( $slider_post->ID );
-                $sliders[$index]['slides'] = $this->get_slider_slides( $slider_post->ID );
-            }
-            return $sliders[0];
+        if( isset($slider_posts[0]) ){
+            $slider_post = $slider_posts[0];
+            
+            $slider = (array) $slider_post;
+            $slider['slider_settings'] = $this->get_slider_settings( $slider_post->ID );
+            $slider['slides'] = $this->get_slider_slides( $slider_post->ID );
+            
+            return $slider;
         }
         
         return false;
