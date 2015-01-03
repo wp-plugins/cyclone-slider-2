@@ -27,6 +27,7 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 		if( is_array($slides) ){
 
 			foreach($slides as $slide){
+				
 				// Get full path to the slide image
 				$image_file = get_attached_file( $slide['id'] );
 
@@ -40,28 +41,50 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 				// Save image to this file
 				$image_file_dest = "{$dirname}/{$thumb_name}";
 				
-				if( ! is_file( $image_file_dest ) ) { // Destination file does not exist
-					$this->resize( $image_file, $image_file_dest, $width, $height, $slider_settings );
+				// Main slide image
+				if( isset($slider_settings['resize']) ){
+					if( 1 == $slider_settings['resize'] ){
+						
+						// Resize if destination file does not exist OR if it exists but force resize is set to true
+						if( ( false === is_file($image_file_dest) ) or ( is_file($image_file_dest) and $slider_settings['force_resize'] ) ){
+							
+							$this->resize_slide_image( $image_file, $image_file_dest, $width, $height, $slider_settings['resize_option'], $slider_settings['resize_quality'] );
+							
+						}
+					}
+				}
+				
+				// Additional slide images. Used mainly by templates. Eg. Thumbnail template's thumbnails 
+				foreach($this->plugin['image_sizes'] as $size){
 					
-				} else if( is_file( $image_file_dest ) and $slider_settings['force_resize'] ) { // Exist but force resize so we resave it
-					$this->resize( $image_file, $image_file_dest, $width, $height, $slider_settings );
+					// Create thumb filename-{width}x{height}.jpg
+					$thumb_name = $this->generate_thumb_name( $image_file, $size['width'], $size['height'] );
 					
+					// Save image to this file
+					$image_file_dest = "{$dirname}/{$thumb_name}";
+					
+					if( ( false === is_file($image_file_dest) ) or ( is_file($image_file_dest) and $slider_settings['force_resize'] ) ){
+						
+						$this->resize_slide_image( $image_file, $image_file_dest, $size['width'], $size['height'], $size['resize_option'], $slider_settings['resize_quality'] );
+					
+					}
 				}
 			}
 		}
 	}
 	
 	/**
-	 * Resize Image
+	 * Resize Slide Image
 	 *
-	 * @param string $image_file
-	 * @param string $image_file_dest
-	 * @param int $width
-	 * @param int $height
-	 * @param array $slider_settings
+	 * @param string $image_file Full path to image file
+	 * @param string $image_file_dest Full path to destination image
+	 * @param int $width Image width in pixels
+	 * @param int $height Image height in pixels
+	 * @param string $resize_option
+	 * @param int $resize_quality Quality of image. 0-100 where 0 is worst and 100 is best
 	 * @return boolean True or false
 	 */
-	private function resize($image_file, $image_file_dest, $width, $height, $slider_settings){
+	private function resize_slide_image( $image_file, $image_file_dest, $width, $height, $resize_option, $resize_quality){
 		// Create
 		$image = new $this->plugin['image_editor']( $image_file );
 		
@@ -69,8 +92,8 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 		if( $image->load() ){
 			
 			// Do resize
-			$image->resize( $width, $height, $slider_settings['resize_option'] );
-			$image->save( $image_file_dest, $slider_settings['resize_quality']);
+			$image->resize( $width, $height, $resize_option );
+			$image->save( $image_file_dest, $resize_quality );
 			
 			return true;
 		}

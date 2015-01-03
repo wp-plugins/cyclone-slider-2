@@ -97,6 +97,11 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
                 $slides[$i]['full_image_url'] = $full_image_url;
                 $slides[$i]['image_url'] = $this->plugin['data']->get_slide_image_url( $slide['id'], $slider_settings );
                 
+                $slides[$i]['image_thumbnails'] = array();
+                foreach($this->plugin['image_sizes'] as $key=>$size){
+                    $slides[$i]['image_thumbnails'][$key] = $this->plugin['data']->get_slide_thumbnail_url( $slide['id'], $slider_settings['width'], $slider_settings['height'], $slider_settings['resize'] );
+                }
+                
                 $image_count++;
             } else if($slides[$i]['type']=='video'){
                 $video_count++;

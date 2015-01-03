@@ -211,7 +211,7 @@ function cycloneslider_thumb( $original_attachment_id, $width, $height, $refresh
 		return dirname($image_url).'/'.$thumb; //We used dirname() since we need the URL format not the path
 	}
 	
-	$resizeObj = new Image_Resizer($image_path);
+	$resizeObj = new CycloneSlider_ImageResizer($image_path);
 	$resizeObj -> resizeImage($width, $height, $option);
 	$resizeObj -> saveImage($dirname.'/'.$thumb, 90);
 	

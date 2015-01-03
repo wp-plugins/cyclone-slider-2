@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.9.3
+Stable tag: 2.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,13 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.9.5 - 2015-01-03 =
+* Fix. Thumbnail template thumb images now working.
+* New. Added support for custom image sizes.
+* Change. Removed cyclone_slide_image_url function from Thumbnail template and used $slide['image_thumbnails']['40_40_crop'] instead.
+* Change. Refactored Data and ImageResizer class.
+* Fix. Wrong class name Image_Resizer changed to CycloneSlider_ImageResizer.
 
 = 2.9.4 - 2015-01-02 =
 * Fix. Improved safety checks for POST data when saving sliders.
@@ -343,6 +350,13 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.5 - 2015-01-03 =
+* Fix. Thumbnail template thumb images now working.
+* New. Added support for custom image sizes.
+* Change. Removed cyclone_slide_image_url function from Thumbnail template and used $slide['image_thumbnails']['40_40_crop'] instead.
+* Change. Refactored Data and ImageResizer class.
+* Fix. Wrong class name Image_Resizer changed to CycloneSlider_ImageResizer.
 
 = 2.9.4 - 2015-01-02 =
 * Fix. Improved safety checks for POST data when saving sliders.

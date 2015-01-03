@@ -90,7 +90,7 @@
 		<?php foreach($slides as $i=>$slide): ?>
 			<?php if ( 'image' == $slide['type'] ) : ?>
                 <li>
-					<img src="<?php echo cyclone_slide_image_url($slide['id'], 40, 40, array('current_slide_settings'=>$slide, 'slideshow_settings'=>$slider_settings, 'resize_option'=>'crop') ); ?>" width="40" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
+					<img src="<?php echo $slide['image_thumbnails']['40_40_crop']; ?>" width="40" height="40" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
 				</li>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
                 <li>
