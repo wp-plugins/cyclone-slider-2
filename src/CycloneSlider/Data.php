@@ -44,20 +44,18 @@ class CycloneSlider_Data {
             return $post_id;
         }
         
-        // Resize images if needed
-        if(isset($_POST['cycloneslider_settings']) and isset($_POST['cycloneslider_metas'])){
-            if($_POST['cycloneslider_settings']['resize'] == 1){
-                $this->plugin['image_resizer']->resize_images( $_POST['cycloneslider_settings'], $_POST['cycloneslider_metas'] );
-            }
-        }
+        // Assign POST data with array key checks
+        $slides = isset($_POST['cycloneslider_metas']) ? $_POST['cycloneslider_metas'] : array();
+        $slider_settings = isset($_POST['cycloneslider_settings']) ? $_POST['cycloneslider_settings'] : array();
+        
+        // Resize images
+        $this->plugin['image_resizer']->resize_images( $slider_settings, $slides );
         
         // Save slides
-        $slides = isset($_POST['cycloneslider_metas']) ? $_POST['cycloneslider_metas'] : array();
         $this->add_slider_slides( $post_id, $slides );
         
         // Save slider settings
-        $slider_settings = isset($_POST['cycloneslider_settings']) ? $_POST['cycloneslider_settings'] : array();
-        $this->add_slider_settings( $post_id, $_POST['cycloneslider_settings']);
+        $this->add_slider_settings( $post_id, $slider_settings);
         
         // Marked as done
         $cyclone_slider_saved_done = true;
@@ -334,7 +332,7 @@ class CycloneSlider_Data {
     }
     
     /**
-    * Get Slide Image URL
+    * Get Slide Image URL. 
     */
     public function get_slide_image_url( $slide_image_id, $slider_settings ){
         $width = $slider_settings['width'];
@@ -356,6 +354,42 @@ class CycloneSlider_Data {
         
         //If resize is no, return url
         if( isset( $slider_settings['resize'] ) and $slider_settings['resize'] == 0 ){
+            return $image_url;
+        }
+        
+        // Get full path to the slide image
+        $image_file = get_attached_file($slide_image_id);
+        if(empty($image_file)){
+            return false;
+        }
+        
+        $thumb_name = $this->get_thumb_name( $image_file, $width, $height );
+        $thumb_url = dirname($image_url).'/'.$thumb_name; // URL to thumbnail
+        
+        return $thumb_url; 
+    }
+    
+    /**
+    * Get Slide Thumbnail URL. 
+    */
+    public function get_slide_thumbnail_url( $slide_image_id, $width, $height, $resize){
+        
+        // Get url to full image, its width and height
+        $image_dimensions = wp_get_attachment_image_src($slide_image_id, 'full');
+        if(!$image_dimensions){
+            return false;
+        }
+        
+        // Assign variables
+        list($image_url, $orig_width, $orig_height) = $image_dimensions;
+        
+        // If orig image width and height is the same as slideshow width and height, do not resize and return url
+        if($orig_width == $width and $orig_height == $height){
+            return $image_url;
+        }
+        
+        //If resize is no, return url
+        if( true == $resize ){
             return $image_url;
         }
         

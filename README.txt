@@ -103,6 +103,13 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 == Changelog ==
 
+= 2.9.5 - 2015-01-03 =
+* Fix. Thumbnail template thumb images now working.
+* New. Added support for custom image sizes.
+* Change. Removed cyclone_slide_image_url function from Thumbnail template and used $slide['image_thumbnails']['40_40_crop'] instead.
+* Change. Refactored Data and ImageResizer class.
+* Fix. Wrong class name Image_Resizer changed to CycloneSlider_ImageResizer.
+
 = 2.9.4 - 2015-01-02 =
 * Fix. Improved safety checks for POST data when saving sliders.
 * Fix. Deleting a single slide now works. This was a regression bug due to previous POST data safety check code.
@@ -343,6 +350,13 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 
 == Upgrade Notice ==
+
+= 2.9.5 - 2015-01-03 =
+* Fix. Thumbnail template thumb images now working.
+* New. Added support for custom image sizes.
+* Change. Removed cyclone_slide_image_url function from Thumbnail template and used $slide['image_thumbnails']['40_40_crop'] instead.
+* Change. Refactored Data and ImageResizer class.
+* Fix. Wrong class name Image_Resizer changed to CycloneSlider_ImageResizer.
 
 = 2.9.4 - 2015-01-02 =
 * Fix. Improved safety checks for POST data when saving sliders.
