@@ -65,10 +65,7 @@ class CycloneSlider_Data {
      * API to add slider
      */
     public function add_slider( $post_title, $slider_settings, $slides ){
-        global $cyclone_slider_saved_done;
         
-        $cyclone_slider_saved_done = true; // Prevent double whammy!
-
         $post_data = array(
             'post_type' => 'cycloneslider',
             'post_title' => $post_title,
@@ -383,13 +380,13 @@ class CycloneSlider_Data {
         // Assign variables
         list($image_url, $orig_width, $orig_height) = $image_dimensions;
         
-        // If orig image width and height is the same as slideshow width and height, do not resize and return url
+        // If orig image width and height is the same as width and height, do not resize and return url
         if($orig_width == $width and $orig_height == $height){
             return $image_url;
         }
         
         //If resize is no, return url
-        if( true == $resize ){
+        if( $resize == 0 ){
             return $image_url;
         }
         

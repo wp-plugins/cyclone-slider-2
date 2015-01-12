@@ -314,7 +314,7 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
         $vars['effects'] = $this->plugin['data']->get_slide_effects();
         $vars['debug'] = ($this->plugin['debug']) ? cyclone_slider_debug($slider_settings) : '';
         
-        $this->plugin['view']->render('slider-properties.php', $vars);
+        $this->plugin['view']->render('slider-settings.php', $vars);
 
     }
     

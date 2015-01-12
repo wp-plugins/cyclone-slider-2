@@ -44,7 +44,7 @@
                         <?php endif; ?>
                     <?php endif; ?>
 
-                    <img src="<?php echo $slide['image_url']; ?>" title="<?php echo $slide['img_title'];?>" />
+                    <img src="<?php echo $slide['image_url']; ?>" alt="<?php echo $slide['img_alt'];?>" title="<?php echo $slide['img_title'];?>" />
                     
                     <?php if( 'lightbox' == $slide['link_target'] or ('' != $slide['link']) ) : ?>
                         </a>

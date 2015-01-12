@@ -646,7 +646,7 @@ input:disabled{
 	display:none;
 }
 
-#cycloneslider_settings_resize_option{
+#cycloneslider_settings_resize{
 	display: inline-block;
 }
 label[for="force_resize"]{

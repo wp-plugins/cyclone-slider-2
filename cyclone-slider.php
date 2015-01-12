@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider 2
 Plugin URI: http://www.codefleet.net/cyclone-slider-2/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 2.9.5
+Version: 2.9.6
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License:
@@ -49,12 +49,17 @@ function cycloneslider_init() {
     $plugin['url'] = plugin_dir_url(__FILE__);
     
     $plugin['debug'] = false;
-    $plugin['version'] = '2.9.5';
+    $plugin['version'] = '2.9.6';
 	$plugin['textdomain'] = 'cycloneslider';
     $plugin['slug'] = 'cyclone-slider-2/cyclone-slider.php'; 
     $plugin['nonce_name'] = 'cyclone_slider_builder_nonce';
     $plugin['nonce_action'] = 'cyclone-slider-save';
     
+	$wp_upload_dir = wp_upload_dir();
+	
+	$plugin['wp_content_dir'] = realpath( dirname( $wp_upload_dir['basedir'] ) );
+	$plugin['wp_content_url'] = content_url();
+	
     require_once($plugin['path'].'src/functions.php'); // Function not autoloaded from the old days. Deprecated
     
     $plugin['view.folder'] = $plugin['path'].'views';
@@ -76,8 +81,7 @@ function cycloneslider_init() {
     $plugin['nextgen_integration'] = new CycloneSlider_NextgenIntegration();
     
     $plugin['templates_manager'] = new CycloneSlider_TemplatesManager();
-    $wp_upload_dir = wp_upload_dir();
-	$wp_content_folder = realpath( dirname( $wp_upload_dir['basedir'] ) );
+	// Order is important. core is overridden by active-theme which in turn is overridden by wp-content.
     $plugin['templates_locations'] = array(
         array(
             'path' => $plugin['path'].'templates'.DIRECTORY_SEPARATOR, // This resides in the plugin
@@ -85,13 +89,13 @@ function cycloneslider_init() {
             'location_name' => 'core'
         ),
         array(
-            'path' => realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR, // This resides in the current theme or child theme
+            'path' => realpath(get_stylesheet_directory()).DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR, // This resides in the current theme or child theme. Gets deleted when theme is deleted.
             'url' => get_stylesheet_directory_uri()."/cycloneslider/",
             'location_name' => 'active-theme'
         ),
         array(
-            'path' => $wp_content_folder.DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR, // This resides in the wp-content folder to prevent deleting when upgrading themes. Recommended location
-            'url' => content_url()."/cycloneslider/",
+            'path' => $plugin['wp_content_dir'].DIRECTORY_SEPARATOR.'cycloneslider'.DIRECTORY_SEPARATOR, // This resides in the wp-content folder to prevent deleting when upgrading themes. Recommended location
+            'url' => $plugin['wp_content_url']."/cycloneslider/",
             'location_name' => 'wp-content'
         )
     );
