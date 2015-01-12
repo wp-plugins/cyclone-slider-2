@@ -99,7 +99,7 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
                 
                 $slides[$i]['image_thumbnails'] = array();
                 foreach($this->plugin['image_sizes'] as $key=>$size){
-                    $slides[$i]['image_thumbnails'][$key] = $this->plugin['data']->get_slide_thumbnail_url( $slide['id'], $slider_settings['width'], $slider_settings['height'], $slider_settings['resize'] );
+                    $slides[$i]['image_thumbnails'][$key] = $this->plugin['data']->get_slide_thumbnail_url( $slide['id'], $size['width'], $size['height'], $slider_settings['resize'] );
                 }
                 
                 $image_count++;

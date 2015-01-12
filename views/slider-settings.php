@@ -61,6 +61,18 @@
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
+	<label for="cycloneslider_settings_resize"><?php _e('Resize Images?', 'cycloneslider'); ?></label>
+	<select id="cycloneslider_settings_resize" name="cycloneslider_settings[resize]">
+		<option <?php selected($slider_settings['resize'], 0); ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
+		<option <?php selected($slider_settings['resize'], 1); ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
+	</select>
+	<input type="hidden" name="cycloneslider_settings[force_resize]" value="0" />
+	<input type="checkbox" name="cycloneslider_settings[force_resize]" id="force_resize" value="1" />
+	<label for="force_resize"><?php _e('Force Resize', 'cycloneslider'); ?></label> <br>
+	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image. <br>Force Resize - Regenerate all images and thumbnails.', 'cycloneslider'); ?></span>
+	<div class="clear"></div>
+</div>
+<div class="cycloneslider-field">
 	<label for="cycloneslider_settings_hover_pause"><?php _e('Pause on Hover?', 'cycloneslider'); ?></label>
 	<select id="cycloneslider_settings_hover_pause" name="cycloneslider_settings[hover_pause]">
 		<option <?php echo ('true'==$slider_settings['hover_pause']) ? 'selected="selected"' : ''; ?> value="true"><?php _e('Yes', 'cycloneslider'); ?></option>
@@ -83,15 +95,6 @@
 		<option <?php echo (0==$slider_settings['show_nav']) ? 'selected="selected"' : ''; ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
 	</select>
 	<span class="note"><?php _e('The thumbnails or dots depending on template.', 'cycloneslider'); ?></span>
-	<div class="clear"></div>
-</div>
-<div class="cycloneslider-field">
-	<label for="cycloneslider_settings_resize"><?php _e('Resize Images?', 'cycloneslider'); ?></label>
-	<select id="cycloneslider_settings_resize" name="cycloneslider_settings[resize]">
-		<option <?php selected($slider_settings['resize'], 0); ?> value="0"><?php _e('No', 'cycloneslider'); ?></option>
-		<option <?php selected($slider_settings['resize'], 1); ?> value="1"><?php _e('Yes', 'cycloneslider'); ?></option>
-	</select>
-	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image.', 'cycloneslider'); ?></span>
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field last">

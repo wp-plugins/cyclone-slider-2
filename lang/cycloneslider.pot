@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 17:56+0800\n"
-"PO-Revision-Date: 2014-12-19 17:56+0800\n"
+"POT-Creation-Date: 2015-01-12 22:36+0800\n"
+"PO-Revision-Date: 2015-01-12 22:37+0800\n"
 "Last-Translator: Nico Amarilla <kosinix@codefleet.net>\n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "Language: en_US\n"
@@ -17,11 +17,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../cyclone-slider.php:91
+#: ../cyclone-slider.php:104
 msgid "Cyclone Slider Settings"
 msgstr ""
 
-#: ../cyclone-slider.php:92
+#: ../cyclone-slider.php:105
 msgid "Settings"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "[Slideshow \"%s\" not found]"
 msgstr ""
 
-#: ../src/CycloneSlider/Frontend.php:74
+#: ../src/CycloneSlider/Frontend.php:75
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr ""
@@ -420,24 +420,24 @@ msgstr ""
 msgid "Transition Effects:"
 msgstr ""
 
-#: ../views/slide-edit.php:110 ../views/slider-properties.php:32
+#: ../views/slide-edit.php:110 ../views/slider-settings.php:32
 msgid "Transition Effects Speed:"
 msgstr ""
 
 #: ../views/slide-edit.php:112 ../views/slide-edit.php:119
-#: ../views/slider-properties.php:34
+#: ../views/slider-settings.php:34
 msgid "Milliseconds"
 msgstr ""
 
-#: ../views/slide-edit.php:117 ../views/slider-properties.php:26
+#: ../views/slide-edit.php:117 ../views/slider-settings.php:26
 msgid "Next Slide Delay:"
 msgstr ""
 
-#: ../views/slide-edit.php:127 ../views/slider-properties.php:13
+#: ../views/slide-edit.php:127 ../views/slider-settings.php:13
 msgid "Tile Count:"
 msgstr ""
 
-#: ../views/slide-edit.php:129 ../views/slider-properties.php:15
+#: ../views/slide-edit.php:129 ../views/slider-settings.php:15
 msgid "The number of tiles to use in the transition."
 msgstr ""
 
@@ -449,15 +449,15 @@ msgstr ""
 msgid "Milliseconds to delay each individual tile transition."
 msgstr ""
 
-#: ../views/slide-edit.php:139 ../views/slider-properties.php:18
+#: ../views/slide-edit.php:139 ../views/slider-settings.php:18
 msgid "Tile Position:"
 msgstr ""
 
-#: ../views/slide-edit.php:141 ../views/slider-properties.php:20
+#: ../views/slide-edit.php:141 ../views/slider-settings.php:20
 msgid "Vertical"
 msgstr ""
 
-#: ../views/slide-edit.php:142 ../views/slider-properties.php:21
+#: ../views/slide-edit.php:142 ../views/slider-settings.php:21
 msgid "Horizontal"
 msgstr ""
 
@@ -498,16 +498,16 @@ msgid "Allow Wrap?"
 msgstr ""
 
 #: ../views/slider-advanced-settings.php:6
-#: ../views/slider-advanced-settings.php:44 ../views/slider-properties.php:66
-#: ../views/slider-properties.php:74 ../views/slider-properties.php:82
-#: ../views/slider-properties.php:92 ../views/slider-properties.php:101
+#: ../views/slider-advanced-settings.php:44 ../views/slider-settings.php:67
+#: ../views/slider-settings.php:78 ../views/slider-settings.php:86
+#: ../views/slider-settings.php:94 ../views/slider-settings.php:104
 msgid "Yes"
 msgstr ""
 
 #: ../views/slider-advanced-settings.php:7
-#: ../views/slider-advanced-settings.php:45 ../views/slider-properties.php:67
-#: ../views/slider-properties.php:75 ../views/slider-properties.php:83
-#: ../views/slider-properties.php:91 ../views/slider-properties.php:100
+#: ../views/slider-advanced-settings.php:45 ../views/slider-settings.php:66
+#: ../views/slider-settings.php:79 ../views/slider-settings.php:87
+#: ../views/slider-settings.php:95 ../views/slider-settings.php:103
 msgid "No"
 msgstr ""
 
@@ -562,27 +562,23 @@ msgstr ""
 msgid "Resize Options:"
 msgstr ""
 
-#: ../views/slider-advanced-settings.php:61
-msgid "Force Resize"
-msgstr ""
-
-#: ../views/slider-advanced-settings.php:63
+#: ../views/slider-advanced-settings.php:60
 msgid "Auto - Cyclone Slider decides the resize option."
 msgstr ""
 
-#: ../views/slider-advanced-settings.php:64
+#: ../views/slider-advanced-settings.php:61
 msgid "Crop - Resize and remove excess parts."
 msgstr ""
 
-#: ../views/slider-advanced-settings.php:65
+#: ../views/slider-advanced-settings.php:62
 msgid "Exact - Resize to exact dimensions."
 msgstr ""
 
-#: ../views/slider-advanced-settings.php:66
+#: ../views/slider-advanced-settings.php:63
 msgid "Landscape - Resize to exact width."
 msgstr ""
 
-#: ../views/slider-advanced-settings.php:67
+#: ../views/slider-advanced-settings.php:64
 msgid "Portrait - Resize to exact height."
 msgstr ""
 
@@ -613,89 +609,93 @@ msgstr ""
 msgid "Your preview will appear here."
 msgstr ""
 
-#: ../views/slider-properties.php:4
+#: ../views/slider-settings.php:4
 msgid "Transition Effects to Use:"
 msgstr ""
 
-#: ../views/slider-properties.php:28
+#: ../views/slider-settings.php:28
 msgid "Milliseconds. 0 to disable auto advance."
 msgstr ""
 
-#: ../views/slider-properties.php:38
+#: ../views/slider-settings.php:38
 msgid "Width:"
 msgstr ""
 
-#: ../views/slider-properties.php:40 ../views/slider-properties.php:46
+#: ../views/slider-settings.php:40 ../views/slider-settings.php:46
 msgid "pixels."
 msgstr ""
 
-#: ../views/slider-properties.php:44
+#: ../views/slider-settings.php:44
 msgid "Height:"
 msgstr ""
 
-#: ../views/slider-properties.php:50
+#: ../views/slider-settings.php:50
 msgid "Width Management:"
 msgstr ""
 
-#: ../views/slider-properties.php:52
+#: ../views/slider-settings.php:52
 msgid "Responsive"
 msgstr ""
 
-#: ../views/slider-properties.php:53
+#: ../views/slider-settings.php:53
 msgid "Full"
 msgstr ""
 
-#: ../views/slider-properties.php:54
+#: ../views/slider-settings.php:54
 msgid "Fixed"
 msgstr ""
 
-#: ../views/slider-properties.php:57
+#: ../views/slider-settings.php:57
 msgid ""
 "Responsive - resizes to smaller size but maximum width will be equal to the "
 "provided width."
 msgstr ""
 
-#: ../views/slider-properties.php:58
+#: ../views/slider-settings.php:58
 msgid ""
 "Full - the same as responsive but maximum width will be equal to its "
 "container ignoring the provided width."
 msgstr ""
 
-#: ../views/slider-properties.php:59
+#: ../views/slider-settings.php:59
 msgid "Fixed - width and height are not resized."
 msgstr ""
 
-#: ../views/slider-properties.php:64
-msgid "Pause on Hover?"
-msgstr ""
-
-#: ../views/slider-properties.php:72
-msgid "Show Prev/Next Buttons?"
-msgstr ""
-
-#: ../views/slider-properties.php:80
-msgid "Show Navigation?"
-msgstr ""
-
-#: ../views/slider-properties.php:85
-msgid "The thumbnails or dots depending on template."
-msgstr ""
-
-#: ../views/slider-properties.php:89
+#: ../views/slider-settings.php:64
 msgid "Resize Images?"
 msgstr ""
 
-#: ../views/slider-properties.php:94
-msgid ""
-"Yes - resize images to slideshow dimension. <br>No - use the original "
-"uploaded image."
+#: ../views/slider-settings.php:71
+msgid "Force Resize"
 msgstr ""
 
-#: ../views/slider-properties.php:98
+#: ../views/slider-settings.php:72
+msgid ""
+"Yes - resize images to slideshow dimension. <br>No - use the original "
+"uploaded image. <br>Force Resize - Regenerate all images and thumbnails."
+msgstr ""
+
+#: ../views/slider-settings.php:76
+msgid "Pause on Hover?"
+msgstr ""
+
+#: ../views/slider-settings.php:84
+msgid "Show Prev/Next Buttons?"
+msgstr ""
+
+#: ../views/slider-settings.php:92
+msgid "Show Navigation?"
+msgstr ""
+
+#: ../views/slider-settings.php:97
+msgid "The thumbnails or dots depending on template."
+msgstr ""
+
+#: ../views/slider-settings.php:101
 msgid "Random Slide Order?"
 msgstr ""
 
-#: ../views/slider-properties.php:103
+#: ../views/slider-settings.php:106
 msgid "Randomize order of slides on every page visit."
 msgstr ""
 

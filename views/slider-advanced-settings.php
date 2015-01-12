@@ -56,9 +56,6 @@
 		<option <?php echo (isset($slider_settings['resize_option']) && $resize_option==$slider_settings['resize_option']) ? 'selected="selected"' : ''; ?> value="<?php echo esc_attr( $resize_option ); ?>"><?php echo esc_attr( $resize_name ); ?></option>
 		<?php endforeach; ?>
 	</select>
-	<input type="hidden" name="cycloneslider_settings[force_resize]" value="0" />
-	<input type="checkbox" name="cycloneslider_settings[force_resize]" id="force_resize" value="1" />
-	<label for="force_resize"><?php _e('Force Resize', 'cycloneslider'); ?></label> <br>
 	<span class="note">
 	<?php _e('Auto - Cyclone Slider decides the resize option.', 'cycloneslider'); ?><br>
 	<?php _e('Crop - Resize and remove excess parts.', 'cycloneslider'); ?><br>

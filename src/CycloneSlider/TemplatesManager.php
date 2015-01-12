@@ -33,27 +33,29 @@ class CycloneSlider_TemplatesManager extends CycloneSlider_Base {
 		if(is_array($this->template_locations) and !empty($this->template_locations)){
 			$template_folders = array();
 			foreach($this->template_locations as $location){
-				if($files = @scandir($location['path'])){
-					$c = 0;
-					foreach($files as $name){
-						if($name!='.' and $name!='..' and is_dir($location['path'].$name) and @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'slider.php') ){ // Check if its a directory
-							$supported_slide_types = array('image');// Default
-							if ( $config = $this->parse_config_json( $location['path'].$name.DIRECTORY_SEPARATOR.'config.json' ) ) {
-								$supported_slide_types = $config->slide_types;
-							} else if ( @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt') ) { // Older templates use ini format
-								$ini_array = parse_ini_file($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt'); //Parse ini to get slide types supported
-								if($ini_array){
-									$supported_slide_types = $ini_array['slide_type'];
+				if( is_dir($location['path']) ) {
+					if($files = scandir($location['path'])){
+						$c = 0;
+						foreach($files as $name){
+							if($name!='.' and $name!='..' and is_dir($location['path'].$name) and @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'slider.php') ){ // Check if its a directory
+								$supported_slide_types = array('image');// Default
+								if ( $config = $this->parse_config_json( $location['path'].$name.DIRECTORY_SEPARATOR.'config.json' ) ) {
+									$supported_slide_types = $config->slide_types;
+								} else if ( @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt') ) { // Older templates use ini format
+									$ini_array = parse_ini_file($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt'); //Parse ini to get slide types supported
+									if($ini_array){
+										$supported_slide_types = $ini_array['slide_type'];
+									}
 								}
+								
+								$name = sanitize_title($name);// Change space to dash and all lowercase
+								$template_folders[$name] = array( // Here we override template of the same names. If there is a template with the same name in plugin and theme directory, the one in theme will take over
+									'path'=>$location['path'].$name,
+									'url'=>$location['url'].$name,
+									'supports' => $supported_slide_types,
+									'location_name' => $location['location_name']
+								);
 							}
-							
-							$name = sanitize_title($name);// Change space to dash and all lowercase
-							$template_folders[$name] = array( // Here we override template of the same names. If there is a template with the same name in plugin and theme directory, the one in theme will take over
-								'path'=>$location['path'].$name,
-								'url'=>$location['url'].$name,
-								'supports' => $supported_slide_types,
-								'location_name' => $location['location_name']
-							);
 						}
 					}
 				}
