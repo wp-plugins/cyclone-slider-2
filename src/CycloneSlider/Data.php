@@ -2,17 +2,9 @@
 /**
  * Class for saving and getting slider data  
  */
-class CycloneSlider_Data {
+class CycloneSlider_Data extends CycloneSlider_Base {
     
-    protected $plugin;
-    
-    /**
-     * Initializes the class
-     */
-    public function __construct(){}
-    
-    public function run( $plugin ){
-        $this->plugin = $plugin;
+    public function run(){
         
         // Save slides
         add_action( 'save_post', array( $this, 'save_slider_post' ) );

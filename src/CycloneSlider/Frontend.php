@@ -2,7 +2,7 @@
 class CycloneSlider_Frontend extends CycloneSlider_Base {
     public $slider_count;
     
-    public function bootstrap() {
+    public function run() {
         
         // Set defaults
         $this->slider_count = 0;

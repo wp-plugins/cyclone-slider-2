@@ -5,7 +5,7 @@
 class CycloneSlider_SettingsPage extends CycloneSlider_Base {
 	
 	
-	public function bootstrap() {
+	public function run() {
 
 		// Add settings
 		add_action( 'admin_init', array( $this, 'register_settings') );

@@ -2,13 +2,11 @@
 /**
 * Class for handling styles and scripts
 */
-class CycloneSlider_AssetLoader {
+class CycloneSlider_AssetLoader extends CycloneSlider_Base {
     
-    protected $plugin;
     protected $cyclone_settings_data;
 	
-	public function run( $plugin ) {
-        $this->plugin = $plugin;
+	public function run() {
         
 		$this->cyclone_settings_data = $this->plugin['settings_page']->get_settings_data();
 		

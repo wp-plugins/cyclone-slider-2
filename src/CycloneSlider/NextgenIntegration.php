@@ -2,15 +2,12 @@
 /**
 * Class for NextGEN integration. Allows import of images from a gallery as new slides.
 */
-class CycloneSlider_NextgenIntegration {
-	
-	protected $plugin;
+class CycloneSlider_NextgenIntegration extends CycloneSlider_Base {
 	
 	/**
-	* Run 
+	* Boot 
 	*/
-	function run( $plugin ) {
-		$this->plugin = $plugin;
+	function run() {
 		
 		// Add metaboxes
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 100 );
@@ -167,7 +164,7 @@ class CycloneSlider_NextgenIntegration {
 				
 				foreach($nextgen_gallery as $image){
 					if($attach_id = $this->copy_image($image->imagePath)){ //Copy success!
-						$slides[] = wp_parse_args(array('id' => $attach_id), $plugin['data']->get_slide_defaults() ); //Add the slide ID and fill in default values
+						$slides[] = wp_parse_args(array('id' => $attach_id), $this->plugin['data']->get_slide_defaults() ); //Add the slide ID and fill in default values
 					}
 				}
 			}

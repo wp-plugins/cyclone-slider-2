@@ -2,11 +2,9 @@
 /**
 * Class for export page
 */
-class CycloneSlider_ExportPage {
-    protected $plugin;
+class CycloneSlider_ExportPage extends CycloneSlider_Base {
     
-    public function run( $plugin ) {
-        $this->plugin = $plugin;
+    public function run() {
         
         // Add page
 		add_action( 'admin_menu', array( $this, 'add_menu_and_page'));

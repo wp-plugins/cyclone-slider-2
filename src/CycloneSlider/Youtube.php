@@ -5,11 +5,6 @@
 class CycloneSlider_Youtube {
 
     /**
-     * Initialize
-     */
-    public function __construct() {} // end constructor
-    
-    /**
      * Ajax for checking youtube url
      *
      * @return void Prints json data
