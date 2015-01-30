@@ -3,13 +3,11 @@
 /**
 * Class for importing cyclone-slider.zip
 */
-class CycloneSlider_Importer {
+class CycloneSlider_Importer extends CycloneSlider_Base {
 	protected $log_results; // Hold results of import operations
 	protected $log_count;
-	protected $plugin;
 	
-	public function run( $plugin ) {
-		$this->plugin = $plugin;
+	public function run() {
 		
 		$this->log_results = array(
 			'oks'=>array(),

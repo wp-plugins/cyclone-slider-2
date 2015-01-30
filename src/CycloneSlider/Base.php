@@ -2,7 +2,7 @@
 abstract class CycloneSlider_Base {
     protected $plugin;
     
-    public function run( $plugin ) {
+    final public function inject( $plugin ) {
         $this->plugin = $plugin;
     }
 }

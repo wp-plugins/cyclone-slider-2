@@ -103,6 +103,9 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 == Changelog ==
 
+= 2.9.7 - 2015-01-30 =
+* Fix nextgen gallery integration
+
 = 2.9.6 - 2015-01-12 =
 * Fix template Thumbnail thumb images not working when resize is false.
 * Fix missing alt attribute in slide images for Standard template.

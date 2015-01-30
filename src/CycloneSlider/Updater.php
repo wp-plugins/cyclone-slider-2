@@ -9,7 +9,7 @@ class CycloneSlider_Updater extends CycloneSlider_Base {
     private $current_version; // Current plugin version to check against
     private $info_url; // URL to API endpoint that returns latest plugin version + plugin info
     
-    public function bootstrap(){
+    public function run(){
         $this->settings_data = $this->plugin['settings_page']->get_settings_data();
         
         $this->plugin_slug = $this->plugin['slug'];

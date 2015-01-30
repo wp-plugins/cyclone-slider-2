@@ -7,7 +7,7 @@ class CycloneSlider_Widgets extends CycloneSlider_Base {
     /**
      * Initialize
      */
-    public function bootstrap() {
+    public function run() {
         add_action('widgets_init', array( $this, 'register_widgets') );
     }
     

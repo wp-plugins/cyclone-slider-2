@@ -7,9 +7,7 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
     public $slider_count;
     protected $message_id;
     
-    
-    public function bootstrap() {
-        
+    public function run() {
         
         // Set defaults
         $this->slider_count = 0;
@@ -56,7 +54,7 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
         add_action( 'wp_ajax_cycloneslider_get_video', array( $this, 'cycloneslider_get_video' ) );
         
         
-    } // end constructor
+    }
     
     /**
      * Add js and css for WP media manager.
@@ -139,9 +137,7 @@ class CycloneSlider_Admin extends CycloneSlider_Base {
             7  => __( 'Slideshow saved.', $this->plugin['textdomain'] ),
             8  => __( 'Slideshow updated.', $this->plugin['textdomain'] ),
             9  => __( 'Slideshow updated.', $this->plugin['textdomain'] ),
-            10 => __( 'Slideshow updated.', $this->plugin['textdomain'] ),
-            101 => sprintf( __( 'Templates CSS could not be saved. Make sure %stemplates.css is writable.', $this->plugin['textdomain'] ), $this->plugin['path'].'css'.DIRECTORY_SEPARATOR),
-            102 => sprintf( __( 'Templates JS could not be saved. Make sure %stemplates.js is writable.', $this->plugin['textdomain'] ), $this->plugin['path'].'js'.DIRECTORY_SEPARATOR)
+            10 => __( 'Slideshow updated.', $this->plugin['textdomain'] )
         );
         return $messages;
     }

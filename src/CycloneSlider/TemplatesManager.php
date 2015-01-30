@@ -13,7 +13,7 @@ class CycloneSlider_TemplatesManager extends CycloneSlider_Base {
 		$this->template_locations = array();
 	}
 	
-	public function bootstrap(){
+	public function run(){
 		$this->set_template_locations( $this->plugin['templates_locations'] );
 	}
 	
