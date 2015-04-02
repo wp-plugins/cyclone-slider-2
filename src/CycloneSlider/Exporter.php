@@ -2,9 +2,21 @@
 /**
 * Class for exporting cyclone-slider.zip
 */
-class CycloneSlider_Exporter extends CycloneSlider_Base {
+class CycloneSlider_Exporter {
 	protected $log_results; // Hold results of import operations
 	protected $log_count;
+	
+	protected $data;
+	protected $zip_archive;
+	protected $export_json_file;
+	protected $textdomain;
+	
+	public function __construct( $data, $zip_archive, $export_json_file, $textdomain ){
+		$this->data = $data;
+		$this->zip_archive = $zip_archive;
+		$this->export_json_file = $export_json_file;
+		$this->textdomain = $textdomain;
+	}
 	
 	public function run() {
 		
@@ -31,54 +43,40 @@ class CycloneSlider_Exporter extends CycloneSlider_Base {
 	*
 	* @param string $zip_file Full path and filename to zip file
 	* @param array $sliders_slugs_array Array of slider slugs to export
-	* @return void|false Do export or abort and return false on fail
+	* @return void|Exception Do export or throw exception on failure
 	*/
 	public function export( $zip_file, array $sliders_slugs_array ) {
 		
 		// Check selected sliders
 		if( empty($sliders_slugs_array) ){
-			$this->add_error( 'Error no sliders selected' );
-			return false;
+			throw new Exception( __('Error no sliders selected.', $this->textdomain), 1);
 		}
 		
 		// Generate sliders export data
-		if( ($sliders_export_data = $this->generate_sliders_export_data( $sliders_slugs_array )) === false ){
-			$this->add_error( 'Error generating sliders export data' );
-			return false;
-		}
+		$sliders_export_data = $this->generate_sliders_export_data( $sliders_slugs_array );
 		
 		// Generate images lists
-		if( ($images_list = $this->generate_images_list( $sliders_slugs_array )) === false ){
-			$this->add_error( 'Error generating images list' );
-			return false;
-		}
+		$images_list = $this->generate_images_list( $sliders_export_data );
 
 		// Generate images export data
-		if( ($images_export_data = $this->generate_images_export_data( $sliders_slugs_array )) === false ){
-			$this->add_error( 'Error generating images export data' );
-			return false;
-		}
+		$images_export_data = $this->generate_images_export_data( $images_list );
 		
 		// Combine
 		$export_data = array(
 			'sliders' => $sliders_export_data,
 			'images' => $images_export_data
 		);
-		$this->add_ok( 'Success generating export data' );
 		
 		// Generate JSON
-		if( ($export_json = $this->generate_json_data( $export_data )) === false ){
-			$this->add_error( 'Error generating JSON data' );
-			return false;
+		$export_json = json_encode( $export_data );
+		if( false === $export_json ){
+			throw new Exception( __('Error encoding data to JSON.', $this->textdomain), 1);
 		}
-		$this->add_ok( 'Success converting export data to JSON' );
 		
 		// Generate Zip
-		if( $this->generate_export_zip( $zip_file, $images_list, $export_json ) === false ){
-			$this->add_error( 'Error generating zip file' );
-			return false;
-		}
-		$this->add_ok( 'Success generating zip file' );
+		$this->generate_export_zip( $zip_file, $images_list, $export_json );
+		
+		$this->add_ok( sprintf( __('Success generating zip %s.', $this->textdomain), wp_basename($zip_file) ) );
 		
 		return true;
 	}
@@ -93,110 +91,73 @@ class CycloneSlider_Exporter extends CycloneSlider_Base {
 	*/
 	private function generate_sliders_export_data( array $sliders_slugs_array ) {
 		
-		if( !empty( $sliders_slugs_array ) ){
-			$sliders_export_data = array();
-			foreach( $sliders_slugs_array as $i=>$slider_slug){
-
-				$slider = $this->plugin['data']->get_slider_by_slug( $slider_slug );
-				
-				if($slider){
-					$sliders_export_data[$i] = array(
-						'title' => $slider['post_title'],
-						'name' => $slider['post_name'],
-						'slider_settings' => $slider['slider_settings'],
-						'slides' => $slider['slides']
-					);
-					$this->add_ok( sprintf('Exporting data for slider "%s"', $slider_slug) );
-				} else {
-					$this->add_error( sprintf('Slider "%s" not found', $slider_slug) );
-				}
-				
-			}
-			return $sliders_export_data;
-		}
+		$sliders_export_data = array();
 		
-		return false;
+		foreach( $sliders_slugs_array as $i=>$slider_slug){
+
+			$slider = $this->data->get_slider_by_slug( $slider_slug );
+			
+			if($slider){
+				$sliders_export_data[$i] = array(
+					'title' => $slider['post_title'],
+					'name' => $slider['post_name'],
+					'slider_settings' => $slider['slider_settings'],
+					'slides' => $slider['slides']
+				);
+				$this->add_ok( sprintf( __('Exporting data for slider "%s".', $this->textdomain), $slider_slug) );
+			} else {
+				throw new Exception( sprintf( __('Slider "%s" not found.', $this->textdomain), $slider_slug), 3);
+			}
+		}
+		return $sliders_export_data;
 	}
 	
 	/**
-	* Generate Images List
 	*
-	* Generate image array for slider images
+	* Generate image list array containing full file path to images
 	*
-	* @param array $sliders_slugs_array Array of slider slugs to export
-	* @return array|false Export data array or false on fail
+	* @param array $sliders_export_data Array of slider slugs to export
+	* @return array|Exception Image list array or throws Exception on error
 	*/
-	private function generate_images_list( array $sliders_slugs_array ) {
+	private function generate_images_list( array $sliders_export_data ) {
+
+		$images_list = array();
 		
-		if( !empty( $sliders_slugs_array ) ){
+		foreach( $sliders_export_data as $slider){
 			
-			$images_list = array();
-			
-			foreach( $sliders_slugs_array as $slider_slug){
-				$slider = $this->plugin['data']->get_slider_by_slug( $slider_slug );
-				if($slider){
-					if(isset($slider['slides'])){
-						foreach($slider['slides'] as $i=>$slide){
-							$images_list[$slider['post_name']][$i] = get_attached_file( $slide['id'] ); // Filename of image
-						}
+			foreach( $slider['slides'] as $i => $slide ){
+				if( $slide['id'] > 0 ){
+					$file = get_attached_file( $slide['id'] ); // Filename of image
+					if( is_file( $file ) ){ // Check existence
+						$images_list[ $slider['name'] ][ $i ] = $file;
+					} else {
+						throw new Exception( sprintf( __('Image %1$d was not found on slide %2$d of slider %3$s. Path to image is %4$s.', $this->textdomain ), $slide['id'], (int)$i+1, $slider['name'], $file ), 4 );
 					}
 				}
 			}
 			
-			return $images_list;
 		}
 		
-		return false;
+		return $images_list;
+		
 	}
 	
 	/**
-	* Generate Images Export Data
-	*
 	* Generate export data array for slider images
 	*
-	* @param array $sliders_slugs_array Array of slider slugs to export
-	* @return array|false Export data array or false on fail
+	* @param array $images_list Array of slider images
+	* @return array Export data of images 
 	*/
-	private function generate_images_export_data( array $sliders_slugs_array ) {
+	private function generate_images_export_data( array $images_list ) {
 		
-		if( !empty( $sliders_slugs_array ) ){
-			$images_export_data = array();
-			foreach( $sliders_slugs_array as $slider_slug){
-
-				$slider = $this->plugin['data']->get_slider_by_slug( $slider_slug );
-				
-				if($slider){
-					if(isset($slider['slides'])){
-						foreach($slider['slides'] as $i=>$slide){
-							$images_export_data[$slider['post_name']][$i] = sanitize_file_name( wp_basename( get_attached_file( $slide['id'] ) ) ); // Filename of image
-						}
-					}
-				}
-			}
-			return $images_export_data;
-		}
-		
-		return false;
-	}
-			
-	/**
-	* Generate JSON Data
-	*
-	* Generate json data
-	*
-	* @param array $export_data Array of export data
-	* @return string|false JSON data or false on fail
-	*/
-	private function generate_json_data( array $export_data ) {
-		
-		if($export_data){
-			// JSON encode
-			if( $export_json = json_encode($export_data) ){
-				return $export_json;
+		$images_export_data = array();
+		foreach( $images_list as $slider_name => $slider ){
+			foreach($slider as $i => $slide_image ){
+				$images_export_data[ $slider_name ][ $i ] = wp_basename( $slide_image ); // Remove full path and retain only the file name
 			}
 		}
+		return $images_export_data;
 		
-		return false;
 	}
 	
 	/**
@@ -207,36 +168,37 @@ class CycloneSlider_Exporter extends CycloneSlider_Base {
 	* @param string $zip_file Zip file to save
 	* @param array $images_list Array of image file paths to include in the zip
 	* @param string $export_json JSON string to save
-	* @return string|false JSON data or false on fail
+	* @return string|Exception Path to zip file or Exception on fail
 	*/
 	private function generate_export_zip( $zip_file, array $images_list, $export_json ) {     
 
 		if( !class_exists('ZipArchive') ) {
-			$this->add_error( 'ZipArchive not supported' );
-			return false;
+			throw new Exception( __( 'ZipArchive not supported.', $this->textdomain ) );
 		}
-		$zip = new ZipArchive();
+		$zip = new $this->zip_archive;
 
-		if ($zip->open($zip_file, ZIPARCHIVE::OVERWRITE)!==TRUE) {
-			$this->add_error( 'Error opening zip file' );
-			return false;
+		if ( true !== $zip->open($zip_file, ZIPARCHIVE::OVERWRITE) ) {
+			throw new Exception( __( 'Error opening zip file.', $this->textdomain ) );
 		}
-	   
+		
 		// Add slide images
 		foreach($images_list as $a=>$sliders) {
 			foreach($sliders as $b=>$image_file){
 				if(!empty($image_file)){ // Non image slides
 					$filename = sanitize_file_name( wp_basename( $image_file ) );
 					if( $zip->addFile( $image_file, $filename ) === false ){
-						$this->add_error( sprintf( 'Error adding file %s to zip', $filename ) );
+						throw new Exception( sprintf( __( 'Error adding file %s to zip.', $this->textdomain ), $image_file ) );
+					} else {
+						$this->add_ok( sprintf( __('File %s added to zip.', $this->textdomain), wp_basename($image_file) ) );
 					}
 				}
 			}
 		}
 		
 		// Add json file
-		$zip->addFromString("export.json", $export_json );
-
+		$zip->addFromString($this->export_json_file, $export_json );
+		$this->add_ok( sprintf( __('File %s added to zip.', $this->textdomain ), $this->export_json_file) );
+		
 		$zip->close();
 		return $zip_file;
 	}

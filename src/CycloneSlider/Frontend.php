@@ -1,6 +1,19 @@
 <?php
-class CycloneSlider_Frontend extends CycloneSlider_Base {
+class CycloneSlider_Frontend {
+    protected $data;
+    protected $image_sizes;
+    protected $youtube;
+    protected $vimeo;
+    protected $view;
     public $slider_count;
+    
+    public function __construct( $data, $image_sizes, $youtube, $vimeo, $view ){
+        $this->data = $data;
+        $this->image_sizes = $image_sizes;
+        $this->youtube = $youtube;
+        $this->vimeo = $vimeo;
+        $this->view = $view;
+    }
     
     public function run() {
         
@@ -52,7 +65,7 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         );
         
         $slider_slug = $shortcode_settings['id']; // Slideshow slug passed from shortcode
-        $slider = $this->plugin['data']->get_slider_by_slug( $slider_slug ); // Get slider by slug
+        $slider = $this->data->get_slider_by_slug( $slider_slug ); // Get slider by slug
         
         // Abort if slider not found!
         if( $slider === false ){
@@ -68,14 +81,14 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         $slides = isset($slider['slides']) ? $slider['slides'] : array(); // Assign slides
         
         $template_name = $admin_settings['template'];
-        $view_file = $this->plugin['data']->get_view_file( $template_name );
+        $view_file = $this->data->get_view_file( $template_name );
         
         
         if( $view_file === false ){ // Abort if template not found!
             return sprintf(__('[Template "%s" not found]', 'cycloneslider'), $template_name);
         }
         
-        $slider_settings = $this->plugin['data']->combine_slider_settings( $admin_settings, $shortcode_settings );
+        $slider_settings = $this->data->combine_slider_settings( $admin_settings, $shortcode_settings );
         
         $image_count = 0; // Number of image slides
         $video_count = 0; // Number of video slides
@@ -83,23 +96,29 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         $youtube_count = 0; // Number of youtube slides
         $vimeo_count = 0; // Number of Vimeo slides
         
+        foreach($slides as $i=>$slide){
+            if($slides[$i]['hidden']){
+                unset($slides[$i]);
+            }
+        }
         // Do some last minute logic
         // Translations and counters
         foreach($slides as $i=>$slide){
+            
             $slides[$i]['title'] = __($slide['title']); // Needed by some translation plugins to work
             $slides[$i]['description'] = __($slide['description']); // Needed by some translation plugins to work
-            $slides[$i]['slide_data_attributes'] = $this->plugin['data']->slide_data_attributes( $slide, $slider_settings );
+            $slides[$i]['slide_data_attributes'] = $this->data->slide_data_attributes( $slide, $slider_settings );
             
             if($slides[$i]['type']=='image'){
                 
                 list($full_image_url, $orig_width, $orig_height) = wp_get_attachment_image_src($slide['id'], 'full');
                 
                 $slides[$i]['full_image_url'] = $full_image_url;
-                $slides[$i]['image_url'] = $this->plugin['data']->get_slide_image_url( $slide['id'], $slider_settings );
+                $slides[$i]['image_url'] = $this->data->get_slide_image_url( $slide['id'], $slider_settings );
                 
                 $slides[$i]['image_thumbnails'] = array();
-                foreach($this->plugin['image_sizes'] as $key=>$size){
-                    $slides[$i]['image_thumbnails'][$key] = $this->plugin['data']->get_slide_thumbnail_url( $slide['id'], $size['width'], $size['height'], $slider_settings['resize'] );
+                foreach($this->image_sizes as $key=>$size){
+                    $slides[$i]['image_thumbnails'][$key] = $this->data->get_slide_thumbnail_url( $slide['id'], $size['width'], $size['height'], $slider_settings['resize'] );
                 }
                 
                 $image_count++;
@@ -109,7 +128,7 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
                 $custom_count++;
             } else if($slides[$i]['type']=='youtube'){
                 $youtube_count++;
-                $youtube_id = $this->plugin['youtube']->get_youtube_id($slides[$i]['youtube_url']);
+                $youtube_id = $this->youtube->get_youtube_id($slides[$i]['youtube_url']);
                 
                 $youtube_related = '';
                 if( 'true' == $slides[$i]['youtube_related'] ) {
@@ -118,15 +137,15 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
                 
                 $slides[$i]['youtube_embed_code'] = '<iframe id="'.$slider_html_id.'-iframe-'.$i.'" width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="//www.youtube.com/embed/'.$youtube_id.'?wmode=transparent'.$youtube_related.'" frameborder="0" allowfullscreen></iframe>';
                 $slides[$i]['youtube_id'] = $youtube_id;
-                $slides[$i]['thumbnail_small'] = $this->plugin['youtube']->get_youtube_thumb($youtube_id);
+                $slides[$i]['thumbnail_small'] = $this->youtube->get_youtube_thumb($youtube_id);
                 
             } else if($slides[$i]['type']=='vimeo'){
                 $vimeo_count++;
-                $vimeo_id = $this->plugin['vimeo']->get_vimeo_id($slides[$i]['vimeo_url']);
+                $vimeo_id = $this->vimeo->get_vimeo_id($slides[$i]['vimeo_url']);
                 
                 $slides[$i]['vimeo_embed_code'] = '<iframe id="'.$slider_html_id.'-iframe-'.$i.'" width="'.$slider_settings['width'].'" height="'.$slider_settings['height'].'" src="http://player.vimeo.com/video/'.$vimeo_id.'?api=1&wmode=transparent" frameborder="0"  webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
                 $slides[$i]['vimeo_id'] = $vimeo_id;
-                $slides[$i]['thumbnail_small'] = $this->plugin['vimeo']->get_vimeo_thumb($vimeo_id);
+                $slides[$i]['thumbnail_small'] = $this->vimeo->get_vimeo_thumb($vimeo_id);
             }
         }
         
@@ -161,15 +180,15 @@ class CycloneSlider_Frontend extends CycloneSlider_Base {
         $vars['slider_settings'] = $slider_settings;
         
         
-        $current_view_folder = $this->plugin['view']->get_view_folder(); // Back it up
+        $current_view_folder = $this->view->get_view_folder(); // Back it up
         
-        $this->plugin['view']->set_view_folder( dirname( $view_file ) ); // Set to template folder
-        $slider_html = $this->plugin['view']->get_render( basename($view_file), $vars );
+        $this->view->set_view_folder( dirname( $view_file ) ); // Set to template folder
+        $slider_html = $this->view->get_render( basename($view_file), $vars );
         
-        $this->plugin['view']->set_view_folder( $current_view_folder ); // Restore
+        $this->view->set_view_folder( $current_view_folder ); // Restore
         
         // Remove whitespace to prevent WP from adding rogue paragraphs
-        $slider_html = $this->plugin['data']->trim_white_spaces( $slider_html );
+        $slider_html = $this->data->trim_white_spaces( $slider_html );
         
         // Return HTML
         return $slider_html;

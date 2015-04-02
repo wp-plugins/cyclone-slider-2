@@ -2,7 +2,7 @@
 /**
 * Class for initializing widgets
 */
-class CycloneSlider_Widgets extends CycloneSlider_Base {
+class CycloneSlider_Widgets {
 
     /**
      * Initialize
@@ -18,4 +18,4 @@ class CycloneSlider_Widgets extends CycloneSlider_Base {
         register_widget('CycloneSlider_WidgetSlider');
     }
     
-} // end class
+}

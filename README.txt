@@ -103,6 +103,11 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 
 == Changelog ==
 
+= 2.10.0 =
+* New. Added ability to enable/disable slide.
+* New. Added ability to import and export sliders.
+* Change. Major refactoring. Code now using service definitions.
+
 = 2.9.7 - 2015-01-30 =
 * Fix nextgen gallery integration
 

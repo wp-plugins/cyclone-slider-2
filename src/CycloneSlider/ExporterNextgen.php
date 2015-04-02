@@ -1,8 +1,8 @@
 <?php
 /**
-* Class for NextGEN integration. Allows import of images from a gallery as new slides.
+* Class for NextGEN export
 */
-class CycloneSlider_NextgenIntegration {
+class CycloneSlider_ExporterNextgen {
 	
 	protected $data;
 	
@@ -15,7 +15,7 @@ class CycloneSlider_NextgenIntegration {
 	/**
 	* Boot 
 	*/
-	function run() {
+	function run2() {
 		
 		// Add metaboxes
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 100 );

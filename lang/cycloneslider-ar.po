@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-19 17:56+0800\n"
-"PO-Revision-Date: 2014-12-19 17:56+0800\n"
+"POT-Creation-Date: 2015-03-15 13:42+0800\n"
+"PO-Revision-Date: 2015-03-15 13:43+0800\n"
 "Last-Translator: Nico Amarilla <kosinix@codefleet.net>\n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "Language: en_US\n"
@@ -18,218 +18,216 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../cyclone-slider.php:91
+#: ../cyclone-slider.php:104
 msgid "Cyclone Slider Settings"
 msgstr "إعدادات عرض الشرائح"
 
-#: ../cyclone-slider.php:92
+#: ../cyclone-slider.php:105
 msgid "Settings"
 msgstr "إعدادات"
 
-#: ../src/CycloneSlider/Admin.php:80
+#: ../src/CycloneSlider/Admin.php:97
 msgid "Cyclone Slider"
 msgstr "عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:81
+#: ../src/CycloneSlider/Admin.php:98
 msgid "Slideshow"
 msgstr "عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:82
+#: ../src/CycloneSlider/Admin.php:99
 msgid "Add Slideshow"
 msgstr "أضف عرض شرائح"
 
-#: ../src/CycloneSlider/Admin.php:83
+#: ../src/CycloneSlider/Admin.php:100
 msgid "Add New Slideshow"
 msgstr "أضف عرض شرائح جديد"
 
-#: ../src/CycloneSlider/Admin.php:84
+#: ../src/CycloneSlider/Admin.php:101
 msgid "Edit Slideshow"
 msgstr "تحرير عرض شرائح"
 
-#: ../src/CycloneSlider/Admin.php:85
+#: ../src/CycloneSlider/Admin.php:102
 msgid "New Slideshow"
 msgstr "عرض شرائح جديد"
 
-#: ../src/CycloneSlider/Admin.php:86
+#: ../src/CycloneSlider/Admin.php:103
 msgid "View Slideshow"
 msgstr "إظهار عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:87
+#: ../src/CycloneSlider/Admin.php:104
 msgid "Search Slideshows"
 msgstr "البحث في عروض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:88
+#: ../src/CycloneSlider/Admin.php:105
 msgid "No slideshows found"
 msgstr "لم يتم إيجاد عروض شرائح"
 
-#: ../src/CycloneSlider/Admin.php:89
+#: ../src/CycloneSlider/Admin.php:106
 msgid "No slideshows found in Trash"
 msgstr "لم يتم إيجاد عروض شرائح في المهملات"
 
-#: ../src/CycloneSlider/Admin.php:133 ../src/CycloneSlider/Admin.php:136
-#: ../src/CycloneSlider/Admin.php:137 ../src/CycloneSlider/Admin.php:140
-#: ../src/CycloneSlider/Admin.php:141 ../src/CycloneSlider/Admin.php:142
+#: ../src/CycloneSlider/Admin.php:150 ../src/CycloneSlider/Admin.php:153
+#: ../src/CycloneSlider/Admin.php:154 ../src/CycloneSlider/Admin.php:157
+#: ../src/CycloneSlider/Admin.php:158 ../src/CycloneSlider/Admin.php:159
 msgid "Slideshow updated."
 msgstr "تم تحديث عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:134
+#: ../src/CycloneSlider/Admin.php:151
 msgid "Custom field updated."
 msgstr "تم تحديث الحقل المخصوص."
 
-#: ../src/CycloneSlider/Admin.php:135
+#: ../src/CycloneSlider/Admin.php:152
 msgid "Custom field deleted."
 msgstr "تم حذف الحقل المخصوص."
 
-#: ../src/CycloneSlider/Admin.php:138
+#: ../src/CycloneSlider/Admin.php:155
 msgid "Slideshow published."
 msgstr "تم نشر عرض الشرائح."
 
-#: ../src/CycloneSlider/Admin.php:139
+#: ../src/CycloneSlider/Admin.php:156
 msgid "Slideshow saved."
 msgstr "تم حفظ عرض الشرائح."
 
-#: ../src/CycloneSlider/Admin.php:143
-#, php-format
-msgid ""
-"Templates CSS could not be saved. Make sure %stemplates.css is writable."
-msgstr ""
-"تعذر حفظ كود CSS الخاص بالقالب. الرجاء التأكد من أن %stemplates.css قابل "
-"للتعديل."
-
-#: ../src/CycloneSlider/Admin.php:144
-#, php-format
-msgid "Templates JS could not be saved. Make sure %stemplates.js is writable."
-msgstr ""
-"تعذر حفظ كود JS الخاص بالقالب. الرجاء التأكد من أن %stemplates.js قابل "
-"للتعديل."
-
-#: ../src/CycloneSlider/Admin.php:178
+#: ../src/CycloneSlider/Admin.php:193
 msgid "Slides"
 msgstr "شرائح"
 
-#: ../src/CycloneSlider/Admin.php:187
+#: ../src/CycloneSlider/Admin.php:202
 msgid "Slider Preview"
 msgstr "معاينة شريط التمرير"
 
-#: ../src/CycloneSlider/Admin.php:196
+#: ../src/CycloneSlider/Admin.php:211
 msgid "Get Slider Codes"
 msgstr "احصل على أكواد عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:205
+#: ../src/CycloneSlider/Admin.php:220
 msgid "Basic Settings"
 msgstr "الإعدادات الأساسية"
 
-#: ../src/CycloneSlider/Admin.php:214
+#: ../src/CycloneSlider/Admin.php:229
 msgid "Advanced Settings"
 msgstr "إعدادات متقدمة"
 
-#: ../src/CycloneSlider/Admin.php:223
+#: ../src/CycloneSlider/Admin.php:238
 msgid "Templates"
 msgstr "قوالب"
 
-#: ../src/CycloneSlider/Admin.php:232 ../src/CycloneSlider/Admin.php:492
+#: ../src/CycloneSlider/Admin.php:247 ../src/CycloneSlider/Admin.php:512
 msgid "Slideshow ID"
 msgstr "رقم عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:258
+#: ../src/CycloneSlider/Admin.php:273
 msgid "Slide"
 msgstr "شريحة"
 
-#: ../src/CycloneSlider/Admin.php:381
+#: ../src/CycloneSlider/Admin.php:278
+msgid "[Hidden]"
+msgstr ""
+
+#: ../src/CycloneSlider/Admin.php:401
 msgid "Core"
 msgstr ""
 
-#: ../src/CycloneSlider/Admin.php:382
+#: ../src/CycloneSlider/Admin.php:402
 #, php-format
 msgid "Located inside the plugin directory:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../src/CycloneSlider/Admin.php:386
+#: ../src/CycloneSlider/Admin.php:406
 #, php-format
 msgid "Located inside your currently active theme:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../src/CycloneSlider/Admin.php:387
+#: ../src/CycloneSlider/Admin.php:407
 #, php-format
 msgid ""
 "Your template is in danger of being overwritten when you upgrade your theme. "
 "Please move it inside %s."
 msgstr ""
 
-#: ../src/CycloneSlider/Admin.php:391
+#: ../src/CycloneSlider/Admin.php:411
 #, php-format
 msgid "Located inside wp-content directory:<br> <strong>%s</strong>"
 msgstr ""
 
-#: ../src/CycloneSlider/Admin.php:428
+#: ../src/CycloneSlider/Admin.php:448
 msgid "Slide *"
 msgstr "شريحة *"
 
-#: ../src/CycloneSlider/Admin.php:489
+#: ../src/CycloneSlider/Admin.php:509
 msgid "Slideshow Name"
 msgstr "اسم عرض الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:490
+#: ../src/CycloneSlider/Admin.php:510
 msgid "Template"
 msgstr "قالب"
 
-#: ../src/CycloneSlider/Admin.php:491
+#: ../src/CycloneSlider/Admin.php:511
 msgid "No. of Slides"
 msgstr "عدد الشرائح"
 
-#: ../src/CycloneSlider/Admin.php:493
+#: ../src/CycloneSlider/Admin.php:513
 msgid "Shortcode"
 msgstr "كود قصير"
 
-#: ../src/CycloneSlider/AssetLoader.php:53
+#: ../src/CycloneSlider/AssetLoader.php:59
 msgid "Select an image"
 msgstr "اختر صورة"
 
-#: ../src/CycloneSlider/AssetLoader.php:54
+#: ../src/CycloneSlider/AssetLoader.php:60
 msgid "Select Images - Use Ctrl + Click or Shift + Click"
 msgstr ""
 
-#: ../src/CycloneSlider/AssetLoader.php:55
+#: ../src/CycloneSlider/AssetLoader.php:61
 msgid "Add to Slide"
 msgstr "أضف إلى شريحة"
 
-#: ../src/CycloneSlider/AssetLoader.php:56 ../views/slides.php:9
+#: ../src/CycloneSlider/AssetLoader.php:62 ../views/slides.php:9
 #, fuzzy
 msgid "Add Images as Slides"
 msgstr "أضف عرض شرائح جديد"
 
-#: ../src/CycloneSlider/AssetLoader.php:57
+#: ../src/CycloneSlider/AssetLoader.php:63
 msgid "Error. Make sure its a valid YouTube URL."
 msgstr "خطأ. تأكد من والخمسين URL يوتيوب صالحة."
 
-#: ../src/CycloneSlider/Frontend.php:59
+#: ../src/CycloneSlider/ExportPage.php:36
+msgid "Export settings cleared."
+msgstr ""
+
+#: ../src/CycloneSlider/ExportPage.php:42
+#, fuzzy
+msgid "No sliders selected."
+msgstr "لم يتم العثور على عروض شرائح."
+
+#: ../src/CycloneSlider/Frontend.php:72
 #, php-format
 msgid "[Slideshow \"%s\" not found]"
 msgstr "[عرض الشرائح \"%s\" لم يتم العثور عليه]"
 
-#: ../src/CycloneSlider/Frontend.php:74
+#: ../src/CycloneSlider/Frontend.php:88
 #, php-format
 msgid "[Template \"%s\" not found]"
 msgstr "[القالب \"%s\" لم يتم العثور عليه]"
 
-#: ../src/CycloneSlider/NextgenIntegration.php:34
+#: ../src/CycloneSlider/NextgenIntegration.php:39
 msgid "NextGEN Integration"
 msgstr "الدمج مع NextGEN"
 
-#: ../src/CycloneSlider/NextgenIntegration.php:50
+#: ../src/CycloneSlider/NextgenIntegration.php:55
 msgid "Choose a NextGEN Gallery"
 msgstr "اختر معرض NextGEN "
 
-#: ../src/CycloneSlider/NextgenIntegration.php:60
+#: ../src/CycloneSlider/NextgenIntegration.php:65
 msgid "Import"
 msgstr "استيراد"
 
-#: ../src/CycloneSlider/NextgenIntegration.php:62
+#: ../src/CycloneSlider/NextgenIntegration.php:67
 msgid ""
 "Select a gallery to import images from. Images will be added as new slides."
 msgstr "اختر معرضا لاستيراد الصور منه. سيتم إضافة الصور كشرائح جديدة."
 
-#: ../src/CycloneSlider/SettingsPage.php:74
+#: ../src/CycloneSlider/SettingsPage.php:54
 msgid "Default options restored."
 msgstr "تم استعادة الخيارات الإفتراضية."
 
@@ -242,7 +240,7 @@ msgstr "مربع عرض الشرائح الجانبي"
 msgid "Widget for displaying sliders."
 msgstr "مربع جانبي لإظهار عروض الشرائح."
 
-#: ../src/CycloneSlider/WidgetSlider.php:65 ../views/slide-edit.php:49
+#: ../src/CycloneSlider/WidgetSlider.php:65 ../views/slide-edit.php:54
 msgid "Title:"
 msgstr "العنوان:"
 
@@ -362,7 +360,7 @@ msgstr "يوتيوب"
 msgid "Vimeo"
 msgstr "فيميو"
 
-#: ../views/slide-edit.php:29 ../views/slide-edit.php:173
+#: ../views/slide-edit.php:29 ../views/slide-edit.php:178
 msgid "Custom HTML"
 msgstr "كود HTML مخصوص"
 
@@ -370,136 +368,140 @@ msgstr "كود HTML مخصوص"
 msgid "Testimonial"
 msgstr ""
 
-#: ../views/slide-edit.php:42
+#: ../views/slide-edit.php:35
+msgid "Hide"
+msgstr ""
+
+#: ../views/slide-edit.php:47
 msgid "Get Image"
 msgstr "الحصول على صورة"
 
-#: ../views/slide-edit.php:46
+#: ../views/slide-edit.php:51
 msgid "Caption"
 msgstr "عنوان فرعي"
 
-#: ../views/slide-edit.php:53
+#: ../views/slide-edit.php:58
 msgid "Description:"
 msgstr "الوصف:"
 
-#: ../views/slide-edit.php:59 ../views/slide-edit.php:196
+#: ../views/slide-edit.php:64 ../views/slide-edit.php:201
 msgid "Link"
 msgstr "رابط"
 
-#: ../views/slide-edit.php:62 ../views/slide-edit.php:199
+#: ../views/slide-edit.php:67 ../views/slide-edit.php:204
 msgid "Link URL:"
 msgstr "عنوان الرابط:"
 
-#: ../views/slide-edit.php:66 ../views/slide-edit.php:203
+#: ../views/slide-edit.php:71 ../views/slide-edit.php:208
 msgid "Open Link in:"
 msgstr "قم بفتح الرابط في:"
 
-#: ../views/slide-edit.php:68 ../views/slide-edit.php:205
+#: ../views/slide-edit.php:73 ../views/slide-edit.php:210
 msgid "Same Window"
 msgstr "نفس النافذة"
 
-#: ../views/slide-edit.php:69 ../views/slide-edit.php:206
+#: ../views/slide-edit.php:74 ../views/slide-edit.php:211
 msgid "New Tab or Window"
 msgstr "تبويبة أو نافذة جديدة"
 
-#: ../views/slide-edit.php:75
+#: ../views/slide-edit.php:80
 msgid "Image Attributes"
 msgstr "سمات الصورة"
 
-#: ../views/slide-edit.php:78
+#: ../views/slide-edit.php:83
 msgid "Alternate Text:"
 msgstr "النص البديل:"
 
-#: ../views/slide-edit.php:82
+#: ../views/slide-edit.php:87
 msgid "Title Text:"
 msgstr "نص العنوان:"
 
-#: ../views/slide-edit.php:88
+#: ../views/slide-edit.php:93
 msgid "Slide Transition Effects"
 msgstr "مؤثرات انتقال الشريحة"
 
-#: ../views/slide-edit.php:92
+#: ../views/slide-edit.php:97
 msgid "Disable"
 msgstr "تعطيل"
 
-#: ../views/slide-edit.php:93
+#: ../views/slide-edit.php:98
 msgid "Enable Slide Effects"
 msgstr "تفعيل مؤثرات الشريحة"
 
-#: ../views/slide-edit.php:99
+#: ../views/slide-edit.php:104
 msgid "Transition Effects:"
 msgstr "مؤثرات الانتقال:"
 
-#: ../views/slide-edit.php:110 ../views/slider-properties.php:32
+#: ../views/slide-edit.php:115 ../views/slider-settings.php:32
 msgid "Transition Effects Speed:"
 msgstr "سرعة مؤثرات الانتقال:"
 
-#: ../views/slide-edit.php:112 ../views/slide-edit.php:119
-#: ../views/slider-properties.php:34
+#: ../views/slide-edit.php:117 ../views/slide-edit.php:124
+#: ../views/slider-settings.php:34
 msgid "Milliseconds"
 msgstr "ملي ثانية"
 
-#: ../views/slide-edit.php:117 ../views/slider-properties.php:26
+#: ../views/slide-edit.php:122 ../views/slider-settings.php:26
 msgid "Next Slide Delay:"
 msgstr "تأخير الشريحة التالية:"
 
-#: ../views/slide-edit.php:127 ../views/slider-properties.php:13
+#: ../views/slide-edit.php:132 ../views/slider-settings.php:13
 msgid "Tile Count:"
 msgstr "عدد المربعات:"
 
-#: ../views/slide-edit.php:129 ../views/slider-properties.php:15
+#: ../views/slide-edit.php:134 ../views/slider-settings.php:15
 msgid "The number of tiles to use in the transition."
 msgstr "عدد المربعات المستخدمة في الانتقال."
 
-#: ../views/slide-edit.php:133
+#: ../views/slide-edit.php:138
 msgid "Tile Delay:"
 msgstr "تأخير المربعات:"
 
-#: ../views/slide-edit.php:135
+#: ../views/slide-edit.php:140
 msgid "Milliseconds to delay each individual tile transition."
 msgstr "عدد الملي ثانية لتأخير كل مربع منفرد في الانتقال."
 
-#: ../views/slide-edit.php:139 ../views/slider-properties.php:18
+#: ../views/slide-edit.php:144 ../views/slider-settings.php:18
 msgid "Tile Position:"
 msgstr "موضع المربعات:"
 
-#: ../views/slide-edit.php:141 ../views/slider-properties.php:20
+#: ../views/slide-edit.php:146 ../views/slider-settings.php:20
 msgid "Vertical"
 msgstr "عمودي"
 
-#: ../views/slide-edit.php:142 ../views/slider-properties.php:21
+#: ../views/slide-edit.php:147 ../views/slider-settings.php:21
 msgid "Horizontal"
 msgstr "أفقي"
 
-#: ../views/slide-edit.php:154
+#: ../views/slide-edit.php:159
 msgid "YouTube URL:"
 msgstr "يوتيوب URL:"
 
-#: ../views/slide-edit.php:156
+#: ../views/slide-edit.php:161
 msgid "Copy and paste a valid YouTube URL here."
 msgstr "نسخ ولصق URL يوتيوب صالحة هنا."
 
-#: ../views/slide-edit.php:161
+#: ../views/slide-edit.php:166
 msgid "Do not show suggested videos when the video finishes."
 msgstr ""
 
-#: ../views/slide-edit.php:166
+#: ../views/slide-edit.php:171
 msgid "Vimeo URL:"
 msgstr "فيميو URL:"
 
-#: ../views/slide-edit.php:168
+#: ../views/slide-edit.php:173
 msgid "Copy and paste a valid Vimeo URL here."
 msgstr "نسخ ولصق URL فيميو صالحة هنا."
 
-#: ../views/slide-edit.php:181
+#: ../views/slide-edit.php:186
 msgid "Quote"
 msgstr ""
 
-#: ../views/slide-edit.php:187
+#: ../views/slide-edit.php:192
 msgid "Author"
 msgstr ""
 
-#: ../views/slide-edit.php:190
+#: ../views/slide-edit.php:195
 #, fuzzy
 msgid "Name:"
 msgstr "اسم"
@@ -509,16 +511,16 @@ msgid "Allow Wrap?"
 msgstr "تسمح التفاف؟"
 
 #: ../views/slider-advanced-settings.php:6
-#: ../views/slider-advanced-settings.php:44 ../views/slider-properties.php:66
-#: ../views/slider-properties.php:74 ../views/slider-properties.php:82
-#: ../views/slider-properties.php:92 ../views/slider-properties.php:101
+#: ../views/slider-advanced-settings.php:44 ../views/slider-settings.php:67
+#: ../views/slider-settings.php:78 ../views/slider-settings.php:86
+#: ../views/slider-settings.php:94 ../views/slider-settings.php:104
 msgid "Yes"
 msgstr "نعم"
 
 #: ../views/slider-advanced-settings.php:7
-#: ../views/slider-advanced-settings.php:45 ../views/slider-properties.php:67
-#: ../views/slider-properties.php:75 ../views/slider-properties.php:83
-#: ../views/slider-properties.php:91 ../views/slider-properties.php:100
+#: ../views/slider-advanced-settings.php:45 ../views/slider-settings.php:66
+#: ../views/slider-settings.php:79 ../views/slider-settings.php:87
+#: ../views/slider-settings.php:95 ../views/slider-settings.php:103
 msgid "No"
 msgstr "لا"
 
@@ -573,27 +575,23 @@ msgstr "تمكين الدعم لفتة انتقاد للأجهزة التي تع
 msgid "Resize Options:"
 msgstr "تغيير حجم خيارات:"
 
-#: ../views/slider-advanced-settings.php:61
-msgid "Force Resize"
-msgstr "تغيير حجم القوة"
-
-#: ../views/slider-advanced-settings.php:63
+#: ../views/slider-advanced-settings.php:60
 msgid "Auto - Cyclone Slider decides the resize option."
 msgstr "السيارات - المتزلج إعصار يقرر خيار تغيير الحجم."
 
-#: ../views/slider-advanced-settings.php:64
+#: ../views/slider-advanced-settings.php:61
 msgid "Crop - Resize and remove excess parts."
 msgstr "المحاصيل - تغيير حجم وإزالة الأجزاء الزائدة."
 
-#: ../views/slider-advanced-settings.php:65
+#: ../views/slider-advanced-settings.php:62
 msgid "Exact - Resize to exact dimensions."
 msgstr "بالضبط - تغيير حجم إلى الأبعاد الدقيقة."
 
-#: ../views/slider-advanced-settings.php:66
+#: ../views/slider-advanced-settings.php:63
 msgid "Landscape - Resize to exact width."
 msgstr "المشهد - تغيير حجم لعرض بالضبط."
 
-#: ../views/slider-advanced-settings.php:67
+#: ../views/slider-advanced-settings.php:64
 msgid "Portrait - Resize to exact height."
 msgstr "صورة - تغيير حجم لارتفاع بالضبط."
 
@@ -628,43 +626,43 @@ msgstr "قم بتغيير رقم عرض الشرائح هنا."
 msgid "Your preview will appear here."
 msgstr "سوف المعاينة تظهر هنا."
 
-#: ../views/slider-properties.php:4
+#: ../views/slider-settings.php:4
 msgid "Transition Effects to Use:"
 msgstr "مؤثرات الانتقال التي سيتم استخدامها:"
 
-#: ../views/slider-properties.php:28
+#: ../views/slider-settings.php:28
 msgid "Milliseconds. 0 to disable auto advance."
 msgstr "ملي ثانية. 0 لتعطيل التقدم التلقائي."
 
-#: ../views/slider-properties.php:38
+#: ../views/slider-settings.php:38
 msgid "Width:"
 msgstr "عرض:"
 
-#: ../views/slider-properties.php:40 ../views/slider-properties.php:46
+#: ../views/slider-settings.php:40 ../views/slider-settings.php:46
 msgid "pixels."
 msgstr "بكسل."
 
-#: ../views/slider-properties.php:44
+#: ../views/slider-settings.php:44
 msgid "Height:"
 msgstr "ارتفاع:"
 
-#: ../views/slider-properties.php:50
+#: ../views/slider-settings.php:50
 msgid "Width Management:"
 msgstr "إدارة العرض:"
 
-#: ../views/slider-properties.php:52
+#: ../views/slider-settings.php:52
 msgid "Responsive"
 msgstr "متجاوب"
 
-#: ../views/slider-properties.php:53
+#: ../views/slider-settings.php:53
 msgid "Full"
 msgstr "كامل"
 
-#: ../views/slider-properties.php:54
+#: ../views/slider-settings.php:54
 msgid "Fixed"
 msgstr "ثابت"
 
-#: ../views/slider-properties.php:57
+#: ../views/slider-settings.php:57
 msgid ""
 "Responsive - resizes to smaller size but maximum width will be equal to the "
 "provided width."
@@ -672,7 +670,7 @@ msgstr ""
 "استجابة - سوف ريسيزيس إلى حجم أصغر ولكن الحد الأقصى العرض مساويا لعرض "
 "المقدمة."
 
-#: ../views/slider-properties.php:58
+#: ../views/slider-settings.php:58
 msgid ""
 "Full - the same as responsive but maximum width will be equal to its "
 "container ignoring the provided width."
@@ -680,43 +678,48 @@ msgstr ""
 "كامل - نفس العرض استجابة ولكن الحد الأقصى سوف يكون مساويا لالحاوية الخاصة به "
 "تجاهل عرض المقدم."
 
-#: ../views/slider-properties.php:59
+#: ../views/slider-settings.php:59
 msgid "Fixed - width and height are not resized."
 msgstr "ثابت - العرض والارتفاع لا يتم تغيير حجمها."
 
-#: ../views/slider-properties.php:64
-msgid "Pause on Hover?"
-msgstr "إيقاف مؤقت عند المرور بالمؤشر؟"
-
-#: ../views/slider-properties.php:72
-msgid "Show Prev/Next Buttons?"
-msgstr "إظهار أزرار السابق/التالي؟"
-
-#: ../views/slider-properties.php:80
-msgid "Show Navigation?"
-msgstr "إظهار التصفح"
-
-#: ../views/slider-properties.php:85
-msgid "The thumbnails or dots depending on template."
-msgstr "الصور الصغيرة أو النقاط اعتمادا على القالب."
-
-#: ../views/slider-properties.php:89
+#: ../views/slider-settings.php:64
 msgid "Resize Images?"
 msgstr "تغيير حجم الصور؟"
 
-#: ../views/slider-properties.php:94
+#: ../views/slider-settings.php:71
+msgid "Force Resize"
+msgstr "تغيير حجم القوة"
+
+#: ../views/slider-settings.php:72
+#, fuzzy
 msgid ""
 "Yes - resize images to slideshow dimension. <br>No - use the original "
-"uploaded image."
+"uploaded image. <br>Force Resize - Regenerate all images and thumbnails."
 msgstr ""
 "نعم - قم بتغيير حجم الصور لأبعاد عرض الشرائح. <br>لا - قم باستخدام الصورة "
 "الأصلية المرفوعة."
 
-#: ../views/slider-properties.php:98
+#: ../views/slider-settings.php:76
+msgid "Pause on Hover?"
+msgstr "إيقاف مؤقت عند المرور بالمؤشر؟"
+
+#: ../views/slider-settings.php:84
+msgid "Show Prev/Next Buttons?"
+msgstr "إظهار أزرار السابق/التالي؟"
+
+#: ../views/slider-settings.php:92
+msgid "Show Navigation?"
+msgstr "إظهار التصفح"
+
+#: ../views/slider-settings.php:97
+msgid "The thumbnails or dots depending on template."
+msgstr "الصور الصغيرة أو النقاط اعتمادا على القالب."
+
+#: ../views/slider-settings.php:101
 msgid "Random Slide Order?"
 msgstr "ترتيب عشوائي للشرائح"
 
-#: ../views/slider-properties.php:103
+#: ../views/slider-settings.php:106
 msgid "Randomize order of slides on every page visit."
 msgstr "قم بتغيير ترتيب الشرائح في كل زيارة لصفحة."
 
@@ -740,6 +743,18 @@ msgstr "عنوان فرعي"
 #: ../views/template-selection.php:7
 msgid "Selected"
 msgstr "مختار"
+
+#~ msgid ""
+#~ "Templates CSS could not be saved. Make sure %stemplates.css is writable."
+#~ msgstr ""
+#~ "تعذر حفظ كود CSS الخاص بالقالب. الرجاء التأكد من أن %stemplates.css قابل "
+#~ "للتعديل."
+
+#~ msgid ""
+#~ "Templates JS could not be saved. Make sure %stemplates.js is writable."
+#~ msgstr ""
+#~ "تعذر حفظ كود JS الخاص بالقالب. الرجاء التأكد من أن %stemplates.js قابل "
+#~ "للتعديل."
 
 #~ msgid "Export"
 #~ msgstr "أصدر"

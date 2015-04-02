@@ -2,7 +2,15 @@
 /**
 * Class for copying WP images for import/export purposes and resizing slide images
 */
-class CycloneSlider_ImageResizer extends CycloneSlider_Base {
+class CycloneSlider_ImageResizer {
+	
+	protected $image_sizes;
+	protected $image_editor;
+	
+	public function __construct( $image_sizes, $image_editor ){
+        $this->image_sizes = $image_sizes;
+		$this->image_editor = $image_editor;
+    }
 	
 	/**
 	 * Resize Images
@@ -30,7 +38,11 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 				
 				// Get full path to the slide image
 				$image_file = get_attached_file( $slide['id'] );
-
+				
+				if( true !== is_file( $image_file ) and $slide['id'] > 0 ) {
+					throw new Exception( sprintf('Attachment ID %1$d not found.', $slide['id'] ) );
+				}
+				
 				// Extract image path info
 				$info = pathinfo($image_file);
 				$dirname = isset($info['dirname']) ? $info['dirname'] : ''; // Path to directory
@@ -55,7 +67,7 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 				}
 				
 				// Additional slide images. Used mainly by templates. Eg. Thumbnail template's thumbnails 
-				foreach($this->plugin['image_sizes'] as $size){
+				foreach($this->image_sizes as $size){
 					
 					// Create thumb filename-{width}x{height}.jpg
 					$thumb_name = $this->generate_thumb_name( $image_file, $size['width'], $size['height'] );
@@ -86,8 +98,8 @@ class CycloneSlider_ImageResizer extends CycloneSlider_Base {
 	 */
 	private function resize_slide_image( $image_file, $image_file_dest, $width, $height, $resize_option, $resize_quality){
 		// Create
-		$image = new $this->plugin['image_editor']( $image_file );
-		
+		$image = new $this->image_editor;
+		$image->set_file( $image_file );
 		// Load
 		if( $image->load() ){
 			

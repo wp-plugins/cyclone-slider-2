@@ -44,6 +44,11 @@
 	background-image: -webkit-linear-gradient(top, #f9f9f9, #ececec); /* new Webkit */
 	background-image: linear-gradient(top, #f9f9f9, #ececec); /* proposed W3C Markup */
 }
+
+.cs-slide[data-slide-hidden="1"] .cs-header {
+	border-color: #e0e0e0;
+	color: #A2A2A2;
+}
 .admin-color-light .cs-header {
 	background-color: #F9F9F9;
 	background-image: none;
@@ -226,6 +231,11 @@
 	padding:10px 2%;
 	background: #ECECEC;
 	border-bottom:1px solid #D3D3D3;
+}
+.cs-slide-hidden {
+	float: right;
+	display: block;
+	margin-top: 6px;
 }
 .cs-image-preview{
 	padding:15px 2%;
@@ -696,3 +706,6 @@ label[for="force_resize"]{
 	z-index: 999;
 }
 
+.export-page-list  {
+	list-style:  inside square;
+}
