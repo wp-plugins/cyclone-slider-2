@@ -2,43 +2,25 @@
 /**
 * Class for updating plugin
 */
-class CycloneSlider_Updater extends CycloneSlider_Base {
+class CycloneSlider_Updater {
     
     private $settings_data; // To access the license id and key
     private $plugin_slug; // Slug of the plugin
     private $current_version; // Current plugin version to check against
     private $info_url; // URL to API endpoint that returns latest plugin version + plugin info
+    private $download_url; // Endpoint to download plugin zip
+    
+    public function __construct( $settings_page_data, $slug, $version, $info_url, $download_url ){
+        $this->settings_data = $settings_page_data;
+        $this->plugin_slug = $slug;
+        $this->current_version = $version;
+        $this->info_url = $info_url;
+        $this->download_url = $download_url;
+    }
     
     public function run(){
-        $this->settings_data = $this->plugin['settings_page']->get_settings_data();
-        
-        $this->plugin_slug = $this->plugin['slug'];
-        $this->current_version = $this->plugin['version'];
-        $this->info_url = $this->plugin['updater.info_url'];
-        
         $this->check_updates();
-        //print_r( get_site_transient( 'update_plugins') );
-         
     }
-    
-    /*
-    public function update_package_url(){
-        $api_url = $this->plugin['updater.download_url'];
-        $client_time = time();
-        $license_id = $this->settings_data['license_id'];
-        $license_key = $this->settings_data['license_key'];
-        
-        
-        $new_option = get_site_transient( 'update_plugins' );
-        if(isset($new_option['response']['cyclone-slider-pro/cyclone-slider.php']['package'])){
-            $new_option['response']['cyclone-slider-pro/cyclone-slider.php']['package'] = $this->generate_package_url($api_url, $client_time, $license_id, $license_key);
-            set_site_transient( 'update_plugins', $new_option );
-        }
-        
-    }
-    //*/
-    
-    
     
     /**
     * Check updates
@@ -84,7 +66,7 @@ class CycloneSlider_Updater extends CycloneSlider_Base {
                 $obj->url = $latest_plugin->url;
                 
                 
-                $api_url = $this->plugin['updater.download_url'];
+                $api_url = $this->download_url;
                 $client_time = time();
                 $license_id = $this->settings_data['license_id'];
                 $license_key = $this->settings_data['license_key'];
@@ -122,7 +104,7 @@ class CycloneSlider_Updater extends CycloneSlider_Base {
                 $information->last_updated = $latest_plugin->last_updated;  
                 $information->sections = $this->format_sections((array) $latest_plugin->sections);
                 
-                $api_url = $this->plugin['updater.download_url'];
+                $api_url = $this->download_url;
                 $client_time = time();
                 $license_id = $this->settings_data['license_id'];
                 $license_key = $this->settings_data['license_key'];
@@ -194,7 +176,7 @@ class CycloneSlider_Updater extends CycloneSlider_Base {
             'signature' => $signature
         );
         $query_string = http_build_query($query_array);
-        return $this->plugin['updater.download_url'].'?'.$query_string;
+        return $this->download_url.'?'.$query_string;
     
     }
 } // end class

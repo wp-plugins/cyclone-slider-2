@@ -1,6 +1,6 @@
 <?php if(!defined('ABSPATH')) die('Direct access denied.'); ?>
 
-<div class="cs-slide" data-slide-type="<?php echo esc_attr( $slide['type'] ); ?>">
+<div class="cs-slide" data-slide-type="<?php echo esc_attr( $slide['type'] ); ?>" data-slide-hidden="<?php echo esc_attr( $slide['hidden'] ); ?>">
 	<div class="cs-header">
 		<span class="cs-icon">
 			<i class="icon-picture"></i>
@@ -28,7 +28,12 @@
 				<option value="vimeo" <?php selected($slide['type'], 'vimeo'); ?>><?php _e('Vimeo', 'cycloneslider'); ?></option>
 				<option value="custom" <?php selected($slide['type'], 'custom'); ?>><?php _e('Custom HTML', 'cycloneslider'); ?></option>
 				<option value="testimonial" <?php selected($slide['type'], 'testimonial'); ?>><?php _e('Testimonial', 'cycloneslider'); ?></option>
-			</select>	
+			</select>
+			
+			<label class="cs-slide-hidden" for="cs-slide-hidden-<?php echo $i; ?>">
+				<input id="cs-slide-hidden-<?php echo $i; ?>" type="checkbox" name="cycloneslider_metas[<?php echo $i; ?>][hidden]" value="1" <?php checked($slide['hidden'], '1'); ?>>
+				<span><?php _e('Hide', 'cycloneslider'); ?></span>
+			</label>
 		</div>
 		<div class="clear"></div>
 		<div class="cs-slide-image">

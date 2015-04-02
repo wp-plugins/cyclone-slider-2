@@ -19,10 +19,14 @@ class CycloneSlider_ImageEditor {
 	/**
 	 * Assign file
 	 */
-	public function __construct( $file ) {
+	public function __construct( $file = '' ) {
 		
 		$this->file = $file;
 		
+	}
+	
+	public function set_file( $file ){
+		$this->file = $file;
 	}
 	
 	public function __destruct() {

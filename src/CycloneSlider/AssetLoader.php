@@ -2,13 +2,21 @@
 /**
 * Class for handling styles and scripts
 */
-class CycloneSlider_AssetLoader extends CycloneSlider_Base {
+class CycloneSlider_AssetLoader {
     
-    protected $cyclone_settings_data;
+	protected $url;
+	protected $version;
+    protected $settings_page_data;
+	protected $data;
+	
+	public function __construct( $settings_page_data, $url, $version, $data ){
+        $this->settings_page_data = $settings_page_data;
+		$this->url = $url;
+		$this->version = $version;
+		$this->data = $data;
+    }
 	
 	public function run() {
-        
-		$this->cyclone_settings_data = $this->plugin['settings_page']->get_settings_data();
 		
 		// Register frontend styles and scripts
         add_action( 'wp_enqueue_scripts', array( $this, 'register_frontend_scripts' ), 100 );
@@ -24,16 +32,16 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 	*/ 
 	public function register_admin_scripts( $hook ) {
  
-		if( 'cycloneslider' == get_post_type() || $hook == 'cycloneslider_page_cycloneslider-settings' || $hook == 'cycloneslider_page_cycloneslider-export' ||$hook == 'cycloneslider_page_cycloneslider-import' ){ // Limit loading to certain admin pages
+		if( 'cycloneslider' == get_post_type() || $hook == 'cycloneslider_page_cycloneslider-settings' || $hook == 'cycloneslider_page_cycloneslider-export' || $hook == 'cycloneslider_page_cycloneslider-import' || $hook == 'cycloneslider_page_cycloneslider-export-nextgen' ){ // Limit loading to certain admin pages
 			
 			// Required media files for new media manager. Since WP 3.5+
 			wp_enqueue_media();
 			
 			// Fontawesome style
-			wp_enqueue_style( 'font-awesome', $this->plugin['url'].'libs/font-awesome/css/font-awesome.min.css', array(), $this->plugin['version'] );
+			wp_enqueue_style( 'font-awesome', $this->url.'libs/font-awesome/css/font-awesome.min.css', array(), $this->version );
 			
 			// Main style
-			wp_enqueue_style( 'cycloneslider-admin-styles', $this->plugin['url'].'css/admin.css', array(), $this->plugin['version']  );
+			wp_enqueue_style( 'cycloneslider-admin-styles', $this->url.'css/admin.css', array(), $this->version  );
 			
 			// Disable autosave
 			wp_dequeue_script( 'autosave' );
@@ -42,10 +50,10 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 			wp_enqueue_script('jquery-ui-sortable');
 			
 			// For localstorage
-			wp_enqueue_script( 'store', $this->plugin['url'].'js/store-json2.min.js', array('jquery'), $this->plugin['version'] );
+			wp_enqueue_script( 'store', $this->url.'js/store-json2.min.js', array('jquery'), $this->version );
 			
 			// Allow translation to script texts
-			wp_register_script( 'cycloneslider-admin-script', $this->plugin['url'].'js/admin.js', array('jquery'), $this->plugin['version']  );
+			wp_register_script( 'cycloneslider-admin-script', $this->url.'js/admin.js', array('jquery'), $this->version  );
 			wp_localize_script( 'cycloneslider-admin-script', 'cycloneslider_admin_vars',
 				array(
 					'title'     => __( 'Select an image', 'cycloneslider' ), // This will be used as the default title
@@ -81,13 +89,13 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 	public function register_frontend_scripts( $hook ) {
 
 		$in_footer = true;
-		if($this->cyclone_settings_data['load_scripts_in'] == 'header'){
+		if($this->settings_page_data['load_scripts_in'] == 'header'){
 			$in_footer = false;
 		}
 		
 		/*** Magnific Popup Style ***/
-		if($this->cyclone_settings_data['load_magnific'] == 1){
-			wp_enqueue_style( 'jquery-magnific-popup', $this->plugin['url'].'libs/magnific-popup/magnific-popup.css', array(), $this->plugin['version'] );
+		if($this->settings_page_data['load_magnific'] == 1){
+			wp_enqueue_style( 'jquery-magnific-popup', $this->url.'libs/magnific-popup/magnific-popup.css', array(), $this->version );
 		}
 		
 		/*** Templates Styles ***/
@@ -96,37 +104,37 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 		/*****************************/
 		
 		/*** Core Cycle2 Scripts ***/
-		if($this->cyclone_settings_data['load_cycle2'] == 1){
-			wp_enqueue_script( 'jquery-cycle2', $this->plugin['url'].'libs/cycle2/jquery.cycle2.min.js', array('jquery'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_cycle2'] == 1){
+			wp_enqueue_script( 'jquery-cycle2', $this->url.'libs/cycle2/jquery.cycle2.min.js', array('jquery'), $this->version, $in_footer );
 		}
-		if($this->cyclone_settings_data['load_cycle2_carousel'] == 1){
-			wp_enqueue_script( 'jquery-cycle2-carousel', $this->plugin['url'].'libs/cycle2/jquery.cycle2.carousel.min.js', array('jquery', 'jquery-cycle2'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_cycle2_carousel'] == 1){
+			wp_enqueue_script( 'jquery-cycle2-carousel', $this->url.'libs/cycle2/jquery.cycle2.carousel.min.js', array('jquery', 'jquery-cycle2'), $this->version, $in_footer );
 		}
-		if($this->cyclone_settings_data['load_cycle2_swipe'] == 1){
-			wp_enqueue_script( 'jquery-cycle2-swipe', $this->plugin['url'].'libs/cycle2/jquery.cycle2.swipe.min.js', array('jquery', 'jquery-cycle2'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_cycle2_swipe'] == 1){
+			wp_enqueue_script( 'jquery-cycle2-swipe', $this->url.'libs/cycle2/jquery.cycle2.swipe.min.js', array('jquery', 'jquery-cycle2'), $this->version, $in_footer );
 		}
-		if($this->cyclone_settings_data['load_cycle2_tile'] == 1){
-			wp_enqueue_script( 'jquery-cycle2-tile', $this->plugin['url'].'libs/cycle2/jquery.cycle2.tile.min.js', array('jquery', 'jquery-cycle2'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_cycle2_tile'] == 1){
+			wp_enqueue_script( 'jquery-cycle2-tile', $this->url.'libs/cycle2/jquery.cycle2.tile.min.js', array('jquery', 'jquery-cycle2'), $this->version, $in_footer );
 		}
-		if($this->cyclone_settings_data['load_cycle2_video'] == 1){
-			wp_enqueue_script( 'jquery-cycle2-video', $this->plugin['url'].'libs/cycle2/jquery.cycle2.video.min.js', array('jquery', 'jquery-cycle2'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_cycle2_video'] == 1){
+			wp_enqueue_script( 'jquery-cycle2-video', $this->url.'libs/cycle2/jquery.cycle2.video.min.js', array('jquery', 'jquery-cycle2'), $this->version, $in_footer );
 		}
 		
 		/*** Easing Script***/
-		if($this->cyclone_settings_data['load_easing'] == 1){
-			wp_enqueue_script( 'jquery-easing', $this->plugin['url'].'libs/jquery-easing/jquery.easing.1.3.1.min.js', array('jquery'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_easing'] == 1){
+			wp_enqueue_script( 'jquery-easing', $this->url.'libs/jquery-easing/jquery.easing.1.3.1.min.js', array('jquery'), $this->version, $in_footer );
 		}
 		
 		/*** Magnific Popup Scripts ***/
-		if($this->cyclone_settings_data['load_magnific'] == 1){
-			wp_enqueue_script( 'jquery-magnific-popup', $this->plugin['url'].'libs/magnific-popup/jquery.magnific-popup.min.js', array('jquery'), $this->plugin['version'], $in_footer );
+		if($this->settings_page_data['load_magnific'] == 1){
+			wp_enqueue_script( 'jquery-magnific-popup', $this->url.'libs/magnific-popup/jquery.magnific-popup.min.js', array('jquery'), $this->version, $in_footer );
 		}
 		
 		/*** Templates Scripts ***/
 		$this->enqueue_templates_scripts();
 		
 		/*** Client Script ***/
-		wp_enqueue_script( 'cyclone-client', $this->plugin['url'].'js/client.js', array('jquery'), $this->plugin['version'], $in_footer );
+		wp_enqueue_script( 'cyclone-client', $this->url.'js/client.js', array('jquery'), $this->version, $in_footer );
 
 	}
 	
@@ -135,9 +143,9 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 	*/
 	private function enqueue_templates_css(){
 		$ds = DIRECTORY_SEPARATOR;
-		 
-		$template_folders = $this->plugin['templates_manager']->get_all_templates();
-		$active_templates = $this->plugin['templates_manager']->get_active_templates( $this->cyclone_settings_data );
+		
+		$template_folders = $this->data->get_all_templates();
+		$active_templates = $this->data->get_enabled_templates( $this->settings_page_data, $template_folders );
 		
 		foreach($template_folders as $name=>$folder){
 			
@@ -145,7 +153,7 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 				$file = $folder['path']."/style.css"; // Path to file
 				
 				if( file_exists( $file ) ){ // Check existence
-					wp_enqueue_style( 'cyclone-template-style-'.sanitize_title($name), $folder['url'].'/style.css', array(), $this->plugin['version'] );
+					wp_enqueue_style( 'cyclone-template-style-'.sanitize_title($name), $folder['url'].'/style.css', array(), $this->version );
 				}
 			}
 		}
@@ -158,12 +166,12 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 		$ds = DIRECTORY_SEPARATOR;
  
 		$in_footer = true;
-		if($this->cyclone_settings_data['load_scripts_in'] == 'header'){
+		if( $this->settings_page_data['load_scripts_in'] == 'header'){
 			$in_footer = false;
 		}
 		
-		$template_folders = $this->plugin['templates_manager']->get_all_templates();
-		$active_templates = $this->plugin['templates_manager']->get_active_templates( $this->cyclone_settings_data );
+		$template_folders = $this->data->get_all_templates();
+		$active_templates = $this->data->get_enabled_templates( $this->settings_page_data, $template_folders );
 		
 		foreach($template_folders as $name=>$folder){
 			
@@ -171,7 +179,7 @@ class CycloneSlider_AssetLoader extends CycloneSlider_Base {
 				$file = $folder['path']."/script.js"; // Path to file
 				
 				if( file_exists( $file ) ){ // Check existence
-					wp_enqueue_script( 'cyclone-template-script-'.sanitize_title($name), $folder['url'].'/script.js', array(), $this->plugin['version'], $in_footer );
+					wp_enqueue_script( 'cyclone-template-script-'.sanitize_title($name), $folder['url'].'/script.js', array(), $this->version, $in_footer );
 				}
 			}
 		}

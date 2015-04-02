@@ -4,7 +4,7 @@ Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.9.5
+Stable tag: 2.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,11 @@ Inside `wp-content` create a folder named "cycloneslider". Add your templates in
 5. Slideshow Settings
 
 == Changelog ==
+
+= 2.10.0 =
+* New. Added ability to enable/disable slide.
+* New. Added ability to import and export sliders.
+* Change. Major refactoring. Code now using service definitions.
 
 = 2.9.7 - 2015-01-30 =
 * Fix nextgen gallery integration

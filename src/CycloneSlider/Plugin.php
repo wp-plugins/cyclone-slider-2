@@ -20,12 +20,18 @@ class CycloneSlider_Plugin implements ArrayAccess {
     }
 
     public function offsetGet($offset) {
+        if( is_callable($this->contents[$offset]) ){
+            return $this->contents[$offset]( $this );
+        }
         return isset($this->contents[$offset]) ? $this->contents[$offset] : null;
     }
     
     public function run(){ 
         // Loop on contents
         foreach($this->contents as $key=>$content){
+            if( is_callable($content) ){
+                $content = $this[$key];
+            }
             if( is_object($content) ){
                 $reflection = new ReflectionClass($content);
                 if($reflection->hasMethod('inject')){

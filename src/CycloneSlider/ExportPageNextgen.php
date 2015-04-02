@@ -2,9 +2,8 @@
 /**
 * Class for export page
 */
-class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
+class CycloneSlider_ExportPageNextgen extends CycloneSlider_WpAdminSubPage{
 	
-    protected $sliders;
 	protected $view;
 	protected $exporter;
 	protected $wp_content_dir;
@@ -17,7 +16,7 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
 	protected $import_page_url;
 	protected $nextgen_page_url;
 	
-	public function __construct( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $sliders, $view, $exporter, $wp_content_dir, $wp_content_url, $textdomain, $transient_name, $nonce_name, $nonce_action, $export_page_url, $import_page_url, $nextgen_page_url ){
+	public function __construct( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $view, $exporter, $wp_content_dir, $wp_content_url, $textdomain, $transient_name, $nonce_name, $nonce_action, $export_page_url, $import_page_url, $nextgen_page_url ){
 		parent::__construct(
             $parent_slug,
             $page_title,
@@ -26,7 +25,6 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
             $menu_slug
         );
 		
-		$this->sliders = $sliders;
 		$this->view = $view;
 		$this->exporter = $exporter;
 		$this->wp_content_dir = $wp_content_dir;
@@ -66,12 +64,17 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
 			array(
 				'title' => __('Export', $this->textdomain),
 				'url' => $this->export_page_url,
-				'classes' => 'nav-tab nav-tab-active'
+				'classes' => 'nav-tab'
 			),
 			array(
 				'title' => __('Import', $this->textdomain),
 				'url' => $this->import_page_url,
 				'classes' => 'nav-tab'
+			),
+			array(
+				'title' => __('Export Nextgen', $this->textdomain),
+				'url' => $this->nextgen_page_url,
+				'classes' => 'nav-tab nav-tab-active'
 			)
 		);
 		$vars['page_data'] = $this->get_page_data();
@@ -90,18 +93,22 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
     }
     
     private function render_step_1( $vars ){
-        
-        $vars['sliders'] = $this->sliders;
+        global $nggdb;
+		if(!isset($nggdb)){//Show only if nextgen plugin is available
+			return false;
+		}
+		
+        $vars['sliders'] = $nggdb->find_all_galleries();
         $vars['error'] = get_transient( 'cycloneslider_error_export');
 		delete_transient( 'cycloneslider_error_export');
-        $this->view->render( 'export-step-1.php', $vars );
+        $this->view->render( 'export-nextgen-step-1.php', $vars );
 
     }
     private function render_step_2( $vars ){
 		
 		$vars['error'] = get_transient( 'cycloneslider_error_export');
 		delete_transient( 'cycloneslider_error_export');
-        $this->view->render( 'export-step-2.php', $vars );
+        $this->view->render( 'export-nextgen-step-2.php', $vars );
     }
 	
     private function render_step_3( $vars ){
@@ -131,7 +138,7 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
         
 		$vars['error'] = get_transient( 'cycloneslider_error_export');
 		delete_transient( 'cycloneslider_error_export');
-        $this->view->render( 'export-step-3.php', $vars );
+        $this->view->render( 'export-nextgen-step-3.php', $vars );
     }
 	
 	public function catch_posts(){
@@ -216,5 +223,58 @@ class CycloneSlider_ExportPage extends CycloneSlider_WpAdminSubPage{
 			}
 		}
 		return rmdir($path);
+	}
+	
+	function add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function = '' ) {
+		global $submenu;
+		global $menu;
+		global $_wp_real_parent_file;
+		global $_wp_submenu_nopriv;
+		global $_registered_pages;
+		global $_parent_pages;
+	
+		$menu_slug = plugin_basename( $menu_slug );
+		$parent_slug = plugin_basename( $parent_slug);
+	
+		if ( isset( $_wp_real_parent_file[$parent_slug] ) )
+			$parent_slug = $_wp_real_parent_file[$parent_slug];
+	
+		if ( !current_user_can( $capability ) ) {
+			$_wp_submenu_nopriv[$parent_slug][$menu_slug] = true;
+			return false;
+		}
+	
+		/*
+		 * If the parent doesn't already have a submenu, add a link to the parent
+		 * as the first item in the submenu. If the submenu file is the same as the
+		 * parent file someone is trying to link back to the parent manually. In
+		 * this case, don't automatically add a link back to avoid duplication.
+		 */
+		if (!isset( $submenu[$parent_slug] ) && $menu_slug != $parent_slug ) {
+			foreach ( (array)$menu as $parent_menu ) {
+				if ( $parent_menu[2] == $parent_slug && current_user_can( $parent_menu[1] ) )
+					$submenu[$parent_slug][] = array_slice( $parent_menu, 0, 4 );
+			}
+		}
+	
+		$submenu[$parent_slug][] = array ( $menu_title, $capability, $menu_slug, $page_title );
+	
+		$hookname = get_plugin_page_hookname( $menu_slug, $parent_slug);
+		if (!empty ( $function ) && !empty ( $hookname ))
+			add_action( $hookname, $function );
+	
+		$_registered_pages[$hookname] = true;
+	
+		/*
+		 * Backward-compatibility for plugins using add_management page.
+		 * See wp-admin/admin.php for redirect from edit.php to tools.php
+		 */
+		if ( 'tools.php' == $parent_slug )
+			$_registered_pages[get_plugin_page_hookname( $menu_slug, 'edit.php')] = true;
+	
+		// No parent as top level.
+		$_parent_pages[$menu_slug] = $parent_slug;
+	
+		return $hookname;
 	}
 }

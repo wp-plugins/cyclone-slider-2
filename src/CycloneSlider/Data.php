@@ -2,12 +2,33 @@
 /**
  * Class for saving and getting slider data  
  */
-class CycloneSlider_Data extends CycloneSlider_Base {
+class CycloneSlider_Data {
+    
+    protected $nonce_name;
+    protected $nonce_action;
+    protected $image_resizer;
+    protected $template_locations;
+    protected $settings_page_properties;
+    
+    public function __construct( $nonce_name, $nonce_action, $image_resizer, $template_locations, $settings_page_properties ){
+        $this->nonce_name = $nonce_name;
+		$this->nonce_action = $nonce_action;
+		$this->image_resizer = $image_resizer;
+		$this->template_locations = $template_locations;
+        $this->settings_page_properties = $settings_page_properties;
+    }
     
     public function run(){
+        global $wp_version;
+		
+		// Save slides. Use better hook if available
+		if ( version_compare( $wp_version, '3.7', '>=' ) ) {
+			add_action( 'save_post_cycloneslider', array( $this, 'save_slider_post' ) );
+		} else {
+			add_action( 'save_post', array( $this, 'save_slider_post' ) );
+		}
         
-        // Save slides
-        add_action( 'save_post', array( $this, 'save_slider_post' ) );
+        
     }
     
     /**
@@ -22,9 +43,9 @@ class CycloneSlider_Data extends CycloneSlider_Base {
         }
         
         // Verify nonce
-        $nonce_name = $this->plugin['nonce_name'];
+        $nonce_name = $this->nonce_name;
         if (!empty($_POST[$nonce_name])) {
-            if (!wp_verify_nonce($_POST[$nonce_name], $this->plugin['nonce_action'])) {
+            if (!wp_verify_nonce($_POST[$nonce_name], $this->nonce_action)) {
                 return $post_id;
             }
         } else {
@@ -41,7 +62,7 @@ class CycloneSlider_Data extends CycloneSlider_Base {
         $slider_settings = isset($_POST['cycloneslider_settings']) ? $_POST['cycloneslider_settings'] : array();
         
         // Resize images
-        $this->plugin['image_resizer']->resize_images( $slider_settings, $slides );
+        $this->image_resizer->resize_images( $slider_settings, $slides );
         
         // Save slides
         $this->add_slider_slides( $post_id, $slides );
@@ -69,7 +90,8 @@ class CycloneSlider_Data extends CycloneSlider_Base {
             
             // Resize images if needed
             if( $slider_settings['resize'] == 1){
-                $this->plugin['image_resizer']->resize_images( $slider_settings, $slides );
+				
+                $this->image_resizer->resize_images( $slider_settings, $slides );
             }
             
             // Save slides
@@ -77,6 +99,7 @@ class CycloneSlider_Data extends CycloneSlider_Base {
             
             // Save slider settings
             $this->add_slider_settings( $slider_id, $slider_settings );
+			
         }
     }
     
@@ -146,6 +169,7 @@ class CycloneSlider_Data extends CycloneSlider_Base {
                 );
                 $slides_to_save[$i]['id'] = (int) ($slide['id']);
                 $slides_to_save[$i]['type'] = sanitize_text_field($slide['type']);
+                $slides_to_save[$i]['hidden'] = (int) ($slide['hidden']);
                 
                 $slides_to_save[$i]['link'] = esc_url_raw($slide['link']);
                 $slides_to_save[$i]['title'] = wp_kses_post($slide['title']);
@@ -404,7 +428,7 @@ class CycloneSlider_Data extends CycloneSlider_Base {
      */
     public function get_view_file( $template_name ){
         
-        $template_locations = $this->plugin['templates_manager']->get_template_locations();
+        $template_locations = $this->template_locations;
         $template_locations = array_reverse($template_locations); // Last added template locations are checked first
         foreach($template_locations as $template_location){
             $view_file = $template_location['path']."{$template_name}/slider.php";
@@ -415,6 +439,116 @@ class CycloneSlider_Data extends CycloneSlider_Base {
 
         return false;
     }
+    
+    /**
+	 * Get all templates in array format
+	 */
+	public function get_all_templates(){
+		if(is_array($this->template_locations) and !empty($this->template_locations)){
+			$template_folders = array();
+			foreach($this->template_locations as $location){
+				if( is_dir($location['path']) ) {
+					if($files = scandir($location['path'])){
+						$c = 0;
+						foreach($files as $name){
+							if($name!='.' and $name!='..' and is_dir($location['path'].$name) and @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'slider.php') ){ // Check if its a directory
+								$supported_slide_types = array('image');// Default
+								if ( $config = $this->parse_config_json( $location['path'].$name.DIRECTORY_SEPARATOR.'config.json' ) ) {
+									$supported_slide_types = $config->slide_types;
+								} else if ( @file_exists($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt') ) { // Older templates use ini format
+									$ini_array = parse_ini_file($location['path'].$name.DIRECTORY_SEPARATOR.'config.txt'); //Parse ini to get slide types supported
+									if($ini_array){
+										$supported_slide_types = $ini_array['slide_type'];
+									}
+								}
+								
+								$name = sanitize_title($name);// Change space to dash and all lowercase
+								$template_folders[$name] = array( // Here we override template of the same names. If there is a template with the same name in plugin and theme directory, the one in theme will take over
+									'path'=>$location['path'].$name,
+									'url'=>$location['url'].$name,
+									'supports' => $supported_slide_types,
+									'location_name' => $location['location_name']
+								);
+							}
+						}
+					}
+				}
+			}			
+			return $template_folders;
+		}
+	}
+    
+    /**
+	 * Get Active Templates
+	 *
+	 * Get templates that are enabled in settings page
+	 *
+	 * @param array $settings_data Settings page data
+	 * @param array $templates List of all templates
+	 * @return array Template locations
+	 */
+	public function get_enabled_templates( $settings_data, $templates ){
+		
+		foreach($templates as $name=>$template){
+			if( !isset($settings_data['load_templates'][$name]) ){
+				$settings_data['load_templates'][$name] = 1;
+			}
+		}
+		return $settings_data['load_templates'];
+	}
+    
+    /**
+	 * Get template config data from file
+	 *
+	 * @param string $file Full path to config file
+	 * @return object $config_data or false on fail
+	 */
+	protected function parse_config_json( $file ){
+		if( @file_exists($file) ){
+			$config = file_get_contents($file); //Get template info
+			if($config){
+				$config_data = json_decode($config);
+				if($config_data){
+					return $config_data;
+				}
+			}
+		}
+		return false;
+	}
+    
+    /**
+	* Get settings data. If there is no data from database, use default values
+	*/
+	public function get_settings_page_data(){
+		return get_option( $this->settings_page_properties['option_name'], $this->get_default_settings_page_data() );
+	}
+    
+    /**
+	* Apply default values
+	*/
+	public function get_default_settings_page_data() {
+		$defaults = array();
+		$defaults['load_scripts_in'] = 'footer';
+		
+		$defaults['load_cycle2'] = 1;
+		$defaults['load_cycle2_carousel'] = 1;
+		$defaults['load_cycle2_swipe'] = 1;
+		$defaults['load_cycle2_tile'] = 1;
+		$defaults['load_cycle2_video'] = 1;
+
+		$defaults['load_easing'] = 0;
+		
+		$defaults['load_magnific'] = 0;
+		
+		$defaults['load_templates'] = array();
+		
+		$defaults['script_priority'] = 100;
+		
+		$defaults['license_id'] = '';
+		$defaults['license_key'] = '';
+		
+		return $defaults;
+	}
     
     /**
     * Cyclone Slide Settings
@@ -589,6 +723,7 @@ class CycloneSlider_Data extends CycloneSlider_Base {
         return array(
             'enable_slide_effects'=>0,
             'type' => 'image',
+            'hidden' => 0,
             'id' => '',
             'link' => '',
             'title' => '',

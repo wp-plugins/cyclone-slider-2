@@ -1,201 +1,175 @@
 <?php
 
 /**
-* Class for importing cyclone-slider.zip
+* Class for importing cyclone-slider export zip
 */
-class CycloneSlider_Importer extends CycloneSlider_Base {
-	protected $log_results; // Hold results of import operations
-	protected $log_count;
+class CycloneSlider_Importer {
 	
-	public function run() {
-		
-		$this->log_results = array(
-			'oks'=>array(),
-			'errors'=>array()
-		);
-		$this->log_count = 0;
-		
+	protected $data;
+	protected $imports_dir;
+	protected $wp_upload_dir;
+	protected $zip_archive;
+	protected $zip_name;
+	protected $imports_extracts_dir;
+	protected $export_json_file;
+	protected $textdomain;
+	
+	public function __construct( $data, $imports_dir, $wp_upload_dir, $zip_archive, $zip_name, $imports_extracts_dir, $export_json_file, $textdomain ){
+		$this->data = $data;
+		$this->imports_dir = $imports_dir;
+		$this->wp_upload_dir = $wp_upload_dir;
+		$this->zip_archive = $zip_archive;
+		$this->zip_name = $zip_name;
+		$this->imports_extracts_dir = $imports_extracts_dir;
+		$this->export_json_file = $export_json_file;
+		$this->textdomain = $textdomain;
 	}
 	
-	/**
-	* Get log results
-	*
-	*/
-	public function get_results(){
-		return $this->log_results;
-	}
-	
-	/**
-	* Import zip file
-	*
-	* @param filename $zip_file. Full path and filename to zip file
-	* @param string $dir. Path to folder to extract the zip
-	*/
-	public function import( $zip_file, $target_dir ) {
-		// Check zip existence
-		if( !file_exists($zip_file) ){
-			$this->add_error('Zip file not found.');
-			return false;
-		}
-		
+	/*
+	 * Wrapper function for various import operations. Uses other functions in correct order.
+	 *
+	 * @param string $uploaded_zip The zip file uploaded via HTTP POST. Must be the tmp_name of $_FILES, eg: $_FILES['cycloneslider_import']['tmp_name'].
+	 * @return bool|Exception True on success. On error, throw an Exception.
+	 */
+	public function import( $uploaded_zip ){
 		// Check zip support
 		if( !class_exists('ZipArchive') ){
-			$this->add_error('ZipArchive not supported.');
-			return false;
+			throw new Exception( __('Could not read zip files. ZipArchive not supported.', $this->textdomain), 1);
 		}
 		
 		// Check zip
-		if( !$this->check_integrity( $zip_file ) ){
-			return false;
+		if( !is_file( $uploaded_zip ) ){
+			throw new Exception( __('No zip file found.', $this->textdomain), 1);
 		}
 		
-		// Remove old tmp folder if present
-		if ( file_exists($target_dir) and is_dir($target_dir)) {
-			if( $this->rmdir_recursive($target_dir)=== false ){
-				$this->add_error('Failed to remove the temporary extract folder.');
-				return false;
-			} else {
-				$this->add_ok('Removed the temporary extract folder.');
+		// Create imports dir
+		if( is_dir( $this->imports_dir ) == false ){
+			if( ! mkdir( $this->imports_dir, 0777, true ) ){
+				throw new Exception( __('Error creating imports directory.', $this->textdomain), 2);
 			}
 		}
 		
-		// Create tmp folder to hold extracted files
-		if(mkdir($target_dir)===false){
-			$this->add_error('Failed to create the temporary extract folder.');
-			return false;
-		} else {
-			$this->add_ok('Created the temporary extract folder.');
+		// Move uploaded zip and rename it
+		$zip_file = $this->imports_dir.'/'.$this->zip_name;
+		if ( ! move_uploaded_file( $uploaded_zip, $zip_file ) ){
+			throw new Exception( __('Error moving uploaded zip.', $this->textdomain), 3);
 		}
 		
-		// Extract zip
-		$zip = new ZipArchive;
-		$zip->open($zip_file);
-		if( $zip->extractTo($target_dir) === false ){
-			$this->add_error('Failed to extract zip contents.');
-			return false;
-		} else {
-			$this->add_ok('Extracted zip contents.');
+		// Open zip and perform checks
+		$zip = new $this->zip_archive;
+		$zip_result = $zip->open( $zip_file, ZipArchive::CHECKCONS);
+		if( true !== $zip_result ){
+			throw new Exception( sprintf( __('Error opening zip: %s', $this->textdomain), $this->get_zip_error( $zip_result ) ), 4);
+		}
+		
+		// Extract zip to extraction dir
+		$extraction_dir = $this->imports_extracts_dir;
+		if( $zip->extractTo( $extraction_dir ) === false ){
+			throw new Exception( __('Error extracting zip.', $this->textdomain), 5);
 		}
 		$zip->close();
 		
-		// Read export JSON
-		if( ($export_string = file_get_contents($target_dir.'/export.json')) === false ){
-			$this->add_error('Failed to read export JSON.');
-			return false;
-		} else {
-			$this->add_ok('Success reading export file.');
+		// Read export file from extraction dir
+		$json_file = $extraction_dir.'/'.$this->export_json_file;
+		if( ($export_string = file_get_contents( $json_file )) === false ){
+			throw new Exception( __('Failed to read export JSON.', $this->textdomain), 6);
 		}
 		
 		// Decode JSON
 		if( ($export_data = json_decode($export_string, true)) == false ) {
-			$this->add_error('Failed to decode JSON');
-			return false;
+			throw new Exception( __('Failed to decode JSON.', $this->textdomain), 7);
 		}
-		$this->add_ok('Success decoding JSON');
 
-		// Add images
-		if( ($images_list = $this->add_images( $export_data['images'] )) === false){
-			$this->add_error('Failed to add images');
-			return false;
-		}
-		$this->add_ok('Success importing images');
+		// Add images to wp uploads dir and add as attachment
+		$images_list = $this->add_images_to_wp( $export_data['images'], $extraction_dir, $this->wp_upload_dir );
 		
 		// Add sliders
-		if( ($sliders_list = $this->add_sliders( $export_data['sliders'], $images_list ) ) === false){
-			$this->add_error('Failed to add sliders');
-			return false;
-		}
-		$this->add_ok('Success importing sliders');
-		
-		return true;
+		$this->add_sliders( $export_data['sliders'], $images_list );
 	}
 	
-	private function add_sliders( array $sliders, array $images_list ){
-		
-		foreach($sliders as $slider_index=>$slider){
-			$slider = (array) $slider;
-			foreach($slider['slides'] as $slide_index=>$slide){
-				$sliders[$slider_index]['slides'][$slide_index]['id'] = $images_list[$slider['name']][$slide_index];// Update image ID
-			}
-			$this->plugin['data']->add_slider($slider['title'], $slider['slider_settings'], $sliders[$slider_index]['slides'] );
-		}
-		return $sliders;
-	}
 	
 	/**
-	* Check zip file for consistency
-	*
-	* @param ZipArchive $zip. Instance
-	*/
-	public function check_integrity( $zip_file ){
-		$zip = new ZipArchive();
-		
-		// ZipArchive::CHECKCONS will enforce additional consistency checks
-		$res = $zip->open($zip_file, ZipArchive::CHECKCONS);
-
-		if ( $res === true){ // OK
-			return true;
-		}
-		
-		$this->add_error($this->get_zip_error($res));
-		return false;
-
-	}
-	
-	/**
-	 * @param 
+	 * Add images to WP media library
+	 * 
+	 * @param array $images_array Array of image from export data
+	 * @param string $src_folder Folder to get images from
+	 * @param string $target_folder WP upload dir: uploads/2015/03
+	 * @return array Array of WP attachment IDs
 	 */
-	private function add_images( array $sliders ){
-		$dir = wp_upload_dir();
-		$target_folder = $dir['path'].'/';
-		$src_folder = $dir['basedir'].'/cyclone-slider/';
+	private function add_images_to_wp( array $images_array, $src_folder, $target_folder ){
 		
 		$images_list = array();
-		foreach($sliders as $slider_name=>$slider){
+		foreach($images_array as $slider_name=>$slider){
 			
-			foreach($slider as $i=>$image){
+			foreach($slider as $i=>$image_name){
 				$image_id = 0;
-				if(!empty($image)){ // Check for slides without images ie. custom or youtube slide
-					$image_id = $this->copy_image( $src_folder.$image, $target_folder);
+				if(!empty($image_name)){ // Check for slides without images ie. custom or youtube slide
+					
+					$new_name = $this->unique_name($image_name, $target_folder); // Generates name that avoids conflict
+					$src_image_file = $src_folder.'/'.$image_name; // Full path to source image. Note the use of forward slash
+					$dest_image_file = $target_folder.'/'.$new_name; // Full path to destination image
+					$this->copy_image( $src_image_file, $dest_image_file ); // Move image to wp uploads dir
+					$image_id =  $this->add_media_image( $dest_image_file ); // Add image as media attachment
+					
 				}
 				$images_list[$slider_name][] = $image_id;
 			}
-			//$this->plugin['data']->add_slider($slider->title, $slider_settings, $slides );
 		}
 		return $images_list;
 	}
 	
 	/**
-	* Copy image to WP upload directory, create attachment and return attachment ID.
+	 * Add sliders to cyclone slider using the add_slider API. Replaces the attachment ID from the export file with the true ID 
+	 *
+	 * @param array $sliders
+	 * @param array $images_list
+	 *
+	 * @return array Sliders
+	 */
+	private function add_sliders( array $sliders, array $images_list ){
+		
+		foreach($sliders as $slider_index=>$slider){
+			$slider = (array) $slider;
+			foreach($slider['slides'] as $slide_index=>$slide){
+				$sliders[$slider_index]['slides'][$slide_index]['id'] = $images_list[$slider['name']][$slide_index];// Update image ID. The image ID is different on the machine being imported to 
+			}
+			$this->data->add_slider($slider['title'], $slider['slider_settings'], $sliders[$slider_index]['slides'] );
+		}
+		return $sliders;
+	}
+	
+	/*
+	 * Create a name that avoids name collision with existing images in the target folder.
+	 *
+	 * @param string $image_name
+	 * @param string $target_folder
+	 * @return string Image name. Will throw exception on error.
+	 */
+	private function unique_name( $image_name, $target_folder){
+		$target_folder_files = scandir($target_folder);
+		if( false === $target_folder_files ){
+			throw new Exception( sprintf( __('scandir failed on %s', $this->textdomain), $target_folder), 8 );
+		}
+		
+		return $this->increment_name( $image_name, $target_folder_files); // Append numbers if file exist
+		
+	}
+	
+	/**
+	* Copy image to WP upload directory
 	*
 	* @param string $image_file
 	* @param string $target_folder
-	* @return int|false Attachment ID on success false on fail
+	* @return void Will throw exception on error
 	*/
-	public function copy_image( $image_file, $target_folder ){
-		if( !file_exists($image_file) ){
-			return false;
-		}
-		$info = pathinfo($image_file);
-		
-		if( !isset($info['dirname']) and !isset($info['filename']) and !isset($info['extension']) ){
-			return false;
-		}
-		$dirname = $info['dirname']; // Path to directory
-		$filename = $info['filename']; // Filename without extension Eg. "image-1"
-		$ext = $info['extension']; // File extension Eg. "jpg"
-		
-		$target_folder_files = scandir($target_folder);
-		if($target_folder_files===false){
-			return false;
+	private function copy_image( $src_image_file, $dest_image_file ){
+		if( ! file_exists($src_image_file) ){
+			throw new Exception( sprintf( __('Source image %s not found.', $this->textdomain), $src_image_file ), 9);
 		}
 		
-		$new_name = $this->increment_name( wp_basename( $image_file ), $target_folder_files); // Append numbers if file exist
-		if(copy($image_file, $target_folder.$new_name)===false){
-			return false;
+		if( ! copy($src_image_file, $dest_image_file) ){
+			throw new Exception( __('Copy error.', $this->textdomain), 10);
 		}
-		
-		return $this->add_media_image( $target_folder.$new_name ); // Add image as media attachment
 	}
 	
 	/**
@@ -203,10 +177,9 @@ class CycloneSlider_Importer extends CycloneSlider_Base {
 	*
 	* @param array $properties Media properties see $defaults for example
 	* @param string $file Full path to file to add
-	* @return int|false Attachment ID on success false on fail
+	* @return int Attachment ID on success false on fail
 	*/
 	private function add_media_image( $file, array $properties = array() ){
-		$wp_upload_dir = wp_upload_dir();
 		
 		$filename = wp_basename( $file ); // Filename with extension. Example: image.jpg
 		$wp_filetype = wp_check_filetype( $filename ); // Get mime type and extension
@@ -247,39 +220,23 @@ class CycloneSlider_Importer extends CycloneSlider_Base {
 	}
 	
 	/**
-	* Remove directory and its contents
-	*
-	* @param string $dir Directory to delete
-	* @return true|false True on success false on fail
-	*/
-	public function rmdir_recursive( $dir ) {
-		foreach(scandir($dir) as $file) {
-			if ('.' === $file || '..' === $file) continue;
-			if (is_dir("$dir/$file")) rmdir_recursive("$dir/$file");
-			else unlink("$dir/$file");
-		}
-		return rmdir($dir);
-	}
-	
-	/**
 	* Append "-{n}" to name if filename already exist. Eg.: image.jpg becomes image-1.jpg
 	*
-	* @param string $file File to rename
+	* @param string $file File to rename. Does not need to be a full path.
 	* @param array $other_filenames Filenames (not full path, only names) to look for. Similar to array returned by scandir.
 	*/
 	private function increment_name( $file, array $other_filenames ){
 		$pathinfo = pathinfo( $file );
-	
-		$dirname = $pathinfo['dirname'];
-		$basename = $pathinfo['basename'];
+		
+		$name_with_ext = $pathinfo['basename'];
+		$name_without_ext = $pathinfo['filename'];
 		$extension = isset($pathinfo['extension']) ? ".".$pathinfo['extension'] : '';
-		$filename = $pathinfo['filename'];
-	
+		
 		$counter = 0;
-		$new_name = $basename;
+		$new_name = $name_with_ext;
 	
 		while( $this->in_array_str_i( $new_name, $other_filenames ) ){
-			$new_name = $filename.'-'.++$counter.$extension;
+			$new_name = $name_without_ext.'-'.++$counter.$extension;
 		}
 		
 		return $new_name;
@@ -295,26 +252,6 @@ class CycloneSlider_Importer extends CycloneSlider_Base {
 			}
 		}
 		return false;
-	}
-	
-	/**
-	* Add Ok
-	*
-	* @param string $message Message to add
-	* @return void
-	*/
-	private function add_ok( $message ){
-		$this->log_results['oks'][$this->log_count++] = $message;
-	}
-	
-	/**
-	* Add Error
-	*
-	* @param string $message Message to add
-	* @return void
-	*/
-	private function add_error( $message ){
-		$this->log_results['errors'][$this->log_count++] = $message;
 	}
 	
 	/**
