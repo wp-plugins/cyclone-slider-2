@@ -5,12 +5,17 @@
  * Displays the slider on template files.
  *
  * @param string $slider_slug The slug of the slider.
+ * @param bool $return_slider When true, function returns the slider.
+ * @return string|null Slider code if $return_slider is true, null if not or $cyclone_slider_plugin_instance has not been set.
  */
-function cyclone_slider( $slider_slug ){
+function cyclone_slider( $slider_slug, $return_slider = false ){
 	global $cyclone_slider_plugin_instance;
-	if(isset($cyclone_slider_plugin_instance)){
-		echo $cyclone_slider_plugin_instance['frontend']->cycloneslider_shortcode( array('id'=>$slider_slug) );
-	}
+	if (!isset($cyclone_slider_plugin_instance))
+		return;
+	
+	if ($return_slider)
+		return $cyclone_slider_plugin_instance['frontend']->cycloneslider_shortcode( array('id'=>$slider_slug) );
+	echo $cyclone_slider_plugin_instance['frontend']->cycloneslider_shortcode( array('id'=>$slider_slug) );
 }
 
 /**
