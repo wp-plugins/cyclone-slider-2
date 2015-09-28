@@ -99,6 +99,9 @@ class CycloneSlider_Data {
             
             // Save slider settings
             $this->add_slider_settings( $slider_id, $slider_settings );
+
+	    //return the slider ID
+	    return $slider_id;
 			
         }
     }
