@@ -59,15 +59,15 @@
                 </div>
             <?php elseif ( 'youtube' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                    <p><?php _e('Slide type not supported.', 'cyclone-slider-2'); ?></p>
                 </div>
             <?php elseif ( 'vimeo' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                    <p><?php _e('Slide type not supported.', 'cyclone-slider-2'); ?></p>
                 </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide" <?php echo $slide['slide_data_attributes']; ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                    <p><?php _e('Slide type not supported.', 'cyclone-slider-2'); ?></p>
                 </div>
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>

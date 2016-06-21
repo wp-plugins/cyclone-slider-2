@@ -40,12 +40,12 @@
                             <div class="cycloneslider-caption-title"><?php echo wp_kses_post( $slide['title'] );?></div>
                             <div class="cycloneslider-caption-description"><?php echo wp_kses_post( $slide['description'] );?></div>
                             <?php if( 'lightbox' == $slide['link_target'] ): ?>
-                                <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
+                                <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cyclone-slider-2'); ?></a>
                             <?php elseif ( '' != $slide['link'] ) : ?>
                                 <?php if( '_blank' == $slide['link_target'] ): ?>
-                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cyclone-slider-2'); ?></a>
                                 <?php else: ?>
-                                    <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cyclone-slider-2'); ?></a>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
@@ -61,7 +61,7 @@
                 </div>
             <?php elseif ( 'video' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide" <?php echo $slide['slide_data_attributes']; ?>>
-                    <p><?php _e('Slide type not supported.', 'cycloneslider'); ?></p>
+                    <p><?php _e('Slide type not supported.', 'cyclone-slider-2'); ?></p>
                 </div>
             <?php elseif ( 'custom' == $slide['type'] ) : ?>
                 <div class="cycloneslider-slide cycloneslider-slide-custom" <?php echo $slide['slide_data_attributes']; ?>>
