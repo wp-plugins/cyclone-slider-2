@@ -43,9 +43,9 @@
                                 <a class="cycloneslider-caption-more magnific-pop" href="<?php echo esc_url( $slide['full_image_url'] ); ?>" alt="<?php echo $slide['img_alt'];?>"><?php _e('View Larger Image', 'cycloneslider'); ?></a>
                             <?php elseif ( '' != $slide['link'] ) : ?>
                                 <?php if( '_blank' == $slide['link_target'] ): ?>
-                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" target="_blank" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cyclone-slider-2'); ?></a>
                                 <?php else: ?>
-                                    <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cycloneslider'); ?></a>
+                                    <a class="cycloneslider-caption-more" href="<?php echo esc_url( $slide['link'] );?>"><?php _e('Learn More', 'cyclone-slider-2'); ?></a>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
